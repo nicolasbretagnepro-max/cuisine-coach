@@ -13,7 +13,7 @@
 //   MODULES
 //   Un module regroupe plusieurs leçons liées.
 // ════════════════════════════════════════════════
-export const MODULES = [
+var MODULES = [
   {
     id: 'bases',
     title: 'Les bases',
@@ -45,7 +45,7 @@ export const MODULES = [
 //   LEÇONS
 //   Voir CONTENT_GUIDE.md pour le schéma complet.
 // ════════════════════════════════════════════════
-export const LESSONS = [
+var LESSONS = [
 
   // ─────────────────────────────────────────────
   // MODULE : BASES
@@ -566,7 +566,7 @@ export const LESSONS = [
 //   RECETTES
 //   Voir CONTENT_GUIDE.md pour le schéma complet.
 // ════════════════════════════════════════════════
-export const RECIPES = [
+var RECIPES = [
   {
     id: 'poulet-roti',
     title: 'Poulet rôti parfait',

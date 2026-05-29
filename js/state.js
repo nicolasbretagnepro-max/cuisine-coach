@@ -1,165 +1,132 @@
 // ════════════════════════════════════════════════
 //   STATE — Chef Coach
 //   Gestion de la progression utilisateur
-//   Stockage : localStorage
+//   Variable globale (chargée avant app.js)
 // ════════════════════════════════════════════════
 
-const KEY = 'chef-coach-state';
+const state = (function () {
+  const KEY = 'chef-coach-v1';
 
-const DEFAULTS = {
-  // Progression
-  completedLessons: [],   // IDs des leçons terminées
-  lessonScores: {},        // { lessonId: { correct, total, date } }
-  completedRecipes: [],   // IDs des recettes cuisinées
-  // Gamification
-  xp: 0,
-  streak: 0,
-  lastActiveDate: null,   // 'YYYY-MM-DD'
-  // Journal
-  journal: [],            // [{ id, recipeId, date, note, rating, photo }]
-  // Onboarding
-  onboarded: false,
-  userName: '',
-};
+  const DEFAULTS = {
+    completedLessons: [],
+    lessonScores: {},
+    completedRecipes: [],
+    xp: 0,
+    streak: 0,
+    lastActiveDate: null,
+    journal: [],
+    userName: '',
+  };
 
-export const state = {
-  _data: null,
+  let _data = null;
 
-  load() {
-    try {
-      const raw = localStorage.getItem(KEY);
-      this._data = raw ? { ...DEFAULTS, ...JSON.parse(raw) } : { ...DEFAULTS };
-    } catch {
-      this._data = { ...DEFAULTS };
-    }
-    this._updateStreak();
-    return this;
-  },
+  function _today() {
+    return new Date().toISOString().slice(0, 10);
+  }
+  function _daysDiff(a, b) {
+    return Math.round((new Date(b) - new Date(a)) / 86400000);
+  }
 
-  save() {
-    localStorage.setItem(KEY, JSON.stringify(this._data));
-  },
+  return {
+    load() {
+      try {
+        const raw = localStorage.getItem(KEY);
+        _data = raw ? Object.assign({}, DEFAULTS, JSON.parse(raw)) : Object.assign({}, DEFAULTS);
+      } catch (e) {
+        _data = Object.assign({}, DEFAULTS);
+      }
+      this._updateStreak();
+      return this;
+    },
 
-  get(key) {
-    return this._data[key];
-  },
+    save() {
+      localStorage.setItem(KEY, JSON.stringify(_data));
+    },
 
-  set(key, val) {
-    this._data[key] = val;
-    this.save();
-  },
+    get(key) { return _data[key]; },
 
-  // ── Streak ──────────────────────────────────
-  _updateStreak() {
-    const today = _today();
-    const last = this._data.lastActiveDate;
-    if (!last) return;
-    if (last === today) return; // déjà actif aujourd'hui
-    const diff = _daysDiff(last, today);
-    if (diff > 1) {
-      // streak cassé
-      this._data.streak = 0;
-    }
-    // ne pas reset streak ici, on le fait au markActive
-  },
+    set(key, val) { _data[key] = val; this.save(); },
 
-  markActive() {
-    const today = _today();
-    const last = this._data.lastActiveDate;
-    if (last === today) return;
-    const diff = last ? _daysDiff(last, today) : 999;
-    if (diff === 1) {
-      this._data.streak += 1;
-    } else if (diff > 1) {
-      this._data.streak = 1;
-    } else {
-      this._data.streak = Math.max(1, this._data.streak);
-    }
-    this._data.lastActiveDate = today;
-    this.save();
-  },
+    _updateStreak() {
+      const today = _today();
+      const last = _data.lastActiveDate;
+      if (!last || last === today) return;
+      const diff = _daysDiff(last, today);
+      if (diff > 1) _data.streak = 0;
+    },
 
-  // ── Leçons ──────────────────────────────────
-  isLessonDone(id) {
-    return this._data.completedLessons.includes(id);
-  },
+    markActive() {
+      const today = _today();
+      const last = _data.lastActiveDate;
+      if (last === today) return;
+      const diff = last ? _daysDiff(last, today) : 999;
+      _data.streak = diff === 1 ? _data.streak + 1 : 1;
+      _data.lastActiveDate = today;
+      this.save();
+    },
 
-  completeLesson(id, correct, total) {
-    if (!this.isLessonDone(id)) {
-      this._data.completedLessons.push(id);
-      this._data.xp += 20 + (correct * 5);
-    }
-    this._data.lessonScores[id] = {
-      correct, total,
-      date: _today(),
-      pct: total > 0 ? Math.round(correct / total * 100) : 0,
-    };
-    this.markActive();
-    this.save();
-  },
+    isLessonDone(id) { return _data.completedLessons.includes(id); },
 
-  getLessonScore(id) {
-    return this._data.lessonScores[id] || null;
-  },
+    completeLesson(id, correct, total) {
+      if (!this.isLessonDone(id)) {
+        _data.completedLessons.push(id);
+        _data.xp += 20 + (correct * 5);
+      }
+      _data.lessonScores[id] = {
+        correct, total,
+        date: _today(),
+        pct: total > 0 ? Math.round(correct / total * 100) : 0,
+      };
+      this.markActive();
+      this.save();
+    },
 
-  // ── Recettes ────────────────────────────────
-  isRecipeDone(id) {
-    return this._data.completedRecipes.includes(id);
-  },
+    getLessonScore(id) { return _data.lessonScores[id] || null; },
 
-  completeRecipe(id) {
-    if (!this.isRecipeDone(id)) {
-      this._data.completedRecipes.push(id);
-      this._data.xp += 30;
-    }
-    this.markActive();
-    this.save();
-  },
+    isRecipeDone(id) { return _data.completedRecipes.includes(id); },
 
-  // ── Journal ─────────────────────────────────
-  addJournalEntry(entry) {
-    const id = Date.now().toString();
-    this._data.journal.unshift({ id, ...entry, date: _today() });
-    this._data.xp += 10;
-    this.markActive();
-    this.save();
-    return id;
-  },
+    completeRecipe(id) {
+      if (!this.isRecipeDone(id)) {
+        _data.completedRecipes.push(id);
+        _data.xp += 30;
+      }
+      this.markActive();
+      this.save();
+    },
 
-  deleteJournalEntry(id) {
-    this._data.journal = this._data.journal.filter(e => e.id !== id);
-    this.save();
-  },
+    addJournalEntry(entry) {
+      const id = Date.now().toString();
+      _data.journal.unshift(Object.assign({ id, date: _today() }, entry));
+      _data.xp += 10;
+      this.markActive();
+      this.save();
+      return id;
+    },
 
-  // ── Stats ────────────────────────────────────
-  getStats() {
-    const d = this._data;
-    return {
-      xp: d.xp,
-      streak: d.streak,
-      lessonsCount: d.completedLessons.length,
-      recipesCount: d.completedRecipes.length,
-      journalCount: d.journal.length,
-    };
-  },
+    deleteJournalEntry(id) {
+      _data.journal = _data.journal.filter(function(e) { return e.id !== id; });
+      this.save();
+    },
 
-  // ── Module progress ──────────────────────────
-  moduleProgress(module) {
-    const done = module.lessonIds.filter(id => this.isLessonDone(id)).length;
-    return { done, total: module.lessonIds.length };
-  },
+    getStats() {
+      return {
+        xp: _data.xp,
+        streak: _data.streak,
+        lessonsCount: _data.completedLessons.length,
+        recipesCount: _data.completedRecipes.length,
+        journalCount: _data.journal.length,
+      };
+    },
 
-  // ── Reset (debug) ────────────────────────────
-  reset() {
-    this._data = { ...DEFAULTS };
-    this.save();
-  },
-};
+    moduleProgress(mod) {
+      var self = this;
+      var done = mod.lessonIds.filter(function(id) { return self.isLessonDone(id); }).length;
+      return { done: done, total: mod.lessonIds.length };
+    },
 
-// ─── Helpers date ───────────────────────────────
-function _today() {
-  return new Date().toISOString().slice(0, 10);
-}
-function _daysDiff(a, b) {
-  return Math.round((new Date(b) - new Date(a)) / 86400000);
-}
+    reset() {
+      _data = Object.assign({}, DEFAULTS);
+      this.save();
+    },
+  };
+})();

@@ -19,6 +19,7 @@ Ce fichier décrit exactement comment ajouter du contenu dans `content/data.js`.
 Un module regroupe des leçons sur un même thème.
 
 ```js
+// Dans content/data.js — utilise var (pas export, pas const)
 {
   id: 'cuissons',           // identifiant unique, sans espaces, en minuscules
   title: 'Les cuissons',    // nom affiché dans l'app
@@ -196,6 +197,16 @@ Une recette = support pratique pour mettre en application les leçons.
 - [ ] L'`id` est unique dans RECIPES
 
 ---
+
+## Syntaxe importante
+
+Les trois tableaux utilisent `var` (pas `export const`, pas `const`) :
+```js
+var MODULES = [ ... ];
+var LESSONS = [ ... ];
+var RECIPES = [ ... ];
+```
+Ne pas modifier cette syntaxe — l'app lit ces variables directement.
 
 ## Ajouter un nouveau module
 
