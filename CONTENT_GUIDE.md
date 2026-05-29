@@ -7,10 +7,11 @@ Ce fichier décrit exactement comment ajouter du contenu dans `content/data.js`.
 
 ## Structure générale
 
-`content/data.js` contient 3 exports :
+`content/data.js` contient 4 tableaux (utilise `var`, pas `export`) :
 - `MODULES` — les modules (groupes de leçons)
 - `LESSONS` — toutes les leçons
 - `RECIPES` — toutes les recettes
+- `TECHNIQUES` — les fiches techniques de référence rapide (section "Apprendre")
 
 ---
 
@@ -198,13 +199,54 @@ Une recette = support pratique pour mettre en application les leçons.
 
 ---
 
+## TECHNIQUES (fiches de référence rapide)
+
+Visibles dans l'onglet "Apprendre" → section accordéon en bas.
+Idéales pour des infos consultables rapidement en cuisine.
+
+```js
+var TECHNIQUES = [
+  {
+    id: 'mon-id-unique',         // unique, tirets
+    title: 'Titre de la fiche',
+    emoji: '🌡️',                 // un seul emoji
+    color: '#dc2626',            // couleur hex (teinte de l'icône)
+    subtitle: 'Description courte visible avant ouverture',
+    items: [                     // 4 à 10 lignes
+      { label: 'Étiquette',  value: 'Valeur',    note: 'précision optionnelle' },
+      { label: 'Bœuf saignant', value: '52–54°C', note: 'cœur rouge vif' },
+    ],
+  },
+];
+```
+
+**Règles :** `label` et `value` obligatoires, `note` facultatif. Pas de HTML.
+
+---
+
+## Prérequis de leçons (verrouillage progressif)
+
+Ajoute `prerequisites: ['id-leçon']` à une leçon pour la verrouiller jusqu'à ce que la leçon prérequis soit terminée.
+
+```js
+{
+  id: 'ma-lecon',
+  prerequisites: ['lecon-prealable'],  // [] ou absent = pas de verrou
+  moduleId: '...',
+  ...
+}
+```
+
+---
+
 ## Syntaxe importante
 
-Les trois tableaux utilisent `var` (pas `export const`, pas `const`) :
+Les quatre tableaux utilisent `var` (pas `export const`, pas `const`) :
 ```js
-var MODULES = [ ... ];
-var LESSONS = [ ... ];
-var RECIPES = [ ... ];
+var MODULES    = [ ... ];
+var LESSONS    = [ ... ];
+var RECIPES    = [ ... ];
+var TECHNIQUES = [ ... ];
 ```
 Ne pas modifier cette syntaxe — l'app lit ces variables directement.
 

@@ -818,12 +818,15 @@ function _bindRecipeNoteHandlers(recipeId,mode){
   if(addBtn)addBtn.addEventListener('click',function(){_openNoteForm(recipeId,null);});
   var editBtn=document.getElementById('btn-edit-note');
   if(editBtn)editBtn.addEventListener('click',function(){_openNoteForm(recipeId,existing);});
+  // Formulaire déjà rendu quand mode==='note' → lier une seule fois
   if(mode==='note'){
     var ns=document.getElementById('note-section');
     if(ns){var e2=ns.querySelector('.recipe-note-empty');if(e2)e2.remove();}
     _bindNoteFormHandlers(recipeId);
+    // NE PAS appeler à nouveau ci-dessous
+    return;
   }
-  _bindNoteFormHandlers(recipeId);
+  // Sinon le formulaire n'existe pas encore → _openNoteForm le créera et liera
 }
 function _openNoteForm(recipeId,existing){
   var ns=document.getElementById('note-section');if(!ns)return;
