@@ -136,6 +136,7 @@ var LESSONS = [
 
   {
     id: 'mise-en-place',
+    prerequisites: ['couteaux'],
     moduleId: 'bases',
     title: 'La mise en place',
     subtitle: 'S\'organiser avant de cuisiner comme un pro',
@@ -201,6 +202,7 @@ var LESSONS = [
 
   {
     id: 'assaisonnement',
+    prerequisites: ['mise-en-place'],
     moduleId: 'bases',
     title: 'Saler, assaisonner, équilibrer',
     subtitle: 'Le geste qui change tout dans un plat',
@@ -346,6 +348,7 @@ var LESSONS = [
 
   {
     id: 'cuisson-four',
+    prerequisites: ['cuisson-poele'],
     moduleId: 'cuissons',
     title: 'Le four : rôtissage et cuisson douce',
     subtitle: 'Chaleur tournante, températures et contrôle',
@@ -400,6 +403,7 @@ var LESSONS = [
 
   {
     id: 'mijotage',
+    prerequisites: ['cuisson-four'],
     moduleId: 'cuissons',
     title: 'Mijoter et braiser',
     subtitle: 'Transformer les viandes dures en plats fondants',
@@ -509,6 +513,7 @@ var LESSONS = [
 
   {
     id: 'emulsions',
+    prerequisites: ['sauce-base'],
     moduleId: 'sauces',
     title: 'Émulsions : vinaigrette et mayonnaise',
     subtitle: 'Faire coexister l\'huile et l\'eau',
@@ -853,6 +858,110 @@ var RECIPES = [
     tips: [
       'Variantes : ajouter champignons sautés, lard fumé, ou saumon fumé sous les œufs.',
       'Garnitures fraîches ajoutées après cuisson : ciboulette, caviar, herbes fraîches.',
+    ],
+  },
+];
+
+// ════════════════════════════════════════════════
+//   FICHES TECHNIQUES
+//   Référence rapide consultable en cuisine
+//   Ajouter tes propres fiches en suivant le même schéma.
+// ════════════════════════════════════════════════
+var TECHNIQUES = [
+  {
+    id: 'temperatures',
+    title: 'Températures internes',
+    emoji: '🌡️',
+    color: '#dc2626',
+    subtitle: 'Le seul moyen fiable de cuire juste',
+    items: [
+      { label: 'Bœuf saignant',      value: '52–54°C', note: 'cœur rouge vif' },
+      { label: 'Bœuf à point',       value: '57–60°C', note: 'cœur rosé' },
+      { label: 'Bœuf bien cuit',     value: '68°C+',   note: '' },
+      { label: 'Agneau rosé',        value: '58–60°C', note: '' },
+      { label: 'Poulet (cuisse)',    value: '74°C',    note: 'jus clair = cuit' },
+      { label: 'Porc',               value: '65°C',    note: '' },
+      { label: 'Poisson',            value: '55–60°C', note: 'chair qui se détache' },
+      { label: 'Canard (magret)',    value: '57°C',    note: 'rosé' },
+    ],
+  },
+  {
+    id: 'decoupes',
+    title: 'Tailles de découpe',
+    emoji: '🔪',
+    color: '#e85d04',
+    subtitle: 'Des morceaux réguliers = cuisson uniforme',
+    items: [
+      { label: 'Brunoise',      value: '1–3 mm',       note: 'petits dés, bases de sauce' },
+      { label: 'Macédoine',     value: '5 mm',          note: 'dés moyens, salades' },
+      { label: 'Jardinière',    value: '4 mm × 4 cm',   note: 'bâtonnets moyens' },
+      { label: 'Julienne',      value: '2 mm × 5 cm',   note: 'bâtonnets fins, garnitures' },
+      { label: 'Mirepoix',      value: '1–2 cm',        note: 'fonds, jus, braisés' },
+      { label: 'Chiffonnade',   value: 'lanières fines', note: 'herbes roulées et tranchées' },
+      { label: 'Ciseler',       value: 'très fin',       note: 'oignon, échalote, ail' },
+    ],
+  },
+  {
+    id: 'repos',
+    title: 'Temps de repos des viandes',
+    emoji: '⏸️',
+    color: '#2563eb',
+    subtitle: 'Indispensable pour redistribuer les jus',
+    items: [
+      { label: 'Steak fin (1 cm)',    value: '2–3 min',   note: 'sous papier alu' },
+      { label: 'Steak épais (3 cm)',  value: '5–7 min',   note: '' },
+      { label: 'Côte de bœuf',       value: '10–15 min', note: '' },
+      { label: 'Poulet entier',       value: '10–15 min', note: 'alu posé non fermé' },
+      { label: 'Rôti (1 kg)',         value: '15–20 min', note: '' },
+      { label: 'Gigot (2 kg)',        value: '20–25 min', note: '' },
+      { label: 'Règle générale',      value: '= temps de cuisson', note: 'max 20 min' },
+    ],
+  },
+  {
+    id: 'oeufs',
+    title: 'Cuissons des œufs',
+    emoji: '🥚',
+    color: '#d97706',
+    subtitle: 'Départ eau bouillante, œufs froids',
+    items: [
+      { label: 'À la coque',   value: '3 min',    note: 'blanc coagulé, jaune liquide' },
+      { label: 'Mollet',       value: '6 min',    note: 'blanc ferme, jaune coulant' },
+      { label: 'Dur',          value: '10 min',   note: 'tout coagulé' },
+      { label: 'Poché',        value: '3 min',    note: 'eau frémissante + vinaigre' },
+      { label: 'Au plat',      value: '3–4 min',  note: 'feu doux + couvercle' },
+      { label: 'Brouillés',    value: 'feu doux', note: 'remuer sans arrêt, retirer avant' },
+      { label: 'Cocotte four', value: '12–15 min',note: '180°C bain-marie' },
+    ],
+  },
+  {
+    id: 'conversions',
+    title: 'Mesures & conversions',
+    emoji: '⚖️',
+    color: '#16a34a',
+    subtitle: 'Les équivalences du quotidien',
+    items: [
+      { label: '1 c. à café',         value: '5 ml / 5 g',  note: '' },
+      { label: '1 c. à soupe',        value: '15 ml / 15 g', note: '' },
+      { label: '1 verre standard',    value: '20 cl',        note: '' },
+      { label: '1 tasse',             value: '25 cl',        note: '' },
+      { label: 'Noix de beurre',      value: '15–20 g',      note: '' },
+      { label: 'Pincée de sel',       value: '0,5–1 g',      note: '' },
+      { label: '1 dl',                value: '100 ml',       note: '' },
+    ],
+  },
+  {
+    id: 'matieres-grasses',
+    title: 'Corps gras & températures max',
+    emoji: '🫒',
+    color: '#16a34a',
+    subtitle: 'Au-delà du point de fumée = goût brûlé et dégradation',
+    items: [
+      { label: 'Beurre cru',          value: '150°C',  note: 'sauces, finitions' },
+      { label: 'Beurre clarifié',     value: '250°C',  note: 'saisie, cuisson haute temp.' },
+      { label: 'Huile d\'olive',      value: '190°C',  note: 'sauté, poêle douce' },
+      { label: 'Huile de tournesol',  value: '225°C',  note: 'fritures, saisie forte' },
+      { label: 'Huile de coco',       value: '175°C',  note: '' },
+      { label: 'Huile d\'arachide',   value: '230°C',  note: 'friture idéale' },
     ],
   },
 ];
