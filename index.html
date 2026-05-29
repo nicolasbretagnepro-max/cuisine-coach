@@ -15,6 +15,9 @@
 </head>
 <body>
   <div id="app"></div>
-  <script type="module" src="js/app.js"></script>
+  <!-- Scripts chargés en séquence (pas d'ES modules — compatibilité maximale) -->
+  <script src="content/data.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
