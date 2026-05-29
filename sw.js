@@ -2,14 +2,15 @@
 // Met en cache tout pour une utilisation hors-ligne (indispensable en cuisine)
 
 const CACHE = 'chef-coach-v1';
+// Chemins relatifs — fonctionne sur GitHub Pages (sous-répertoire ou racine)
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/app.css',
-  '/js/app.js',
-  '/js/state.js',
-  '/content/data.js',
-  '/manifest.webmanifest',
+  './',
+  './index.html',
+  './app.css',
+  './js/app.js',
+  './js/state.js',
+  './content/data.js',
+  './manifest.webmanifest',
 ];
 
 self.addEventListener('install', e => {

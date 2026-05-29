@@ -9,7 +9,64 @@ import { MODULES, LESSONS, RECIPES } from '../content/data.js';
 // ── Init ────────────────────────────────────────
 state.load();
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(() => {});
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+}
+
+// ── SVG Icons (déclarées tôt — utilisées dans le shell) ─
+function I(d) {
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+}
+function homeIcon()    { return I('<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'); }
+function learnIcon()   { return I('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'); }
+function recipesIcon() { return I('<path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/>'); }
+function journalIcon() { return I('<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>'); }
+function meIcon()      { return I('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'); }
+
+// ── Helpers (déclarés tôt — utilisés dans les vues) ──────
+const COVER_GRADIENTS = {
+  viande:     'linear-gradient(135deg, #1a0a00, #7c2d12)',
+  poisson:    'linear-gradient(135deg, #0c1a4d, #1e3a8a)',
+  légume:     'linear-gradient(135deg, #052e16, #166534)',
+  sauce:      'linear-gradient(135deg, #2d1b00, #92400e)',
+  pâtisserie: 'linear-gradient(135deg, #2d0a4e, #7c3aed)',
+  pâtes:      'linear-gradient(135deg, #1a1200, #854d0e)',
+  œufs:       'linear-gradient(135deg, #1a1200, #d97706)',
+  soupe:      'linear-gradient(135deg, #0a1f0a, #15803d)',
+  dessert:    'linear-gradient(135deg, #2d0a1a, #be185d)',
+};
+const RECIPE_EMOJIS = {
+  viande: '🥩', poisson: '🐟', légume: '🥦', sauce: '🫙',
+  pâtisserie: '🥐', pâtes: '🍝', œufs: '🥚', soupe: '🍲', dessert: '🍰',
+};
+const FAMILY_LABELS = {
+  tous: 'Tous', viande: '🥩 Viande', poisson: '🐟 Poisson', légume: '🥦 Légumes',
+  sauce: '🫙 Sauces', pâtisserie: '🥐 Pâtisserie', pâtes: '🍝 Pâtes & riz',
+  œufs: '🥚 Œufs', soupe: '🍲 Soupes', dessert: '🍰 Desserts',
+};
+function recipeCoverStyle(r) {
+  return `background:${COVER_GRADIENTS[r?.family] || 'linear-gradient(135deg, #1a1a2e, #2d2d4e)'}`;
+}
+function recipeEmoji(r)   { return RECIPE_EMOJIS[r?.family] || '🍽'; }
+function familyLabel(f)   { return FAMILY_LABELS[f] || f; }
+function difficultyBadge(d) {
+  const labels = ['', 'Facile', 'Intermédiaire', 'Avancé', 'Expert'];
+  const classes = ['', 'badge-green', 'badge-yellow', 'badge-orange', 'badge-red'];
+  return `<span class="badge ${classes[d] || 'badge-neutral'}">${labels[d] || ''}</span>`;
+}
+function difficultyDots(d) {
+  return [1,2,3,4].map(i => `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${i<=d?'var(--orange)':'var(--surface-3)'}"></span>`).join('');
+}
+function formatDate(str) {
+  if (!str) return '';
+  return new Date(str).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+function showToast(msg) {
+  document.querySelector('.toast')?.remove();
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
 }
 
 // ── Router ──────────────────────────────────────
@@ -1055,66 +1112,4 @@ function advanceLesson(dir) {
   if (counter) counter.textContent = `${step + 1}/${total}`;
 }
 
-// ════════════════════════════════════════════════
-//   HELPERS
-// ════════════════════════════════════════════════
-const COVER_GRADIENTS = {
-  viande:     'linear-gradient(135deg, #1a0a00, #7c2d12)',
-  poisson:    'linear-gradient(135deg, #0c1a4d, #1e3a8a)',
-  légume:     'linear-gradient(135deg, #052e16, #166534)',
-  sauce:      'linear-gradient(135deg, #2d1b00, #92400e)',
-  pâtisserie: 'linear-gradient(135deg, #2d0a4e, #7c3aed)',
-  pâtes:      'linear-gradient(135deg, #1a1200, #854d0e)',
-  œufs:       'linear-gradient(135deg, #1a1200, #d97706)',
-  soupe:      'linear-gradient(135deg, #0a1f0a, #15803d)',
-  dessert:    'linear-gradient(135deg, #2d0a1a, #be185d)',
-};
-
-const RECIPE_EMOJIS = {
-  viande: '🥩', poisson: '🐟', légume: '🥦', sauce: '🫙',
-  pâtisserie: '🥐', pâtes: '🍝', œufs: '🥚', soupe: '🍲', dessert: '🍰',
-};
-
-const FAMILY_LABELS = {
-  tous: 'Tous', viande: '🥩 Viande', poisson: '🐟 Poisson', légume: '🥦 Légumes',
-  sauce: '🫙 Sauces', pâtisserie: '🥐 Pâtisserie', pâtes: '🍝 Pâtes & riz',
-  œufs: '🥚 Œufs', soupe: '🍲 Soupes', dessert: '🍰 Desserts',
-};
-
-function recipeCoverStyle(r) {
-  return `background:${COVER_GRADIENTS[r?.family] || 'linear-gradient(135deg, #1a1a2e, #2d2d4e)'}`;
-}
-function recipeEmoji(r) { return RECIPE_EMOJIS[r?.family] || '🍽'; }
-function familyLabel(f) { return FAMILY_LABELS[f] || f; }
-
-function difficultyBadge(d) {
-  const labels = ['', 'Facile', 'Intermédiaire', 'Avancé', 'Expert'];
-  const classes = ['', 'badge-green', 'badge-yellow', 'badge-orange', 'badge-red'];
-  return `<span class="badge ${classes[d] || 'badge-neutral'}">${labels[d] || ''}</span>`;
-}
-
-function difficultyDots(d) {
-  return [1,2,3,4].map(i => `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${i<=d?'var(--orange)':'var(--surface-3)'}"></span>`).join('');
-}
-
-function formatDate(str) {
-  if (!str) return '';
-  return new Date(str).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-}
-
-function showToast(msg) {
-  document.querySelector('.toast')?.remove();
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 3000);
-}
-
-// ── SVG Icons ───────────────────────────────────
-const I = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
-const homeIcon    = () => I('<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>');
-const learnIcon   = () => I('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>');
-const recipesIcon = () => I('<path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/>');
-const journalIcon = () => I('<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>');
-const meIcon      = () => I('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>');
+// (helpers et icônes définis en haut du fichier)
