@@ -6,12 +6,13 @@
 'use strict';
 
 state.load();
+applyTheme();
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(function(){});
 
 // ════════════════════════════════════════════════
 //   HELPERS
 // ════════════════════════════════════════════════
-var COVER_GRADIENTS = {'viande':'linear-gradient(135deg,#1a0a00,#7c2d12)','poisson':'linear-gradient(135deg,#0c1a4d,#1e3a8a)','légume':'linear-gradient(135deg,#052e16,#166534)','sauce':'linear-gradient(135deg,#2d1b00,#92400e)','pâtisserie':'linear-gradient(135deg,#2d0a4e,#7c3aed)','pâtes':'linear-gradient(135deg,#1a1200,#854d0e)','œufs':'linear-gradient(135deg,#1a1200,#d97706)','soupe':'linear-gradient(135deg,#0a1f0a,#15803d)','dessert':'linear-gradient(135deg,#2d0a1a,#be185d)'};
+var COVER_GRADIENTS = {'viande':'linear-gradient(135deg,#fff1e7,#b91c1c)','poisson':'linear-gradient(135deg,#e0f7fa,#0284c7)','légume':'linear-gradient(135deg,#ecfdf5,#16a34a)','sauce':'linear-gradient(135deg,#fff7ed,#d97706)','pâtisserie':'linear-gradient(135deg,#fdf2f8,#db2777)','pâtes':'linear-gradient(135deg,#fef3c7,#ca8a04)','œufs':'linear-gradient(135deg,#fff7ed,#f59e0b)','soupe':'linear-gradient(135deg,#f0fdf4,#15803d)','dessert':'linear-gradient(135deg,#fdf2f8,#be185d)'};
 var RECIPE_EMOJIS = {'viande':'🥩','poisson':'🐟','légume':'🥦','sauce':'🫙','pâtisserie':'🥐','pâtes':'🍝','œufs':'🥚','soupe':'🍲','dessert':'🍰'};
 var FAMILY_LABELS = {'tous':'Tous','viande':'🥩 Viande','poisson':'🐟 Poisson','légume':'🥦 Légumes','sauce':'🫙 Sauces','pâtisserie':'🥐 Pâtisserie','pâtes':'🍝 Pâtes & riz','œufs':'🥚 Œufs','soupe':'🍲 Soupes','dessert':'🍰 Desserts'};
 
@@ -27,6 +28,17 @@ function showToast(msg){var o=document.querySelector('.toast');if(o)o.remove();v
 function findLesson(id){for(var i=0;i<LESSONS.length;i++)if(LESSONS[i].id===id)return LESSONS[i];return null;}
 function findRecipe(id){for(var i=0;i<RECIPES.length;i++)if(RECIPES[i].id===id)return RECIPES[i];return null;}
 function isLessonLocked(lesson){var p=lesson.prerequisites||[];return p.some(function(pid){return !state.isLessonDone(pid);});}
+function nextAvailableLesson(){for(var i=0;i<LESSONS.length;i++)if(!state.isLessonDone(LESSONS[i].id)&&!isLessonLocked(LESSONS[i]))return LESSONS[i];return null;}
+function applyTheme(){
+  var pref=state.get('theme')||'system';
+  var dark=pref==='dark'||(pref==='system'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute('content',dark?'#111118':'#faf8f5');
+}
+if(window.matchMedia){
+  try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if((state.get('theme')||'system')==='system')applyTheme();});}catch(e){}
+}
 
 // ── Compression image (fix localStorage) ────
 function compressImage(file, callback) {
@@ -299,23 +311,52 @@ function renderHome(){
 //   VUE : APPRENDRE (+ leçons verrouillées + techniques)
 // ════════════════════════════════════════════════
 function renderLearn(){
-  var h='<div class="t-title mt-4">Apprendre</div>';
-  h+='<div class="t-body t-muted mt-4" style="margin-bottom:16px">Maîtrise les techniques pas à pas</div>';
-  h+='<div class="stack-12">';
+  var next=nextAvailableLesson(),stats=state.getStats();
+  var total=LESSONS.length,globalPct=total?Math.round(stats.lessonsCount/total*100):0;
+  var groups=[
+    {title:'Fondations',sub:'Organisation, matériel, couteau et premiers gestes',ids:['organisation','materiel-feu','couteau-decoupes']},
+    {title:'Cuissons',sub:'Comprendre la chaleur et choisir la bonne méthode',ids:['bases-cuisson','eau-vapeur-pochage','cuissons-poele','four-rotissage-gratins','mijotes-braisages']},
+    {title:'Goût et sauces',sub:'Assaisonner, parfumer, lier et construire les sauces',ids:['assaisonnement-equilibre','herbes-epices-aromates','sauces-froides-emulsions','sauces-chaudes-base','jus-deglacage-sauces-cuisson','fonds-bouillons-fumets','sauces-emulsionnees-chaudes']},
+    {title:'Produits',sub:'Œufs, légumes, féculents, viandes, volailles et poissons',ids:['oeufs','legumes','feculents-riz-pates-pommes-terre','viandes-rouges-porc','volailles','poissons-fruits-mer']},
+    {title:'Pâtes, pâtisserie et service',sub:'Bases boulangères, desserts, dressage et autonomie',ids:['pates-salees-bases-boulangeres','patisserie-base','patisserie-sensible-meringue-caramel-chocolat','dressage-service','correction-improvisation-creation']}
+  ];
 
-  MODULES.forEach(function(mod,idx){
-    var prog=state.moduleProgress(mod),pct=prog.total?Math.round(prog.done/prog.total*100):0;
-    var open=idx===0?' open':'';
-    h+='<div class="module-card">';
-    h+='<div class="module-header" data-module="'+mod.id+'">';
-    h+='<div class="module-emoji" style="background:'+mod.color+'22">'+mod.emoji+'</div>';
-    h+='<div class="module-meta"><div class="module-title">'+esc(mod.title)+(prog.done===prog.total?' ✅':'')+'</div>';
-    h+='<div class="module-desc">'+esc(mod.description)+'</div>';
-    h+='<div class="module-progress-row"><div class="progress-bar grow thin"><div class="progress-fill" style="width:'+pct+'%"></div></div>';
-    h+='<span class="module-progress-label">'+prog.done+'/'+prog.total+'</span></div></div>';
-    h+='<div class="module-chevron'+(open?' open':'')+'" id="chev-'+mod.id+'">›</div></div>';
-    h+='<div class="module-lessons'+open+'" id="lessons-'+mod.id+'">';
-    mod.lessonIds.forEach(function(lid){
+  var h='<div class="learn-hero">';
+  h+='<div class="t-title">Apprendre</div>';
+  h+='<div class="t-body t-muted mt-4">Un parcours complet, organisé par grandes familles de compétences.</div>';
+  h+='<div class="learn-progress mt-16"><div class="row-sb"><span>'+stats.lessonsCount+'/'+total+' leçons</span><strong>'+globalPct+'%</strong></div>';
+  h+='<div class="progress-bar thin mt-8"><div class="progress-fill" style="width:'+globalPct+'%"></div></div></div>';
+  if(next){
+    h+='<a href="#lesson/'+next.id+'" class="continue-card mt-16">';
+    h+='<div><div class="continue-label">Continuer le parcours</div><div class="continue-title">'+esc(next.title)+'</div>';
+    h+='<div class="continue-sub">'+esc(next.subtitle)+' · '+next.duration+' min</div></div><div class="continue-arrow">→</div></a>';
+  }
+  h+='</div>';
+
+  h+='<div class="learn-groups stack-16">';
+  groups.forEach(function(group,gidx){
+    var groupModules=group.ids.map(function(id){return MODULES.find(function(m){return m.id===id;});}).filter(Boolean);
+    var gTotal=0,gDone=0;
+    groupModules.forEach(function(m){var p=state.moduleProgress(m);gDone+=p.done;gTotal+=p.total;});
+    var gPct=gTotal?Math.round(gDone/gTotal*100):0;
+    h+='<section class="learn-group">';
+    h+='<div class="learn-group-head"><div><div class="learn-group-title">'+esc(group.title)+'</div><div class="learn-group-sub">'+esc(group.sub)+'</div></div><div class="learn-group-count">'+gDone+'/'+gTotal+'</div></div>';
+    h+='<div class="progress-bar thin mt-8"><div class="progress-fill" style="width:'+gPct+'%"></div></div>';
+    h+='<div class="stack-12 mt-12">';
+    groupModules.forEach(function(mod){
+      var prog=state.moduleProgress(mod),pct=prog.total?Math.round(prog.done/prog.total*100):0;
+      var hasNext=!!(next&&mod.lessonIds.indexOf(next.id)>=0);
+      var open=(hasNext||(!next&&gidx===0))?' open':'';
+      h+='<div class="module-card">';
+      h+='<div class="module-header" data-module="'+mod.id+'">';
+      h+='<div class="module-emoji" style="background:'+mod.color+'22">'+mod.emoji+'</div>';
+      h+='<div class="module-meta"><div class="module-title">'+esc(mod.title)+(prog.done===prog.total?' ✅':'')+'</div>';
+      h+='<div class="module-desc">'+esc(mod.description)+'</div>';
+      h+='<div class="module-progress-row"><div class="progress-bar grow thin"><div class="progress-fill" style="width:'+pct+'%"></div></div>';
+      h+='<span class="module-progress-label">'+prog.done+'/'+prog.total+'</span></div></div>';
+      h+='<div class="module-chevron'+(open?' open':'')+'" id="chev-'+mod.id+'">›</div></div>';
+      h+='<div class="module-lessons'+open+'" id="lessons-'+mod.id+'">';
+      mod.lessonIds.forEach(function(lid){
       var lesson=findLesson(lid);if(!lesson)return;
       var done=state.isLessonDone(lid),score=state.getLessonScore(lid);
       var locked=!done&&isLessonLocked(lesson);
@@ -339,7 +380,9 @@ function renderLearn(){
         h+='</div>';
       }
     });
-    h+='</div></div>';
+      h+='</div></div>';
+    });
+    h+='</div></section>';
   });
   h+='</div>';
 
@@ -714,6 +757,13 @@ function renderMe(){
   h+='<div class="card mt-16"><div class="t-h4" style="margin-bottom:12px">Paramètres</div>';
   h+='<div class="field"><label class="field-label">Ton prénom</label>';
   h+='<input type="text" id="pref-name" value="'+esc(name)+'" placeholder="Ton prénom" /></div>';
+  var theme=state.get('theme')||'system';
+  h+='<div class="field mt-12"><label class="field-label">Apparence</label>';
+  h+='<div class="theme-choice" id="theme-choice">';
+  [{id:'light',label:'Clair'},{id:'dark',label:'Sombre'},{id:'system',label:'Système'}].forEach(function(opt){
+    h+='<button class="theme-chip'+(theme===opt.id?' active':'')+'" data-theme="'+opt.id+'" type="button">'+opt.label+'</button>';
+  });
+  h+='</div></div>';
   h+='<button class="btn btn-secondary btn-full mt-12" id="save-prefs" type="button">Enregistrer</button>';
   h+='<button class="btn btn-ghost btn-full mt-8" id="reset-progress" style="color:var(--red);font-size:13px" type="button">Réinitialiser la progression</button>';
   h+='</div>';
@@ -755,6 +805,15 @@ function bindHandlers(view,param,mode){
   if(view==='me'){
     var sp=document.getElementById('save-prefs');
     if(sp)sp.addEventListener('click',function(){var v=(document.getElementById('pref-name')||{}).value;if(v&&v.trim()){state.set('userName',v.trim());showToast('✅ Sauvegardé');}});
+    document.querySelectorAll('.theme-chip[data-theme]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        state.set('theme',btn.dataset.theme);
+        applyTheme();
+        document.querySelectorAll('.theme-chip').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
+        showToast('Apparence mise à jour');
+      });
+    });
     var rp=document.getElementById('reset-progress');
     if(rp)rp.addEventListener('click',function(){if(confirm('Réinitialiser ?')){state.reset();location.hash='home';showToast('🔄 Réinitialisé');}});
     // Export / Import

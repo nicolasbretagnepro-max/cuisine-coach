@@ -17,6 +17,7 @@ const state = (function () {
     onboarded:        false,
     level:            null, // 'debutant' | 'intermediaire' | 'passionne'
     weeklyGoal:       2,
+    theme:            'system', // 'light' | 'dark' | 'system'
   };
 
   var _data = null;
@@ -33,6 +34,7 @@ const state = (function () {
         if (!_data.recipeNotes) _data.recipeNotes = {};
         if (typeof _data.onboarded === 'undefined') _data.onboarded = false;
         if (typeof _data.level === 'undefined') _data.level = null;
+        if (!_data.theme) _data.theme = 'system';
       } catch (e) {
         _data = Object.assign({}, DEFAULTS);
       }
