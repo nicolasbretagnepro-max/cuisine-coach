@@ -1,7 +1,7 @@
 // Service Worker — Chef Coach
 // Met en cache tout pour une utilisation hors-ligne (indispensable en cuisine)
 
-const CACHE = 'chef-coach-v4'; // Incrémenter à chaque déploiement majeur
+const CACHE = 'chef-coach-v5'; // Incrémenter à chaque déploiement majeur
 // Chemins relatifs — fonctionne sur GitHub Pages (sous-répertoire ou racine)
 const ASSETS = [
   './',
