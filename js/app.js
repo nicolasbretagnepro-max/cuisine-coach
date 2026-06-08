@@ -29,6 +29,14 @@ function findLesson(id){for(var i=0;i<LESSONS.length;i++)if(LESSONS[i].id===id)r
 function findRecipe(id){for(var i=0;i<RECIPES.length;i++)if(RECIPES[i].id===id)return RECIPES[i];return null;}
 function isLessonLocked(lesson){var p=lesson.prerequisites||[];return p.some(function(pid){return !state.isLessonDone(pid);});}
 function nextAvailableLesson(){for(var i=0;i<LESSONS.length;i++)if(!state.isLessonDone(LESSONS[i].id)&&!isLessonLocked(LESSONS[i]))return LESSONS[i];return null;}
+function skillLabel(s){return String(s||'').replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});}
+function recipeSkillChips(r,limit){var skills=(r&&r.skills)||[];if(!skills.length)return '';limit=limit||4;return '<div class="skill-chips">'+skills.slice(0,limit).map(function(s){return '<span class="skill-chip">'+esc(skillLabel(s))+'</span>';}).join('')+(skills.length>limit?'<span class="skill-chip more">+'+(skills.length-limit)+'</span>':'')+'</div>';}
+function allRecipeSkills(){var out=[];RECIPES.forEach(function(r){(r.skills||[]).forEach(function(s){if(out.indexOf(s)<0)out.push(s);});});return out.sort();}
+function normalizeText(s){s=String(s||'').toLowerCase();return s.normalize?s.normalize('NFD').replace(/[\u0300-\u036f]/g,''):s;}
+function recipeSearchBlob(r){return normalizeText([r.title,r.family,(r.skills||[]).join(' '),(r.objectives||[]).join(' '),(r.ingredients||[]).map(function(i){return i.item+' '+(i.note||'');}).join(' ')].join(' '));}
+function lessonToReview(){var candidate=null;LESSONS.forEach(function(l){var sc=state.getLessonScore(l.id);if(sc&&sc.pct<100&&(!candidate||sc.pct<candidate.score.pct))candidate={lesson:l,score:sc};});return candidate?candidate.lesson:null;}
+function smartRecipePick(){for(var i=0;i<RECIPES.length;i++){var r=RECIPES[i],time=(r.timePrep||0)+(r.timeCook||0);if(!state.isRecipeDone(r.id)&&r.difficulty===1&&time<=25)return r;}for(var j=0;j<RECIPES.length;j++)if(!state.isRecipeDone(RECIPES[j].id))return RECIPES[j];return RECIPES[0]||null;}
+function stepIngredients(recipe,step){var hay=normalizeText([step.title,step.action,step.why,step.mistake].join(' '));var matches=(recipe.ingredients||[]).filter(function(ing){var words=normalizeText(ing.item).split(/[^a-z0-9œ]+/).filter(function(w){return w.length>2;});return words.some(function(w){return hay.indexOf(w)>=0;});});if(!matches.length)matches=(recipe.ingredients||[]).slice(0,5);return matches;}
 function applyTheme(){
   var pref=state.get('theme')||'system';
   var dark=pref==='dark'||(pref==='system'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -175,6 +183,8 @@ function route() {
   var navMap={home:0,learn:1,recipes:2,me:3};
   document.querySelectorAll('.nav-btn').forEach(function(b,i){b.classList.toggle('active',i===navMap[view]);});
   var old=document.getElementById('current-page');if(old)old.remove();
+  if(view==='lesson'&&param){var lo=findLesson(param);if(lo)state.setLastOpened({type:'lesson',id:lo.id,title:lo.title,href:'#lesson/'+lo.id});}
+  if(view==='recipe'&&param){var ro=findRecipe(param);if(ro)state.setLastOpened({type:'recipe',id:ro.id,title:ro.title,href:'#recipe/'+ro.id});}
   if (view==='cooking'){startCookingMode(param);return;}
   var page=document.createElement('div');page.className='page';page.id='current-page';
   switch(view){
@@ -264,7 +274,34 @@ function renderHome(){
   var today=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
   today=today.charAt(0).toUpperCase()+today.slice(1);
 
+  var nextRecipe=smartRecipePick(),reviewLesson=lessonToReview(),last=state.get('lastOpened');
+  var totalLessons=LESSONS.length,lessonPct=totalLessons?Math.round(stats.lessonsCount/totalLessons*100):0;
+  var resumeHref=last?last.href:(nL?'#lesson/'+nL.id:'#learn');
+  var resumeTitle=last?last.title:(nL?nL.title:'Choisir une leçon');
+  var learnHref=nL?'#lesson/'+nL.id:'#learn';
+  var cookHref=nextRecipe?'#recipe/'+nextRecipe.id:'#recipes';
+  var reviewHref=reviewLesson?'#lesson/'+reviewLesson.id+'/review':'#learn';
+  var reviewSub=reviewLesson?'Quiz à consolider':'Aucune erreur à revoir';
+
   var h='<div class="home-hero">';
+  h+='<div class="row-sb"><div>';
+  h+='<div class="hero-greeting">'+esc(today)+'</div>';
+  h+='<div class="hero-title">Bonjour, '+esc(name)+' 👨‍🍳</div>';
+  h+='<div class="hero-sub">Choisis une action simple</div>';
+  h+='</div><div class="streak-pill">🔥 '+stats.streak+' jour'+(stats.streak>1?'s':'')+'</div></div>';
+  h+='<div class="hero-stats"><div class="hero-stat"><div class="hero-stat-val">'+stats.xp+'</div><div class="hero-stat-lbl">XP</div></div>';
+  h+='<div class="hero-stat"><div class="hero-stat-val">'+stats.lessonsCount+'</div><div class="hero-stat-lbl">Leçons</div></div>';
+  h+='<div class="hero-stat"><div class="hero-stat-val">'+stats.recipesCount+'</div><div class="hero-stat-lbl">Recettes</div></div></div></div>';
+  h+='<div class="mt-16"><div class="t-h3" style="margin-bottom:12px">Que veux-tu faire maintenant ?</div>';
+  h+='<div class="action-grid">';
+  h+='<a href="'+resumeHref+'" class="action-card action-primary"><div class="action-icon">↩</div><div class="action-title">Reprendre</div><div class="action-sub">'+esc(resumeTitle)+'</div></a>';
+  h+='<a href="'+learnHref+'" class="action-card"><div class="action-icon">📚</div><div class="action-title">Apprendre une base</div><div class="action-sub">'+(nL?esc(nL.title)+' · '+nL.duration+' min':stats.lessonsCount+'/'+totalLessons+' leçons')+'</div><div class="progress-bar thin mt-8"><div class="progress-fill" style="width:'+lessonPct+'%"></div></div></a>';
+  h+='<a href="'+cookHref+'" class="action-card"><div class="action-icon">👨‍🍳</div><div class="action-title">Cuisiner maintenant</div><div class="action-sub">'+(nextRecipe?esc(nextRecipe.title)+' · '+((nextRecipe.timePrep||0)+(nextRecipe.timeCook||0))+' min':'Voir les recettes')+'</div></a>';
+  h+='<a href="'+reviewHref+'" class="action-card"><div class="action-icon">🔄</div><div class="action-title">Réviser une erreur</div><div class="action-sub">'+esc(reviewSub)+'</div></a>';
+  h+='</div></div>';
+  return h;
+
+  h='<div class="home-hero">';
   h+='<div class="row-sb"><div>';
   h+='<div class="hero-greeting">'+esc(today)+'</div>';
   h+='<div class="hero-title">Bonjour, '+esc(name)+' 👨‍🍳</div>';
@@ -522,6 +559,50 @@ function renderLessonComplete(lesson,correct,total){
 // ════════════════════════════════════════════════
 function renderRecipes(filter,search){
   filter=filter||'tous';search=search||'';
+  var active=(typeof filter==='object')?filter:{family:filter,search:search,difficulty:'tous',time:'tous',skill:'tous',ingredient:''};
+  active.family=active.family||'tous';active.search=active.search||'';active.difficulty=active.difficulty||'tous';active.time=active.time||'tous';active.skill=active.skill||'tous';active.ingredient=active.ingredient||'';
+  var families2=['tous'],skills2=allRecipeSkills();
+  RECIPES.forEach(function(r){if(families2.indexOf(r.family)<0)families2.push(r.family);});
+  var filtered2=RECIPES.filter(function(r){
+    var total=(r.timePrep||0)+(r.timeCook||0),blob=recipeSearchBlob(r);
+    if(active.family!=='tous'&&r.family!==active.family)return false;
+    if(active.difficulty!=='tous'&&String(r.difficulty)!==active.difficulty)return false;
+    if(active.time==='short'&&total>20)return false;
+    if(active.time==='medium'&&(total<=20||total>45))return false;
+    if(active.time==='long'&&total<=45)return false;
+    if(active.skill!=='tous'&&(r.skills||[]).indexOf(active.skill)<0)return false;
+    if(active.ingredient&&blob.indexOf(normalizeText(active.ingredient))<0)return false;
+    return !active.search||blob.indexOf(normalizeText(active.search))>=0;
+  });
+
+  var nh='<div class="t-title mt-4">Cuisiner</div>';
+  nh+='<div class="search-bar mt-12"><span class="search-icon">🔍</span><input type="search" id="recipe-search" placeholder="Rechercher recette, geste, ingrédient…" value="'+esc(active.search)+'" autocomplete="off" /></div>';
+  nh+='<div class="filter-row mt-8">';
+  families2.forEach(function(f){nh+='<button class="filter-chip'+(active.family===f?' active':'')+'" data-filter="'+f+'">'+familyLabel(f)+'</button>';});
+  nh+='</div><div class="recipe-filter-panel">';
+  nh+='<select class="recipe-filter-control" id="recipe-difficulty"><option value="tous">Tous niveaux</option><option value="1"'+(active.difficulty==='1'?' selected':'')+'>Facile</option><option value="2"'+(active.difficulty==='2'?' selected':'')+'>Intermédiaire</option><option value="3"'+(active.difficulty==='3'?' selected':'')+'>Avancé</option></select>';
+  nh+='<select class="recipe-filter-control" id="recipe-time"><option value="tous">Tous temps</option><option value="short"'+(active.time==='short'?' selected':'')+'>≤ 20 min</option><option value="medium"'+(active.time==='medium'?' selected':'')+'>20-45 min</option><option value="long"'+(active.time==='long'?' selected':'')+'>45 min +</option></select>';
+  nh+='<select class="recipe-filter-control" id="recipe-skill"><option value="tous">Toutes compétences</option>';
+  skills2.forEach(function(s){nh+='<option value="'+esc(s)+'"'+(active.skill===s?' selected':'')+'>'+esc(skillLabel(s))+'</option>';});
+  nh+='</select>';
+  nh+='<input class="recipe-filter-control" id="recipe-ingredient" type="search" placeholder="Ingrédient" value="'+esc(active.ingredient)+'" autocomplete="off" />';
+  nh+='</div><div class="recipes-count">'+filtered2.length+' recette'+(filtered2.length>1?'s':'')+' trouvée'+(filtered2.length>1?'s':'')+'</div>';
+  nh+='<div class="recipes-grid mt-8">';
+  if(filtered2.length){
+    filtered2.forEach(function(r){
+      var done=state.isRecipeDone(r.id),hasNote=!!state.getRecipeNote(r.id);
+      nh+='<div class="recipe-card" data-href="recipe/'+r.id+'">';
+      nh+='<div class="recipe-cover" style="'+recipeCoverStyle(r)+'"><div class="recipe-cover-emoji">'+recipeEmoji(r)+'</div>';
+      nh+='<div class="recipe-cover-badges">'+difficultyBadge(r.difficulty)+(done?'<span class="badge badge-green">✓ Cuisiné</span>':'')+(hasNote?'<span class="badge badge-blue">📝</span>':'')+'</div></div>';
+      nh+='<div class="recipe-info"><div class="recipe-title">'+esc(r.title)+'</div>'+recipeSkillChips(r,3);
+      nh+='<div class="recipe-meta-row"><span class="recipe-meta-item">⏱ '+((r.timePrep||0)+(r.timeCook||0))+' min</span><span class="recipe-meta-item">👥 '+r.servings+' pers.</span><span class="recipe-meta-item difficulty">'+difficultyDots(r.difficulty)+'</span></div></div></div>';
+    });
+  } else {
+    nh+='<div class="empty-state"><div class="empty-icon">🍽</div><div class="empty-title">Aucune recette trouvée</div><div class="empty-sub">Essaie de retirer un filtre ou de chercher une compétence plus large.</div></div>';
+  }
+  nh+='</div>';
+  return nh;
+
   var families=['tous'];
   RECIPES.forEach(function(r){if(families.indexOf(r.family)<0)families.push(r.family);});
   var filtered=RECIPES.filter(function(r){return (filter==='tous'||r.family===filter)&&(!search||r.title.toLowerCase().indexOf(search.toLowerCase())>=0);});
@@ -562,6 +643,7 @@ function renderRecipeDetail(id,mode){
   h+='<span class="badge badge-neutral">🍳 '+recipe.timePrep+' min</span>';
   h+='<span class="badge badge-neutral">⏱ '+recipe.timeCook+' min</span>';
   h+='<span class="badge badge-neutral">👥 '+recipe.servings+' pers.</span></div></div>';
+  h+=recipeSkillChips(recipe,8);
 
   if(done)h+='<div class="recipe-done-banner mt-12">✅ <span>Tu as déjà cuisiné cette recette</span></div>';
 
@@ -646,6 +728,7 @@ var _cook={step:0,timer:null,timerVal:0,timerRunning:false};
 function startCookingMode(id){
   var recipe=findRecipe(id);
   if(!recipe){location.hash='recipes';return;}
+  state.setLastOpened({type:'recipe',id:recipe.id,title:recipe.title,href:'#recipe/'+recipe.id});
   _cook.step=0;_stopTimer();_renderCookStep(recipe);
 }
 
@@ -662,6 +745,11 @@ function _renderCookStep(recipe){
   h+='<div class="cooking-step-num">Étape '+(_cook.step+1)+' — '+esc(recipe.title)+'</div>';
   h+='<div class="cooking-step-title">'+esc(s.title)+'</div>';
   h+='<div class="cooking-step-action">'+esc(s.action)+'</div>';
+  var stepIngs=stepIngredients(recipe,s);
+  if(stepIngs.length){
+    h+='<div class="cooking-ingredients"><div class="cooking-ingredients-label">À sortir maintenant</div>';
+    h+='<div class="cooking-ingredient-list">'+stepIngs.map(function(ing){var qty=ing.qty?(ing.qty+(ing.unit?' '+ing.unit:'')):'';return '<span class="cooking-ingredient"><strong>'+esc(qty)+'</strong> '+esc(ing.item)+'</span>';}).join('')+'</div></div>';
+  }
   if(s.timer){
     _cook.timerVal=s.timer*60;_cook.timerRunning=false;
     h+='<div class="timer-card"><div><div class="timer-label">Minuteur</div><div class="timer-val" id="timer-display">'+_fmtTimer(s.timer*60)+'</div></div>';
@@ -787,17 +875,36 @@ function bindHandlers(view,param,mode){
   }
   if(view==='lesson')_bindLessonHandlers();
   if(view==='recipes'){
-    var si=document.getElementById('recipe-search');
-    if(si)si.addEventListener('input',function(){
-      var f=(document.querySelector('.filter-chip.active')||{dataset:{filter:'tous'}}).dataset.filter;
+    function readRecipeFilters(familyOverride){
+      var activeChip=document.querySelector('.filter-chip.active');
+      return {
+        family: familyOverride || (activeChip&&activeChip.dataset.filter) || 'tous',
+        search: (document.getElementById('recipe-search')||{}).value || '',
+        difficulty: (document.getElementById('recipe-difficulty')||{}).value || 'tous',
+        time: (document.getElementById('recipe-time')||{}).value || 'tous',
+        skill: (document.getElementById('recipe-skill')||{}).value || 'tous',
+        ingredient: (document.getElementById('recipe-ingredient')||{}).value || ''
+      };
+    }
+    function refreshRecipes(familyOverride,focusId){
       var pg=document.getElementById('current-page');
-      if(pg){pg.innerHTML=renderRecipes(f,si.value);bindHandlers('recipes','','');}
+      if(pg){
+        pg.innerHTML=renderRecipes(readRecipeFilters(familyOverride));
+        bindHandlers('recipes','','');
+        if(focusId){
+          var focusEl=document.getElementById(focusId);
+          if(focusEl){focusEl.focus();if(focusEl.setSelectionRange){var len=focusEl.value.length;focusEl.setSelectionRange(len,len);}}
+        }
+      }
+    }
+    var si=document.getElementById('recipe-search');
+    if(si)si.addEventListener('input',function(){refreshRecipes(null,'recipe-search');});
+    document.querySelectorAll('.recipe-filter-control').forEach(function(ctrl){
+      ctrl.addEventListener(ctrl.tagName==='INPUT'?'input':'change',function(){refreshRecipes(null,ctrl.tagName==='INPUT'?ctrl.id:null);});
     });
     document.querySelectorAll('.filter-chip').forEach(function(chip){
       chip.addEventListener('click',function(){
-        var s=(document.getElementById('recipe-search')||{}).value||'';
-        var pg=document.getElementById('current-page');
-        if(pg){pg.innerHTML=renderRecipes(chip.dataset.filter,s);bindHandlers('recipes','','');}
+        refreshRecipes(chip.dataset.filter);
       });
     });
   }

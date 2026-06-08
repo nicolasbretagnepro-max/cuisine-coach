@@ -360,6 +360,35 @@ ul { list-style: none; }
 .quick-title { font-size: 15px; font-weight: 800; margin-top: 8px; }
 .quick-sub   { font-size: 12px; color: var(--muted); }
 
+.action-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.action-card {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px 12px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 14px;
+  box-shadow: var(--sh-xs);
+}
+.action-card:active { transform: scale(0.99); }
+.action-card .progress-bar { grid-column: 2; }
+.action-primary {
+  background: var(--orange-soft);
+  border-color: rgba(232,93,4,0.2);
+}
+.action-icon {
+  grid-row: span 2;
+  width: 44px; height: 44px;
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2);
+  font-size: 22px;
+}
+.action-title { font-size: 15px; font-weight: 800; line-height: 1.25; }
+.action-sub { font-size: 12px; color: var(--muted); line-height: 1.35; }
+
 .xp-pill {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 7px 14px;
@@ -607,6 +636,31 @@ ul { list-style: none; }
 }
 .filter-chip.active { background: var(--text); color: white; border-color: var(--text); }
 
+.recipe-filter-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 16px 8px;
+}
+.recipe-filter-control {
+  min-width: 0;
+  height: 42px;
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+#recipe-skill, #recipe-ingredient { grid-column: span 2; }
+.recipes-count {
+  padding: 0 16px 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
 .recipes-grid { display: flex; flex-direction: column; gap: 12px; padding: 0 16px; }
 
 .recipe-card {
@@ -630,6 +684,25 @@ ul { list-style: none; }
 .recipe-title { font-size: 16px; font-weight: 800; line-height: 1.25; }
 .recipe-meta-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
 .recipe-meta-item { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); font-weight: 600; }
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 16px 0;
+}
+.recipe-info .skill-chips { margin: 10px 0 0; }
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+}
+.skill-chip.more { background: var(--surface-2); color: var(--muted); }
 
 /* ════════════════════════════════════════════════
    RECETTE DÉTAIL
@@ -798,6 +871,39 @@ ul { list-style: none; }
 .cooking-step-num    { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 8px; }
 .cooking-step-title  { font-family: var(--font-display); font-size: 26px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
 .cooking-step-action { font-size: 17px; line-height: 1.65; color: var(--text); margin-top: 14px; }
+
+.cooking-ingredients {
+  margin-top: 16px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.cooking-ingredients-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.cooking-ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cooking-ingredient {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--orange-soft);
+  color: var(--orange-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+.cooking-ingredient strong { color: inherit; }
 
 .cooking-why {
   padding: 14px; background: var(--blue-soft);
@@ -1071,6 +1177,8 @@ html[data-theme="dark"] .cooking-mistake { color: #fca5a5; background: rgba(220,
 html[data-theme="dark"] .field input,
 html[data-theme="dark"] .field select,
 html[data-theme="dark"] .field textarea { background: var(--surface-2); color: var(--text); }
+html[data-theme="dark"] .recipe-filter-control,
+html[data-theme="dark"] .cooking-ingredients { background: var(--surface-2); color: var(--text); }
 html[data-theme="dark"] .filter-chip.active { background: var(--text); color: #111118; }
 html[data-theme="dark"] .back-btn { background: var(--surface-2); color: var(--text); }
 

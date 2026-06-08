@@ -18,6 +18,7 @@ const state = (function () {
     level:            null, // 'debutant' | 'intermediaire' | 'passionne'
     weeklyGoal:       2,
     theme:            'system', // 'light' | 'dark' | 'system'
+    lastOpened:       null, // { type: 'lesson'|'recipe', id, title, href, date }
   };
 
   var _data = null;
@@ -35,6 +36,7 @@ const state = (function () {
         if (typeof _data.onboarded === 'undefined') _data.onboarded = false;
         if (typeof _data.level === 'undefined') _data.level = null;
         if (!_data.theme) _data.theme = 'system';
+        if (typeof _data.lastOpened === 'undefined') _data.lastOpened = null;
       } catch (e) {
         _data = Object.assign({}, DEFAULTS);
       }
@@ -46,6 +48,11 @@ const state = (function () {
 
     get: function(key) { return _data[key]; },
     set: function(key, val) { _data[key] = val; this.save(); },
+
+    setLastOpened: function(entry) {
+      _data.lastOpened = Object.assign({}, entry, { date: _today() });
+      this.save();
+    },
 
     _updateStreak: function() {
       var today = _today();
