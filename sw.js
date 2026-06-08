@@ -11,6 +11,8 @@ const ASSETS = [
   './js/state.js',
   './content/data.js',
   './manifest.webmanifest',
+  './assets/icon-192.png',
+  './assets/icon-512.png',
 ];
 
 self.addEventListener('install', e => {
