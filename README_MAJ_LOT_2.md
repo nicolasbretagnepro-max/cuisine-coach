@@ -1,97 +1,76 @@
-# Mise à jour — Lot 2
+# Mise à jour lot 1 — Chef Coach
 
-Date : 2026-06-09
+Objectif : appliquer les premiers correctifs sans changer la logique de progression existante.
 
-## Objectif
+## Progression
 
-Ce lot ajoute les priorités demandées :
+La logique de prérequis est conservée. Aucun déverrouillage global des modules n'a été appliqué.
 
-1. page d'accueil avec un vrai bloc **Aujourd'hui** ;
-2. amélioration de la page recette avant le mode cuisine ;
-3. section **Que cuisiner aujourd'hui ?** dans l'onglet Cuisiner.
+## Correctifs appliqués
 
-La logique de progression est conservée. Les prérequis et le verrouillage des leçons ne sont pas supprimés.
+### Mode cuisine
+- Fermeture du mode cuisine vers la page recette au lieu de `history.back()`.
+- Barre de progression calculée de 1/n à 100%.
+- Minuteur empêché de passer en négatif.
+- Bouton du minuteur désactivé une fois terminé.
+- Affichage du minuteur avec `aria-live`.
+
+### Sauvegarde locale
+- `state.save()` protégé par `try/catch`.
+- Dates de streak calculées en date locale, pas en UTC.
+- Réinitialisation du streak persistée.
+- Import de sauvegarde plus robuste via `state.importData()`.
+- Compression photo plus légère : 650 px max, JPEG 0.62.
+- Message d'erreur si une photo ne peut pas être compressée ou sauvegardée.
+
+### UX / accessibilité
+- Onglet parent actif pour les vues `lesson`, `recipe` et `cooking`.
+- Focus visible global pour clavier/accessibilité.
+- Cartes recettes utilisables au clavier avec Entrée/Espace.
+- Labels accessibles sur les boutons de notation.
+- Support `prefers-reduced-motion`.
+
+### Recettes
+- Page détail recette enrichie avec :
+  - bloc « Avant de commencer » ;
+  - matériel et critères de réussite si disponibles ;
+  - déroulé complet des étapes avec action, pourquoi et erreur à éviter.
+- Recettes à 3 étapes corrigées :
+  - `salade-composee` : 5 étapes ;
+  - `soupe-legumes` : 5 étapes ;
+  - `oeufs-cocotte` : 5 étapes.
+- Doublon de titre saumon supprimé en renommant `saumon-cote-peau` en « Saumon côté peau express ».
+- Recettes orphelines reliées à des leçons :
+  - `poulet-roti` ;
+  - `salade-composee` ;
+  - `soupe-legumes` ;
+  - `boeuf-carottes` ;
+  - `oeufs-cocotte`.
+
+### PWA / GitHub Pages
+- Service worker passé en `chef-coach-v7`.
+- Installation SW plus tolérante si un asset manque.
+- Fallback offline vers `index.html` pour les navigations.
+- Manifest enrichi avec icônes `any maskable` et raccourcis Apprendre/Cuisiner.
 
 ## Fichiers modifiés
 
 - `js/app.js`
+- `js/state.js`
 - `app.css`
 - `sw.js`
-- `CONTENT_GUIDE.md`
-
-Les autres fichiers sont fournis dans le zip pour faciliter le remplacement complet du projet, mais n'ont pas tous été modifiés dans ce lot.
-
-## Nouveautés
-
-### 1. Bloc Aujourd'hui sur l'accueil
-
-Ajout d'un bloc qui propose :
-
-- une révision si un quiz précédent n'a pas été réussi à 100 % ;
-- la prochaine leçon disponible dans le parcours actuel ;
-- une recette liée à cette leçon si possible ;
-- un indicateur d'objectif hebdomadaire.
-
-La recommandation respecte les leçons verrouillées : l'app ne propose pas de leçon non disponible.
-
-### 2. Page recette renforcée
-
-La page recette affiche maintenant davantage d'informations avant de lancer le mode cuisine :
-
-- temps total réel ;
-- niveau ;
-- matériel estimé ou renseigné ;
-- critères de réussite ;
-- points critiques ;
-- bloc de rattrapage "Si ça se passe mal" quand il peut être déduit.
-
-Les champs optionnels suivants sont pris en charge dans `content/data.js` :
-
-```js
-equipment: ['Poêle', 'Spatule'],
-successCriteria: ['Surface dorée', 'Texture moelleuse'],
-criticalPoints: ['Ne pas surcharger la poêle'],
-fixes: [
-  { problem: 'Trop liquide', solution: 'Réduire quelques minutes sans couvercle.' }
-]
-```
-
-Si ces champs ne sont pas présents, l'app déduit des informations utiles à partir de la famille, du titre, des objectifs, des compétences et des étapes.
-
-### 3. Section Que cuisiner aujourd'hui ?
-
-Ajout d'un panneau de choix rapide dans l'onglet Cuisiner :
-
-- Tout ;
-- 15 min ;
-- 30 min ;
-- Technique ;
-- Repas complet ;
-- Restes ;
-- Très facile.
-
-Ces filtres se combinent avec les filtres existants : famille, niveau, temps, compétence, ingrédient et recherche texte.
-
-## PWA / cache
-
-Le service worker passe de `chef-coach-v7` à `chef-coach-v8` pour forcer la mise à jour du cache après déploiement GitHub Pages.
+- `manifest.webmanifest`
+- `content/data.js`
 
 ## Tests réalisés
 
-- Vérification syntaxique de `js/app.js`, `js/state.js`, `content/data.js` et `sw.js` avec Node.
-- Vérification de cohérence du contenu :
+- Vérification syntaxique Node : `app.js`, `state.js`, `sw.js`, `content/data.js`.
+- Validation JSON du manifest.
+- Vérification de cohérence data :
   - 26 modules ;
   - 117 leçons ;
   - 74 recettes ;
   - 43 fiches techniques ;
-  - aucun doublon de titre de recette ;
-  - aucune recette avec moins de 4 étapes ;
-  - aucun lien de recette manquant dans les leçons.
-
-## Tests recommandés après intégration
-
-1. Ouvrir GitHub Pages en navigation privée pour vérifier le nouveau cache.
-2. Tester l'accueil : le bloc Aujourd'hui doit proposer une leçon disponible.
-3. Tester Cuisiner > filtres rapides : 15 min, 30 min, Technique, Très facile.
-4. Ouvrir une recette et vérifier les blocs Avant de commencer, Déroulé complet et Si ça se passe mal.
-5. Tester sur iPhone installé sur l'écran d'accueil.
+  - aucun doublon de titre ;
+  - aucune recette orpheline ;
+  - aucune recette avec moins de 4 étapes.
