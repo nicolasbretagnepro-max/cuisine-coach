@@ -1,8 +1,7 @@
 // Service Worker — Chef Coach
-// Met en cache tout pour une utilisation hors-ligne (indispensable en cuisine)
+// Cache statique compatible GitHub Pages + fallback hors-ligne.
 
-const CACHE = 'chef-coach-v6'; // Incrémenter à chaque déploiement majeur
-// Chemins relatifs — fonctionne sur GitHub Pages (sous-répertoire ou racine)
+const CACHE = 'chef-coach-v7';
 const ASSETS = [
   './',
   './index.html',
@@ -17,7 +16,9 @@ const ASSETS = [
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      .then(c => Promise.all(ASSETS.map(url => c.add(url).catch(() => null))))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -30,14 +31,20 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  if (e.request.method !== 'GET') return;
+
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
+
       return fetch(e.request).then(res => {
         if (!res || res.status !== 200 || res.type !== 'basic') return res;
         const clone = res.clone();
         caches.open(CACHE).then(c => c.put(e.request, clone));
         return res;
+      }).catch(() => {
+        if (e.request.mode === 'navigate') return caches.match('./index.html');
+        return caches.match(e.request);
       });
     })
   );
