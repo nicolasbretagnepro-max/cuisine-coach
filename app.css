@@ -1,25 +1,27 @@
-// ════════════════════════════════════════════════
-//   STATE — Chef Coach
-// ════════════════════════════════════════════════
-
-const state = (function () {
+var state = (function () {
   var KEY = 'chef-coach-v1';
 
   var DEFAULTS = {
     completedLessons: [],
     lessonScores:     {},
     completedRecipes: [],
-    recipeNotes:      {},   // { recipeId: { note, photo, rating, date } }
-    pendingPractices: [],   // [{ lessonId, recipeId, type, label, reason, focus, successCriteria, dateAdded }]
+    recipeNotes:      {},
+    recipeAttempts:   {},
+    skillProgress:    {},
+    lastDebrief:      null,
+    reviewLog:        {},
+    pendingPractices: [],
+    weeklyRecipe:     null,
+    weeklyRecipeHistory: [],
     xp:               0,
     streak:           0,
     lastActiveDate:   null,
     userName:         '',
     onboarded:        false,
-    level:            null, // 'debutant' | 'intermediaire' | 'passionne'
+    level:            null,
     weeklyGoal:       2,
-    theme:            'system', // 'light' | 'dark' | 'system'
-    lastOpened:       null, // { type: 'lesson'|'recipe', id, title, href, date }
+    theme:            'system',
+    lastOpened:       null,
   };
 
   var _data = null;
@@ -51,8 +53,16 @@ const state = (function () {
     out.lessonScores = _cleanObject(raw.lessonScores);
     out.completedRecipes = _cleanArray(raw.completedRecipes);
     out.recipeNotes = _cleanObject(raw.recipeNotes);
+    out.recipeAttempts = _cleanObject(raw.recipeAttempts);
+    out.skillProgress = _cleanObject(raw.skillProgress);
+    out.lastDebrief = raw.lastDebrief && typeof raw.lastDebrief === 'object' ? raw.lastDebrief : null;
+    out.reviewLog = _cleanObject(raw.reviewLog);
     out.pendingPractices = _cleanArray(raw.pendingPractices).filter(function(p) {
       return p && typeof p === 'object' && p.lessonId && p.recipeId;
+    });
+    out.weeklyRecipe = raw.weeklyRecipe && typeof raw.weeklyRecipe === 'object' ? raw.weeklyRecipe : null;
+    out.weeklyRecipeHistory = _cleanArray(raw.weeklyRecipeHistory).filter(function(p) {
+      return p && typeof p === 'object' && p.recipeId;
     });
     out.xp = Math.max(0, _cleanNumber(raw.xp, 0));
     out.streak = Math.max(0, _cleanNumber(raw.streak, 0));
@@ -68,6 +78,30 @@ const state = (function () {
 
   function _practiceKey(lessonId, recipeId) {
     return lessonId + '::' + recipeId;
+  }
+
+
+  function _unique(arr) {
+    var out = [];
+    _cleanArray(arr).forEach(function(v) { if (out.indexOf(v) < 0) out.push(v); });
+    return out;
+  }
+
+  function _skill(id) {
+    if (!_data.skillProgress) _data.skillProgress = {};
+    if (!_data.skillProgress[id]) {
+      _data.skillProgress[id] = { lessonsDone: [], recipesDone: [], attempts: 0, successes: 0, issues: {}, lastDate: null, quizBest: 0, mastery: 0 };
+    }
+    return _data.skillProgress[id];
+  }
+
+  function _recomputeMastery(sp) {
+    var m = 0;
+    if ((sp.lessonsDone || []).length) m = 1;
+    if ((sp.quizBest || 0) >= 80) m = Math.max(m, 2);
+    if ((sp.attempts || 0) >= 1) m = Math.max(m, 3);
+    if ((sp.successes || 0) >= 2 && (sp.recipesDone || []).length >= 2) m = Math.max(m, 4);
+    sp.mastery = m;
   }
 
   return {
@@ -125,7 +159,7 @@ const state = (function () {
       this.save();
     },
 
-    // ── Leçons ──────────────────────────────────
+
     isLessonDone: function(id) { return _data.completedLessons.indexOf(id) >= 0; },
 
     completeLesson: function(id, correct, total) {
@@ -155,7 +189,7 @@ const state = (function () {
 
     getLessonScore: function(id) { return _data.lessonScores[id] || null; },
 
-    // ── Pratiques liées aux cours ───────────────
+
     addPendingPractices: function(lessonId, practices) {
       practices = _cleanArray(practices);
       if (!practices.length) return 0;
@@ -206,7 +240,28 @@ const state = (function () {
       if (_data.pendingPractices.length !== before) this.save();
     },
 
-    // ── Recettes ────────────────────────────────
+
+    getWeeklyRecipePlan: function() {
+      return _data.weeklyRecipe || null;
+    },
+
+    setWeeklyRecipePlan: function(plan) {
+      _data.weeklyRecipe = plan && typeof plan === 'object' ? plan : null;
+      this.save();
+    },
+
+    completeWeeklyRecipe: function(recipeId) {
+      if (!_data.weeklyRecipe || _data.weeklyRecipe.recipeId !== recipeId) return;
+      _data.weeklyRecipe.completed = true;
+      _data.weeklyRecipe.completedDate = _today();
+      if (!_data.weeklyRecipeHistory) _data.weeklyRecipeHistory = [];
+      var key = _data.weeklyRecipe.weekKey + '::' + recipeId;
+      var exists = _data.weeklyRecipeHistory.some(function(p) { return (p.weekKey + '::' + p.recipeId) === key; });
+      if (!exists) _data.weeklyRecipeHistory.push(Object.assign({}, _data.weeklyRecipe));
+      this.save();
+    },
+
+
     isRecipeDone: function(id) { return _data.completedRecipes.indexOf(id) >= 0; },
 
     completeRecipe: function(id) {
@@ -215,11 +270,12 @@ const state = (function () {
         _data.xp += 30;
       }
       this.clearPendingPracticesForRecipe(id);
+      this.completeWeeklyRecipe(id);
       this.markActive();
       this.save();
     },
 
-    // ── Notes recettes ──────────────────────────
+
     getRecipeNote: function(id) { return _data.recipeNotes[id] || null; },
 
     setRecipeNote: function(id, entry) {
@@ -229,7 +285,82 @@ const state = (function () {
       this.save();
     },
 
-    // ── Stats ────────────────────────────────────
+
+    recordLessonProgress: function(lessonId, skills, pct) {
+      skills = _unique(skills);
+      if (!skills.length) return;
+      skills.forEach(function(skillId) {
+        var sp = _skill(skillId);
+        if (sp.lessonsDone.indexOf(lessonId) < 0) sp.lessonsDone.push(lessonId);
+        sp.quizBest = Math.max(sp.quizBest || 0, _cleanNumber(pct, 0));
+        sp.lastDate = _today();
+        _recomputeMastery(sp);
+      });
+      this.save();
+    },
+
+    addRecipeAttempt: function(recipeId, attempt) {
+      attempt = _cleanObject(attempt);
+      if (!_data.recipeAttempts) _data.recipeAttempts = {};
+      if (!_data.recipeAttempts[recipeId]) _data.recipeAttempts[recipeId] = [];
+      var clean = {
+        result: ['success', 'partial', 'failed'].indexOf(attempt.result) >= 0 ? attempt.result : 'partial',
+        issues: _unique(attempt.issues),
+        skills: _unique(attempt.skills),
+        note: typeof attempt.note === 'string' ? attempt.note : '',
+        lessonId: typeof attempt.lessonId === 'string' ? attempt.lessonId : null,
+        date: _today()
+      };
+      _data.recipeAttempts[recipeId].push(clean);
+      _data.lastDebrief = Object.assign({ recipeId: recipeId }, clean);
+      clean.skills.forEach(function(skillId) {
+        var sp = _skill(skillId);
+        sp.attempts += 1;
+        if (sp.recipesDone.indexOf(recipeId) < 0) sp.recipesDone.push(recipeId);
+        if (clean.result === 'success') sp.successes += 1;
+        clean.issues.forEach(function(issue) { sp.issues[issue] = (sp.issues[issue] || 0) + 1; });
+        sp.lastDate = _today();
+        _recomputeMastery(sp);
+      });
+      if (clean.result === 'success') _data.xp += 15;
+      else if (clean.result === 'partial') _data.xp += 8;
+      this.save();
+      return clean;
+    },
+
+    getRecipeAttempts: function(recipeId) {
+      return _cleanArray((_data.recipeAttempts || {})[recipeId]);
+    },
+
+    getLastDebrief: function() {
+      return _data.lastDebrief || null;
+    },
+
+    getSkillSummary: function(limit) {
+      var map = _data.skillProgress || {};
+      var arr = Object.keys(map).map(function(id) {
+        return Object.assign({ id: id }, map[id]);
+      });
+      arr.sort(function(a, b) {
+        if ((a.mastery || 0) !== (b.mastery || 0)) return (a.mastery || 0) - (b.mastery || 0);
+        return String(b.lastDate || '').localeCompare(String(a.lastDate || ''));
+      });
+      return typeof limit === 'number' ? arr.slice(0, limit) : arr;
+    },
+
+    markReviewCardDone: function(cardId) {
+      if (!_data.reviewLog) _data.reviewLog = {};
+      _data.reviewLog[cardId] = _today();
+      _data.xp += 3;
+      this.markActive();
+      this.save();
+    },
+
+    getReviewLog: function() {
+      return _data.reviewLog || {};
+    },
+
+
     getStats: function() {
       var noteCount = Object.keys(_data.recipeNotes).length;
       return {
@@ -238,7 +369,9 @@ const state = (function () {
         lessonsCount:  _data.completedLessons.length,
         recipesCount:  _data.completedRecipes.length,
         notesCount:    noteCount,
+        attemptsCount: Object.keys(_data.recipeAttempts || {}).reduce(function(sum, id) { return sum + ((_data.recipeAttempts[id] || []).length); }, 0),
         practicesCount: (_data.pendingPractices || []).length,
+        weeklyRecipeDone: !!(_data.weeklyRecipe && _data.weeklyRecipe.completed),
       };
     },
 
@@ -251,3 +384,5 @@ const state = (function () {
     reset: function() { _data = _cloneDefaults(); this.save(); },
   };
 })();
+
+if (typeof window !== 'undefined') window.state = state;

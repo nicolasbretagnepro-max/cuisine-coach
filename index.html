@@ -1,340 +1,373 @@
-// ════════════════════════════════════════════════
-//   STATE — Chef Coach
-// ════════════════════════════════════════════════
+# Guide de rédaction du contenu — Chef Coach
 
-const state = (function () {
-  var KEY = 'chef-coach-v1';
+Ce fichier décrit exactement comment ajouter du contenu dans `content/data.js`.
+**Ne change jamais le code de l'app** (js/, app.css, index.html) — uniquement `content/data.js`.
 
-  var DEFAULTS = {
-    completedLessons: [],
-    lessonScores:     {},
-    completedRecipes: [],
-    completedRecipeDates: {}, // { recipeId: 'YYYY-MM-DD' }
-    recipeNotes:      {},   // { recipeId: { note, photo, rating, result, issues, skills, date } }
-    recipeAttempts:   {},   // { recipeId: [{ result, issues, skills, lessonId, note, rating, date }] }
-    skillProgress:    {},   // { skillId: { attempts, successfulAttempts, practicesDone, issues, lastPracticeDate, mastery } }
-    pendingPractices: [],   // [{ lessonId, recipeId, type, label, reason, focus, successCriteria, dateAdded }]
-    weeklyRecipePlan: null, // { weekId, recipeId, lessonId, source, createdAt }
-    practiceFrequency: 'weekly',
-    xp:               0,
-    streak:           0,
-    lastActiveDate:   null,
-    userName:         '',
-    onboarded:        false,
-    level:            null, // 'debutant' | 'intermediaire' | 'passionne'
-    weeklyGoal:       2,
-    theme:            'system', // 'light' | 'dark' | 'system'
-    lastOpened:       null, // { type: 'lesson'|'recipe', id, title, href, date }
-  };
+---
 
-  var _data = null;
+## Structure générale
 
-  function _cloneDefaults() {
-    return JSON.parse(JSON.stringify(DEFAULTS));
+`content/data.js` contient 4 tableaux (utilise `var`, pas `export`) :
+- `MODULES` — les modules (groupes de leçons)
+- `LESSONS` — toutes les leçons
+- `RECIPES` — toutes les recettes
+- `TECHNIQUES` — les fiches techniques de référence rapide (section "Apprendre")
+
+---
+
+## MODULES
+
+Un module regroupe des leçons sur un même thème.
+
+```js
+// Dans content/data.js — utilise var (pas export, pas const)
+{
+  id: 'cuissons',           // identifiant unique, sans espaces, en minuscules
+  title: 'Les cuissons',    // nom affiché dans l'app
+  emoji: '🔥',              // un seul emoji
+  description: 'Texte court décrivant le module (max 60 caractères)',
+  color: '#2563eb',         // couleur hex pour l'UI
+  lessonIds: ['cuisson-poele', 'cuisson-four', 'mijotage'],  // IDs dans l'ordre
+}
+```
+
+**Règles :**
+- `id` doit être unique dans tout le fichier
+- `lessonIds` doit pointer vers des leçons existantes dans `LESSONS`
+
+---
+
+## LEÇONS
+
+Une leçon = une session d'apprentissage de 5-15 minutes.
+
+```js
+{
+  id: 'cuisson-poele',        // unique, tirets autorisés
+  moduleId: 'cuissons',       // doit correspondre à un module existant
+  title: 'La cuisson à la poêle',
+  subtitle: 'Saisir, colorer, cuire à cœur',  // accroche courte
+  duration: 10,               // en minutes (estimation de lecture + quiz)
+
+  objectives: [               // EXACTEMENT 3 objectifs
+    'Comprendre la réaction de Maillard',
+    'Maîtriser le timing feu fort / feu doux',
+    'Éviter les 3 erreurs qui empêchent la croûte de se former',
+  ],
+  // Format : verbe à l'infinitif + résultat concret
+
+  concepts: [                 // 3 à 5 concepts obligatoires
+    {
+      title: 'La réaction de Maillard',
+      body: 'Texte explicatif...',   // peut contenir du HTML simple (<strong>, <br>)
+      tip: 'Astuce ou mémo court',  // OPTIONNEL — null ou absent si pas d'astuce
+    },
+    // ...
+  ],
+
+  goFurther: {                // OPTIONNEL — bloc "pour aller plus loin"
+    title: 'Titre court',
+    content: 'Contenu développé...',
+  },
+  // Mettre null ou ne pas inclure la clé si pas de "aller plus loin"
+
+  quiz: [                     // 3 à 5 questions
+    {
+      q: 'La question posée à l\'élève ?',
+      options: [              // EXACTEMENT 4 choix
+        'Choix A',
+        'Choix B',
+        'Choix C',
+        'Choix D',
+      ],
+      answer: 1,              // index du bon choix (0 = premier, 1 = deuxième...)
+      explanation: 'Pourquoi c\'est cette réponse. Max 2 phrases.',
+    },
+    // ...
+  ],
+
+  linkedRecipes: ['poulet-roti', 'steak-beurre'],  // 1 ou 2 IDs de recettes
+}
+```
+
+### Règles de rédaction des leçons
+
+**Concepts :**
+- Le premier concept = définition / contexte
+- Les suivants = technique / erreurs / nuances
+- Le dernier avant quiz = toujours le plus pratique / actionnable
+- `body` : 2-5 phrases max. Privilégier des phrases courtes et concrètes.
+- `tip` : 1 phrase max, mémo facile à retenir
+
+**Quiz :**
+- Questions orientées "diagnostic" ou "méthode", pas de mémorisation bête
+- Le bon choix doit être celui qui révèle la vraie compréhension
+- Les mauvaises réponses doivent être plausibles (erreurs fréquentes)
+- Chaque explication doit dire POURQUOI c'est cette réponse
+
+---
+
+## RECETTES
+
+Une recette = support pratique pour mettre en application les leçons.
+
+```js
+{
+  id: 'poulet-roti',          // unique, tirets
+  title: 'Poulet rôti parfait',
+  family: 'viande',           // VALEURS AUTORISÉES ci-dessous
+
+  difficulty: 2,              // 1 = facile, 2 = intermédiaire, 3 = avancé, 4 = expert
+  timePrep: 15,               // minutes de préparation (découpe, mise en place)
+  timeCook: 80,               // minutes de cuisson totale
+  servings: 4,                // nombre de personnes
+
+  skills: ['cuisson-four', 'assaisonnement'],  // compétences développées (libres)
+
+  objectives: [               // 2 à 3 objectifs de la recette
+    'Obtenir une peau dorée et croustillante',
+    'Cuisson à cœur parfaite sans dessèchement',
+  ],
+
+  ingredients: [
+    { qty: '1',  unit: '',      item: 'poulet fermier',  note: '1,4–1,6 kg' },
+    { qty: '50', unit: 'g',     item: 'beurre',           note: 'pommade' },
+    { qty: '',   unit: '',      item: 'sel, poivre',       note: 'généreux' },
+  ],
+  // qty et unit peuvent être vides (string vide '')
+  // note est optionnel (string vide '' ou précision)
+
+  steps: [                    // 4 à 8 étapes
+    {
+      id: 1,                  // numéro séquentiel commençant à 1
+      title: 'Préparer le poulet',
+      action: 'Ce que l\'utilisateur fait exactement. Phrases courtes, verbes à l\'impératif.',
+      why: 'Pourquoi cette étape est importante. Max 2 phrases.',
+      mistake: 'L\'erreur typique à éviter et sa conséquence.',
+      timer: 30,              // OPTIONNEL — minutes du minuteur, null si pas de timer
+    },
+    // ...
+  ],
+
+  tips: [                     // 2 à 3 tips du chef (optionnel mais recommandé)
+    'Un conseil pro ou une variation.',
+    'Un autre conseil.',
+  ],
+}
+```
+
+### Valeurs autorisées pour `family`
+
+| Valeur | Affiché |
+|--------|---------|
+| `viande` | 🥩 Viande |
+| `poisson` | 🐟 Poisson |
+| `légume` | 🥦 Légumes |
+| `sauce` | 🫙 Sauces |
+| `pâtisserie` | 🥐 Pâtisserie |
+| `pâtes` | 🍝 Pâtes & riz |
+| `œufs` | 🥚 Œufs |
+| `soupe` | 🍲 Soupes |
+| `dessert` | 🍰 Desserts |
+
+### Règles de rédaction des recettes
+
+**`action`** : l'utilisateur cuisine souvent avec les mains mouillées. Phrases courtes, impératives, précises. Pas de "vous pouvez aussi..." — une seule instruction claire par phrase.
+
+**`why`** : le "pourquoi pédagogique". C'est ce qui distingue cette app d'un simple livre de recettes. Ne pas l'écrire si on n'a pas une vraie raison chimique/culinaire à donner.
+
+**`mistake`** : toujours formulé comme "Action incorrecte → conséquence concrète". Réel, pas théorique.
+
+**`timer`** : uniquement pour les étapes où l'utilisateur doit vraiment surveiller le temps. Ne pas en mettre partout.
+
+---
+
+## Checklist avant de valider un ajout
+
+### Pour une leçon :
+- [ ] 3 objectifs (verbe à l'infinitif)
+- [ ] 3-5 concepts avec `title` + `body`
+- [ ] 3-5 questions quiz, chacune avec 4 choix et une explication
+- [ ] `linkedRecipes` pointe vers des recettes existantes
+- [ ] L'`id` est unique dans LESSONS
+
+### Pour une recette :
+- [ ] `family` est une valeur autorisée
+- [ ] 4-8 étapes, chacune avec `action` + `why` + `mistake`
+- [ ] `linkedRecipes` dans les leçons correspondantes pointent vers cette recette
+- [ ] L'`id` est unique dans RECIPES
+
+---
+
+## TECHNIQUES (fiches de référence rapide)
+
+Visibles dans l'onglet "Apprendre" → section accordéon en bas.
+Idéales pour des infos consultables rapidement en cuisine.
+
+```js
+var TECHNIQUES = [
+  {
+    id: 'mon-id-unique',         // unique, tirets
+    title: 'Titre de la fiche',
+    emoji: '🌡️',                 // un seul emoji
+    color: '#dc2626',            // couleur hex (teinte de l'icône)
+    subtitle: 'Description courte visible avant ouverture',
+    items: [                     // 4 à 10 lignes
+      { label: 'Étiquette',  value: 'Valeur',    note: 'précision optionnelle' },
+      { label: 'Bœuf saignant', value: '52–54°C', note: 'cœur rouge vif' },
+    ],
+  },
+];
+```
+
+**Règles :** `label` et `value` obligatoires, `note` facultatif. Pas de HTML.
+
+---
+
+## Prérequis de leçons (verrouillage progressif)
+
+Ajoute `prerequisites: ['id-leçon']` à une leçon pour la verrouiller jusqu'à ce que la leçon prérequis soit terminée.
+
+```js
+{
+  id: 'ma-lecon',
+  prerequisites: ['lecon-prealable'],  // [] ou absent = pas de verrou
+  moduleId: '...',
+  ...
+}
+```
+
+---
+
+## Syntaxe importante
+
+Les quatre tableaux utilisent `var` (pas `export const`, pas `const`) :
+```js
+var MODULES    = [ ... ];
+var LESSONS    = [ ... ];
+var RECIPES    = [ ... ];
+var TECHNIQUES = [ ... ];
+```
+Ne pas modifier cette syntaxe — l'app lit ces variables directement.
+
+## Ajouter un nouveau module
+
+1. Ajouter l'objet dans `MODULES`
+2. Ajouter les leçons correspondantes dans `LESSONS` avec le bon `moduleId`
+3. Les recettes liées n'ont pas besoin d'être dans un module — elles apparaissent dans la section Cuisiner
+
+---
+
+## Ajouter rapidement du contenu
+
+Ordre recommandé :
+1. Créer le module dans `MODULES`
+2. Écrire les leçons une par une dans `LESSONS`
+3. Écrire les recettes dans `RECIPES`
+4. Vérifier les `linkedRecipes` dans les leçons
+
+---
+
+## Notes sur le HTML dans les textes
+
+Les champs `body` (concepts), `action`, `why`, `mistake` supportent du HTML simple :
+- `<strong>texte</strong>` → **gras**
+- `<br>` → saut de ligne
+
+Ne pas utiliser de balises complexes (div, p, ul...).
+
+---
+
+## LOT 3 — Relier fortement les cours et les recettes
+
+Pour éviter que les recettes soient seulement affichées comme des contenus associés, chaque leçon peut désormais définir des **recettes de pratique contextualisées** avec `practiceRecipes`.
+
+L'ancien champ `linkedRecipes` reste accepté pour compatibilité, mais `practiceRecipes` est prioritaire dans l'interface.
+
+### Format recommandé
+
+```js
+practiceRecipes: [
+  {
+    id: 'legumes-sautes-maitrises',
+    type: 'direct', // direct | contrast | synthesis | transfer
+    label: 'Exercice direct',
+    reason: 'Pourquoi cette recette applique précisément la leçon.',
+    focus: [
+      'Point précis à observer pendant la recette',
+      'Geste ou signe de cuisson à travailler',
+      'Erreur à éviter'
+    ],
+    successCriteria: [
+      'Critère concret de réussite observable',
+      'Texture, couleur, goût ou organisation attendue'
+    ]
   }
+]
+```
 
-  function _today() {
-    var d = new Date();
-    var y = d.getFullYear();
-    var m = String(d.getMonth() + 1).padStart(2, '0');
-    var day = String(d.getDate()).padStart(2, '0');
-    return y + '-' + m + '-' + day;
+### Types de pratiques
+
+| Type | Usage |
+|------|-------|
+| `direct` | La meilleure recette à faire juste après le cours |
+| `contrast` | Une recette qui montre le principe inverse ou complémentaire |
+| `synthesis` | Une recette qui combine plusieurs notions récentes |
+| `transfer` | Une recette plus avancée qui transfère la compétence à un autre produit |
+
+### Règle pédagogique
+
+Ne force pas une recette après chaque cours. L'app ajoute les pratiques dans une liste **À pratiquer**, afin que l'utilisateur puisse enchaîner plusieurs leçons puis cuisiner plus tard.
+
+La bonne logique est :
+
+```text
+Cours → pratique recommandée stockée → recette faite plus tard avec un focus précis
+```
+
+### Exemple : Maîtriser l'intensité du feu
+
+```js
+practiceRecipes: [
+  {
+    id: 'legumes-sautes-maitrises',
+    type: 'direct',
+    label: 'Exercice direct',
+    reason: 'C’est la meilleure recette pour voir immédiatement l’effet du feu fort, de l’humidité et de la baisse du feu.',
+    focus: [
+      'Démarrer avec une poêle assez chaude',
+      'Ne pas surcharger la poêle',
+      'Écouter le grésillement',
+      'Baisser le feu quand la coloration démarre'
+    ],
+    successCriteria: [
+      'Les légumes sont dorés, pas bouillis',
+      'Ils restent légèrement croquants',
+      'Aucune odeur de brûlé'
+    ]
   }
+]
+```
 
-  function _daysDiff(a, b) {
-    return Math.round((new Date(b + 'T12:00:00') - new Date(a + 'T12:00:00')) / 86400000);
-  }
+### Bonnes pratiques
 
-  function _cleanArray(v) { return Array.isArray(v) ? v.filter(Boolean) : []; }
-  function _cleanObject(v) { return v && typeof v === 'object' && !Array.isArray(v) ? v : {}; }
-  function _cleanNumber(v, fallback) { v = Number(v); return Number.isFinite(v) ? v : fallback; }
+- Une leçon peut avoir 1 à 3 pratiques maximum.
+- La première pratique doit être la plus évidente et la plus directement liée.
+- Le champ `reason` doit expliquer le lien cours-recette.
+- Le champ `focus` doit guider l'observation pendant la recette.
+- Le champ `successCriteria` doit permettre de savoir si l'exercice est réussi.
 
-  function _normalizeImported(raw) {
-    var out = _cloneDefaults();
-    raw = _cleanObject(raw);
-    out.completedLessons = _cleanArray(raw.completedLessons);
-    out.lessonScores = _cleanObject(raw.lessonScores);
-    out.completedRecipes = _cleanArray(raw.completedRecipes);
-    out.completedRecipeDates = _cleanObject(raw.completedRecipeDates);
-    out.recipeNotes = _cleanObject(raw.recipeNotes);
-    out.recipeAttempts = _cleanObject(raw.recipeAttempts);
-    out.skillProgress = _cleanObject(raw.skillProgress);
-    out.pendingPractices = _cleanArray(raw.pendingPractices).filter(function(p) {
-      return p && typeof p === 'object' && p.lessonId && p.recipeId;
-    });
-    out.xp = Math.max(0, _cleanNumber(raw.xp, 0));
-    out.streak = Math.max(0, _cleanNumber(raw.streak, 0));
-    out.lastActiveDate = typeof raw.lastActiveDate === 'string' ? raw.lastActiveDate : null;
-    out.userName = typeof raw.userName === 'string' ? raw.userName : '';
-    out.onboarded = !!raw.onboarded;
-    out.level = typeof raw.level === 'string' ? raw.level : null;
-    out.weeklyGoal = Math.max(1, _cleanNumber(raw.weeklyGoal, 2));
-    out.theme = ['light', 'dark', 'system'].indexOf(raw.theme) >= 0 ? raw.theme : 'system';
-    out.lastOpened = raw.lastOpened && typeof raw.lastOpened === 'object' ? raw.lastOpened : null;
-    out.weeklyRecipePlan = raw.weeklyRecipePlan && typeof raw.weeklyRecipePlan === 'object' ? raw.weeklyRecipePlan : null;
-    out.practiceFrequency = raw.practiceFrequency === 'weekly' ? 'weekly' : 'weekly';
-    return out;
-  }
 
-  function _practiceKey(lessonId, recipeId) {
-    return lessonId + '::' + recipeId;
-  }
+## Cadence recommandée
 
-  function _unique(arr) {
-    var out = [];
-    _cleanArray(arr).forEach(function(v) { if (out.indexOf(v) < 0) out.push(v); });
-    return out;
-  }
+L'app privilégie une seule recette poussée par semaine. Les leçons peuvent être faites librement, sans obligation de cuisiner immédiatement. Quand une leçon est terminée, ses `practiceRecipes` alimentent la liste “À pratiquer”. La recette hebdomadaire est choisie prioritairement dans cette liste, puis dans la prochaine leçon disponible, puis dans les recettes non cuisinées.
 
-  return {
-    load: function() {
-      try {
-        var raw = localStorage.getItem(KEY);
-        _data = raw ? _normalizeImported(JSON.parse(raw)) : _cloneDefaults();
-      } catch (e) {
-        _data = _cloneDefaults();
-      }
-      this._updateStreak();
-      return this;
-    },
 
-    save: function() {
-      try {
-        localStorage.setItem(KEY, JSON.stringify(_data));
-        return true;
-      } catch (e) {
-        console.warn('Sauvegarde impossible', e);
-        return false;
-      }
-    },
+## Débriefs et maîtrise
 
-    importData: function(raw) {
-      _data = _normalizeImported(raw);
-      return this.save();
-    },
+Chaque recette peut être suivie d'un bilan. Le bilan doit capter : résultat, erreurs rencontrées, compétences travaillées et note pour la prochaine tentative. Ces données alimentent la progression par compétence : vu, compris, pratiqué, maîtrisé.
 
-    get: function(key) { return _data[key]; },
-    set: function(key, val) { _data[key] = val; this.save(); },
 
-    setLastOpened: function(entry) {
-      _data.lastOpened = Object.assign({}, entry, { date: _today() });
-      this.save();
-    },
+## Révision intelligente et niveaux
 
-    _updateStreak: function() {
-      var today = _today();
-      var last = _data.lastActiveDate;
-      if (!last || last === today) return;
-      if (_daysDiff(last, today) > 1) {
-        _data.streak = 0;
-        this.save();
-      }
-    },
-
-    markActive: function() {
-      var today = _today();
-      var last = _data.lastActiveDate;
-      if (last === today) return;
-      var diff = last ? _daysDiff(last, today) : 999;
-      _data.streak = (diff === 1) ? _data.streak + 1 : 1;
-      _data.lastActiveDate = today;
-      this.save();
-    },
-
-    // ── Leçons ──────────────────────────────────
-    isLessonDone: function(id) { return _data.completedLessons.indexOf(id) >= 0; },
-
-    completeLesson: function(id, correct, total) {
-      if (!this.isLessonDone(id)) {
-        _data.completedLessons.push(id);
-        _data.xp += 20 + (correct * 5);
-      }
-      _data.lessonScores[id] = {
-        correct: correct,
-        total: total,
-        date: _today(),
-        pct: total > 0 ? Math.round(correct / total * 100) : 0,
-      };
-      this.markActive();
-      this.save();
-    },
-
-    updateLessonScore: function(id, correct, total) {
-      var old = _data.lessonScores[id];
-      var newPct = total > 0 ? Math.round(correct / total * 100) : 0;
-      if (!old || newPct > old.pct) {
-        _data.lessonScores[id] = { correct: correct, total: total, date: _today(), pct: newPct };
-        if (newPct === 100 && (!old || old.pct < 100)) _data.xp += 10;
-        this.save();
-      }
-    },
-
-    getLessonScore: function(id) { return _data.lessonScores[id] || null; },
-
-    // ── Pratiques liées aux cours ───────────────
-    addPendingPractices: function(lessonId, practices) {
-      practices = _cleanArray(practices);
-      if (!practices.length) return 0;
-      if (!_data.pendingPractices) _data.pendingPractices = [];
-      var existing = {};
-      _data.pendingPractices.forEach(function(p) { existing[_practiceKey(p.lessonId, p.recipeId)] = true; });
-      var added = 0;
-      practices.forEach(function(p) {
-        if (!p || !p.id) return;
-        var key = _practiceKey(lessonId, p.id);
-        if (existing[key]) return;
-        _data.pendingPractices.push({
-          lessonId: lessonId,
-          recipeId: p.id,
-          type: p.type || 'direct',
-          label: p.label || 'Exercice pratique',
-          reason: p.reason || '',
-          focus: _cleanArray(p.focus),
-          successCriteria: _cleanArray(p.successCriteria),
-          dateAdded: _today()
-        });
-        existing[key] = true;
-        added++;
-      });
-      if (added) this.save();
-      return added;
-    },
-
-    getPendingPractices: function() {
-      return _cleanArray(_data.pendingPractices);
-    },
-
-    removePendingPractice: function(lessonId, recipeId) {
-      var before = (_data.pendingPractices || []).length;
-      _data.pendingPractices = (_data.pendingPractices || []).filter(function(p) {
-        return !(p.lessonId === lessonId && p.recipeId === recipeId);
-      });
-      if (_data.pendingPractices.length !== before) this.save();
-    },
-
-    completePendingPractice: function(lessonId, recipeId) {
-      this.removePendingPractice(lessonId, recipeId);
-    },
-
-    clearPendingPracticesForRecipe: function(recipeId) {
-      var before = (_data.pendingPractices || []).length;
-      _data.pendingPractices = (_data.pendingPractices || []).filter(function(p) { return p.recipeId !== recipeId; });
-      if (_data.pendingPractices.length !== before) this.save();
-    },
-
-    // ── Recettes ────────────────────────────────
-    isRecipeDone: function(id) { return _data.completedRecipes.indexOf(id) >= 0; },
-
-    completeRecipe: function(id) {
-      if (!this.isRecipeDone(id)) {
-        _data.completedRecipes.push(id);
-        _data.xp += 30;
-      }
-      if (!_data.completedRecipeDates) _data.completedRecipeDates = {};
-      _data.completedRecipeDates[id] = _today();
-      this.clearPendingPracticesForRecipe(id);
-      this.markActive();
-      this.save();
-    },
-
-    getRecipeCompletionDate: function(id) {
-      return (_data.completedRecipeDates || {})[id] || null;
-    },
-
-    getCompletedRecipeDates: function() {
-      return Object.assign({}, _data.completedRecipeDates || {});
-    },
-
-    getWeeklyRecipePlan: function() {
-      return _data.weeklyRecipePlan || null;
-    },
-
-    setWeeklyRecipePlan: function(plan) {
-      _data.weeklyRecipePlan = plan && typeof plan === 'object' ? Object.assign({}, plan) : null;
-      this.save();
-    },
-
-    // ── Notes recettes ──────────────────────────
-    getRecipeNote: function(id) { return _data.recipeNotes[id] || null; },
-
-    setRecipeNote: function(id, entry) {
-      var isNew = !_data.recipeNotes[id];
-      _data.recipeNotes[id] = Object.assign({}, entry, { date: _today() });
-      if (isNew) _data.xp += 10;
-      return this.save();
-    },
-
-    recordRecipeAttempt: function(id, attempt) {
-      attempt = attempt && typeof attempt === 'object' ? attempt : {};
-      if (!_data.recipeAttempts) _data.recipeAttempts = {};
-      if (!_data.skillProgress) _data.skillProgress = {};
-      if (!_data.recipeAttempts[id]) _data.recipeAttempts[id] = [];
-
-      var entry = {
-        date: _today(),
-        result: ['success', 'partial', 'fail'].indexOf(attempt.result) >= 0 ? attempt.result : 'partial',
-        issues: _unique(attempt.issues),
-        skills: _unique(attempt.skills),
-        lessonId: typeof attempt.lessonId === 'string' ? attempt.lessonId : null,
-        note: typeof attempt.note === 'string' ? attempt.note : '',
-        rating: Math.max(0, _cleanNumber(attempt.rating, 0))
-      };
-
-      _data.recipeAttempts[id].push(entry);
-      entry.skills.forEach(function(skill) {
-        if (!_data.skillProgress[skill]) {
-          _data.skillProgress[skill] = { attempts: 0, successfulAttempts: 0, practicesDone: [], issues: {}, lastPracticeDate: null, mastery: 0 };
-        }
-        var sp = _data.skillProgress[skill];
-        sp.attempts = Math.max(0, _cleanNumber(sp.attempts, 0)) + 1;
-        if (entry.result === 'success') sp.successfulAttempts = Math.max(0, _cleanNumber(sp.successfulAttempts, 0)) + 1;
-        sp.practicesDone = _unique((sp.practicesDone || []).concat([id]));
-        sp.lastPracticeDate = entry.date;
-        if (!sp.issues || typeof sp.issues !== 'object') sp.issues = {};
-        entry.issues.forEach(function(issue) { sp.issues[issue] = Math.max(0, _cleanNumber(sp.issues[issue], 0)) + 1; });
-        var variety = sp.practicesDone.length;
-        var success = Math.max(0, _cleanNumber(sp.successfulAttempts, 0));
-        var attempts = Math.max(1, _cleanNumber(sp.attempts, 1));
-        var ratio = success / attempts;
-        sp.mastery = Math.max(0, Math.min(4, Math.floor(Math.min(variety, 4) * ratio + (success >= 2 ? 1 : 0))));
-      });
-      _data.xp += entry.result === 'success' ? 20 : 10;
-      this.markActive();
-      this.save();
-      return entry;
-    },
-
-    getRecipeAttempts: function(id) {
-      if (!id) return Object.assign({}, _data.recipeAttempts || {});
-      return (_data.recipeAttempts && _data.recipeAttempts[id]) ? _data.recipeAttempts[id].slice() : [];
-    },
-
-    getSkillProgress: function() {
-      return Object.assign({}, _data.skillProgress || {});
-    },
-
-    // ── Stats ────────────────────────────────────
-    getStats: function() {
-      var noteCount = Object.keys(_data.recipeNotes).length;
-      return {
-        xp:            _data.xp,
-        streak:        _data.streak,
-        lessonsCount:  _data.completedLessons.length,
-        recipesCount:  _data.completedRecipes.length,
-        notesCount:    noteCount,
-        practicesCount: (_data.pendingPractices || []).length,
-        practiceFrequency: _data.practiceFrequency || 'weekly',
-        attemptsCount: Object.keys(_data.recipeAttempts || {}).reduce(function(sum, id) { return sum + ((_data.recipeAttempts[id] || []).length); }, 0),
-        skillsCount: Object.keys(_data.skillProgress || {}).length,
-      };
-    },
-
-    moduleProgress: function(mod) {
-      var self = this;
-      var done = mod.lessonIds.filter(function(id) { return self.isLessonDone(id); }).length;
-      return { done: done, total: mod.lessonIds.length };
-    },
-
-    reset: function() { _data = _cloneDefaults(); this.save(); },
-  };
-})();
+Les erreurs de quiz, les bilans de recettes et les compétences peu pratiquées alimentent une section de révision courte. Les niveaux culinaires synthétisent la progression globale, sans remplacer le verrouillage progressif des leçons.

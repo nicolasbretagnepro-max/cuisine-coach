@@ -1,76 +1,125 @@
-# Mise à jour lot 1 — Chef Coach
+# Mise à jour lot 3 — Corrélation cours ↔ recettes
 
-Objectif : appliquer les premiers correctifs sans changer la logique de progression existante.
+## Objectif
 
-## Progression
+Renforcer le lien pédagogique entre les cours et les recettes sans casser la logique de progression.
 
-La logique de prérequis est conservée. Aucun déverrouillage global des modules n'a été appliqué.
-
-## Correctifs appliqués
-
-### Mode cuisine
-- Fermeture du mode cuisine vers la page recette au lieu de `history.back()`.
-- Barre de progression calculée de 1/n à 100%.
-- Minuteur empêché de passer en négatif.
-- Bouton du minuteur désactivé une fois terminé.
-- Affichage du minuteur avec `aria-live`.
-
-### Sauvegarde locale
-- `state.save()` protégé par `try/catch`.
-- Dates de streak calculées en date locale, pas en UTC.
-- Réinitialisation du streak persistée.
-- Import de sauvegarde plus robuste via `state.importData()`.
-- Compression photo plus légère : 650 px max, JPEG 0.62.
-- Message d'erreur si une photo ne peut pas être compressée ou sauvegardée.
-
-### UX / accessibilité
-- Onglet parent actif pour les vues `lesson`, `recipe` et `cooking`.
-- Focus visible global pour clavier/accessibilité.
-- Cartes recettes utilisables au clavier avec Entrée/Espace.
-- Labels accessibles sur les boutons de notation.
-- Support `prefers-reduced-motion`.
-
-### Recettes
-- Page détail recette enrichie avec :
-  - bloc « Avant de commencer » ;
-  - matériel et critères de réussite si disponibles ;
-  - déroulé complet des étapes avec action, pourquoi et erreur à éviter.
-- Recettes à 3 étapes corrigées :
-  - `salade-composee` : 5 étapes ;
-  - `soupe-legumes` : 5 étapes ;
-  - `oeufs-cocotte` : 5 étapes.
-- Doublon de titre saumon supprimé en renommant `saumon-cote-peau` en « Saumon côté peau express ».
-- Recettes orphelines reliées à des leçons :
-  - `poulet-roti` ;
-  - `salade-composee` ;
-  - `soupe-legumes` ;
-  - `boeuf-carottes` ;
-  - `oeufs-cocotte`.
-
-### PWA / GitHub Pages
-- Service worker passé en `chef-coach-v7`.
-- Installation SW plus tolérante si un asset manque.
-- Fallback offline vers `index.html` pour les navigations.
-- Manifest enrichi avec icônes `any maskable` et raccourcis Apprendre/Cuisiner.
+L'utilisateur peut maintenant enchaîner plusieurs cours sans cuisiner immédiatement. Les recettes recommandées sont stockées dans une liste **À pratiquer**, puis réutilisées plus tard avec un focus précis issu du cours d'origine.
 
 ## Fichiers modifiés
 
+- `content/data.js`
 - `js/app.js`
 - `js/state.js`
 - `app.css`
 - `sw.js`
-- `manifest.webmanifest`
-- `content/data.js`
+- `CONTENT_GUIDE.md`
+- `README_MAJ_LOT_3.md`
 
-## Tests réalisés
+## Nouveautés principales
 
-- Vérification syntaxique Node : `app.js`, `state.js`, `sw.js`, `content/data.js`.
-- Validation JSON du manifest.
-- Vérification de cohérence data :
-  - 26 modules ;
-  - 117 leçons ;
-  - 74 recettes ;
-  - 43 fiches techniques ;
-  - aucun doublon de titre ;
-  - aucune recette orpheline ;
-  - aucune recette avec moins de 4 étapes.
+### 1. Champ `practiceRecipes` dans les leçons
+
+Les leçons peuvent désormais définir des recettes de mise en pratique contextualisées :
+
+```js
+practiceRecipes: [
+  {
+    id: 'legumes-sautes-maitrises',
+    type: 'direct',
+    label: 'Exercice direct',
+    reason: 'Pourquoi cette recette applique précisément la leçon.',
+    focus: ['Point à observer pendant la recette'],
+    successCriteria: ['Critère de réussite observable']
+  }
+]
+```
+
+`linkedRecipes` reste présent pour compatibilité, mais l'interface utilise `practiceRecipes` en priorité.
+
+### 2. Liste “À pratiquer”
+
+Quand une leçon est terminée, ses pratiques recommandées sont ajoutées dans `localStorage` via :
+
+```js
+pendingPractices
+```
+
+Ces pratiques sont visibles :
+
+- sur l'accueil ;
+- dans l'onglet Cuisiner ;
+- à la fin d'une leçon.
+
+Elles peuvent être retirées manuellement.
+
+### 3. Recette ouverte en contexte de pratique
+
+Quand une recette est ouverte depuis une pratique, l'écran affiche un bandeau :
+
+- cours pratiqué ;
+- raison du choix de cette recette ;
+- points à observer ;
+- critères de réussite.
+
+Exemple d'URL interne :
+
+```text
+#recipe/legumes-sautes-maitrises/practice-maitriser-intensite-feu
+```
+
+### 4. Mode cuisine compatible
+
+Le mode cuisine conserve le contexte de pratique :
+
+```text
+#cooking/legumes-sautes-maitrises/practice-maitriser-intensite-feu
+```
+
+Quand la recette est terminée, la pratique correspondante est retirée de la liste.
+
+### 5. Contenu enrichi
+
+Toutes les leçons qui avaient déjà `linkedRecipes` reçoivent maintenant un `practiceRecipes`.
+
+Les premières leçons et les cours clés ont été enrichis manuellement, notamment :
+
+- Lire une recette comme un cuisinier ;
+- Construire un poste de travail efficace ;
+- Faire une vraie mise en place ;
+- Gérer le timing d'un plat simple ;
+- Choisir le bon ustensile ;
+- Poêle, casserole, sauteuse ;
+- Maîtriser l'intensité du feu ;
+- Travailler en sécurité ;
+- Comprendre ce que fait la chaleur ;
+- Chaleur douce, moyenne, forte ;
+- Lire les signes de cuisson ;
+- Repos et cuisson résiduelle.
+
+Les autres leçons reçoivent une version générique basée sur leurs recettes liées, à améliorer progressivement.
+
+## Logique produit retenue
+
+La recette n'est pas obligatoire après chaque cours.
+
+La logique devient :
+
+```text
+Cours terminé
+→ pratiques recommandées ajoutées
+→ possibilité de continuer les cours
+→ cuisine plus tard avec un focus clair
+```
+
+Cela conserve la progression tout en rendant les recettes plus cohérentes avec l'apprentissage.
+
+## Service worker
+
+Le cache passe à :
+
+```js
+chef-coach-v9
+```
+
+pour forcer le rafraîchissement sur GitHub Pages.

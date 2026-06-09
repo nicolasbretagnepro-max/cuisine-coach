@@ -1,20 +1,22 @@
-# Mise à jour lot 6 — Niveaux, unités et révision intelligente
+# Lot 5 — Maîtrise et débrief
 
-Objectif : donner une expérience de progression longue durée, proche d'un entraînement structuré, sans augmenter la fréquence des recettes.
+Objectif : transformer chaque recette en apprentissage mesurable.
 
-## Ajouts
+## Changements
 
-- 5 niveaux culinaires visibles : cuisiner sans stress, contrôler la cuisson, construire le goût, maîtriser les produits, devenir autonome.
-- Progression de chaque niveau calculée à partir des modules et leçons déjà terminés.
-- Section `Niveau en cours` sur l'accueil.
-- Section `Parcours de maîtrise` dans l'onglet Apprendre.
-- Section `Niveaux culinaires` dans l'onglet Moi.
-- Révisions intelligentes : quiz faibles ou anciens remontent en micro-révisions, sans pousser de recette supplémentaire.
-- Service worker mis à jour en `chef-coach-v12`.
+- Ajout d'un écran de bilan après une recette.
+- Suivi du résultat : réussi, partiel, à reprendre.
+- Suivi des problèmes rencontrés : feu, timing, assaisonnement, texture, sauce, matériel, etc.
+- Création de `recipeAttempts` pour conserver les tentatives.
+- Création de `skillProgress` pour suivre les compétences vues, comprises, pratiquées et maîtrisées.
+- L'accueil affiche le dernier diagnostic et les compétences à consolider.
+- La page “Moi” affiche la maîtrise des compétences.
+- Le service worker passe en chef-coach-v11.
 
-## Cadre conservé
+## Fichiers modifiés
 
-- Une recette de pratique par semaine.
-- Leçons libres quand l'utilisateur peut.
-- Progression verrouillée par prérequis.
-- Pas de backend ni d'hébergement payant.
+- js/app.js
+- js/state.js
+- app.css
+- sw.js
+- CONTENT_GUIDE.md
