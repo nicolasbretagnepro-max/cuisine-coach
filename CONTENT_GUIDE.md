@@ -357,17 +357,38 @@ practiceRecipes: [
 - Le champ `focus` doit guider l'observation pendant la recette.
 - Le champ `successCriteria` doit permettre de savoir si l'exercice est réussi.
 
+---
 
-## Cadence recommandée
+## Lot 4 — Cadence de pratique recommandée
 
-L'app privilégie une seule recette poussée par semaine. Les leçons peuvent être faites librement, sans obligation de cuisiner immédiatement. Quand une leçon est terminée, ses `practiceRecipes` alimentent la liste “À pratiquer”. La recette hebdomadaire est choisie prioritairement dans cette liste, puis dans la prochaine leçon disponible, puis dans les recettes non cuisinées.
+L'app ne doit pas pousser une recette tous les jours. Le rythme produit retenu est :
 
+- les leçons peuvent être faites librement quand l'utilisateur a du temps ;
+- les recettes issues des cours alimentent la liste `À pratiquer` ;
+- l'app choisit une seule `recette de la semaine` à partir de cette liste ;
+- les recettes restent facultatives et ne cassent pas la progression verrouillée.
 
-## Débriefs et maîtrise
+Quand tu ajoutes ou modifies une leçon, choisis des `practiceRecipes` utiles, mais ne les formule pas comme une obligation immédiate.
 
-Chaque recette peut être suivie d'un bilan. Le bilan doit capter : résultat, erreurs rencontrées, compétences travaillées et note pour la prochaine tentative. Ces données alimentent la progression par compétence : vu, compris, pratiqué, maîtrisé.
+## Lot 5 — Bilan après recette et maîtrise
 
+Après une recette, le bilan doit permettre de transformer l'expérience réelle en progression :
 
-## Révision intelligente et niveaux
+- résultat réel : réussi, partiel, à retravailler ;
+- problèmes rencontrés : trop cuit, trop sec, fade, mauvais timing, etc. ;
+- note libre pour retenir la cause probable ;
+- compétences travaillées, dérivées des `skills` de la recette.
 
-Les erreurs de quiz, les bilans de recettes et les compétences peu pratiquées alimentent une section de révision courte. Les niveaux culinaires synthétisent la progression globale, sans remplacer le verrouillage progressif des leçons.
+Les recettes doivent donc avoir des `skills` utiles et stables. Évite les tags trop dispersés.
+
+## Lot 6 — Niveaux de maîtrise
+
+L'expérience longue durée est structurée en 5 niveaux :
+
+1. Je cuisine sans stress ;
+2. Je contrôle la cuisson ;
+3. Je construis le goût ;
+4. Je maîtrise les produits ;
+5. Je deviens autonome.
+
+Les niveaux ne remplacent pas les modules et ne déverrouillent rien. Ils offrent une lecture plus motivante de la progression existante.
