@@ -1,17 +1,15 @@
-# Lot 5 — Maîtrise et débrief
+# Lot 6 — Révision intelligente et niveaux
 
-Objectif : transformer chaque recette en apprentissage mesurable.
+Objectif : donner une expérience de progression longue durée, proche d'un coach.
 
 ## Changements
 
-- Ajout d'un écran de bilan après une recette.
-- Suivi du résultat : réussi, partiel, à reprendre.
-- Suivi des problèmes rencontrés : feu, timing, assaisonnement, texture, sauce, matériel, etc.
-- Création de `recipeAttempts` pour conserver les tentatives.
-- Création de `skillProgress` pour suivre les compétences vues, comprises, pratiquées et maîtrisées.
-- L'accueil affiche le dernier diagnostic et les compétences à consolider.
-- La page “Moi” affiche la maîtrise des compétences.
-- Le service worker passe en chef-coach-v11.
+- Ajout de niveaux culinaires 1 à 5.
+- Affichage du niveau sur l'accueil, Apprendre et Moi.
+- Ajout de révisions intelligentes issues des quiz faibles, des bilans de recettes et des compétences peu maîtrisées.
+- Possibilité de marquer une carte de révision comme revue pour la semaine.
+- Les niveaux ne remplacent pas la logique de prérequis : ils donnent une lecture globale de la progression.
+- Le service worker passe en chef-coach-v12.
 
 ## Fichiers modifiés
 

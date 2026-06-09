@@ -1,16 +1,17 @@
-# Lot 4 — Cadence hebdomadaire
+# Lot 5 — Maîtrise et débrief
 
-Objectif : adapter l'app à un rythme réaliste.
+Objectif : transformer chaque recette en apprentissage mesurable.
 
 ## Changements
 
-- L'accueil pousse désormais une seule recette principale par semaine.
-- Les leçons restent libres : l'utilisateur peut les faire quand il peut.
-- Les pratiques issues des cours alimentent une réserve “À pratiquer”.
-- La recette hebdomadaire est choisie dans cet ordre : pratiques en attente, prochaine leçon disponible, recette simple non cuisinée.
-- L'onglet Cuisiner affiche la recette poussée cette semaine, puis les filtres pour explorer autre chose.
-- La page recette affiche un bandeau “Recette de la semaine” quand la recette correspond au plan hebdomadaire.
-- Le service worker passe en chef-coach-v10.
+- Ajout d'un écran de bilan après une recette.
+- Suivi du résultat : réussi, partiel, à reprendre.
+- Suivi des problèmes rencontrés : feu, timing, assaisonnement, texture, sauce, matériel, etc.
+- Création de `recipeAttempts` pour conserver les tentatives.
+- Création de `skillProgress` pour suivre les compétences vues, comprises, pratiquées et maîtrisées.
+- L'accueil affiche le dernier diagnostic et les compétences à consolider.
+- La page “Moi” affiche la maîtrise des compétences.
+- Le service worker passe en chef-coach-v11.
 
 ## Fichiers modifiés
 

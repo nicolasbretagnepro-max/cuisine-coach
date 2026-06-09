@@ -1,41 +1,76 @@
-# Correctif affichage — Chef Coach
+# Mise à jour lot 1 — Chef Coach
 
-Ce lot corrige le démarrage de la web app après vidage du cache.
+Objectif : appliquer les premiers correctifs sans changer la logique de progression existante.
 
-## Cause probable
+## Progression
 
-Le fichier `js/state.js` joint au diagnostic était sur une seule ligne et commençait par un commentaire JavaScript. Dans ce format, tout le fichier est interprété comme un commentaire : la variable `state` n’est jamais créée, puis `js/app.js` plante au chargement.
+La logique de prérequis est conservée. Aucun déverrouillage global des modules n'a été appliqué.
 
-## Corrections incluses
+## Correctifs appliqués
 
-- `js/state.js` remis avec des retours à la ligne normaux.
-- `state` est déclaré en `var` et exposé sur `window.state` pour plus de robustesse.
-- `js/app.js` vérifie maintenant que `state`, `MODULES`, `LESSONS`, `RECIPES` et `TECHNIQUES` existent avant de démarrer.
-- Un écran d’erreur minimal s’affiche si un fichier critique manque ou est mal chargé, au lieu d’une page blanche.
-- Les commentaires `//` ont été supprimés des fichiers JavaScript principaux pour éviter qu’un collage accidentel sur une seule ligne commente tout le fichier.
-- Le service worker passe en `chef-coach-v13` pour forcer le rafraîchissement du cache.
+### Mode cuisine
+- Fermeture du mode cuisine vers la page recette au lieu de `history.back()`.
+- Barre de progression calculée de 1/n à 100%.
+- Minuteur empêché de passer en négatif.
+- Bouton du minuteur désactivé une fois terminé.
+- Affichage du minuteur avec `aria-live`.
 
-## Fichiers à remplacer
+### Sauvegarde locale
+- `state.save()` protégé par `try/catch`.
+- Dates de streak calculées en date locale, pas en UTC.
+- Réinitialisation du streak persistée.
+- Import de sauvegarde plus robuste via `state.importData()`.
+- Compression photo plus légère : 650 px max, JPEG 0.62.
+- Message d'erreur si une photo ne peut pas être compressée ou sauvegardée.
 
-Remplace tout le projet avec le contenu de ce zip, ou au minimum :
+### UX / accessibilité
+- Onglet parent actif pour les vues `lesson`, `recipe` et `cooking`.
+- Focus visible global pour clavier/accessibilité.
+- Cartes recettes utilisables au clavier avec Entrée/Espace.
+- Labels accessibles sur les boutons de notation.
+- Support `prefers-reduced-motion`.
 
-```text
-index.html
-app.css
-manifest.webmanifest
-sw.js
-CONTENT_GUIDE.md
-content/data.js
-js/state.js
-js/app.js
-assets/icon-192.png
-assets/icon-512.png
-assets/icon.svg
-```
+### Recettes
+- Page détail recette enrichie avec :
+  - bloc « Avant de commencer » ;
+  - matériel et critères de réussite si disponibles ;
+  - déroulé complet des étapes avec action, pourquoi et erreur à éviter.
+- Recettes à 3 étapes corrigées :
+  - `salade-composee` : 5 étapes ;
+  - `soupe-legumes` : 5 étapes ;
+  - `oeufs-cocotte` : 5 étapes.
+- Doublon de titre saumon supprimé en renommant `saumon-cote-peau` en « Saumon côté peau express ».
+- Recettes orphelines reliées à des leçons :
+  - `poulet-roti` ;
+  - `salade-composee` ;
+  - `soupe-legumes` ;
+  - `boeuf-carottes` ;
+  - `oeufs-cocotte`.
 
-## Après déploiement GitHub Pages
+### PWA / GitHub Pages
+- Service worker passé en `chef-coach-v7`.
+- Installation SW plus tolérante si un asset manque.
+- Fallback offline vers `index.html` pour les navigations.
+- Manifest enrichi avec icônes `any maskable` et raccourcis Apprendre/Cuisiner.
 
-1. Ouvre l’URL dans Safari.
-2. Recharge la page.
-3. Si l’app était installée sur l’écran d’accueil, supprime l’ancienne icône puis réinstalle-la.
-4. Vérifie dans `sw.js` que le cache est bien `chef-coach-v13`.
+## Fichiers modifiés
+
+- `js/app.js`
+- `js/state.js`
+- `app.css`
+- `sw.js`
+- `manifest.webmanifest`
+- `content/data.js`
+
+## Tests réalisés
+
+- Vérification syntaxique Node : `app.js`, `state.js`, `sw.js`, `content/data.js`.
+- Validation JSON du manifest.
+- Vérification de cohérence data :
+  - 26 modules ;
+  - 117 leçons ;
+  - 74 recettes ;
+  - 43 fiches techniques ;
+  - aucun doublon de titre ;
+  - aucune recette orpheline ;
+  - aucune recette avec moins de 4 étapes.

@@ -1,97 +1,125 @@
-# Mise à jour — Lot 2
-
-Date : 2026-06-09
+# Mise à jour lot 3 — Corrélation cours ↔ recettes
 
 ## Objectif
 
-Ce lot ajoute les priorités demandées :
+Renforcer le lien pédagogique entre les cours et les recettes sans casser la logique de progression.
 
-1. page d'accueil avec un vrai bloc **Aujourd'hui** ;
-2. amélioration de la page recette avant le mode cuisine ;
-3. section **Que cuisiner aujourd'hui ?** dans l'onglet Cuisiner.
-
-La logique de progression est conservée. Les prérequis et le verrouillage des leçons ne sont pas supprimés.
+L'utilisateur peut maintenant enchaîner plusieurs cours sans cuisiner immédiatement. Les recettes recommandées sont stockées dans une liste **À pratiquer**, puis réutilisées plus tard avec un focus précis issu du cours d'origine.
 
 ## Fichiers modifiés
 
+- `content/data.js`
 - `js/app.js`
+- `js/state.js`
 - `app.css`
 - `sw.js`
 - `CONTENT_GUIDE.md`
+- `README_MAJ_LOT_3.md`
 
-Les autres fichiers sont fournis dans le zip pour faciliter le remplacement complet du projet, mais n'ont pas tous été modifiés dans ce lot.
+## Nouveautés principales
 
-## Nouveautés
+### 1. Champ `practiceRecipes` dans les leçons
 
-### 1. Bloc Aujourd'hui sur l'accueil
-
-Ajout d'un bloc qui propose :
-
-- une révision si un quiz précédent n'a pas été réussi à 100 % ;
-- la prochaine leçon disponible dans le parcours actuel ;
-- une recette liée à cette leçon si possible ;
-- un indicateur d'objectif hebdomadaire.
-
-La recommandation respecte les leçons verrouillées : l'app ne propose pas de leçon non disponible.
-
-### 2. Page recette renforcée
-
-La page recette affiche maintenant davantage d'informations avant de lancer le mode cuisine :
-
-- temps total réel ;
-- niveau ;
-- matériel estimé ou renseigné ;
-- critères de réussite ;
-- points critiques ;
-- bloc de rattrapage "Si ça se passe mal" quand il peut être déduit.
-
-Les champs optionnels suivants sont pris en charge dans `content/data.js` :
+Les leçons peuvent désormais définir des recettes de mise en pratique contextualisées :
 
 ```js
-equipment: ['Poêle', 'Spatule'],
-successCriteria: ['Surface dorée', 'Texture moelleuse'],
-criticalPoints: ['Ne pas surcharger la poêle'],
-fixes: [
-  { problem: 'Trop liquide', solution: 'Réduire quelques minutes sans couvercle.' }
+practiceRecipes: [
+  {
+    id: 'legumes-sautes-maitrises',
+    type: 'direct',
+    label: 'Exercice direct',
+    reason: 'Pourquoi cette recette applique précisément la leçon.',
+    focus: ['Point à observer pendant la recette'],
+    successCriteria: ['Critère de réussite observable']
+  }
 ]
 ```
 
-Si ces champs ne sont pas présents, l'app déduit des informations utiles à partir de la famille, du titre, des objectifs, des compétences et des étapes.
+`linkedRecipes` reste présent pour compatibilité, mais l'interface utilise `practiceRecipes` en priorité.
 
-### 3. Section Que cuisiner aujourd'hui ?
+### 2. Liste “À pratiquer”
 
-Ajout d'un panneau de choix rapide dans l'onglet Cuisiner :
+Quand une leçon est terminée, ses pratiques recommandées sont ajoutées dans `localStorage` via :
 
-- Tout ;
-- 15 min ;
-- 30 min ;
-- Technique ;
-- Repas complet ;
-- Restes ;
-- Très facile.
+```js
+pendingPractices
+```
 
-Ces filtres se combinent avec les filtres existants : famille, niveau, temps, compétence, ingrédient et recherche texte.
+Ces pratiques sont visibles :
 
-## PWA / cache
+- sur l'accueil ;
+- dans l'onglet Cuisiner ;
+- à la fin d'une leçon.
 
-Le service worker passe de `chef-coach-v7` à `chef-coach-v8` pour forcer la mise à jour du cache après déploiement GitHub Pages.
+Elles peuvent être retirées manuellement.
 
-## Tests réalisés
+### 3. Recette ouverte en contexte de pratique
 
-- Vérification syntaxique de `js/app.js`, `js/state.js`, `content/data.js` et `sw.js` avec Node.
-- Vérification de cohérence du contenu :
-  - 26 modules ;
-  - 117 leçons ;
-  - 74 recettes ;
-  - 43 fiches techniques ;
-  - aucun doublon de titre de recette ;
-  - aucune recette avec moins de 4 étapes ;
-  - aucun lien de recette manquant dans les leçons.
+Quand une recette est ouverte depuis une pratique, l'écran affiche un bandeau :
 
-## Tests recommandés après intégration
+- cours pratiqué ;
+- raison du choix de cette recette ;
+- points à observer ;
+- critères de réussite.
 
-1. Ouvrir GitHub Pages en navigation privée pour vérifier le nouveau cache.
-2. Tester l'accueil : le bloc Aujourd'hui doit proposer une leçon disponible.
-3. Tester Cuisiner > filtres rapides : 15 min, 30 min, Technique, Très facile.
-4. Ouvrir une recette et vérifier les blocs Avant de commencer, Déroulé complet et Si ça se passe mal.
-5. Tester sur iPhone installé sur l'écran d'accueil.
+Exemple d'URL interne :
+
+```text
+#recipe/legumes-sautes-maitrises/practice-maitriser-intensite-feu
+```
+
+### 4. Mode cuisine compatible
+
+Le mode cuisine conserve le contexte de pratique :
+
+```text
+#cooking/legumes-sautes-maitrises/practice-maitriser-intensite-feu
+```
+
+Quand la recette est terminée, la pratique correspondante est retirée de la liste.
+
+### 5. Contenu enrichi
+
+Toutes les leçons qui avaient déjà `linkedRecipes` reçoivent maintenant un `practiceRecipes`.
+
+Les premières leçons et les cours clés ont été enrichis manuellement, notamment :
+
+- Lire une recette comme un cuisinier ;
+- Construire un poste de travail efficace ;
+- Faire une vraie mise en place ;
+- Gérer le timing d'un plat simple ;
+- Choisir le bon ustensile ;
+- Poêle, casserole, sauteuse ;
+- Maîtriser l'intensité du feu ;
+- Travailler en sécurité ;
+- Comprendre ce que fait la chaleur ;
+- Chaleur douce, moyenne, forte ;
+- Lire les signes de cuisson ;
+- Repos et cuisson résiduelle.
+
+Les autres leçons reçoivent une version générique basée sur leurs recettes liées, à améliorer progressivement.
+
+## Logique produit retenue
+
+La recette n'est pas obligatoire après chaque cours.
+
+La logique devient :
+
+```text
+Cours terminé
+→ pratiques recommandées ajoutées
+→ possibilité de continuer les cours
+→ cuisine plus tard avec un focus clair
+```
+
+Cela conserve la progression tout en rendant les recettes plus cohérentes avec l'apprentissage.
+
+## Service worker
+
+Le cache passe à :
+
+```js
+chef-coach-v9
+```
+
+pour forcer le rafraîchissement sur GitHub Pages.
