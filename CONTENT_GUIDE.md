@@ -137,6 +137,22 @@ Une recette = support pratique pour mettre en application les leçons.
   // qty et unit peuvent être vides (string vide '')
   // note est optionnel (string vide '' ou précision)
 
+  equipment: ['Plat à four', 'Ficelle', 'Pince'], // OPTIONNEL — matériel utile avant de commencer
+
+  successCriteria: [            // OPTIONNEL — comment savoir que c'est réussi
+    'Peau dorée et croustillante',
+    'Jus clair à la jointure',
+  ],
+
+  criticalPoints: [             // OPTIONNEL — les points qui font rater la recette
+    'Ne pas enfourner une volaille froide',
+    'Laisser reposer avant découpe',
+  ],
+
+  fixes: [                      // OPTIONNEL — rattrapages simples
+    { problem: 'Peau peu dorée', solution: 'Terminer 5 minutes plus chaud en surveillant.' },
+  ],
+
   steps: [                    // 4 à 8 étapes
     {
       id: 1,                  // numéro séquentiel commençant à 1
@@ -194,6 +210,7 @@ Une recette = support pratique pour mettre en application les leçons.
 ### Pour une recette :
 - [ ] `family` est une valeur autorisée
 - [ ] 4-8 étapes, chacune avec `action` + `why` + `mistake`
+- [ ] Si possible : `equipment`, `successCriteria`, `criticalPoints` et `fixes` pour rendre la recette plus fiable en cuisine réelle
 - [ ] `linkedRecipes` dans les leçons correspondantes pointent vers cette recette
 - [ ] L'`id` est unique dans RECIPES
 

@@ -1,7 +1,7 @@
 // Service Worker — Chef Coach
 // Cache statique compatible GitHub Pages + fallback hors-ligne.
 
-const CACHE = 'chef-coach-v7';
+const CACHE = 'chef-coach-v8';
 const ASSETS = [
   './',
   './index.html',
