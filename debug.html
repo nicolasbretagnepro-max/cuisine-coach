@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnostic Chef Coach</title>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#faf8f5;color:#1a1a2e;margin:0;padding:20px;line-height:1.45}
+    main{max-width:760px;margin:24px auto;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:24px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    h1{margin:0 0 8px;font-size:24px}.ok{color:#15803d}.bad{color:#dc2626}.muted{color:#666}.row{padding:10px 0;border-bottom:1px solid #eee}code{background:#f3f0eb;padding:2px 5px;border-radius:6px}a{color:#c44d00;font-weight:700}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Diagnostic Chef Coach</h1>
+  <p class="muted">Cette page vérifie que les fichiers séparés sont bien servis par GitHub Pages.</p>
+  <div id="results"></div>
+  <p><a href="reset.html">Vider le cache</a> · <a href="./">Ouvrir l’app</a></p>
+</main>
+<script>
+const files = ['index.html','app.css','content/data.js','js/state.js','js/app.js','sw.js','manifest.webmanifest'];
+const results = document.getElementById('results');
+async function check(file){
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = '<strong>'+file+'</strong> — vérification…';
+  results.appendChild(row);
+  try{
+    const res = await fetch(file + '?debug=' + Date.now(), {cache:'no-store'});
+    const text = await res.text();
+    let ok = res.ok && text.length > 0;
+    let detail = res.status + ' · ' + text.length + ' caractères';
+    if(file==='index.html' && !text.trim().startsWith('<!doctype html>')) { ok=false; detail += ' · index invalide'; }
+    if(file==='app.css' && !text.includes('CHEF COACH')) { ok=false; detail += ' · CSS suspect'; }
+    if(file==='content/data.js' && !text.includes('var MODULES') && !text.includes('var LESSONS')) { ok=false; detail += ' · données absentes'; }
+    if(file==='js/state.js' && !text.includes('var state')) { ok=false; detail += ' · state absent'; }
+    if(file==='js/app.js' && !text.includes('renderBootError')) { ok=false; detail += ' · app suspecte'; }
+    row.innerHTML = '<strong>'+file+'</strong> — <span class="'+(ok?'ok':'bad')+'">'+(ok?'OK':'Problème')+'</span><br><span class="muted">'+detail+'</span>';
+  }catch(e){
+    row.innerHTML = '<strong>'+file+'</strong> — <span class="bad">Erreur</span><br><span class="muted">'+e.message+'</span>';
+  }
+}
+files.reduce((p,f)=>p.then(()=>check(f)), Promise.resolve());
+</script>
+</body>
+</html>

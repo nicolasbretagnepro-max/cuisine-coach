@@ -1,9 +1,9 @@
-// =============================================================================
-//   CONTENT/DATA.JS - Chef Coach
-//
-//   Contenu pedagogique integre depuis les documents fournis.
-//   L'app lit directement ces quatre variables globales.
-// =============================================================================
+
+
+
+
+
+
 
 var MODULES = [
   {
@@ -447,7 +447,39 @@ var LESSONS = [
       "omelette-herbes-organisee",
       "pates-sauce-minute"
     ],
-    "prerequisites": []
+    "prerequisites": [],
+    "practiceRecipes": [
+      {
+        "id": "omelette-herbes-organisee",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette oblige à lire le déroulé avant de commencer : les œufs cuisent vite et ne laissent pas le temps de chercher un ingrédient.",
+        "focus": [
+          "Repérer les étapes rapides avant cuisson",
+          "Préparer les herbes, les œufs et l’assiette avant d’allumer le feu",
+          "Servir au bon moment sans improviser dans l’urgence"
+        ],
+        "successCriteria": [
+          "Tu n’as pas découvert une étape pendant la cuisson",
+          "L’omelette arrive chaude et souple dans l’assiette"
+        ]
+      },
+      {
+        "id": "pates-sauce-minute",
+        "type": "synthesis",
+        "label": "Recette de timing",
+        "reason": "Les pâtes sont un bon test de lecture : sauce, eau de cuisson et égouttage doivent être anticipés.",
+        "focus": [
+          "Repérer le moment où lancer la sauce",
+          "Préparer la finition avant d’égoutter",
+          "Garder un peu d’eau de cuisson"
+        ],
+        "successCriteria": [
+          "La sauce est prête quand les pâtes sortent",
+          "Les pâtes ne restent pas seules dans la passoire"
+        ]
+      }
+    ]
   },
   {
     "id": "poste-travail-efficace",
@@ -538,6 +570,37 @@ var LESSONS = [
     "linkedRecipes": [
       "salade-composee-methode",
       "omelette-herbes-organisee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "salade-composee-methode",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "La salade permet de travailler les zones propres, les éléments lavés, les découpes et l’assaisonnement final sans pression de cuisson.",
+        "focus": [
+          "Séparer lavage, découpe et assemblage",
+          "Garder un plan lisible",
+          "Assaisonner seulement au dernier moment"
+        ],
+        "successCriteria": [
+          "La salade n’est pas détrempée",
+          "Les éléments sont prêts sans encombrer le poste"
+        ]
+      },
+      {
+        "id": "omelette-herbes-organisee",
+        "type": "contrast",
+        "label": "Exercice sous contrainte",
+        "reason": "L’omelette vérifie que ton poste est prêt avant une cuisson rapide.",
+        "focus": [
+          "Sortir poêle, spatule, assiette et garniture avant cuisson",
+          "Éviter les allers-retours pendant que les œufs prennent"
+        ],
+        "successCriteria": [
+          "Tu restes devant la poêle pendant la cuisson",
+          "Rien ne manque au moment de servir"
+        ]
+      }
     ]
   },
   {
@@ -629,6 +692,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pates-sauce-minute",
       "salade-composee-methode"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pates-sauce-minute",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette teste la mise en place utile : tout n’a pas besoin d’être prêt trop tôt, mais les éléments rapides doivent l’être avant les pâtes.",
+        "focus": [
+          "Préparer les ingrédients qui entrent ensemble",
+          "Mesurer ce qui doit être ajouté vite",
+          "Utiliser le temps de cuisson pour finir la sauce"
+        ],
+        "successCriteria": [
+          "La sauce et les pâtes se rejoignent au bon moment",
+          "Aucun ingrédient essentiel n’est cherché pendant une étape chaude"
+        ]
+      },
+      {
+        "id": "salade-composee-methode",
+        "type": "contrast",
+        "label": "Exercice fraîcheur",
+        "reason": "La salade montre qu’une bonne mise en place ne signifie pas tout couper trop tôt.",
+        "focus": [
+          "Préparer les éléments stables à l’avance",
+          "Garder les éléments fragiles pour la fin",
+          "Assaisonner juste avant de servir"
+        ],
+        "successCriteria": [
+          "Les herbes restent fraîches",
+          "La salade garde du volume"
+        ]
+      }
     ]
   },
   {
@@ -720,6 +815,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pates-sauce-minute",
       "omelette-herbes-organisee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pates-sauce-minute",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Les pâtes sont un excellent exercice de synchronisation : elles attendent mal et obligent à finir sauce et cuisson ensemble.",
+        "focus": [
+          "Commencer par l’élément le plus long",
+          "Finir la sauce avant l’égouttage",
+          "Prévoir le dressage"
+        ],
+        "successCriteria": [
+          "Les pâtes arrivent chaudes et liées",
+          "La sauce n’attend pas trop longtemps"
+        ]
+      },
+      {
+        "id": "omelette-herbes-organisee",
+        "type": "contrast",
+        "label": "Exercice minute",
+        "reason": "L’omelette entraîne le service immédiat et la gestion d’un élément fragile.",
+        "focus": [
+          "Préparer l’assiette avant cuisson",
+          "Cuire au dernier moment",
+          "Servir sans délai"
+        ],
+        "successCriteria": [
+          "Texture souple",
+          "Assiette prête avant la fin de cuisson"
+        ]
+      }
     ]
   },
   {
@@ -811,6 +938,38 @@ var LESSONS = [
     ],
     "prerequisites": [
       "timing-plat-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette montre immédiatement l’effet d’une poêle trop petite ou trop chargée : les légumes bouillent au lieu de dorer.",
+        "focus": [
+          "Choisir une poêle assez large",
+          "Cuire en une couche ou en deux fois",
+          "Utiliser le bon outil pour remuer sans écraser"
+        ],
+        "successCriteria": [
+          "Les légumes dorent au lieu de rendre de l’eau",
+          "La poêle n’est pas surchargée"
+        ]
+      },
+      {
+        "id": "soupe-legumes-methode",
+        "type": "contrast",
+        "label": "Exercice de contenant",
+        "reason": "La soupe montre l’usage inverse : une casserole ou une cocotte haute et stable pour cuire dans le liquide.",
+        "focus": [
+          "Choisir un contenant adapté au volume",
+          "Garder assez de liquide",
+          "Mixer sans danger"
+        ],
+        "successCriteria": [
+          "Les légumes sont immergés correctement",
+          "La texture est homogène après mixage"
+        ]
+      }
     ]
   },
   {
@@ -902,6 +1061,38 @@ var LESSONS = [
     "linkedRecipes": [
       "legumes-sautes-maitrises",
       "poulet-creme-moutarde-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "C’est l’exercice le plus lisible pour comprendre la poêle : surface, évaporation et coloration.",
+        "focus": [
+          "Utiliser la surface de la poêle",
+          "Éviter la vapeur par surcharge",
+          "Observer la coloration"
+        ],
+        "successCriteria": [
+          "Les légumes sont colorés et non bouillis",
+          "L’humidité ne stagne pas dans la poêle"
+        ]
+      },
+      {
+        "id": "poulet-creme-moutarde-simple",
+        "type": "synthesis",
+        "label": "Recette de transition",
+        "reason": "Cette recette montre l’intérêt d’un contenant qui peut colorer puis accueillir une sauce.",
+        "focus": [
+          "Colorer le poulet",
+          "Déglacer ou ajouter la crème sans changer de logique",
+          "Finir à feu plus doux"
+        ],
+        "successCriteria": [
+          "Le poulet est doré puis nappé",
+          "La sauce ne brûle pas au fond"
+        ]
+      }
     ]
   },
   {
@@ -993,6 +1184,56 @@ var LESSONS = [
     "linkedRecipes": [
       "legumes-sautes-maitrises",
       "omelette-herbes-organisee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "C’est la meilleure recette pour voir immédiatement l’effet du feu fort, de l’humidité et de la baisse du feu.",
+        "focus": [
+          "Démarrer avec une poêle assez chaude",
+          "Ne pas surcharger la poêle",
+          "Écouter le grésillement",
+          "Baisser le feu quand la coloration démarre",
+          "Éviter que l’ail ou les sucs brûlent"
+        ],
+        "successCriteria": [
+          "Les légumes sont dorés, pas bouillis",
+          "Ils restent légèrement croquants",
+          "Aucune odeur de brûlé"
+        ]
+      },
+      {
+        "id": "omelette-herbes-organisee",
+        "type": "contrast",
+        "label": "Exercice de contraste",
+        "reason": "Cette recette montre l’autre versant du cours : le feu doux pour garder le contrôle.",
+        "focus": [
+          "Cuire sans brutaliser",
+          "Retirer du feu avant surcuisson",
+          "Chercher une texture souple"
+        ],
+        "successCriteria": [
+          "L’omelette reste moelleuse",
+          "Les œufs ne brunissent pas"
+        ]
+      },
+      {
+        "id": "poulet-creme-moutarde-simple",
+        "type": "synthesis",
+        "label": "Recette de consolidation",
+        "reason": "Cette recette réutilise le principe complet : saisir, baisser, puis cuire et lier sans agresser la sauce.",
+        "focus": [
+          "Feu fort bref pour colorer",
+          "Feu moyen pour finir à cœur",
+          "Feu modéré pour la crème"
+        ],
+        "successCriteria": [
+          "Poulet doré mais non sec",
+          "Sauce nappante, non tranchée"
+        ]
+      }
     ]
   },
   {
@@ -1084,6 +1325,38 @@ var LESSONS = [
     "linkedRecipes": [
       "legumes-sautes-maitrises",
       "poulet-creme-moutarde-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet de travailler les réflexes de sécurité autour du couteau, de la poêle chaude et des projections.",
+        "focus": [
+          "Sécher les légumes avant poêle chaude",
+          "Garder le manche orienté vers l’intérieur",
+          "Ne pas chercher un ustensile pendant la cuisson"
+        ],
+        "successCriteria": [
+          "Aucune projection excessive",
+          "Le poste reste stable et lisible"
+        ]
+      },
+      {
+        "id": "poulet-creme-moutarde-simple",
+        "type": "synthesis",
+        "label": "Exercice hygiène",
+        "reason": "Le poulet permet de travailler la séparation cru/cuit et le nettoyage du poste.",
+        "focus": [
+          "Séparer volaille crue et éléments prêts",
+          "Nettoyer la planche après cru",
+          "Cuire sans précipitation"
+        ],
+        "successCriteria": [
+          "Aucun contact cru/cuit",
+          "Le poste reste propre pendant la cuisson"
+        ]
+      }
     ]
   },
   {
@@ -1175,6 +1448,38 @@ var LESSONS = [
     ],
     "prerequisites": [
       "securite-cuisine"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "soupe-legumes-methode",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Tenir un couteau et protéger ses doigts » dans une situation concrète.",
+        "focus": [
+          "Tenir le couteau avec une prise stable et précise",
+          "Utiliser la griffe pour protéger les doigts",
+          "Stabiliser les aliments avant de couper"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Tenir un couteau et protéger ses doigts ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "salade-composee-methode",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Tenir un couteau et protéger ses doigts » avec un angle différent.",
+        "focus": [
+          "Tenir le couteau avec une prise stable et précise",
+          "Utiliser la griffe pour protéger les doigts",
+          "Stabiliser les aliments avant de couper"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Tenir un couteau et protéger ses doigts ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -1266,6 +1571,38 @@ var LESSONS = [
     "linkedRecipes": [
       "salade-composee-methode",
       "soupe-legumes-methode"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "salade-composee-methode",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Émincer, ciseler, hacher » dans une situation concrète.",
+        "focus": [
+          "Différencier émincer, ciseler et hacher",
+          "Adapter la coupe au rôle de l’ingrédient",
+          "Préserver texture, parfum et régularité"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Émincer, ciseler, hacher ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "soupe-legumes-methode",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Émincer, ciseler, hacher » avec un angle différent.",
+        "focus": [
+          "Différencier émincer, ciseler et hacher",
+          "Adapter la coupe au rôle de l’ingrédient",
+          "Préserver texture, parfum et régularité"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Émincer, ciseler, hacher ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -1357,6 +1694,38 @@ var LESSONS = [
     "linkedRecipes": [
       "soupe-legumes-methode",
       "legumes-sautes-maitrises"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "soupe-legumes-methode",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre les tailles régulières » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi la régularité change la cuisson",
+          "Choisir une taille adaptée au temps et au plat",
+          "Éviter les mélanges de textures involontaires"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les tailles régulières ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre les tailles régulières » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi la régularité change la cuisson",
+          "Choisir une taille adaptée au temps et au plat",
+          "Éviter les mélanges de textures involontaires"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les tailles régulières ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -1448,6 +1817,38 @@ var LESSONS = [
     "linkedRecipes": [
       "legumes-sautes-maitrises",
       "salade-composee-methode"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Découper pour cuire » dans une situation concrète.",
+        "focus": [
+          "Adapter la découpe à la méthode de cuisson",
+          "Prévoir l’effet de la taille sur texture et goût",
+          "Choisir une coupe cohérente avec le service final"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Découper pour cuire ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "salade-composee-methode",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Découper pour cuire » avec un angle différent.",
+        "focus": [
+          "Adapter la découpe à la méthode de cuisson",
+          "Prévoir l’effet de la taille sur texture et goût",
+          "Choisir une coupe cohérente avec le service final"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Découper pour cuire ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -1539,6 +1940,38 @@ var LESSONS = [
     "linkedRecipes": [
       "oeufs-brouilles-cremeux",
       "poulet-moelleux-legumes-rotis"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "oeufs-brouilles-cremeux",
+        "type": "direct",
+        "label": "Exercice protéines",
+        "reason": "Les œufs rendent visible la coagulation : chaleur douce, texture qui prend, risque de sécheresse.",
+        "focus": [
+          "Observer la texture qui épaissit",
+          "Retirer du feu avant le point final",
+          "Comprendre la cuisson résiduelle"
+        ],
+        "successCriteria": [
+          "Texture crémeuse",
+          "Aucune partie sèche ou caoutchouteuse"
+        ]
+      },
+      {
+        "id": "poulet-moelleux-legumes-rotis",
+        "type": "synthesis",
+        "label": "Exercice complet",
+        "reason": "Cette recette réunit coloration, évaporation, cuisson à cœur et repos.",
+        "focus": [
+          "Faire dorer sans brûler",
+          "Cuire à cœur sans dessécher",
+          "Observer les légumes qui concentrent leur goût"
+        ],
+        "successCriteria": [
+          "Légumes rôtis, pas bouillis",
+          "Poulet moelleux"
+        ]
+      }
     ]
   },
   {
@@ -1630,6 +2063,38 @@ var LESSONS = [
     "linkedRecipes": [
       "oeufs-brouilles-cremeux",
       "poulet-moelleux-legumes-rotis"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "oeufs-brouilles-cremeux",
+        "type": "direct",
+        "label": "Exercice feu doux",
+        "reason": "Les œufs brouillés sont un exercice immédiat de chaleur douce et de retrait hors feu.",
+        "focus": [
+          "Utiliser une chaleur modérée",
+          "Remuer sans brutaliser",
+          "Sortir avant surcuisson"
+        ],
+        "successCriteria": [
+          "Œufs crémeux",
+          "Pas de coloration"
+        ]
+      },
+      {
+        "id": "poulet-moelleux-legumes-rotis",
+        "type": "contrast",
+        "label": "Exercice chaleur mixte",
+        "reason": "Cette recette travaille la différence entre chaleur forte pour colorer et chaleur plus douce pour finir.",
+        "focus": [
+          "Colorer au bon moment",
+          "Finir sans assécher",
+          "Adapter selon l’épaisseur"
+        ],
+        "successCriteria": [
+          "Surface dorée",
+          "Centre moelleux"
+        ]
+      }
     ]
   },
   {
@@ -1721,6 +2186,38 @@ var LESSONS = [
     "linkedRecipes": [
       "poisson-vapeur-citron-herbes",
       "champignons-sautes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "champignons-sautes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Les champignons sont très lisibles : bruit, eau, couleur et odeur indiquent si la cuisson fonctionne.",
+        "focus": [
+          "Écouter le grésillement",
+          "Attendre l’évaporation de l’eau",
+          "Chercher la coloration après évaporation"
+        ],
+        "successCriteria": [
+          "Champignons dorés",
+          "Pas de jus accumulé au fond"
+        ]
+      },
+      {
+        "id": "poisson-vapeur-citron-herbes",
+        "type": "contrast",
+        "label": "Exercice cuisson douce",
+        "reason": "Le poisson vapeur fait travailler les signes de cuisson sans coloration.",
+        "focus": [
+          "Observer l’opacité de la chair",
+          "Éviter la surcuisson",
+          "Utiliser la texture comme repère"
+        ],
+        "successCriteria": [
+          "Chair nacrée et humide",
+          "Poisson non sec"
+        ]
+      }
     ]
   },
   {
@@ -1812,6 +2309,38 @@ var LESSONS = [
     "linkedRecipes": [
       "oeufs-brouilles-cremeux",
       "poulet-moelleux-legumes-rotis"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "oeufs-brouilles-cremeux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Les œufs montrent immédiatement que la cuisson continue hors du feu.",
+        "focus": [
+          "Retirer avant le point parfait",
+          "Observer la texture qui continue d’évoluer",
+          "Servir sans attendre trop longtemps"
+        ],
+        "successCriteria": [
+          "Texture encore souple dans l’assiette",
+          "Pas d’œufs secs"
+        ]
+      },
+      {
+        "id": "poulet-moelleux-legumes-rotis",
+        "type": "synthesis",
+        "label": "Exercice repos",
+        "reason": "Le poulet permet de comprendre le repos et la redistribution des jus.",
+        "focus": [
+          "Laisser reposer avant découpe",
+          "Ne pas presser la viande",
+          "Utiliser le repos pour finir la garniture"
+        ],
+        "successCriteria": [
+          "Chair plus juteuse",
+          "Découpe propre"
+        ]
+      }
     ]
   },
   {
@@ -1903,6 +2432,38 @@ var LESSONS = [
     "linkedRecipes": [
       "haricots-verts-oeuf-poche",
       "pommes-terre-vapeur-herbes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "haricots-verts-oeuf-poche",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Bouillir, frémir, pocher » dans une situation concrète.",
+        "focus": [
+          "Différencier ébullition, frémissement et pochage",
+          "Adapter l’agitation du liquide à la fragilité de l’aliment",
+          "Éviter de casser, dessécher ou délaver les aliments"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Bouillir, frémir, pocher ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "pommes-terre-vapeur-herbes",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Bouillir, frémir, pocher » avec un angle différent.",
+        "focus": [
+          "Différencier ébullition, frémissement et pochage",
+          "Adapter l’agitation du liquide à la fragilité de l’aliment",
+          "Éviter de casser, dessécher ou délaver les aliments"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Bouillir, frémir, pocher ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -1993,6 +2554,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "haricots-verts-oeuf-poche"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "haricots-verts-oeuf-poche",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire les légumes à l’anglaise » dans une situation concrète.",
+        "focus": [
+          "Cuire des légumes verts dans une eau abondante et salée",
+          "Stopper la cuisson pour préserver couleur et texture",
+          "Assaisonner après cuisson sans détremper"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire les légumes à l’anglaise ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2084,6 +2662,38 @@ var LESSONS = [
     "linkedRecipes": [
       "poisson-vapeur-citron-herbes",
       "pommes-terre-vapeur-herbes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poisson-vapeur-citron-herbes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Vapeur et papillote » dans une situation concrète.",
+        "focus": [
+          "Utiliser la vapeur pour cuire doucement les aliments fragiles",
+          "Comprendre le rôle du couvercle et de l’humidité",
+          "Assaisonner une cuisson vapeur pour éviter un résultat fade"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Vapeur et papillote ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "pommes-terre-vapeur-herbes",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Vapeur et papillote » avec un angle différent.",
+        "focus": [
+          "Utiliser la vapeur pour cuire doucement les aliments fragiles",
+          "Comprendre le rôle du couvercle et de l’humidité",
+          "Assaisonner une cuisson vapeur pour éviter un résultat fade"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Vapeur et papillote ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2175,6 +2785,38 @@ var LESSONS = [
     "linkedRecipes": [
       "haricots-verts-oeuf-poche",
       "cabillaud-poche-court-bouillon"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "haricots-verts-oeuf-poche",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pocher les aliments délicats » dans une situation concrète.",
+        "focus": [
+          "Pocher dans un liquide chaud mais peu agité",
+          "Préserver la forme et l’humidité des aliments fragiles",
+          "Utiliser un liquide aromatique comme outil de goût"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pocher les aliments délicats ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "cabillaud-poche-court-bouillon",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Pocher les aliments délicats » avec un angle différent.",
+        "focus": [
+          "Pocher dans un liquide chaud mais peu agité",
+          "Préserver la forme et l’humidité des aliments fragiles",
+          "Utiliser un liquide aromatique comme outil de goût"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pocher les aliments délicats ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2266,6 +2908,38 @@ var LESSONS = [
     "linkedRecipes": [
       "steak-beurre-thym",
       "saumon-cote-peau"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-beurre-thym",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Saisir et colorer » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi la surface doit sécher avant de colorer",
+          "Maîtriser la saisie pour obtenir une croûte dorée",
+          "Éviter les erreurs qui donnent une viande grise ou une poêlée molle"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Saisir et colorer ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "saumon-cote-peau",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Saisir et colorer » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi la surface doit sécher avant de colorer",
+          "Maîtriser la saisie pour obtenir une croûte dorée",
+          "Éviter les erreurs qui donnent une viande grise ou une poêlée molle"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Saisir et colorer ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2357,6 +3031,38 @@ var LESSONS = [
     "linkedRecipes": [
       "champignons-sautes",
       "legumes-sautes-maitrises"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "champignons-sautes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Sauter sans détremper » dans une situation concrète.",
+        "focus": [
+          "Sauter des légumes ou champignons sans accumulation d’eau",
+          "Comprendre le rôle de la quantité dans la poêle",
+          "Corriger une poêlée qui cuit à la vapeur au lieu de colorer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauter sans détremper ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "legumes-sautes-maitrises",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Sauter sans détremper » avec un angle différent.",
+        "focus": [
+          "Sauter des légumes ou champignons sans accumulation d’eau",
+          "Comprendre le rôle de la quantité dans la poêle",
+          "Corriger une poêlée qui cuit à la vapeur au lieu de colorer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauter sans détremper ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2448,6 +3154,38 @@ var LESSONS = [
     "linkedRecipes": [
       "steak-beurre-thym",
       "saumon-cote-peau"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-beurre-thym",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire au beurre et arroser » dans une situation concrète.",
+        "focus": [
+          "Comprendre quand utiliser huile, beurre ou les deux",
+          "Maîtriser l’arrosage au beurre sans brûler",
+          "Utiliser les aromates pour parfumer une cuisson courte"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire au beurre et arroser ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "saumon-cote-peau",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Cuire au beurre et arroser » avec un angle différent.",
+        "focus": [
+          "Comprendre quand utiliser huile, beurre ou les deux",
+          "Maîtriser l’arrosage au beurre sans brûler",
+          "Utiliser les aromates pour parfumer une cuisson courte"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire au beurre et arroser ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2539,6 +3277,38 @@ var LESSONS = [
     "linkedRecipes": [
       "champignons-sautes",
       "saumon-cote-peau"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "champignons-sautes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Corriger une cuisson à la poêle » dans une situation concrète.",
+        "focus": [
+          "Reconnaître une poêle trop froide, trop chaude ou trop pleine",
+          "Corriger une cuisson avant que le résultat soit perdu",
+          "Adapter la méthode selon humidité, épaisseur et fragilité"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger une cuisson à la poêle ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "saumon-cote-peau",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Corriger une cuisson à la poêle » avec un angle différent.",
+        "focus": [
+          "Reconnaître une poêle trop froide, trop chaude ou trop pleine",
+          "Corriger une cuisson avant que le résultat soit perdu",
+          "Adapter la méthode selon humidité, épaisseur et fragilité"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger une cuisson à la poêle ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2630,6 +3400,38 @@ var LESSONS = [
     "linkedRecipes": [
       "legumes-rotis-plaque",
       "gratin-dauphinois-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-rotis-plaque",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre son four » dans une situation concrète.",
+        "focus": [
+          "Choisir le mode de four selon le résultat recherché",
+          "Comprendre pourquoi temps et températures sont indicatifs",
+          "Adapter la cuisson à l’épaisseur, au plat et au matériel"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre son four ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "gratin-dauphinois-simple",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre son four » avec un angle différent.",
+        "focus": [
+          "Choisir le mode de four selon le résultat recherché",
+          "Comprendre pourquoi temps et températures sont indicatifs",
+          "Adapter la cuisson à l’épaisseur, au plat et au matériel"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre son four ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2720,6 +3522,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "legumes-rotis-plaque"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-rotis-plaque",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Rôtir des légumes » dans une situation concrète.",
+        "focus": [
+          "Préparer des légumes pour favoriser évaporation et coloration",
+          "Adapter taille, matière grasse et espace sur plaque",
+          "Corriger des légumes pâles, mous ou brûlés"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Rôtir des légumes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2809,7 +3628,40 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
-      "poulet-roti-jus-simple"
+      "poulet-roti-jus-simple",
+      "poulet-roti"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poulet-roti-jus-simple",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Rôtir une viande ou une volaille » dans une situation concrète.",
+        "focus": [
+          "Comprendre la différence entre coloration et cuisson à cœur",
+          "Utiliser température interne, repos et arrosage",
+          "Éviter une viande dorée dehors mais sèche dedans"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Rôtir une viande ou une volaille ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "poulet-roti",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Rôtir une viande ou une volaille » avec un angle différent.",
+        "focus": [
+          "Comprendre la différence entre coloration et cuisson à cœur",
+          "Utiliser température interne, repos et arrosage",
+          "Éviter une viande dorée dehors mais sèche dedans"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Rôtir une viande ou une volaille ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2900,6 +3752,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "gratin-dauphinois-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "gratin-dauphinois-simple",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Gratiner sans dessécher » dans une situation concrète.",
+        "focus": [
+          "Comprendre le rôle du gratinage comme finition",
+          "Protéger l’intérieur d’un plat pendant la coloration",
+          "Corriger un gratin brûlé dessus ou liquide dessous"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Gratiner sans dessécher ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -2990,6 +3859,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "boeuf-carottes-fondant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boeuf-carottes-fondant",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pourquoi cuire longtemps ? » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi certains morceaux demandent du temps",
+          "Différencier tendreté immédiate et tendreté par cuisson longue",
+          "Reconnaître une cuisson longue réussie"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pourquoi cuire longtemps ? ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -3080,6 +3966,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "boeuf-carottes-fondant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boeuf-carottes-fondant",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Braiser en trois temps » dans une situation concrète.",
+        "focus": [
+          "Construire le goût par la saisie et les sucs",
+          "Mouiller à bonne hauteur pour braiser sans noyer",
+          "Conduire une cuisson longue régulière"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Braiser en trois temps ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -3168,7 +4071,26 @@ var LESSONS = [
         "explanation": "Un peu de gras porte les arômes, trop de gras masque le goût et alourdit la sauce."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [
+      "boeuf-carottes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boeuf-carottes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Mijoter sans bouillir » dans une situation concrète.",
+        "focus": [
+          "Maintenir un frémissement stable",
+          "Utiliser couvercle, four ou feu doux selon le plat",
+          "Éviter évaporation excessive, viande sèche et sauce trouble"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Mijoter sans bouillir ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
+    ]
   },
   {
     "id": "reduire-sauce-mijotee",
@@ -3258,6 +4180,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "boeuf-carottes-fondant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boeuf-carottes-fondant",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Réduire et finir une sauce mijotée » dans une situation concrète.",
+        "focus": [
+          "Concentrer une sauce par réduction contrôlée",
+          "Ajuster sel, acidité et gras en fin de cuisson",
+          "Obtenir une texture nappante sans lourdeur"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Réduire et finir une sauce mijotée ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -3348,6 +4287,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "soupe-correction-assaisonnement"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "soupe-correction-assaisonnement",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Saler par couches » dans une situation concrète.",
+        "focus": [
+          "Comprendre le rôle du sel au-delà du goût salé",
+          "Assaisonner progressivement selon les étapes",
+          "Éviter le plat fade ou trop salé en fin de cuisson"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Saler par couches ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -3438,6 +4394,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "vinaigrette-moutarde-equilibree"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "vinaigrette-moutarde-equilibree",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Utiliser l’acidité » dans une situation concrète.",
+        "focus": [
+          "Comprendre comment l’acidité donne du relief",
+          "Choisir entre citron, vinaigre, vin, tomate ou condiment",
+          "Corriger un plat lourd ou plat sans ajouter trop de sel"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Utiliser l’acidité ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -3616,6 +4589,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "soupe-correction-assaisonnement"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "soupe-correction-assaisonnement",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Corriger un plat raté » dans une situation concrète.",
+        "focus": [
+          "Identifier si un plat manque de sel, d’acide, de gras ou de profondeur",
+          "Corriger progressivement sans aggraver le défaut",
+          "Sauver les erreurs fréquentes d’assaisonnement et de texture"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger un plat raté ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4059,6 +5049,38 @@ var LESSONS = [
     "linkedRecipes": [
       "vinaigrette-moutarde-equilibree",
       "mayonnaise-maison-rattrapage"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "vinaigrette-moutarde-equilibree",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre une émulsion » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi huile et eau se séparent",
+          "Utiliser un émulsifiant pour stabiliser une sauce",
+          "Diagnostiquer une sauce qui tranche"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre une émulsion ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "mayonnaise-maison-rattrapage",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre une émulsion » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi huile et eau se séparent",
+          "Utiliser un émulsifiant pour stabiliser une sauce",
+          "Diagnostiquer une sauce qui tranche"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre une émulsion ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4148,7 +5170,40 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
-      "vinaigrette-moutarde-equilibree"
+      "vinaigrette-moutarde-equilibree",
+      "salade-composee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "vinaigrette-moutarde-equilibree",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Réussir une vinaigrette » dans une situation concrète.",
+        "focus": [
+          "Construire une vinaigrette équilibrée",
+          "Dissoudre le sel au bon moment",
+          "Adapter la sauce à la salade ou au légume"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Réussir une vinaigrette ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "salade-composee",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Réussir une vinaigrette » avec un angle différent.",
+        "focus": [
+          "Construire une vinaigrette équilibrée",
+          "Dissoudre le sel au bon moment",
+          "Adapter la sauce à la salade ou au légume"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Réussir une vinaigrette ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4239,6 +5294,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "mayonnaise-maison-rattrapage"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "mayonnaise-maison-rattrapage",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Mayonnaise maison » dans une situation concrète.",
+        "focus": [
+          "Monter une mayonnaise stable avec un filet d’huile progressif",
+          "Comprendre le rôle du jaune, de la moutarde et de la température",
+          "Rattraper une mayonnaise tranchée"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Mayonnaise maison ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4329,6 +5401,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "sauce-vierge-tomate-herbes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "sauce-vierge-tomate-herbes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Sauces crues aux herbes » dans une situation concrète.",
+        "focus": [
+          "Construire une sauce froide sans cuisson",
+          "Préserver fraîcheur, couleur et texture",
+          "Équilibrer herbes, gras, acide et sel"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauces crues aux herbes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4420,6 +5509,38 @@ var LESSONS = [
     "linkedRecipes": [
       "bechamel-sans-grumeaux",
       "sauce-creme-champignons"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bechamel-sans-grumeaux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre la liaison d’une sauce » dans une situation concrète.",
+        "focus": [
+          "Comprendre les principales façons d’épaissir une sauce",
+          "Obtenir une texture nappante sans lourdeur",
+          "Corriger une sauce trop liquide, trop épaisse ou granuleuse"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la liaison d’une sauce ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "sauce-creme-champignons",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre la liaison d’une sauce » avec un angle différent.",
+        "focus": [
+          "Comprendre les principales façons d’épaissir une sauce",
+          "Obtenir une texture nappante sans lourdeur",
+          "Corriger une sauce trop liquide, trop épaisse ou granuleuse"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la liaison d’une sauce ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4510,6 +5631,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "bechamel-sans-grumeaux"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bechamel-sans-grumeaux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Roux, béchamel et velouté » dans une situation concrète.",
+        "focus": [
+          "Préparer un roux correctement cuit",
+          "Incorporer un liquide sans créer de grumeaux",
+          "Différencier béchamel et velouté selon le liquide utilisé"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Roux, béchamel et velouté ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4600,6 +5738,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "sauce-tomate-base"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "sauce-tomate-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Sauce tomate réduite » dans une situation concrète.",
+        "focus": [
+          "Construire une sauce tomate à partir d’une base aromatique",
+          "Réduire pour concentrer sans brûler",
+          "Équilibrer acidité, sel, sucre naturel et gras"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauce tomate réduite ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4691,6 +5846,38 @@ var LESSONS = [
     "linkedRecipes": [
       "sauce-creme-champignons",
       "poulet-creme-moutarde-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "sauce-creme-champignons",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Sauce crème nappante » dans une situation concrète.",
+        "focus": [
+          "Réduire une sauce crème jusqu’à texture nappante",
+          "Équilibrer richesse, sel et acidité",
+          "Éviter une crème séparée, trop salée ou trop lourde"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauce crème nappante ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "poulet-creme-moutarde-simple",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Sauce crème nappante » avec un angle différent.",
+        "focus": [
+          "Réduire une sauce crème jusqu’à texture nappante",
+          "Équilibrer richesse, sel et acidité",
+          "Éviter une crème séparée, trop salée ou trop lourde"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauce crème nappante ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4781,6 +5968,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "steak-sauce-echalote"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-sauce-echalote",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre les sucs de cuisson » dans une situation concrète.",
+        "focus": [
+          "Identifier les sucs utiles et les sucs brûlés",
+          "Construire une sauce à partir d’une cuisson",
+          "Éviter de laver le goût avant de faire la sauce"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les sucs de cuisson ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -4871,6 +6075,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "steak-sauce-echalote"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-sauce-echalote",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Déglacer correctement » dans une situation concrète.",
+        "focus": [
+          "Choisir un liquide de déglaçage adapté",
+          "Racler les sucs sans brûler la sauce",
+          "Réduire après déglaçage pour concentrer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Déglacer correctement ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5049,6 +6270,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "steak-sauce-echalote"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-sauce-echalote",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Monter une sauce au beurre » dans une situation concrète.",
+        "focus": [
+          "Monter une sauce avec du beurre froid",
+          "Comprendre pourquoi la température doit rester contrôlée",
+          "Rattraper une sauce trop grasse ou séparée"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Monter une sauce au beurre ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5139,6 +6377,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "bouillon-legumes-propre"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bouillon-legumes-propre",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « À quoi sert un fond ou un bouillon ? » dans une situation concrète.",
+        "focus": [
+          "Différencier eau, bouillon, fond et fumet",
+          "Comprendre leur rôle dans les sauces, soupes et cuissons",
+          "Identifier ce qui donne goût, corps et netteté"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « À quoi sert un fond ou un bouillon ? ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5229,6 +6484,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "bouillon-legumes-propre"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bouillon-legumes-propre",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Bouillon de légumes et de volaille » dans une situation concrète.",
+        "focus": [
+          "Construire un bouillon avec légumes, aromates et parures",
+          "Maintenir une cuisson douce et propre",
+          "Filtrer, refroidir et conserver correctement"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Bouillon de légumes et de volaille ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5496,6 +6768,38 @@ var LESSONS = [
     "linkedRecipes": [
       "beurre-blanc-poisson",
       "hollandaise-asperges"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "beurre-blanc-poisson",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre une émulsion chaude » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi une sauce chaude peut trancher",
+          "Contrôler température, acidité et incorporation du gras",
+          "Reconnaître une sauce stable, nappante et brillante"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre une émulsion chaude ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "hollandaise-asperges",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre une émulsion chaude » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi une sauce chaude peut trancher",
+          "Contrôler température, acidité et incorporation du gras",
+          "Reconnaître une sauce stable, nappante et brillante"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre une émulsion chaude ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5586,6 +6890,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "beurre-blanc-poisson"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "beurre-blanc-poisson",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Beurre blanc » dans une situation concrète.",
+        "focus": [
+          "Préparer une réduction échalote-vin-vinaigre",
+          "Incorporer le beurre froid sans faire trancher",
+          "Équilibrer acidité, sel et richesse"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Beurre blanc ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5676,6 +6997,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "hollandaise-asperges"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "hollandaise-asperges",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Hollandaise et sabayon salé » dans une situation concrète.",
+        "focus": [
+          "Comprendre le rôle du jaune dans une sauce chaude",
+          "Monter un sabayon à chaleur douce",
+          "Incorporer le beurre clarifié ou fondu sans coaguler les œufs"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Hollandaise et sabayon salé ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5855,6 +7193,38 @@ var LESSONS = [
     "linkedRecipes": [
       "oeufs-brouilles-cremeux",
       "omelette-herbes-baveuse"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "oeufs-brouilles-cremeux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre la coagulation des œufs » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi blanc et jaune ne cuisent pas pareil",
+          "Utiliser la chaleur douce pour contrôler la texture",
+          "Éviter les œufs caoutchouteux, secs ou granuleux"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la coagulation des œufs ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "omelette-herbes-baveuse",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre la coagulation des œufs » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi blanc et jaune ne cuisent pas pareil",
+          "Utiliser la chaleur douce pour contrôler la texture",
+          "Éviter les œufs caoutchouteux, secs ou granuleux"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la coagulation des œufs ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -5945,6 +7315,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "oeuf-mollet-salade"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "oeuf-mollet-salade",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Œufs coque, mollet et dur » dans une situation concrète.",
+        "focus": [
+          "Différencier les cuissons coque, mollet et dur",
+          "Utiliser le refroidissement pour stopper la cuisson",
+          "Éviter jaune trop cuit, blanc caoutchouteux ou coquille difficile"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Œufs coque, mollet et dur ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6036,6 +7423,38 @@ var LESSONS = [
     "linkedRecipes": [
       "oeufs-brouilles-cremeux",
       "omelette-herbes-baveuse"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "oeufs-brouilles-cremeux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Omelette et œufs brouillés » dans une situation concrète.",
+        "focus": [
+          "Cuire les œufs à la poêle sans les dessécher",
+          "Différencier omelette baveuse et œufs brouillés crémeux",
+          "Arrêter la cuisson avant surcuisson"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Omelette et œufs brouillés ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "omelette-herbes-baveuse",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Omelette et œufs brouillés » avec un angle différent.",
+        "focus": [
+          "Cuire les œufs à la poêle sans les dessécher",
+          "Différencier omelette baveuse et œufs brouillés crémeux",
+          "Arrêter la cuisson avant surcuisson"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Omelette et œufs brouillés ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6126,6 +7545,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "haricots-verts-oeuf-poche"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "haricots-verts-oeuf-poche",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Œuf poché » dans une situation concrète.",
+        "focus": [
+          "Pocher un œuf dans une eau frémissante",
+          "Préserver une forme compacte",
+          "Égoutter et servir sans casser le jaune"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Œuf poché ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6215,7 +7651,40 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
-      "quiche-appareil-cremeux"
+      "quiche-appareil-cremeux",
+      "oeufs-cocotte"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "quiche-appareil-cremeux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Œufs comme liant » dans une situation concrète.",
+        "focus": [
+          "Utiliser les œufs pour lier une préparation",
+          "Tempérer des œufs avec un liquide chaud",
+          "Éviter les appareils granuleux ou trop cuits"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Œufs comme liant ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "oeufs-cocotte",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Œufs comme liant » avec un angle différent.",
+        "focus": [
+          "Utiliser les œufs pour lier une préparation",
+          "Tempérer des œufs avec un liquide chaud",
+          "Éviter les appareils granuleux ou trop cuits"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Œufs comme liant ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6307,6 +7776,38 @@ var LESSONS = [
     "linkedRecipes": [
       "legumes-sautes-par-densite",
       "legumes-rotis-plaque"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "legumes-sautes-par-densite",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre les légumes » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi les légumes ne cuisent pas tous pareil",
+          "Adapter la cuisson selon eau, fibres et densité",
+          "Préserver goût, couleur et texture selon le résultat recherché"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les légumes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "legumes-rotis-plaque",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre les légumes » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi les légumes ne cuisent pas tous pareil",
+          "Adapter la cuisson selon eau, fibres et densité",
+          "Préserver goût, couleur et texture selon le résultat recherché"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les légumes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6397,6 +7898,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "poireaux-vinaigrette-propres"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poireaux-vinaigrette-propres",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Préparer les légumes » dans une situation concrète.",
+        "focus": [
+          "Préparer les légumes proprement selon leur usage",
+          "Limiter le gaspillage sans sacrifier la qualité",
+          "Choisir entre éplucher, brosser, parer ou garder la peau"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Préparer les légumes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6486,7 +8004,40 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
-      "carottes-glacees"
+      "carottes-glacees",
+      "soupe-legumes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "carottes-glacees",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire selon la texture voulue » dans une situation concrète.",
+        "focus": [
+          "Choisir une cuisson selon la texture finale",
+          "Adapter chaleur, liquide et matière grasse au légume",
+          "Passer d’un légume fade à une garniture construite"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire selon la texture voulue ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "soupe-legumes",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Cuire selon la texture voulue » avec un angle différent.",
+        "focus": [
+          "Choisir une cuisson selon la texture finale",
+          "Adapter chaleur, liquide et matière grasse au légume",
+          "Passer d’un légume fade à une garniture construite"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire selon la texture voulue ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6577,6 +8128,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "haricots-verts-beurre-citron"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "haricots-verts-beurre-citron",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Légumes verts : couleur et croquant » dans une situation concrète.",
+        "focus": [
+          "Cuire des légumes verts sans ternir leur couleur",
+          "Utiliser eau bouillante salée et refroidissement si besoin",
+          "Réchauffer sans recuire"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Légumes verts : couleur et croquant ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6756,6 +8324,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pates-sauce-amidon",
       "puree-pommes-terre-maitrisee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pates-sauce-amidon",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre l’amidon » dans une situation concrète.",
+        "focus": [
+          "Comprendre comment l’amidon influence texture et liaison",
+          "Éviter collant, pâteux, sec ou aqueux",
+          "Utiliser l’amidon comme outil de sauce et de texture"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre l’amidon ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "puree-pommes-terre-maitrisee",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre l’amidon » avec un angle différent.",
+        "focus": [
+          "Comprendre comment l’amidon influence texture et liaison",
+          "Éviter collant, pâteux, sec ou aqueux",
+          "Utiliser l’amidon comme outil de sauce et de texture"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre l’amidon ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6846,6 +8446,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "pates-sauce-amidon"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pates-sauce-amidon",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire les pâtes justes » dans une situation concrète.",
+        "focus": [
+          "Cuire les pâtes al dente dans une eau correctement salée",
+          "Finir les pâtes dans la sauce sans les surcuire",
+          "Utiliser l’eau de cuisson pour lier"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire les pâtes justes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -6936,6 +8553,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "riz-pilaf-oignon"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "riz-pilaf-oignon",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire le riz : absorption et pilaf » dans une situation concrète.",
+        "focus": [
+          "Comprendre les ratios eau/riz selon la méthode",
+          "Cuire un riz par absorption sans le remuer inutilement",
+          "Différencier riz nature, pilaf et riz sauté"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire le riz : absorption et pilaf ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7027,6 +8661,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pommes-terre-vapeur-herbes",
       "pommes-terre-rissolees"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pommes-terre-vapeur-herbes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pommes de terre : choisir la bonne cuisson » dans une situation concrète.",
+        "focus": [
+          "Choisir une variété et une cuisson selon le résultat",
+          "Cuire les pommes de terre sans les gorger d’eau",
+          "Obtenir fondant, croustillant ou purée selon la technique"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pommes de terre : choisir la bonne cuisson ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "pommes-terre-rissolees",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Pommes de terre : choisir la bonne cuisson » avec un angle différent.",
+        "focus": [
+          "Choisir une variété et une cuisson selon le résultat",
+          "Cuire les pommes de terre sans les gorger d’eau",
+          "Obtenir fondant, croustillant ou purée selon la technique"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pommes de terre : choisir la bonne cuisson ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7117,6 +8783,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "puree-pommes-terre-maitrisee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "puree-pommes-terre-maitrisee",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Purées, écrasés et gratins » dans une situation concrète.",
+        "focus": [
+          "Différencier purée lisse, écrasé rustique et gratin",
+          "Éviter la purée collante",
+          "Assaisonner et enrichir sans alourdir"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Purées, écrasés et gratins ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7207,6 +8890,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "riz-saute-recuperation"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "riz-saute-recuperation",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Corriger des féculents ratés » dans une situation concrète.",
+        "focus": [
+          "Diagnostiquer les défauts courants des féculents",
+          "Corriger ou réorienter un plat selon sa texture",
+          "Prévenir les erreurs de timing, d’eau et d’amidon"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger des féculents ratés ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7298,6 +8998,38 @@ var LESSONS = [
     "linkedRecipes": [
       "steak-saisi-repos",
       "boeuf-braise-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-saisi-repos",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre la viande » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi tous les morceaux ne se cuisent pas de la même manière",
+          "Différencier viande à saisir, à rôtir et à mijoter",
+          "Préserver jutosité, tendreté et goût grâce à la bonne méthode"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la viande ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "boeuf-braise-simple",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre la viande » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi tous les morceaux ne se cuisent pas de la même manière",
+          "Différencier viande à saisir, à rôtir et à mijoter",
+          "Préserver jutosité, tendreté et goût grâce à la bonne méthode"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la viande ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7389,6 +9121,38 @@ var LESSONS = [
     "linkedRecipes": [
       "steak-saisi-repos",
       "bavette-echalote-contre-fil"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "steak-saisi-repos",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire une pièce de viande rouge » dans une situation concrète.",
+        "focus": [
+          "Saisir une pièce de viande rouge pour obtenir une croûte",
+          "Adapter la cuisson à l’épaisseur et au point souhaité",
+          "Laisser reposer et découper sans perdre le jus"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire une pièce de viande rouge ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "bavette-echalote-contre-fil",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Cuire une pièce de viande rouge » avec un angle différent.",
+        "focus": [
+          "Saisir une pièce de viande rouge pour obtenir une croûte",
+          "Adapter la cuisson à l’épaisseur et au point souhaité",
+          "Laisser reposer et découper sans perdre le jus"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire une pièce de viande rouge ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7479,6 +9243,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "filet-mignon-moutarde"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "filet-mignon-moutarde",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire le porc juste » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi le porc sèche vite selon les morceaux",
+          "Adapter cuisson courte ou longue selon côte, filet, échine ou épaule",
+          "Utiliser repos, sauce et température pour obtenir une texture juteuse"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire le porc juste ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7569,6 +9350,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "boeuf-braise-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boeuf-braise-simple",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Morceaux à mijoter et à braiser » dans une situation concrète.",
+        "focus": [
+          "Choisir les morceaux adaptés aux cuissons longues",
+          "Construire le goût par saisie, mouillage et frémissement",
+          "Reconnaître une viande braisée prête à la texture"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Morceaux à mijoter et à braiser ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7659,6 +9457,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "bavette-echalote-contre-fil"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bavette-echalote-contre-fil",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Repos, jus et découpe » dans une situation concrète.",
+        "focus": [
+          "Utiliser le repos selon la taille de la pièce",
+          "Découper à contre-fil pour améliorer la tendreté",
+          "Récupérer les jus sans détremper la viande"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Repos, jus et découpe ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7750,6 +9565,38 @@ var LESSONS = [
     "linkedRecipes": [
       "blanc-poulet-moelleux",
       "poulet-roti-jus-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "blanc-poulet-moelleux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre la volaille » dans une situation concrète.",
+        "focus": [
+          "Différencier les cuissons du blanc et de la cuisse",
+          "Comprendre le rôle de la peau, des os et du repos",
+          "Cuire la volaille en sécurité sans la dessécher"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la volaille ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "poulet-roti-jus-simple",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre la volaille » avec un angle différent.",
+        "focus": [
+          "Différencier les cuissons du blanc et de la cuisse",
+          "Comprendre le rôle de la peau, des os et du repos",
+          "Cuire la volaille en sécurité sans la dessécher"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la volaille ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7840,6 +9687,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "blanc-poulet-moelleux"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "blanc-poulet-moelleux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire un blanc de volaille moelleux » dans une situation concrète.",
+        "focus": [
+          "Préparer un blanc de volaille pour une cuisson régulière",
+          "Saisir puis finir doucement sans sécher",
+          "Utiliser repos et sauce pour préserver la jutosité"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire un blanc de volaille moelleux ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -7930,6 +9794,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "cuisses-poulet-braisees"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "cuisses-poulet-braisees",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire les cuisses de volaille » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi les cuisses demandent plus de cuisson que les blancs",
+          "Obtenir une peau dorée et une chair fondante",
+          "Adapter poêle, four, braisage ou mijotage selon le résultat"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire les cuisses de volaille ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8021,6 +9902,38 @@ var LESSONS = [
     "linkedRecipes": [
       "poulet-roti-jus-simple",
       "poulet-crapaudine-herbes"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poulet-roti-jus-simple",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Rôtir une volaille entière » dans une situation concrète.",
+        "focus": [
+          "Préparer une volaille entière pour une cuisson plus régulière",
+          "Gérer le contraste entre blancs et cuisses",
+          "Faire reposer, découper et servir avec un jus"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Rôtir une volaille entière ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "poulet-crapaudine-herbes",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Rôtir une volaille entière » avec un angle différent.",
+        "focus": [
+          "Préparer une volaille entière pour une cuisson plus régulière",
+          "Gérer le contraste entre blancs et cuisses",
+          "Faire reposer, découper et servir avec un jus"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Rôtir une volaille entière ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8200,6 +10113,38 @@ var LESSONS = [
     "linkedRecipes": [
       "cabillaud-nacre-vapeur",
       "saumon-cote-peau-croustillant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "cabillaud-nacre-vapeur",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre le poisson » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi le poisson cuit plus vite que la viande",
+          "Reconnaître une chair juste cuite, nacrée ou surcuite",
+          "Adapter la méthode selon filet, pavé, poisson entier ou fruit de mer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre le poisson ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "saumon-cote-peau-croustillant",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre le poisson » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi le poisson cuit plus vite que la viande",
+          "Reconnaître une chair juste cuite, nacrée ou surcuite",
+          "Adapter la méthode selon filet, pavé, poisson entier ou fruit de mer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre le poisson ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8290,6 +10235,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "saumon-cote-peau-croustillant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "saumon-cote-peau-croustillant",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Poisson à la poêle côté peau » dans une situation concrète.",
+        "focus": [
+          "Sécher et préparer un filet avec peau",
+          "Cuire majoritairement côté peau pour protéger la chair",
+          "Retourner ou finir sans casser le poisson"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Poisson à la poêle côté peau ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8380,6 +10342,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "cabillaud-nacre-vapeur"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "cabillaud-nacre-vapeur",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Poisson vapeur, poché ou en papillote » dans une situation concrète.",
+        "focus": [
+          "Choisir une cuisson douce pour les poissons fragiles",
+          "Assaisonner le liquide, la vapeur ou la papillote",
+          "Lire une chair juste cuite sans la casser"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Poisson vapeur, poché ou en papillote ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8471,6 +10450,38 @@ var LESSONS = [
     "linkedRecipes": [
       "moules-marinieres",
       "crevettes-sautees-ail-citron"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "moules-marinieres",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Fruits de mer et coquillages » dans une situation concrète.",
+        "focus": [
+          "Identifier les signes de fraîcheur et les risques évidents",
+          "Cuire crevettes, moules et coquillages sans les durcir",
+          "Utiliser jus de cuisson et assaisonnement sans masquer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Fruits de mer et coquillages ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "crevettes-sautees-ail-citron",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Fruits de mer et coquillages » avec un angle différent.",
+        "focus": [
+          "Identifier les signes de fraîcheur et les risques évidents",
+          "Cuire crevettes, moules et coquillages sans les durcir",
+          "Utiliser jus de cuisson et assaisonnement sans masquer"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Fruits de mer et coquillages ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8561,6 +10572,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "rillettes-poisson-sec"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "rillettes-poisson-sec",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Corriger un poisson ou fruit de mer raté » dans une situation concrète.",
+        "focus": [
+          "Diagnostiquer les défauts courants du poisson et des fruits de mer",
+          "Limiter les dégâts sans prétendre revenir en arrière",
+          "Prévenir les erreurs par timing, chaleur et finition"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger un poisson ou fruit de mer raté ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8652,6 +10680,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pate-brisee-salee-base",
       "pate-pizza-simple"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pate-brisee-salee-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre les pâtes salées » dans une situation concrète.",
+        "focus": [
+          "Comprendre le rôle de la farine, de l’eau, du gras et du sel",
+          "Différencier pâte friable, pâte levée et pâte élastique",
+          "Utiliser le repos pour améliorer texture, tenue et goût"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les pâtes salées ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "pate-pizza-simple",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre les pâtes salées » avec un angle différent.",
+        "focus": [
+          "Comprendre le rôle de la farine, de l’eau, du gras et du sel",
+          "Différencier pâte friable, pâte levée et pâte élastique",
+          "Utiliser le repos pour améliorer texture, tenue et goût"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre les pâtes salées ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8743,6 +10803,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pate-brisee-salee-base",
       "quiche-appareil-cremeux"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pate-brisee-salee-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pâte brisée salée » dans une situation concrète.",
+        "focus": [
+          "Préparer une pâte brisée salée sans trop développer le gluten",
+          "Comprendre le sablage et le fraisage",
+          "Foncer un moule et cuire à blanc correctement"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pâte brisée salée ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "quiche-appareil-cremeux",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Pâte brisée salée » avec un angle différent.",
+        "focus": [
+          "Préparer une pâte brisée salée sans trop développer le gluten",
+          "Comprendre le sablage et le fraisage",
+          "Foncer un moule et cuire à blanc correctement"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pâte brisée salée ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8834,6 +10926,38 @@ var LESSONS = [
     "linkedRecipes": [
       "pate-pizza-simple",
       "focaccia-debutant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pate-pizza-simple",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pâte levée : pizza et focaccia » dans une situation concrète.",
+        "focus": [
+          "Comprendre le rôle de la levure et de la fermentation",
+          "Pétrir une pâte pour obtenir force et extensibilité",
+          "Adapter repos, façonnage et cuisson selon pizza ou focaccia"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pâte levée : pizza et focaccia ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "focaccia-debutant",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Pâte levée : pizza et focaccia » avec un angle différent.",
+        "focus": [
+          "Comprendre le rôle de la levure et de la fermentation",
+          "Pétrir une pâte pour obtenir force et extensibilité",
+          "Adapter repos, façonnage et cuisson selon pizza ou focaccia"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pâte levée : pizza et focaccia ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -8924,6 +11048,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "focaccia-debutant"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "focaccia-debutant",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pain simple maison » dans une situation concrète.",
+        "focus": [
+          "Préparer un pain simple avec farine, eau, levure et sel",
+          "Comprendre pointage, façonnage et apprêt",
+          "Cuire avec chaleur et vapeur pour obtenir croûte et mie"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pain simple maison ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9014,6 +11155,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "quiche-appareil-cremeux"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "quiche-appareil-cremeux",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Cuire les pâtes salées » dans une situation concrète.",
+        "focus": [
+          "Cuire une pâte salée sans fond détrempé",
+          "Adapter température et support de cuisson",
+          "Équilibrer cuisson de pâte, garniture et fromage"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Cuire les pâtes salées ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9105,6 +11263,38 @@ var LESSONS = [
     "linkedRecipes": [
       "cake-citron-base",
       "creme-patissiere-base"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "cake-citron-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Comprendre la pâtisserie » dans une situation concrète.",
+        "focus": [
+          "Comprendre pourquoi la précision compte davantage en pâtisserie",
+          "Identifier les rôles du sucre, du beurre, des œufs, de la farine et de la levure",
+          "Lire les textures avant et après cuisson"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la pâtisserie ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "creme-patissiere-base",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Comprendre la pâtisserie » avec un angle différent.",
+        "focus": [
+          "Comprendre pourquoi la précision compte davantage en pâtisserie",
+          "Identifier les rôles du sucre, du beurre, des œufs, de la farine et de la levure",
+          "Lire les textures avant et après cuisson"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Comprendre la pâtisserie ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9196,6 +11386,38 @@ var LESSONS = [
     "linkedRecipes": [
       "creme-patissiere-base",
       "chantilly-stable"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "creme-patissiere-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Crèmes de base » dans une situation concrète.",
+        "focus": [
+          "Comprendre les crèmes liées à l’œuf ou à l’amidon",
+          "Éviter grumeaux, œufs brouillés et crème tranchée",
+          "Refroidir et conserver proprement les crèmes"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Crèmes de base ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      },
+      {
+        "id": "chantilly-stable",
+        "type": "contrast",
+        "label": "Exercice complémentaire",
+        "reason": "Cette recette consolide le cours « Crèmes de base » avec un angle différent.",
+        "focus": [
+          "Comprendre les crèmes liées à l’œuf ou à l’amidon",
+          "Éviter grumeaux, œufs brouillés et crème tranchée",
+          "Refroidir et conserver proprement les crèmes"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Crèmes de base ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9286,6 +11508,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "cake-citron-base"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "cake-citron-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pâtes à gâteaux et cakes » dans une situation concrète.",
+        "focus": [
+          "Comprendre comment obtenir un gâteau moelleux",
+          "Mélanger sans trop travailler la farine",
+          "Cuire un cake à cœur sans le dessécher"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pâtes à gâteaux et cakes ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9376,6 +11615,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "pate-sucree-base"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pate-sucree-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Pâtes à tartes sucrées » dans une situation concrète.",
+        "focus": [
+          "Préparer une pâte sucrée ou sablée sans la durcir",
+          "Foncer un cercle ou moule proprement",
+          "Cuire à blanc sans affaissement ni fond cru"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Pâtes à tartes sucrées ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9466,6 +11722,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "chantilly-stable"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "chantilly-stable",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Meringues et crèmes fouettées » dans une situation concrète.",
+        "focus": [
+          "Monter des blancs en neige ou une crème fouettée proprement",
+          "Comprendre le rôle du sucre dans la stabilité",
+          "Éviter meringue grainée, chantilly tranchée ou blancs retombés"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Meringues et crèmes fouettées ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9556,6 +11829,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "verrine-cake-sec-recuperation"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "verrine-cake-sec-recuperation",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Corriger une pâtisserie ratée » dans une situation concrète.",
+        "focus": [
+          "Diagnostiquer les défauts fréquents en pâtisserie",
+          "Savoir quand corriger, recycler ou recommencer",
+          "Prévenir les erreurs par méthode et observation"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger une pâtisserie ratée ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9646,6 +11936,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "meringue-francaise-sechee"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "meringue-francaise-sechee",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Meringue maîtrisée » dans une situation concrète.",
+        "focus": [
+          "Monter une meringue stable et brillante",
+          "Comprendre le rôle du sucre, du fouettage et de la cuisson",
+          "Éviter meringue grainée, collante, fissurée ou affaissée"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Meringue maîtrisée ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9736,6 +12043,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "caramel-beurre-sale"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "caramel-beurre-sale",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Caramel sec et caramel humide » dans une situation concrète.",
+        "focus": [
+          "Comprendre les deux méthodes de caramel",
+          "Identifier les stades de couleur et de goût",
+          "Éviter cristallisation, brûlure et projections"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Caramel sec et caramel humide ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9826,6 +12150,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "ganache-chocolat-base"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "ganache-chocolat-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Faire fondre le chocolat » dans une situation concrète.",
+        "focus": [
+          "Faire fondre du chocolat sans le brûler",
+          "Comprendre pourquoi l’eau peut faire masser le chocolat",
+          "Choisir entre bain-marie et micro-ondes contrôlé"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Faire fondre le chocolat ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -9916,6 +12257,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "ganache-chocolat-base"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "ganache-chocolat-base",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Ganache et textures chocolat » dans une situation concrète.",
+        "focus": [
+          "Comprendre la ganache comme une émulsion",
+          "Adapter les ratios selon texture souhaitée",
+          "Rattraper une ganache tranchée ou trop ferme"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Ganache et textures chocolat ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -10182,6 +12540,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "assiette-poisson-legumes-sauce"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "assiette-poisson-legumes-sauce",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Dresser une assiette équilibrée » dans une situation concrète.",
+        "focus": [
+          "Structurer une assiette autour d’un élément principal",
+          "Placer sauce et garniture avec intention",
+          "Créer une bouchée équilibrée"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Dresser une assiette équilibrée ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -10448,6 +12823,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "assiette-poisson-legumes-sauce"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "assiette-poisson-legumes-sauce",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Sauces et finitions au service » dans une situation concrète.",
+        "focus": [
+          "Placer une sauce proprement",
+          "Adapter quantité et texture au dressage",
+          "Utiliser les finitions pour réveiller le plat au dernier moment"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Sauces et finitions au service ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -10538,6 +12930,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "atelier-diagnostic-soupe"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "atelier-diagnostic-soupe",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Diagnostiquer un plat » dans une situation concrète.",
+        "focus": [
+          "Analyser un plat selon goût, texture, cuisson et température",
+          "Distinguer défaut réel et préférence personnelle",
+          "Éviter les corrections automatiques qui aggravent"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Diagnostiquer un plat ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -10628,6 +13037,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "rillettes-poisson-sec"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "rillettes-poisson-sec",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Corriger goût, texture et cuisson » dans une situation concrète.",
+        "focus": [
+          "Utiliser les leviers de correction adaptés",
+          "Savoir ce qui est réversible ou non",
+          "Transformer un défaut en autre préparation si nécessaire"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Corriger goût, texture et cuisson ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -10718,6 +13144,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "bol-improvise-riz-legumes-oeuf"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bol-improvise-riz-legumes-oeuf",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Improviser avec ce qu’on a » dans une situation concrète.",
+        "focus": [
+          "Construire un repas à partir d’ingrédients disponibles",
+          "Identifier produit principal, base, sauce et finition",
+          "Remplacer intelligemment sans casser l’équilibre"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Improviser avec ce qu’on a ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   },
   {
@@ -10896,6 +13339,23 @@ var LESSONS = [
     ],
     "linkedRecipes": [
       "atelier-creation-recette"
+    ],
+    "practiceRecipes": [
+      {
+        "id": "atelier-creation-recette",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Cette recette permet d'appliquer immédiatement le cours « Construire sa propre recette » dans une situation concrète.",
+        "focus": [
+          "Transformer une idée de plat en recette claire",
+          "Tester, noter et améliorer une préparation",
+          "Construire son autonomie culinaire"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce que la recette t'a fait pratiquer dans le cours « Construire sa propre recette ».",
+          "Tu identifies au moins un point à améliorer pour la prochaine fois."
+        ]
+      }
     ]
   }
 ];
@@ -11708,7 +14168,7 @@ var RECIPES = [
   },
   {
     "id": "saumon-cote-peau",
-    "title": "Saumon côté peau croustillant",
+    "title": "Saumon côté peau express",
     "family": "poisson",
     "difficulty": 2,
     "timePrep": 10,
@@ -11721,9 +14181,8 @@ var RECIPES = [
       "cuisson-residuelle"
     ],
     "objectives": [
-      "Sécher la peau pour la rendre croustillante",
-      "Cuire majoritairement côté peau",
-      "Finir doucement sans dessécher la chair"
+      "Comprendre la cuisson majoritaire côté peau",
+      "Obtenir une peau croustillante sans surcuire la chair"
     ],
     "ingredients": [
       {
@@ -18040,32 +20499,66 @@ var RECIPES = [
     "steps": [
       {
         "id": 1,
-        "title": "Préparer les légumes",
-        "action": "Éplucher et râper les carottes en julienne fine. Couper le concombre en demi-lunes de 3-4mm. Couper les tomates cerises en deux. Laver et essorer la salade.",
-        "why": "Des légumes taillés régulièrement donnent une texture agréable et une salade visuellement cohérente. La julienne de carotte se mélange mieux au reste.",
-        "mistake": "Salade non essorée → la vinaigrette glisse sur les feuilles mouillées et ne tient pas.",
+        "title": "Laver et sécher la base",
+        "action": "Laver la salade à l’eau froide. Essorer longuement jusqu’à ce que les feuilles soient vraiment sèches. Réserver dans un grand saladier.",
+        "why": "Une feuille humide dilue la vinaigrette et empêche l’assaisonnement d’accrocher. Le séchage est le premier geste de réussite d’une salade.",
+        "mistake": "Assaisonner une salade mouillée → vinaigrette diluée, feuilles molles et goût fade.",
         "timer": null
       },
       {
         "id": 2,
-        "title": "Réaliser la vinaigrette",
-        "action": "Dans un bol, mélanger vinaigre + moutarde + sel + poivre. Fouetter. Verser l'huile en filet tout en fouettant continuellement jusqu'à obtenir une sauce onctueuse et liée.",
-        "why": "La moutarde est l'émulsifiant : elle enrobe les gouttes d'huile. Verser l'huile lentement permet aux gouttes de rester en suspension.",
-        "mistake": "Verser toute l'huile d'un coup → la vinaigrette ne s'émulsionne pas, reste séparée.",
+        "title": "Tailler les légumes régulièrement",
+        "action": "Éplucher les carottes. Les râper ou les tailler en julienne fine. Couper le concombre en demi-lunes de 3 à 4 mm. Couper les tomates cerises en deux.",
+        "why": "Des tailles régulières rendent la salade plus agréable à manger et répartissent mieux l’assaisonnement. Les morceaux doivent pouvoir se prendre facilement à la fourchette.",
+        "mistake": "Faire de trop gros morceaux → salade difficile à mélanger et bouchées déséquilibrées.",
         "timer": null
       },
       {
         "id": 3,
-        "title": "Dresser et assaisonner",
-        "action": "Disposer la salade en premier, puis les légumes par-dessus. Assaisonner juste avant de servir en versant la vinaigrette et en mélangeant délicatement.",
-        "why": "On assaisonne au dernier moment : le sel et l'acide de la vinaigrette font \"tomber\" la salade rapidement.",
-        "mistake": "Préparer trop à l'avance → feuilles molles, salade détrempée.",
+        "title": "Préparer les éléments fragiles",
+        "action": "Si tu utilises des œufs durs, les couper en quartiers. Préparer les herbes, noix, graines ou croûtons à part. Garder les éléments croquants séparés jusqu’au dressage.",
+        "why": "Les garnitures fragiles ou croustillantes perdent vite leur texture au contact de l’humidité. Les ajouter à la fin garde du relief.",
+        "mistake": "Tout mélanger trop tôt → croûtons ramollis, herbes écrasées et œufs abîmés.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Monter la vinaigrette",
+        "action": "Dans un bol, mélanger vinaigre, moutarde, sel et poivre. Fouetter. Verser l’huile en filet tout en fouettant jusqu’à obtenir une sauce brillante et légèrement liée.",
+        "why": "Dissoudre le sel dans le vinaigre avant l’huile donne un assaisonnement plus homogène. La moutarde aide l’émulsion à tenir quelques minutes.",
+        "mistake": "Verser l’huile d’un coup → vinaigrette séparée et assaisonnement irrégulier.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Assaisonner au dernier moment",
+        "action": "Ajouter une partie de la vinaigrette dans le saladier. Mélanger délicatement avec les mains propres ou deux cuillères. Ajouter le reste seulement si nécessaire. Finir avec les garnitures.",
+        "why": "Une salade doit être assaisonnée mais pas noyée. Ajouter progressivement permet de contrôler le goût et la texture.",
+        "mistake": "Mettre toute la sauce sans goûter → salade trop grasse, trop acide ou détrempée.",
         "timer": null
       }
     ],
     "tips": [
       "Changer le vinaigre selon l'humeur : balsamique avec mozzarella, de cidre avec salade d'endives, xérès avec salade tiède.",
       "Ajouter graines de tournesol, noix ou croûtons pour le croquant."
+    ],
+    "equipment": [
+      "grand saladier",
+      "petit bol",
+      "fouet ou fourchette",
+      "essoreuse à salade",
+      "couteau",
+      "planche"
+    ],
+    "successCriteria": [
+      "Les feuilles restent croquantes et non détrempées",
+      "La vinaigrette est liée et brillante",
+      "Chaque bouchée contient un équilibre de cru, croquant, gras et acidité"
+    ],
+    "criticalPoints": [
+      "Essorer très soigneusement la salade",
+      "Assaisonner seulement au dernier moment",
+      "Goûter la vinaigrette avant de l’ajouter"
     ]
   },
   {
@@ -18144,32 +20637,65 @@ var RECIPES = [
     "steps": [
       {
         "id": 1,
-        "title": "Suer les aromates",
-        "action": "Émincer finement l'oignon et le poireau. Chauffer l'huile à feu doux dans une grande casserole. Ajouter l'oignon, poireau et ail. Cuire 5-7 min en remuant sans colorer — juste pour fondre.",
-        "why": "Cuire les aromates à feu doux sans coloration \"sue\" les légumes : ils libèrent leurs sucres naturels et créent une base douce et sucrée plutôt qu'une base amère.",
-        "mistake": "Cuire trop fort → légumes qui colorent → saveur amère dans la soupe.",
+        "title": "Préparer une découpe régulière",
+        "action": "Laver les légumes. Émincer l’oignon et le poireau. Couper carottes et pommes de terre en morceaux réguliers d’environ 3 cm.",
+        "why": "Des morceaux proches cuisent au même rythme. Cela évite d’avoir des pommes de terre défaites pendant que les carottes restent dures.",
+        "mistake": "Mélanger très gros et très petits morceaux → cuisson inégale et texture moins nette.",
         "timer": null
       },
       {
         "id": 2,
-        "title": "Ajouter les légumes et couvrir de bouillon",
-        "action": "Éplucher et couper carottes et pommes de terre en morceaux réguliers (3cm). Ajouter dans la casserole. Verser le bouillon à hauteur. Porter à ébullition puis baisser à frémissement.",
-        "why": "Des morceaux réguliers cuisent en même temps. Le bouillon (pas l'eau) apporte déjà du corps et de la saveur.",
-        "mistake": "Bouillon à gros bouillons → légumes qui se défont, soupe trouble.",
-        "timer": 25
+        "title": "Suer les aromates",
+        "action": "Chauffer l’huile à feu doux dans une grande casserole. Ajouter oignon, poireau et ail. Cuire 5 à 7 minutes en remuant, sans coloration.",
+        "why": "Suer les aromates développe une base douce et parfumée. Une coloration trop forte donnerait un goût plus marqué, parfois amer.",
+        "mistake": "Mettre le feu trop fort → ail amer et poireau brûlé avant que les légumes soient cuits.",
+        "timer": 7
       },
       {
         "id": 3,
-        "title": "Mixer et assaisonner",
-        "action": "Vérifier la cuisson en piquant un morceau (doit s'écraser sans résistance). Mixer avec un mixeur plongeant jusqu'à consistance souhaitée (lisse ou légèrement rustique). Goûter, saler, poivrer. Finir avec un filet de crème ou une noix de beurre hors du feu.",
-        "why": "La crème ou le beurre hors du feu lie la soupe et lui donne de l'onctuosité sans casser l'émulsion.",
-        "mistake": "Saler avant de mixer : la réduction concentre les saveurs — saler toujours en dernier.",
+        "title": "Ajouter les légumes et cuire",
+        "action": "Ajouter carottes et pommes de terre. Verser le bouillon juste à hauteur. Porter à ébullition puis baisser à frémissement doux.",
+        "why": "Couvrir juste à hauteur donne une soupe concentrée. Trop de liquide dès le départ rend la texture difficile à rattraper.",
+        "mistake": "Noyer les légumes sous trop de bouillon → soupe liquide et goût dilué.",
+        "timer": 25
+      },
+      {
+        "id": 4,
+        "title": "Vérifier puis mixer",
+        "action": "Piquer une carotte et une pomme de terre. Elles doivent s’écraser sans résistance. Mixer au mixeur plongeant jusqu’à la texture souhaitée.",
+        "why": "Mixer avant cuisson complète donne une texture granuleuse. La vérification évite de confondre temps théorique et vraie cuisson.",
+        "mistake": "Mixer des légumes encore fermes → soupe fibreuse et morceaux désagréables.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Ajuster texture et assaisonnement",
+        "action": "Goûter. Saler, poivrer. Ajouter un peu d’eau chaude si la soupe est trop épaisse, ou réduire quelques minutes si elle est trop liquide. Finir avec crème, beurre ou huile d’olive hors du feu.",
+        "why": "L’assaisonnement final se fait après réduction et mixage, quand la concentration réelle est connue. Le gras arrondit le goût et donne une texture plus agréable.",
+        "mistake": "Saler fort au début puis réduire → soupe trop salée impossible à corriger simplement.",
         "timer": null
       }
     ],
     "tips": [
       "Trop épais : ajouter un peu d'eau chaude ou bouillon. Trop liquide : laisser réduire quelques minutes à feu moyen.",
       "Finitions selon l'humeur : huile de truffe, croûtons, ciboulette, crème fraîche, chips de lard."
+    ],
+    "equipment": [
+      "grande casserole ou cocotte",
+      "couteau",
+      "planche",
+      "mixeur plongeant",
+      "louche"
+    ],
+    "successCriteria": [
+      "Les légumes s’écrasent sans résistance avant mixage",
+      "La texture est lisse ou volontairement rustique, pas aqueuse",
+      "Le sel, le gras et l’acidité sont corrigés à la fin"
+    ],
+    "criticalPoints": [
+      "Faire suer les aromates sans coloration",
+      "Cuire à frémissement, pas à gros bouillons",
+      "Mixer avant d’ajouter trop de liquide"
     ]
   },
   {
@@ -18336,31 +20862,64 @@ var RECIPES = [
       {
         "id": 1,
         "title": "Préparer le bain-marie",
-        "action": "Préchauffer le four à 180°C. Beurrer 2 ramequins. Verser 2 cm d'eau chaude dans un plat à gratin. Poser les ramequins dans le plat.",
-        "why": "Le bain-marie transmet une chaleur douce et homogène — indispensable pour les œufs qui coagulent vite et deviennent caoutchouteux avec une chaleur directe.",
-        "mistake": "Four trop chaud sans bain-marie → blanc cuit mais jaune dur, texture caoutchouteuse.",
+        "action": "Préchauffer le four à 180°C. Beurrer 2 ramequins. Verser 2 cm d’eau très chaude dans un plat à gratin.",
+        "why": "Le bain-marie adoucit la chaleur du four. Il protège les œufs d’une coagulation trop brutale.",
+        "mistake": "Mettre les ramequins directement au four sans bain-marie → bords caoutchouteux et cuisson irrégulière.",
         "timer": null
       },
       {
         "id": 2,
-        "title": "Garnir et enfourner",
-        "action": "Verser 2 cuillères de crème dans chaque ramequin. Casser délicatement 2 œufs dessus sans crever le jaune. Assaisonner sel + poivre. Enfourner 12-15 min.",
-        "why": "L'œuf posé sur la crème cuit dans un environnement humide et gras qui protège le blanc. Le jaune doit rester coulant.",
-        "mistake": "Crever le jaune → il cuit trop vite, devient sec au centre.",
-        "timer": 13
+        "title": "Garnir les ramequins",
+        "action": "Verser 2 cuillères de crème dans chaque ramequin. Casser 2 œufs par ramequin sans percer les jaunes. Saler légèrement et poivrer.",
+        "why": "La crème apporte du moelleux et limite le dessèchement. Garder les jaunes intacts permet de contrôler la cuisson visuellement.",
+        "mistake": "Trop saler avant cuisson → goût agressif, car la crème et les œufs concentrent vite le sel.",
+        "timer": null
       },
       {
         "id": 3,
-        "title": "Surveiller et servir immédiatement",
-        "action": "Le blanc doit être pris (opaque) et le jaune encore brillant et tremblotant. Sortir du four — les œufs continuent de cuire dans les ramequins chauds. Servir immédiatement avec mouillettes de pain grillé.",
-        "why": "La cuisson résiduelle dans le ramequin chaud peut surcuire les jaunes en 2 minutes. Il vaut mieux sortir 30 secondes avant l'idéal.",
-        "mistake": "Attendre que le jaune soit \"bien pris\" avant de sortir → jaune dur à la dégustation.",
+        "title": "Cuire doucement",
+        "action": "Poser les ramequins dans le plat d’eau chaude. Enfourner. Cuire 10 à 13 minutes selon la taille des ramequins.",
+        "why": "Le temps varie beaucoup selon l’épaisseur du ramequin et la température de départ. Les dernières minutes demandent une surveillance visuelle.",
+        "mistake": "Se fier uniquement au minuteur → œufs trop pris si les ramequins sont petits ou déjà chauds.",
+        "timer": 12
+      },
+      {
+        "id": 4,
+        "title": "Sortir au bon point",
+        "action": "Sortir quand les blancs sont opaques mais que les jaunes bougent encore légèrement. Retirer les ramequins du bain-marie.",
+        "why": "Les ramequins chauds continuent de cuire les œufs après sortie du four. Il faut donc arrêter légèrement avant le point parfait.",
+        "mistake": "Attendre que tout soit parfaitement ferme au four → jaune dur et blanc caoutchouteux à table.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Finir et servir",
+        "action": "Ajouter ciboulette ou cerfeuil. Servir immédiatement avec des mouillettes de pain grillé.",
+        "why": "Les herbes gardent leur fraîcheur si elles sont ajoutées après cuisson. Les œufs cocotte attendent mal et continuent à se raffermir.",
+        "mistake": "Laisser reposer longtemps dans le ramequin chaud → cuisson qui continue et texture trop ferme.",
         "timer": null
       }
     ],
     "tips": [
       "Variantes : ajouter champignons sautés, lard fumé, ou saumon fumé sous les œufs.",
       "Garnitures fraîches ajoutées après cuisson : ciboulette, caviar, herbes fraîches."
+    ],
+    "equipment": [
+      "2 ramequins",
+      "plat à gratin",
+      "bouilloire ou casserole d’eau chaude",
+      "petite cuillère",
+      "four"
+    ],
+    "successCriteria": [
+      "Le blanc est opaque et pris",
+      "Le jaune reste brillant et tremblotant",
+      "La crème est chaude sans bouillir fortement"
+    ],
+    "criticalPoints": [
+      "Utiliser un bain-marie déjà chaud",
+      "Surveiller visuellement les 3 dernières minutes",
+      "Sortir avant que le jaune soit complètement pris"
     ]
   }
 ];

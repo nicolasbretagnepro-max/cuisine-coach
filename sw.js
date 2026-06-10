@@ -1,15 +1,17 @@
-const CACHE = 'chef-coach-v15-functional';
+const CACHE = 'chef-coach-v16-lot-a';
 const ASSETS = [
   './',
   './index.html',
+  './app.css?v=16',
+  './js/app.js?v=16',
+  './js/state.js?v=16',
+  './content/data.js?v=16',
   './manifest.webmanifest',
+  './reset.html',
+  './debug.html',
   './assets/icon-192.png',
   './assets/icon-512.png',
-  './assets/icon.svg',
-  './app.css',
-  './js/app.js',
-  './js/state.js',
-  './content/data.js'
+  './assets/icon.svg'
 ];
 
 self.addEventListener('install', event => {
@@ -31,12 +33,15 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
-  if (event.request.mode === 'navigate') {
+  const request = event.request;
+  const isNavigation = request.mode === 'navigate';
+
+  if (isNavigation) {
     event.respondWith(
-      fetch(event.request)
+      fetch(request)
         .then(response => {
-          const clone = response.clone();
-          caches.open(CACHE).then(cache => cache.put('./index.html', clone)).catch(() => null);
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put('./index.html', copy)).catch(() => null);
           return response;
         })
         .catch(() => caches.match('./index.html'))
@@ -45,14 +50,15 @@ self.addEventListener('fetch', event => {
   }
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).then(response => {
-        if (!response || response.status !== 200 || response.type !== 'basic') return response;
-        const clone = response.clone();
-        caches.open(CACHE).then(cache => cache.put(event.request, clone)).catch(() => null);
+    caches.match(request).then(cached => {
+      const network = fetch(request).then(response => {
+        if (response && response.status === 200) {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(request, copy)).catch(() => null);
+        }
         return response;
-      });
+      }).catch(() => cached);
+      return cached || network;
     })
   );
 });

@@ -1,4 +1,4 @@
-Chef Coach v15-functional-inline
-Date: 2026-06-09
-Index autonome: oui
-Service worker: chef-coach-v15-functional
+Chef Coach
+Version: v16-lot-a-split-files
+Cache: chef-coach-v16-lot-a
+Objectif: stabilisation technique, fichiers séparés propres, debug/reset.
