@@ -2,6 +2,8 @@
 
 Web app statique pour progresser en cuisine : leçons, quiz, pratiques en attente, recette de la semaine, mode cuisine, débrief et progression.
 
+Version actuelle : LOT B — UX semaine. L’accueil met désormais la recette hebdomadaire au centre, avec la leçon à faire avant, les points d’observation et le statut de la semaine.
+
 ## Déploiement GitHub Pages
 
 Paramètre recommandé :
@@ -51,3 +53,7 @@ CONTENT_GUIDE.md        Guide pour modifier les contenus
 ## Version
 
 Voir `VERSION.txt`.
+
+## Changelog
+
+Voir `docs/CHANGELOG_LOT_B.md`.

@@ -1,4 +1,4 @@
 Chef Coach
-Version: v16-lot-a-split-files
-Cache: chef-coach-v16-lot-a
-Objectif: stabilisation technique, fichiers séparés propres, debug/reset.
+Version: v17-lot-b-ux-semaine
+Cache: chef-coach-v17-lot-b
+Objectif: accueil centré sur la recette de la semaine, meilleure hiérarchie hebdomadaire, briefing recette et focus entraînement.

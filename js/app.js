@@ -179,6 +179,41 @@ function pendingPracticeItems(limit){
 function renderPracticeMiniCard(item){
   return '<div class="practice-mini-card"><a class="practice-mini-main" href="'+practiceHref(item.recipe.id,item.lesson.id)+'"><div class="practice-mini-icon">🎯</div><div class="grow"><div class="practice-mini-title">'+esc(item.recipe.title)+'</div><div class="practice-mini-sub">'+esc(item.lesson.title)+' · '+esc(item.label||'Exercice pratique')+'</div></div><div class="today-arrow">→</div></a><button class="practice-dismiss" type="button" data-remove-practice="'+esc(item.lesson.id)+'::'+esc(item.recipe.id)+'" aria-label="Retirer cette pratique">×</button></div>';
 }
+
+function weeklyPracticeContext(info){
+  if(!info||!info.recipe)return null;
+  if(info.lesson)return practiceContext(info.recipe.id,'practice-'+info.lesson.id);
+  return null;
+}
+function weeklyStatusText(info){
+  if(!info||!info.recipe)return 'À choisir';
+  if(info.done)return 'Terminée cette semaine';
+  return 'À faire cette semaine';
+}
+function renderWeeklyMissionCard(info, plan, compact){
+  if(!info||!info.recipe){
+    return '<section class="weekly-mission-card empty'+(compact?' compact':'')+'"><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">Aucune recette planifiée</div><div class="weekly-mission-sub">Termine une leçon ou ajoute une pratique pour obtenir une recommandation adaptée.</div><div class="weekly-actions"><a class="btn btn-primary btn-sm" href="#learn">Continuer les leçons</a><a class="btn btn-secondary btn-sm" href="#recipes">Voir les recettes</a></div></section>';
+  }
+  var r=info.recipe, lesson=info.lesson, ctx=weeklyPracticeContext(info), practice=ctx&&ctx.practice;
+  var total=(r.timePrep||0)+(r.timeCook||0), href=lesson?practiceHref(r.id,lesson.id):'#recipe/'+r.id;
+  var status=weeklyStatusText(info), focus=(practice&&practice.focus?practice.focus:[]).slice(0,3), success=(practice&&practice.successCriteria?practice.successCriteria:[]).slice(0,2);
+  var h='<section class="weekly-mission-card'+(info.done?' done':'')+(compact?' compact':'')+'">';
+  h+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">'+esc(r.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(status)+'</span></div>';
+  h+='<div class="weekly-mission-meta"><span>⏱ '+total+' min</span><span>'+esc(r.difficulty===1?'Facile':r.difficulty===2?'Intermédiaire':r.difficulty===3?'Avancé':'Expert')+'</span><span>'+esc(familyLabel(r.family))+'</span></div>';
+  if(lesson){
+    h+='<div class="weekly-before"><div class="weekly-before-label">À faire avant si possible</div><a href="#lesson/'+lesson.id+'">'+esc(lesson.title)+' · '+lesson.duration+' min</a></div>';
+  } else {
+    h+='<div class="weekly-before"><div class="weekly-before-label">Objectif</div><span>Pratiquer en conditions réelles, puis compléter le débrief.</span></div>';
+  }
+  if(practice&&practice.reason)h+='<div class="weekly-reason">'+esc(practice.reason)+'</div>';
+  if(focus.length){h+='<div class="weekly-focus"><div class="weekly-focus-title">Pendant la recette, observe :</div><ul>';focus.forEach(function(f){h+='<li>'+esc(f)+'</li>';});h+='</ul></div>';}
+  if(!compact&&success.length){h+='<div class="weekly-success"><div class="weekly-focus-title">Critères de réussite :</div><ul>';success.forEach(function(x){h+='<li>'+esc(x)+'</li>';});h+='</ul></div>';}
+  h+='<div class="weekly-actions"><a class="btn btn-primary btn-sm" href="'+href+'">Préparer la recette</a>';
+  if(lesson)h+='<a class="btn btn-secondary btn-sm" href="#lesson/'+lesson.id+'">Lire le cours</a>';
+  h+='<a class="btn btn-ghost btn-sm" href="#recipes">Recettes libres</a></div>';
+  h+='</section>';
+  return h;
+}
 function renderPracticeCard(practice, lesson){
   var r=practice.recipe||findRecipe(practice.id);
   if(!r)return '';
@@ -521,55 +556,45 @@ function bindObHandlers(overlay,step){
 // ════════════════════════════════════════════════
 function renderHome(){
   var stats=state.getStats(),name=state.get('userName')||'Chef';
-  var nL=null,nR=null;
-  for(var i=0;i<LESSONS.length;i++)if(!state.isLessonDone(LESSONS[i].id)&&!isLessonLocked(LESSONS[i])){nL=LESSONS[i];break;}
-  for(var j=0;j<RECIPES.length;j++)if(!state.isRecipeDone(RECIPES[j].id)){nR=RECIPES[j];break;}
   var today=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
   today=today.charAt(0).toUpperCase()+today.slice(1);
 
-  var plan=coachPlan(),nextRecipe=smartRecipePick(),reviewLesson=lessonToReview(),last=state.get('lastOpened');
+  var plan=coachPlan(),last=state.get('lastOpened');
+  var nL=plan.lesson, reviewLesson=plan.review;
   var totalLessons=LESSONS.length,lessonPct=totalLessons?Math.round(stats.lessonsCount/totalLessons*100):0;
   var resumeHref=last?last.href:(nL?'#lesson/'+nL.id:'#learn');
   var resumeTitle=last?last.title:(nL?nL.title:'Choisir une leçon');
   var learnHref=nL?'#lesson/'+nL.id:'#learn';
-  var cookHref=nextRecipe?'#recipe/'+nextRecipe.id:'#recipes';
   var reviewHref=reviewLesson?'#lesson/'+reviewLesson.id+'/review':'#learn';
   var reviewSub=reviewLesson?'Quiz à consolider':'Aucune erreur à revoir';
   var weeklyPct=plan.weeklyGoal?Math.min(100,Math.round(plan.weeklyLearningDone/plan.weeklyGoal*100)):0;
 
-  var h='<div class="home-hero">';
+  var h='<div class="home-hero home-hero-compact">';
   h+='<div class="row-sb"><div>';
   h+='<div class="hero-greeting">'+esc(today)+'</div>';
-  h+='<div class="hero-title">Bonjour, '+esc(name)+' 👨‍🍳</div>';
-  h+='<div class="hero-sub">Leçons quand tu peux, une vraie pratique par semaine</div>';
+  h+='<div class="hero-title">Bonjour, '+esc(name)+'</div>';
+  h+='<div class="hero-sub">Une recette par semaine. Les leçons quand tu peux.</div>';
   h+='</div><div class="streak-pill">🔥 '+stats.streak+' jour'+(stats.streak>1?'s':'')+'</div></div>';
-  h+='<div class="hero-stats"><div class="hero-stat"><div class="hero-stat-val">'+stats.xp+'</div><div class="hero-stat-lbl">XP</div></div>';
-  h+='<div class="hero-stat"><div class="hero-stat-val">'+stats.lessonsCount+'</div><div class="hero-stat-lbl">Leçons</div></div>';
-  h+='<div class="hero-stat"><div class="hero-stat-val">'+stats.recipesCount+'</div><div class="hero-stat-lbl">Recettes</div></div></div></div>';
-
-  h+='<section class="today-card mt-16" aria-label="Plan de la semaine">';
-  h+='<div class="today-top"><div><div class="today-kicker">Cette semaine</div><div class="today-title">Ton rythme réaliste</div></div>';
-  h+='<div class="today-goal"><span>'+plan.weeklyLearningDone+'/'+plan.weeklyGoal+'</span><small>leçons</small></div></div>'; 
-  h+='<div class="progress-bar thin mt-12"><div class="progress-fill" style="width:'+weeklyPct+'%"></div></div>';
-  h+='<div class="today-list mt-14">';
-  if(plan.review){
-    h+='<a class="today-item today-review" href="#lesson/'+plan.review.id+'/review"><div class="today-icon">🔄</div><div class="grow"><div class="today-item-title">Réviser un point faible</div><div class="today-item-sub">'+esc(plan.review.title)+'</div></div><div class="today-arrow">→</div></a>';
-  }
-  if(plan.lesson){
-    h+='<a class="today-item" href="#lesson/'+plan.lesson.id+'"><div class="today-icon">📚</div><div class="grow"><div class="today-item-title">Leçon quand tu peux</div><div class="today-item-sub">'+esc(plan.lesson.title)+' · '+plan.lesson.duration+' min</div></div><div class="today-arrow">→</div></a>';
-  } else {
-    h+='<a class="today-item" href="#learn"><div class="today-icon">🏁</div><div class="grow"><div class="today-item-title">Parcours terminé</div><div class="today-item-sub">Choisis une fiche ou révise tes acquis</div></div><div class="today-arrow">→</div></a>';
-  }
-  if(plan.weeklyRecipe&&plan.weeklyRecipe.recipe){
-    var wr=plan.weeklyRecipe.recipe,wl=plan.weeklyRecipe.lesson,wrHref=wl?practiceHref(wr.id,wl.id):'#recipe/'+wr.id;
-    h+='<a class="today-item weekly-recipe-item" href="'+wrHref+'"><div class="today-icon">👨‍🍳</div><div class="grow"><div class="today-item-title">Recette de la semaine</div><div class="today-item-sub">'+esc(wr.title)+' · '+((wr.timePrep||0)+(wr.timeCook||0))+' min'+(plan.weeklyRecipe.done?' · déjà cuisinée':'')+'</div></div><div class="today-arrow">→</div></a>';
-  }
   h+='</div>';
-  h+='<div class="today-note">Cadence prévue : une recette sérieuse par semaine. Les leçons restent libres et la progression verrouillée est conservée.</div>'; 
+
+  h+=renderWeeklyMissionCard(plan.weeklyRecipe, plan, false);
+
+  h+='<section class="weekly-learning-card mt-16">';
+  h+='<div class="row-sb"><div><div class="today-kicker">Leçons libres</div><div class="today-title">Quand tu as 10 minutes</div></div>';
+  h+='<div class="today-goal"><span>'+plan.weeklyLearningDone+'/'+plan.weeklyGoal+'</span><small>leçons</small></div></div>';
+  h+='<div class="progress-bar thin mt-12"><div class="progress-fill" style="width:'+weeklyPct+'%"></div></div>';
+  if(nL){
+    h+='<a class="today-item mt-12" href="#lesson/'+nL.id+'"><div class="today-icon">📚</div><div class="grow"><div class="today-item-title">Prochaine leçon</div><div class="today-item-sub">'+esc(nL.title)+' · '+nL.duration+' min</div></div><div class="today-arrow">→</div></a>';
+  } else {
+    h+='<a class="today-item mt-12" href="#learn"><div class="today-icon">🏁</div><div class="grow"><div class="today-item-title">Parcours terminé</div><div class="today-item-sub">Révise ou consulte les fiches techniques.</div></div><div class="today-arrow">→</div></a>';
+  }
+  if(reviewLesson){
+    h+='<a class="today-item today-review mt-8" href="#lesson/'+reviewLesson.id+'/review"><div class="today-icon">🔄</div><div class="grow"><div class="today-item-title">Révision courte</div><div class="today-item-sub">'+esc(reviewLesson.title)+'</div></div><div class="today-arrow">→</div></a>';
+  }
   h+='</section>';
 
   if(plan.pending&&plan.pending.length){
-    h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer</div><div class="t-small t-muted mt-4">Tes cours alimentent cette liste. L’app choisit une recette de la semaine ici, sans te pousser à cuisiner tous les jours.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
+    h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer plus tard</div><div class="t-small t-muted mt-4">Tes cours alimentent cette file. Une seule recette est mise en avant chaque semaine.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
     plan.pending.forEach(function(item){h+=renderPracticeMiniCard(item);});
     h+='</div></section>';
   }
@@ -582,7 +607,7 @@ function renderHome(){
   }
 
   if(plan.level){
-    h+='<section class="coach-level-panel mt-16"><div class="row-sb"><div><div class="t-h3">Niveau en cours</div><div class="t-small t-muted mt-4">Une progression visible sur plusieurs mois.</div></div><span class="badge badge-orange">Niveau '+plan.level.index+'</span></div>'+renderLevelCard(plan.level,true)+'</section>';
+    h+='<section class="coach-level-panel mt-16"><div class="row-sb"><div><div class="t-h3">Niveau en cours</div><div class="t-small t-muted mt-4">Ta progression long terme.</div></div><span class="badge badge-orange">Niveau '+plan.level.index+'</span></div>'+renderLevelCard(plan.level,true)+'</section>';
   }
   if(plan.spacedReviews&&plan.spacedReviews.length){
     h+='<section class="pending-panel review-panel mt-16"><div class="t-h3">Révisions intelligentes</div><div class="t-small t-muted mt-4">Courtes révisions, sans recette supplémentaire.</div><div class="stack-8 mt-12">';
@@ -593,9 +618,9 @@ function renderHome(){
   h+='<div class="mt-16"><div class="t-h3" style="margin-bottom:12px">Accès rapide</div>';
   h+='<div class="action-grid">';
   h+='<a href="'+resumeHref+'" class="action-card action-primary"><div class="action-icon">↩</div><div class="action-title">Reprendre</div><div class="action-sub">'+esc(resumeTitle)+'</div></a>';
-  h+='<a href="'+learnHref+'" class="action-card"><div class="action-icon">📚</div><div class="action-title">Apprendre une base</div><div class="action-sub">'+(nL?esc(nL.title)+' · '+nL.duration+' min':stats.lessonsCount+'/'+totalLessons+' leçons')+'</div><div class="progress-bar thin mt-8"><div class="progress-fill" style="width:'+lessonPct+'%"></div></div></a>';
-  h+='<a href="'+(plan.weeklyRecipe&&plan.weeklyRecipe.recipe?(plan.weeklyRecipe.lesson?practiceHref(plan.weeklyRecipe.recipe.id,plan.weeklyRecipe.lesson.id):'#recipe/'+plan.weeklyRecipe.recipe.id):cookHref)+'" class="action-card"><div class="action-icon">👨‍🍳</div><div class="action-title">Recette de la semaine</div><div class="action-sub">'+(plan.weeklyRecipe&&plan.weeklyRecipe.recipe?esc(plan.weeklyRecipe.recipe.title)+' · '+((plan.weeklyRecipe.recipe.timePrep||0)+(plan.weeklyRecipe.recipe.timeCook||0))+' min':'Voir les recettes')+'</div></a>'; 
-  h+='<a href="'+reviewHref+'" class="action-card"><div class="action-icon">🔄</div><div class="action-title">Réviser une erreur</div><div class="action-sub">'+esc(reviewSub)+'</div></a>';
+  h+='<a href="'+learnHref+'" class="action-card"><div class="action-icon">📚</div><div class="action-title">Apprendre</div><div class="action-sub">'+(nL?esc(nL.title)+' · '+nL.duration+' min':stats.lessonsCount+'/'+totalLessons+' leçons')+'</div><div class="progress-bar thin mt-8"><div class="progress-fill" style="width:'+lessonPct+'%"></div></div></a>';
+  h+='<a href="#recipes" class="action-card"><div class="action-icon">🍽</div><div class="action-title">Recettes libres</div><div class="action-sub">Choisir selon ton temps</div></a>'; 
+  h+='<a href="'+reviewHref+'" class="action-card"><div class="action-icon">🔄</div><div class="action-title">Réviser</div><div class="action-sub">'+esc(reviewSub)+'</div></a>';
   h+='</div></div>';
   return h;
 }
@@ -844,9 +869,11 @@ function renderRecipes(filter,search){
     return !active.search||blob.indexOf(normalizeText(active.search))>=0;
   });
 
+  var plan=coachPlan();
   var nh='<div class="t-title mt-4">Cuisiner</div>';
+  nh+=renderWeeklyMissionCard(plan.weeklyRecipe, plan, true);
   nh+='<section class="cook-today-panel mt-12">';
-  nh+='<div class="row-sb"><div><div class="t-h4">Que cuisiner cette semaine ?</div><div class="t-small t-muted mt-4">Une vraie pratique hebdomadaire, choisie selon ton temps, ton énergie ou la compétence à consolider.</div></div></div>'; 
+  nh+='<div class="row-sb"><div><div class="t-h4">Recettes libres</div><div class="t-small t-muted mt-4">Choisis une recette en plus de la pratique hebdomadaire, ou filtre selon ton temps et ton énergie.</div></div></div>'; 
   var contexts=[{id:'tous',label:'Tout'},{id:'quick15',label:'15 min'},{id:'quick30',label:'30 min'},{id:'practice',label:'Technique'},{id:'complete',label:'Repas complet'},{id:'leftovers',label:'Restes'},{id:'easy',label:'Très facile'}];
   nh+='<div class="context-row mt-12">';
   contexts.forEach(function(c){nh+='<button class="context-chip'+(active.context===c.id?' active':'')+'" data-context="'+c.id+'" type="button">'+esc(c.label)+'</button>';});
@@ -894,6 +921,9 @@ function renderRecipeDetail(id,mode){
   var recipe=findRecipe(id);
   if(!recipe)return '<div class="empty-state"><div class="empty-icon">❓</div><div class="empty-title">Recette introuvable</div></div>';
   var done=state.isRecipeDone(id),existingNote=state.getRecipeNote(id),ctx=practiceContext(id,contextMode(mode));
+  var weeklyInfo=coachPlan().weeklyRecipe;
+  var isWeekly=!!(weeklyInfo&&weeklyInfo.recipe&&weeklyInfo.recipe.id===recipe.id);
+  var weeklyCtx=(!ctx&&isWeekly&&weeklyInfo.lesson)?practiceContext(id,'practice-'+weeklyInfo.lesson.id):null;
 
   var h='<a href="#recipes" class="btn btn-ghost btn-sm" style="margin-bottom:12px">← Retour</a>';
   h+='<div class="recipe-hero" style="'+recipeCoverStyle(recipe)+'"><div style="font-size:72px;position:relative;z-index:1">'+recipeEmoji(recipe)+'</div><div class="recipe-hero-overlay"></div></div>';
@@ -912,6 +942,14 @@ function renderRecipeDetail(id,mode){
     if(ctx.practice.reason)h+='<div class="practice-context-reason">'+esc(ctx.practice.reason)+'</div>';
     if(focus.length){h+='<div class="practice-focus mt-10"><div class="practice-focus-title">Pendant cette recette, concentre-toi sur :</div><ul>';focus.forEach(function(f){h+='<li>'+esc(f)+'</li>';});h+='</ul></div>';}
     if(success.length){h+='<div class="practice-success mt-10"><div class="practice-focus-title">Critères de réussite :</div><ul>';success.forEach(function(f){h+='<li>'+esc(f)+'</li>';});h+='</ul></div>';}
+    h+='</div>';
+  }
+
+  if(isWeekly&&!ctx){
+    var wFocus=(weeklyCtx&&weeklyCtx.practice&&weeklyCtx.practice.focus?weeklyCtx.practice.focus:[]).slice(0,3);
+    h+='<div class="weekly-recipe-brief mt-12"><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">Ta pratique principale</div>';
+    if(weeklyInfo&&weeklyInfo.lesson)h+='<div class="weekly-before mt-10"><div class="weekly-before-label">À faire avant si possible</div><a href="#lesson/'+weeklyInfo.lesson.id+'">'+esc(weeklyInfo.lesson.title)+' · '+weeklyInfo.lesson.duration+' min</a></div>';
+    if(wFocus.length){h+='<div class="weekly-focus mt-10"><div class="weekly-focus-title">Pendant la recette, observe :</div><ul>';wFocus.forEach(function(f){h+='<li>'+esc(f)+'</li>';});h+='</ul></div>';}
     h+='</div>';
   }
 
@@ -962,7 +1000,11 @@ function renderRecipeDetail(id,mode){
     h+='</div></div>';
   }
 
-  h+='<div class="stack-8 mt-20"><a href="'+cookingHref(recipe.id,ctx&&ctx.lesson&&ctx.lesson.id)+'" class="btn btn-primary btn-lg btn-full">👨‍🍳 Commencer la recette</a></div>';
+  var trainingLessonId=(ctx&&ctx.lesson&&ctx.lesson.id)||(weeklyCtx&&weeklyCtx.lesson&&weeklyCtx.lesson.id)||'';
+  h+='<div class="stack-8 mt-20">';
+  h+='<a href="'+cookingHref(recipe.id,trainingLessonId)+'" class="btn btn-primary btn-lg btn-full">👨‍🍳 '+(trainingLessonId?'Lancer l’entraînement':'Commencer la recette')+'</a>';
+  if(trainingLessonId)h+='<a href="#cooking/'+recipe.id+'" class="btn btn-secondary btn-full">Je veux juste cuisiner</a>';
+  h+='</div>';
 
   // ── Section Ma réalisation ───────────────────
   h+='<div class="recipe-note-section mt-20" id="note-section">';
@@ -1035,6 +1077,8 @@ function startCookingMode(id,mode){
 
 function _renderCookStep(recipe,lessonId){
   var s=recipe.steps[_cook.step],total=recipe.steps.length,isLast=_cook.step===total-1;
+  var ctx=lessonId?practiceContext(recipe.id,'practice-'+lessonId):null;
+  var cookFocus=(ctx&&ctx.practice&&ctx.practice.focus?ctx.practice.focus:[]).slice(0,2);
   var pct=Math.round(((_cook.step+1)/total)*100);
   var old=document.getElementById('cooking-mode');if(old)old.remove();
   var div=document.createElement('div');div.id='cooking-mode';div.className='cooking-mode';
@@ -1044,6 +1088,11 @@ function _renderCookStep(recipe,lessonId){
   h+='<div class="cooking-step-counter">'+(_cook.step+1)+'/'+total+'</div></div>';
   h+='<div class="cooking-body">';
   h+='<div class="cooking-step-num">Étape '+(_cook.step+1)+' — '+esc(recipe.title)+'</div>';
+  if(ctx){
+    h+='<div class="cooking-focus-card"><div class="cooking-focus-kicker">Focus entraînement</div><div class="cooking-focus-title">'+esc(ctx.lesson.title)+'</div>';
+    if(cookFocus.length)h+='<ul>'+cookFocus.map(function(f){return '<li>'+esc(f)+'</li>';}).join('')+'</ul>';
+    h+='</div>';
+  }
   h+='<div class="cooking-step-title">'+esc(s.title)+'</div>';
   h+='<div class="cooking-step-action">'+esc(s.action)+'</div>';
   var stepIngs=stepIngredients(recipe,s);

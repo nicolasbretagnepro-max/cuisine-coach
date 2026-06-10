@@ -1721,3 +1721,191 @@ select:focus-visible,
   color: #fff;
   font-weight: 700;
 }
+
+/* ════════════════════════════════════════════════
+   LOT B — UX semaine et recette hebdomadaire
+════════════════════════════════════════════════ */
+.home-hero-compact {
+  padding-bottom: 18px;
+  border-radius: 0 0 var(--r-xl) var(--r-xl);
+}
+.weekly-mission-card,
+.weekly-learning-card,
+.weekly-recipe-brief {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-md);
+}
+.weekly-mission-card {
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--orange-soft), var(--surface));
+  border-color: rgba(232,93,4,0.22);
+}
+.weekly-mission-card.compact {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 12px;
+  box-shadow: var(--sh-sm);
+}
+.weekly-mission-card.done {
+  background: linear-gradient(135deg, var(--green-soft), var(--surface));
+  border-color: rgba(22,163,74,0.22);
+}
+.weekly-mission-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.weekly-mission-kicker {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--orange-dark);
+}
+.weekly-mission-title {
+  margin-top: 4px;
+  font-size: 21px;
+  line-height: 1.15;
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.weekly-mission-sub,
+.weekly-reason {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.weekly-status {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.weekly-status.todo { background: var(--orange); color: #fff; }
+.weekly-status.done { background: var(--green); color: #fff; }
+.weekly-mission-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.weekly-mission-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text);
+}
+html[data-theme="dark"] .weekly-mission-meta span { background: rgba(255,255,255,.06); }
+.weekly-before {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid rgba(232,93,4,0.16);
+}
+.weekly-before-label,
+.weekly-focus-title {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.weekly-before a,
+.weekly-before span {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 800;
+  color: var(--text);
+}
+.weekly-focus,
+.weekly-success {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.weekly-success { background: var(--green-soft); border-color: rgba(22,163,74,0.18); }
+.weekly-focus ul,
+.weekly-success ul {
+  margin-top: 6px;
+  padding-left: 18px;
+  list-style: disc;
+}
+.weekly-focus li,
+.weekly-success li {
+  font-size: 13px;
+  line-height: 1.45;
+  margin-top: 3px;
+}
+.weekly-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.weekly-learning-card {
+  box-shadow: var(--sh-sm);
+}
+.weekly-recipe-brief {
+  background: linear-gradient(135deg, var(--blue-soft), var(--surface));
+  border-color: rgba(37,99,235,.18);
+  box-shadow: var(--sh-sm);
+}
+.cooking-focus-card {
+  margin: 12px 0 16px;
+  padding: 12px;
+  border-radius: var(--r-lg);
+  background: var(--orange-soft);
+  border: 1px solid rgba(232,93,4,.18);
+}
+.cooking-focus-kicker {
+  color: var(--orange-dark);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.cooking-focus-title {
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--text);
+}
+.cooking-focus-card ul {
+  margin-top: 6px;
+  padding-left: 18px;
+  list-style: disc;
+}
+.cooking-focus-card li {
+  font-size: 13px;
+  line-height: 1.35;
+  margin-top: 3px;
+  color: var(--text);
+}
+@media (max-width: 380px) {
+  .weekly-mission-head { flex-direction: column; }
+  .weekly-actions .btn { width: 100%; }
+}
