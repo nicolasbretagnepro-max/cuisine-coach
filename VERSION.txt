@@ -1,4 +1,4 @@
 Chef Coach
-Version: v17-lot-b-ux-semaine
-Cache: chef-coach-v17-lot-b
-Objectif: accueil centré sur la recette de la semaine, meilleure hiérarchie hebdomadaire, briefing recette et focus entraînement.
+Version: v18-lot-c-pedagogie
+Cache: chef-coach-v18-lot-c
+Objectif: taxonomie de compétences, recettes-exercices, cartes de révision, diagnostic de débrief et cohérence cours-recettes renforcée.

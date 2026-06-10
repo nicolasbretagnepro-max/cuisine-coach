@@ -392,3 +392,103 @@ L'expérience longue durée est structurée en 5 niveaux :
 5. Je deviens autonome.
 
 Les niveaux ne remplacent pas les modules et ne déverrouillent rien. Ils offrent une lecture plus motivante de la progression existante.
+
+---
+
+## LOT C — Compétences, recettes-exercices et révisions
+
+La version Lot C ajoute une couche pédagogique plus précise. Les contenus ne sont plus seulement liés par recettes : ils sont aussi reliés à des compétences stables.
+
+### `SKILLS`
+
+`SKILLS` est la taxonomie officielle des compétences suivies par l’app.
+
+```js
+var SKILLS = {
+  'feu-fort': {
+    label: 'Feu fort',
+    group: 'feu-cuisson',
+    description: 'Colorer, saisir ou évaporer rapidement.'
+  }
+};
+```
+
+À utiliser dans :
+
+- `lesson.skillIds` pour les leçons ;
+- `recipe.primarySkills` pour les compétences principales d’une recette ;
+- `recipe.secondarySkills` pour les compétences secondaires ;
+- `REVIEW_CARDS[].skills` pour les cartes de révision.
+
+### Leçons
+
+Chaque leçon peut maintenant contenir :
+
+```js
+skillIds: ['feu-fort', 'evaporation', 'coloration']
+```
+
+Ces compétences servent à suivre la progression réelle, au-delà du simple statut “leçon terminée”.
+
+### Recettes
+
+Chaque recette peut maintenant contenir :
+
+```js
+primarySkills: ['evaporation', 'coloration'],
+secondarySkills: ['feu-fort', 'cuisson-poele'],
+isExercise: true
+```
+
+`isExercise: true` indique une recette-exercice : une recette courte conçue d’abord pour entraîner une compétence.
+
+### Recettes-exercices
+
+Une recette-exercice doit être très concrète :
+
+- objectif technique clair ;
+- durée courte ;
+- critères de réussite observables ;
+- erreurs fréquentes ;
+- débrief utile.
+
+Exemples ajoutés :
+
+- faire dorer des légumes sans les détremper ;
+- œufs brouillés sans les sécher ;
+- saisir puis finir doucement un blanc de poulet ;
+- lier une sauce minute avec l’eau de cuisson ;
+- corriger un plat fade.
+
+### `REVIEW_CARDS`
+
+Les cartes de révision sont des exercices rapides pour progresser les jours sans cuisiner.
+
+```js
+var REVIEW_CARDS = [
+  {
+    id: 'diag-poelee-detrempee',
+    type: 'diagnostic',
+    title: 'Poêlée détrempée',
+    question: 'Tes légumes rendent beaucoup d’eau et ne dorent pas. Diagnostic ?',
+    answer: 'Poêle trop chargée, feu trop faible, légumes trop humides ou morceaux trop petits.',
+    skills: ['evaporation', 'feu-fort'],
+    lessons: ['maitriser-intensite-feu'],
+    recipe: 'exercice-dorer-legumes-sans-detremper'
+  }
+];
+```
+
+Types conseillés :
+
+- `diagnostic` ;
+- `rattrapage` ;
+- `assaisonnement` ;
+- `cuisson` ;
+- `timing` ;
+- `materiel` ;
+- `decoupe`.
+
+### `TRAINING_PLAN`
+
+`TRAINING_PLAN` décrit une progression indicative sur 3 mois avec une recette par semaine. Il ne remplace pas les prérequis existants. Il sert de vision de progression longue durée.

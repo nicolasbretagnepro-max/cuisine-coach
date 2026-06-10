@@ -1909,3 +1909,163 @@ html[data-theme="dark"] .weekly-mission-meta span { background: rgba(255,255,255
   .weekly-mission-head { flex-direction: column; }
   .weekly-actions .btn { width: 100%; }
 }
+
+/* LOT C — Pédagogie, compétences et révisions */
+.review-cards-panel,
+.skill-taxonomy-panel,
+.exercise-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 16px;
+  box-shadow: var(--sh-sm);
+}
+.review-card-row,
+.exercise-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+.review-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.review-card-mini {
+  display: block;
+  min-width: 220px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 12px;
+}
+.review-card-type {
+  display: inline-flex;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.review-card-title {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+.review-card-q {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--text);
+}
+.review-card-a {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+.skill-taxonomy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.skill-group-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 12px;
+}
+.skill-group-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+}
+.skill-group-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.skill-group-list span {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.exercise-card {
+  min-width: 180px;
+  display: block;
+  background: linear-gradient(135deg, var(--orange-soft), var(--surface));
+  border: 1px solid rgba(232,93,4,.18);
+  border-radius: var(--r-lg);
+  padding: 12px;
+}
+.exercise-emoji { font-size: 30px; }
+.exercise-title {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.exercise-sub {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+.exercise-brief {
+  background: var(--orange-soft);
+  border: 1px solid rgba(232,93,4,.2);
+  border-radius: var(--r-xl);
+  padding: 14px;
+}
+.exercise-brief-kicker {
+  color: var(--orange-dark);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+.exercise-brief-title {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.exercise-brief-sub {
+  margin-top: 5px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.diagnosis-box {
+  background: var(--blue-soft);
+  border: 1px solid rgba(37,99,235,.18);
+  border-radius: var(--r-lg);
+  padding: 12px;
+}
+.diagnosis-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--blue);
+}
+.diagnosis-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.diagnosis-item strong { color: var(--text); }
+.diagnosis-item span { color: var(--muted); }

@@ -2,7 +2,7 @@
 
 Web app statique pour progresser en cuisine : leçons, quiz, pratiques en attente, recette de la semaine, mode cuisine, débrief et progression.
 
-Version actuelle : LOT B — UX semaine. L’accueil met désormais la recette hebdomadaire au centre, avec la leçon à faire avant, les points d’observation et le statut de la semaine.
+Version actuelle : LOT C — Pédagogie forte. Cette version ajoute une taxonomie de compétences, des recettes-exercices, des cartes de révision et des diagnostics plus utiles après recette.
 
 ## Déploiement GitHub Pages
 
@@ -35,7 +35,7 @@ index.html              Page principale légère
 app.css                 Design system et styles
 js/state.js             État local, progression, pratiques, débrief
 js/app.js               Interface et logique applicative
-content/data.js         Modules, leçons, recettes, fiches techniques
+content/data.js         Modules, compétences, leçons, recettes, cartes de révision, plan et fiches techniques
 sw.js                   Service worker PWA
 manifest.webmanifest    Manifest PWA
 reset.html              Suppression des caches/service worker
@@ -56,4 +56,4 @@ Voir `VERSION.txt`.
 
 ## Changelog
 
-Voir `docs/CHANGELOG_LOT_B.md`.
+Voir `docs/CHANGELOG_LOT_C.md`.

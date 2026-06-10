@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 var MODULES = [
   {
     "id": "organisation",
@@ -359,6 +352,199 @@ var MODULES = [
   }
 ];
 
+var SKILLS = {
+  "lire-recette": {
+    "label": "Lire une recette",
+    "group": "organisation",
+    "description": "Repérer timing, ordre, pièges et points critiques avant de commencer."
+  },
+  "organisation-poste": {
+    "label": "Poste de travail",
+    "group": "organisation",
+    "description": "Préparer un espace clair, sûr et efficace."
+  },
+  "mise-en-place": {
+    "label": "Mise en place",
+    "group": "organisation",
+    "description": "Préparer ce qui doit l’être sans abîmer les ingrédients fragiles."
+  },
+  "timing": {
+    "label": "Timing",
+    "group": "organisation",
+    "description": "Synchroniser cuisson, repos, sauce et service."
+  },
+  "materiel": {
+    "label": "Choix du matériel",
+    "group": "materiel-feu",
+    "description": "Choisir le contenant et l’outil adaptés au geste."
+  },
+  "securite": {
+    "label": "Sécurité",
+    "group": "materiel-feu",
+    "description": "Limiter les risques avec couteau, chaleur, huile et organisation."
+  },
+  "feu-doux": {
+    "label": "Feu doux",
+    "group": "feu-cuisson",
+    "description": "Cuire sans brutaliser les textures fragiles."
+  },
+  "feu-moyen": {
+    "label": "Feu moyen",
+    "group": "feu-cuisson",
+    "description": "Construire une cuisson régulière."
+  },
+  "feu-fort": {
+    "label": "Feu fort",
+    "group": "feu-cuisson",
+    "description": "Colorer, saisir ou évaporer rapidement."
+  },
+  "evaporation": {
+    "label": "Évaporation",
+    "group": "feu-cuisson",
+    "description": "Faire sortir l’humidité pour éviter les cuissons détrempées."
+  },
+  "coloration": {
+    "label": "Coloration",
+    "group": "feu-cuisson",
+    "description": "Créer du goût par contact, chaleur et surface sèche."
+  },
+  "cuisson-residuelle": {
+    "label": "Cuisson résiduelle",
+    "group": "feu-cuisson",
+    "description": "Anticiper la cuisson qui continue hors du feu."
+  },
+  "signes-cuisson": {
+    "label": "Signes de cuisson",
+    "group": "feu-cuisson",
+    "description": "Lire bruit, odeur, couleur, texture et résistance."
+  },
+  "cuisson-poele": {
+    "label": "Cuisson à la poêle",
+    "group": "feu-cuisson",
+    "description": "Saisir, sauter, arroser et corriger une cuisson courte."
+  },
+  "cuisson-four": {
+    "label": "Cuisson au four",
+    "group": "feu-cuisson",
+    "description": "Rôtir, gratiner et cuire à cœur."
+  },
+  "cuisson-eau": {
+    "label": "Cuisson à l’eau",
+    "group": "feu-cuisson",
+    "description": "Bouillir, frémir, pocher et cuire à l’anglaise."
+  },
+  "cuisson-douce": {
+    "label": "Cuisson douce",
+    "group": "feu-cuisson",
+    "description": "Préserver moelleux, chair fragile et textures délicates."
+  },
+  "decoupe-securite": {
+    "label": "Couteau en sécurité",
+    "group": "decoupe",
+    "description": "Tenir le couteau, protéger les doigts et stabiliser les aliments."
+  },
+  "decoupe-fine": {
+    "label": "Émincer / ciseler / hacher",
+    "group": "decoupe",
+    "description": "Adapter finesse, parfum et temps de cuisson."
+  },
+  "decoupe-reguliere": {
+    "label": "Découpe régulière",
+    "group": "decoupe",
+    "description": "Obtenir une cuisson homogène grâce à des tailles cohérentes."
+  },
+  "assaisonnement-sel": {
+    "label": "Sel",
+    "group": "gout",
+    "description": "Saler par couches et au bon moment."
+  },
+  "acidite": {
+    "label": "Acidité",
+    "group": "gout",
+    "description": "Réveiller, équilibrer et alléger un plat."
+  },
+  "equilibre-gout": {
+    "label": "Équilibre du goût",
+    "group": "gout",
+    "description": "Ajuster sel, gras, acidité, sucre, amertume et umami."
+  },
+  "aromates": {
+    "label": "Aromates",
+    "group": "gout",
+    "description": "Construire les parfums avec ail, oignon, herbes et épices."
+  },
+  "emulsion": {
+    "label": "Émulsion",
+    "group": "sauces",
+    "description": "Lier deux éléments qui ne se mélangent pas naturellement."
+  },
+  "liaison": {
+    "label": "Liaison",
+    "group": "sauces",
+    "description": "Donner texture et tenue à une sauce."
+  },
+  "reduction": {
+    "label": "Réduction",
+    "group": "sauces",
+    "description": "Concentrer un liquide sans déséquilibrer le sel."
+  },
+  "deglacage": {
+    "label": "Déglaçage",
+    "group": "sauces",
+    "description": "Transformer les sucs en sauce courte."
+  },
+  "oeufs-coagulation": {
+    "label": "Coagulation des œufs",
+    "group": "produits",
+    "description": "Maîtriser texture, chaleur douce et arrêt de cuisson."
+  },
+  "legumes-texture": {
+    "label": "Texture des légumes",
+    "group": "produits",
+    "description": "Garder croquant, fondant ou couleur selon le résultat visé."
+  },
+  "amidon": {
+    "label": "Amidon",
+    "group": "produits",
+    "description": "Utiliser pâtes, riz, pommes de terre et eau de cuisson."
+  },
+  "viande-repos": {
+    "label": "Repos des viandes",
+    "group": "produits",
+    "description": "Préserver le jus et finir la cuisson à cœur."
+  },
+  "volaille-moelleux": {
+    "label": "Volaille moelleuse",
+    "group": "produits",
+    "description": "Cuire blanc, cuisse ou volaille entière sans dessécher."
+  },
+  "poisson-fragile": {
+    "label": "Poisson fragile",
+    "group": "produits",
+    "description": "Cuire court, nacré et sans casser la chair."
+  },
+  "patisserie-precision": {
+    "label": "Précision pâtissière",
+    "group": "patisserie",
+    "description": "Peser, mélanger, cuire et contrôler les textures."
+  },
+  "diagnostic": {
+    "label": "Diagnostic",
+    "group": "autonomie",
+    "description": "Identifier la cause probable d’un ratage."
+  },
+  "rattrapage": {
+    "label": "Rattrapage",
+    "group": "autonomie",
+    "description": "Corriger goût, texture, cuisson et timing."
+  },
+  "improvisation": {
+    "label": "Improvisation",
+    "group": "autonomie",
+    "description": "Adapter, remplacer et construire sans recette stricte."
+  }
+};
+
 var LESSONS = [
   {
     "id": "lire-recette-cuisinier",
@@ -479,6 +665,10 @@ var LESSONS = [
           "Les pâtes ne restent pas seules dans la passoire"
         ]
       }
+    ],
+    "skillIds": [
+      "lire-recette",
+      "timing"
     ]
   },
   {
@@ -601,6 +791,10 @@ var LESSONS = [
           "Rien ne manque au moment de servir"
         ]
       }
+    ],
+    "skillIds": [
+      "organisation-poste",
+      "securite"
     ]
   },
   {
@@ -724,6 +918,10 @@ var LESSONS = [
           "La salade garde du volume"
         ]
       }
+    ],
+    "skillIds": [
+      "mise-en-place",
+      "organisation-poste"
     ]
   },
   {
@@ -847,6 +1045,10 @@ var LESSONS = [
           "Assiette prête avant la fin de cuisson"
         ]
       }
+    ],
+    "skillIds": [
+      "timing",
+      "mise-en-place"
     ]
   },
   {
@@ -970,6 +1172,9 @@ var LESSONS = [
           "La texture est homogène après mixage"
         ]
       }
+    ],
+    "skillIds": [
+      "materiel"
     ]
   },
   {
@@ -1093,6 +1298,10 @@ var LESSONS = [
           "La sauce ne brûle pas au fond"
         ]
       }
+    ],
+    "skillIds": [
+      "materiel",
+      "evaporation"
     ]
   },
   {
@@ -1182,10 +1391,28 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-dorer-legumes-sans-detremper",
       "legumes-sautes-maitrises",
       "omelette-herbes-organisee"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-dorer-legumes-sans-detremper",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "C’est l’exercice le plus lisible pour sentir le feu fort, l’humidité qui s’évapore et le moment où il faut baisser.",
+        "focus": [
+          "Écouter le grésillement",
+          "Observer l’eau au fond de la poêle",
+          "Ne pas surcharger",
+          "Baisser quand la coloration démarre"
+        ],
+        "successCriteria": [
+          "Légumes dorés",
+          "Pas d’eau au fond",
+          "Texture encore légèrement croquante"
+        ]
+      },
       {
         "id": "legumes-sautes-maitrises",
         "type": "direct",
@@ -1234,6 +1461,11 @@ var LESSONS = [
           "Sauce nappante, non tranchée"
         ]
       }
+    ],
+    "skillIds": [
+      "feu-doux",
+      "feu-fort",
+      "feu-moyen"
     ]
   },
   {
@@ -1357,6 +1589,10 @@ var LESSONS = [
           "Le poste reste propre pendant la cuisson"
         ]
       }
+    ],
+    "skillIds": [
+      "securite",
+      "organisation-poste"
     ]
   },
   {
@@ -1480,6 +1716,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "decoupe-securite",
+      "securite"
     ]
   },
   {
@@ -1603,6 +1843,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "decoupe-fine",
+      "aromates"
     ]
   },
   {
@@ -1726,6 +1970,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "decoupe-reguliere",
+      "legumes-texture"
     ]
   },
   {
@@ -1849,6 +2097,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "decoupe-reguliere",
+      "cuisson-poele"
     ]
   },
   {
@@ -1972,6 +2224,11 @@ var LESSONS = [
           "Poulet moelleux"
         ]
       }
+    ],
+    "skillIds": [
+      "feu-fort",
+      "evaporation",
+      "coloration"
     ]
   },
   {
@@ -2061,10 +2318,26 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-oeufs-brouilles-sans-secher",
       "oeufs-brouilles-cremeux",
       "poulet-moelleux-legumes-rotis"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-oeufs-brouilles-sans-secher",
+        "type": "contrast",
+        "label": "Exercice de feu doux",
+        "reason": "Il montre l’autre versant de la chaleur : le contrôle doux plutôt que la puissance.",
+        "focus": [
+          "Feu doux",
+          "Sortie avant le point parfait",
+          "Texture brillante"
+        ],
+        "successCriteria": [
+          "Œufs crémeux",
+          "Aucune zone sèche"
+        ]
+      },
       {
         "id": "oeufs-brouilles-cremeux",
         "type": "direct",
@@ -2095,6 +2368,11 @@ var LESSONS = [
           "Centre moelleux"
         ]
       }
+    ],
+    "skillIds": [
+      "feu-doux",
+      "feu-fort",
+      "feu-moyen"
     ]
   },
   {
@@ -2218,6 +2496,10 @@ var LESSONS = [
           "Poisson non sec"
         ]
       }
+    ],
+    "skillIds": [
+      "signes-cuisson",
+      "diagnostic"
     ]
   },
   {
@@ -2341,6 +2623,10 @@ var LESSONS = [
           "Découpe propre"
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-residuelle",
+      "viande-repos"
     ]
   },
   {
@@ -2464,6 +2750,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-eau",
+      "cuisson-douce"
     ]
   },
   {
@@ -2571,6 +2861,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-eau",
+      "legumes-texture"
     ]
   },
   {
@@ -2694,6 +2988,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-douce",
+      "poisson-fragile"
     ]
   },
   {
@@ -2817,6 +3115,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-douce",
+      "poisson-fragile"
     ]
   },
   {
@@ -2906,10 +3208,26 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-poulet-saisir-finir-doucement",
       "steak-beurre-thym",
       "saumon-cote-peau"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-poulet-saisir-finir-doucement",
+        "type": "transfer",
+        "label": "Transfert viande",
+        "reason": "Il transfère la coloration sur une pièce épaisse qui exige une finition douce.",
+        "focus": [
+          "Ne pas bouger trop tôt",
+          "Baisser après coloration",
+          "Préserver les sucs"
+        ],
+        "successCriteria": [
+          "Coloration nette",
+          "Pas de goût brûlé"
+        ]
+      },
       {
         "id": "steak-beurre-thym",
         "type": "direct",
@@ -2940,6 +3258,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "feu-fort",
+      "coloration",
+      "cuisson-poele"
     ]
   },
   {
@@ -3029,10 +3352,26 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-dorer-legumes-sans-detremper",
       "champignons-sautes",
       "legumes-sautes-maitrises"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-dorer-legumes-sans-detremper",
+        "type": "direct",
+        "label": "Exercice anti-détrempe",
+        "reason": "Il isole exactement le problème de poêle trop pleine et d’évaporation insuffisante.",
+        "focus": [
+          "Une seule couche dans la poêle",
+          "Grésillement net",
+          "Évaporation avant coloration"
+        ],
+        "successCriteria": [
+          "Légumes sautés, pas bouillis",
+          "Surface colorée"
+        ]
+      },
       {
         "id": "champignons-sautes",
         "type": "direct",
@@ -3063,6 +3402,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "evaporation",
+      "cuisson-poele",
+      "coloration"
     ]
   },
   {
@@ -3186,6 +3530,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-poele",
+      "feu-moyen",
+      "viande-repos"
     ]
   },
   {
@@ -3309,6 +3658,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "cuisson-poele"
     ]
   },
   {
@@ -3432,6 +3786,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-four",
+      "signes-cuisson"
     ]
   },
   {
@@ -3539,6 +3897,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-four",
+      "legumes-texture",
+      "coloration"
     ]
   },
   {
@@ -3662,6 +4025,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-four",
+      "volaille-moelleux",
+      "viande-repos"
     ]
   },
   {
@@ -3769,6 +4137,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-four",
+      "rattrapage"
     ]
   },
   {
@@ -3876,6 +4248,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-douce",
+      "reduction"
     ]
   },
   {
@@ -3983,6 +4359,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-douce",
+      "deglacage",
+      "reduction"
     ]
   },
   {
@@ -4090,6 +4471,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "cuisson-douce",
+      "signes-cuisson"
     ]
   },
   {
@@ -4197,6 +4582,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "reduction",
+      "assaisonnement-sel"
     ]
   },
   {
@@ -4286,9 +4675,25 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-corriger-plat-fade",
       "soupe-correction-assaisonnement"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-corriger-plat-fade",
+        "type": "direct",
+        "label": "Exercice correction du goût",
+        "reason": "Tu travailles les corrections par petites touches au lieu d’assaisonner au hasard.",
+        "focus": [
+          "Goûter avant/après",
+          "Sel par pincées",
+          "Impact de l’acidité"
+        ],
+        "successCriteria": [
+          "Goût plus net",
+          "Correction expliquée"
+        ]
+      },
       {
         "id": "soupe-correction-assaisonnement",
         "type": "direct",
@@ -4304,6 +4709,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "assaisonnement-sel",
+      "equilibre-gout"
     ]
   },
   {
@@ -4393,9 +4802,25 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-corriger-plat-fade",
       "vinaigrette-moutarde-equilibree"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-corriger-plat-fade",
+        "type": "direct",
+        "label": "Exercice acidité",
+        "reason": "Il isole le rôle du citron ou du vinaigre pour réveiller un plat plat.",
+        "focus": [
+          "Quelques gouttes seulement",
+          "Goûter après chaque ajout",
+          "Éviter l’acidité dominante"
+        ],
+        "successCriteria": [
+          "Plat plus vivant",
+          "Acidité discrète"
+        ]
+      },
       {
         "id": "vinaigrette-moutarde-equilibree",
         "type": "direct",
@@ -4411,6 +4836,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "acidite",
+      "equilibre-gout"
     ]
   },
   {
@@ -4499,7 +4928,11 @@ var LESSONS = [
         "explanation": "Le brun peut donner du goût, mais le noir apporte souvent une amertume de brûlé difficile à masquer."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "equilibre-gout",
+      "diagnostic"
+    ]
   },
   {
     "id": "corriger-plat-rate",
@@ -4588,9 +5021,24 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-corriger-plat-fade",
       "soupe-correction-assaisonnement"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-corriger-plat-fade",
+        "type": "synthesis",
+        "label": "Exercice diagnostic",
+        "reason": "Il transforme la correction d’un plat fade en méthode de diagnostic.",
+        "focus": [
+          "Nommer le problème",
+          "Tester une correction à la fois",
+          "Mémoriser la correction gagnante"
+        ],
+        "successCriteria": [
+          "Tu sais expliquer ce qui a corrigé le plat"
+        ]
+      },
       {
         "id": "soupe-correction-assaisonnement",
         "type": "direct",
@@ -4606,6 +5054,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "equilibre-gout"
     ]
   },
   {
@@ -4694,7 +5147,11 @@ var LESSONS = [
         "explanation": "La cuisson douce attendrit l’oignon et développe sa douceur sans goût brûlé."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "aromates",
+      "equilibre-gout"
+    ]
   },
   {
     "id": "herbes-fraiches-seches",
@@ -4782,7 +5239,11 @@ var LESSONS = [
         "explanation": "Les herbes sèches se réhydratent et infusent mieux pendant la cuisson."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "aromates",
+      "equilibre-gout"
+    ]
   },
   {
     "id": "epices-torrefier-infuser",
@@ -4870,7 +5331,11 @@ var LESSONS = [
         "explanation": "Certaines épices dominent vite. Il faut les utiliser comme un accent, pas comme une base massive."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "aromates",
+      "equilibre-gout"
+    ]
   },
   {
     "id": "finitions-aromatiques",
@@ -4958,7 +5423,11 @@ var LESSONS = [
         "explanation": "La mise en place évite le retard, l’ajout final préserve le parfum."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "aromates",
+      "equilibre-gout"
+    ]
   },
   {
     "id": "comprendre-emulsion",
@@ -5081,6 +5550,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5204,6 +5677,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5311,6 +5788,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5418,6 +5899,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5541,6 +6026,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5648,6 +6137,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5755,6 +6248,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5878,6 +6375,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -5985,6 +6486,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "signes-cuisson",
+      "cuisson-douce"
     ]
   },
   {
@@ -6092,6 +6597,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "signes-cuisson",
+      "cuisson-douce"
     ]
   },
   {
@@ -6180,7 +6689,11 @@ var LESSONS = [
         "explanation": "Le jus court est concentré. Il accompagne le plat sans l’inonder."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "signes-cuisson",
+      "cuisson-douce"
+    ]
   },
   {
     "id": "monter-sauce-beurre",
@@ -6287,6 +6800,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "signes-cuisson",
+      "cuisson-douce"
     ]
   },
   {
@@ -6394,6 +6911,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -6501,6 +7022,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -6589,7 +7114,11 @@ var LESSONS = [
         "explanation": "La réduction concentre le goût et le corps du fond."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "liaison",
+      "reduction"
+    ]
   },
   {
     "id": "fumet-poisson-court",
@@ -6677,7 +7206,11 @@ var LESSONS = [
         "explanation": "Le fumet donne une profondeur marine et relie la sauce au produit principal."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "liaison",
+      "reduction"
+    ]
   },
   {
     "id": "principe-emulsion-chaude",
@@ -6800,6 +7333,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -6907,6 +7444,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -7014,6 +7555,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "liaison",
+      "reduction"
     ]
   },
   {
@@ -7102,7 +7647,11 @@ var LESSONS = [
         "explanation": "Les herbes tendres perdent vite leur fraîcheur avec une chaleur prolongée."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "liaison",
+      "reduction"
+    ]
   },
   {
     "id": "coagulation-oeufs",
@@ -7225,6 +7774,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "oeufs-coagulation",
+      "feu-doux"
     ]
   },
   {
@@ -7332,6 +7885,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "oeufs-coagulation",
+      "feu-doux"
     ]
   },
   {
@@ -7421,10 +7978,26 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-oeufs-brouilles-sans-secher",
       "oeufs-brouilles-cremeux",
       "omelette-herbes-baveuse"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-oeufs-brouilles-sans-secher",
+        "type": "direct",
+        "label": "Exercice œufs",
+        "reason": "La recette oblige à sentir la coagulation et à arrêter avant la surcuisson.",
+        "focus": [
+          "Coagulation progressive",
+          "Cuisson résiduelle",
+          "Texture humide"
+        ],
+        "successCriteria": [
+          "Œufs souples",
+          "Pas de surcuisson"
+        ]
+      },
       {
         "id": "oeufs-brouilles-cremeux",
         "type": "direct",
@@ -7455,6 +8028,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "oeufs-coagulation",
+      "feu-doux"
     ]
   },
   {
@@ -7562,6 +8139,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "oeufs-coagulation",
+      "feu-doux"
     ]
   },
   {
@@ -7685,6 +8266,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "oeufs-coagulation",
+      "feu-doux"
     ]
   },
   {
@@ -7808,6 +8393,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "legumes-texture",
+      "assaisonnement-sel"
     ]
   },
   {
@@ -7915,6 +8504,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "legumes-texture",
+      "assaisonnement-sel"
     ]
   },
   {
@@ -8038,6 +8631,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "legumes-texture",
+      "assaisonnement-sel"
     ]
   },
   {
@@ -8145,6 +8742,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "legumes-texture",
+      "assaisonnement-sel"
     ]
   },
   {
@@ -8233,7 +8834,11 @@ var LESSONS = [
         "explanation": "Le brûlé marque fortement le plat. Les corrections sont limitées."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "legumes-texture",
+      "assaisonnement-sel"
+    ]
   },
   {
     "id": "comprendre-amidon",
@@ -8322,10 +8927,25 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-sauce-minute-eau-cuisson",
       "pates-sauce-amidon",
       "puree-pommes-terre-maitrisee"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-sauce-minute-eau-cuisson",
+        "type": "direct",
+        "label": "Exercice amidon",
+        "reason": "L’eau de cuisson rend visible le rôle de l’amidon dans une liaison simple.",
+        "focus": [
+          "Amidon",
+          "Mouvement",
+          "Quantité de liquide"
+        ],
+        "successCriteria": [
+          "Sauce liée sans crème"
+        ]
+      },
       {
         "id": "pates-sauce-amidon",
         "type": "direct",
@@ -8356,6 +8976,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "amidon",
+      "timing"
     ]
   },
   {
@@ -8445,9 +9069,25 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-sauce-minute-eau-cuisson",
       "pates-sauce-amidon"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-sauce-minute-eau-cuisson",
+        "type": "synthesis",
+        "label": "Exercice pâtes liées",
+        "reason": "Il montre que la cuisson des pâtes continue dans la sauce et que l’eau de cuisson est un outil.",
+        "focus": [
+          "Prélèvement d’eau de cuisson",
+          "Finition en poêle",
+          "Liaison progressive"
+        ],
+        "successCriteria": [
+          "Sauce nappante",
+          "Pâtes brillantes"
+        ]
+      },
       {
         "id": "pates-sauce-amidon",
         "type": "direct",
@@ -8463,6 +9103,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "amidon",
+      "timing"
     ]
   },
   {
@@ -8570,6 +9214,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "amidon",
+      "timing"
     ]
   },
   {
@@ -8693,6 +9341,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "amidon",
+      "timing"
     ]
   },
   {
@@ -8800,6 +9452,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "amidon",
+      "timing"
     ]
   },
   {
@@ -8907,6 +9563,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "amidon",
+      "timing"
     ]
   },
   {
@@ -9030,6 +9690,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "viande-repos",
+      "coloration"
     ]
   },
   {
@@ -9153,6 +9817,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "viande-repos",
+      "coloration"
     ]
   },
   {
@@ -9260,6 +9928,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "viande-repos",
+      "coloration"
     ]
   },
   {
@@ -9367,6 +10039,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "viande-repos",
+      "coloration"
     ]
   },
   {
@@ -9474,6 +10150,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "viande-repos",
+      "coloration"
     ]
   },
   {
@@ -9597,6 +10277,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "volaille-moelleux",
+      "cuisson-residuelle"
     ]
   },
   {
@@ -9686,9 +10370,26 @@ var LESSONS = [
       }
     ],
     "linkedRecipes": [
+      "exercice-poulet-saisir-finir-doucement",
       "blanc-poulet-moelleux"
     ],
     "practiceRecipes": [
+      {
+        "id": "exercice-poulet-saisir-finir-doucement",
+        "type": "direct",
+        "label": "Exercice volaille",
+        "reason": "Il fait travailler saisie, baisse du feu, cuisson à cœur et repos.",
+        "focus": [
+          "Coloration sans brûler",
+          "Baisse à feu moyen",
+          "Repos avant découpe"
+        ],
+        "successCriteria": [
+          "Surface dorée",
+          "Chair moelleuse",
+          "Jus conservé"
+        ]
+      },
       {
         "id": "blanc-poulet-moelleux",
         "type": "direct",
@@ -9704,6 +10405,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "volaille-moelleux",
+      "cuisson-residuelle"
     ]
   },
   {
@@ -9811,6 +10516,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "volaille-moelleux",
+      "cuisson-residuelle"
     ]
   },
   {
@@ -9934,6 +10643,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "volaille-moelleux",
+      "cuisson-residuelle"
     ]
   },
   {
@@ -10022,7 +10735,11 @@ var LESSONS = [
         "explanation": "Trop de gras masque le goût. Un jus doit rester riche mais lisible."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "volaille-moelleux",
+      "cuisson-residuelle"
+    ]
   },
   {
     "id": "comprendre-poisson",
@@ -10145,6 +10862,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "poisson-fragile",
+      "cuisson-douce"
     ]
   },
   {
@@ -10252,6 +10973,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "poisson-fragile",
+      "cuisson-douce"
     ]
   },
   {
@@ -10359,6 +11084,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "poisson-fragile",
+      "cuisson-douce"
     ]
   },
   {
@@ -10482,6 +11211,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "poisson-fragile",
+      "cuisson-douce"
     ]
   },
   {
@@ -10589,6 +11322,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "poisson-fragile",
+      "cuisson-douce"
     ]
   },
   {
@@ -10712,6 +11449,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -10835,6 +11575,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -10958,6 +11701,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -11065,6 +11811,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -11172,6 +11921,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -11295,6 +12047,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -11418,6 +12174,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -11525,6 +12285,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -11632,6 +12396,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -11739,6 +12507,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -11846,6 +12618,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -11953,6 +12729,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -12060,6 +12840,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -12167,6 +12951,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -12274,6 +13062,10 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
     ]
   },
   {
@@ -12362,7 +13154,11 @@ var LESSONS = [
         "explanation": "La correction dépend du défaut. Sans diagnostic, on risque d’aggraver."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "patisserie-precision",
+      "signes-cuisson"
+    ]
   },
   {
     "id": "comprendre-dressage",
@@ -12450,7 +13246,10 @@ var LESSONS = [
         "explanation": "Le dressage doit rendre le plat plus lisible, plus appétissant et plus agréable."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "diagnostic"
+    ]
   },
   {
     "id": "dresser-assiette-equilibree",
@@ -12557,6 +13356,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -12645,7 +13447,10 @@ var LESSONS = [
         "explanation": "Un peu d’espace aide l’œil à comprendre le plat."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "diagnostic"
+    ]
   },
   {
     "id": "timing-service-chaud-froid",
@@ -12733,7 +13538,10 @@ var LESSONS = [
         "explanation": "Les finitions fraîches ou croustillantes perdent vite leur intérêt si elles attendent."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "diagnostic"
+    ]
   },
   {
     "id": "sauces-finitions-service",
@@ -12840,6 +13648,9 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic"
     ]
   },
   {
@@ -12947,6 +13758,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "improvisation"
     ]
   },
   {
@@ -13054,6 +13870,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "improvisation"
     ]
   },
   {
@@ -13161,6 +13982,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "improvisation"
     ]
   },
   {
@@ -13249,7 +14075,12 @@ var LESSONS = [
         "explanation": "Le produit principal et l’intention structurent les choix de cuisson, garniture, sauce et finition."
       }
     ],
-    "linkedRecipes": []
+    "linkedRecipes": [],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "improvisation"
+    ]
   },
   {
     "id": "construire-sa-propre-recette",
@@ -13356,6 +14187,11 @@ var LESSONS = [
           "Tu identifies au moins un point à améliorer pour la prochaine fois."
         ]
       }
+    ],
+    "skillIds": [
+      "diagnostic",
+      "rattrapage",
+      "improvisation"
     ]
   }
 ];
@@ -13450,6 +14286,14 @@ var RECIPES = [
       "Une petite noix de beurre froid ajoutée hors du feu peut ralentir la cuisson et rendre les œufs plus brillants.",
       "Pour une version plus riche, ajoute une cuillère de crème fraîche hors du feu.",
       "La bonne texture doit pouvoir se tenir à la cuillère sans devenir granuleuse."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-residuelle"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "oeufs-coagulation"
     ]
   },
   {
@@ -13561,6 +14405,16 @@ var RECIPES = [
       "Si les blancs sont très épais, aplatis-les légèrement avant cuisson.",
       "Un filet de citron au service réveille le poulet et équilibre le beurre.",
       "Pour vérifier sans thermomètre, coupe seulement un petit point sur le côté le plus épais si nécessaire."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-four"
+    ],
+    "secondarySkills": [
+      "cuisson-residuelle",
+      "legumes-texture",
+      "viande-repos",
+      "volaille-moelleux"
     ]
   },
   {
@@ -13666,6 +14520,15 @@ var RECIPES = [
       "Plus les œufs sont frais, plus le blanc reste groupé.",
       "Les haricots doivent être bien égouttés pour que l’assaisonnement accroche.",
       "Pour un plat plus complet, ajoute des pommes de terre vapeur ou des croûtons."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-eau"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "oeufs-coagulation",
+      "legumes-texture"
     ]
   },
   {
@@ -13757,6 +14620,14 @@ var RECIPES = [
       "Un poisson trop cuit devient sec et se casse en miettes dures.",
       "Pour une vapeur plus parfumée, ajoute des tiges d’herbes ou une rondelle de citron dans l’eau.",
       "Les herbes se mettent après cuisson pour garder leur couleur."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "acidite",
+      "poisson-fragile"
     ]
   },
   {
@@ -13840,6 +14711,13 @@ var RECIPES = [
     "tips": [
       "Les pommes de terre vapeur sont un excellent support pour travailler le sel : goûte avant et après assaisonnement.",
       "Pour plus de relief, ajoute quelques gouttes de vinaigre ou de citron."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "legumes-texture"
     ]
   },
   {
@@ -13948,6 +14826,13 @@ var RECIPES = [
     "tips": [
       "Le liquide de pochage peut être filtré puis réduit pour devenir une base de sauce.",
       "Une rondelle de citron et un filet d’huile d’olive suffisent si la cuisson est juste."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "poisson-fragile"
     ]
   },
   {
@@ -14053,6 +14938,13 @@ var RECIPES = [
       "Pour une pièce plus épaisse, saisis puis finis quelques minutes au four doux.",
       "Le beurre doit sentir la noisette, pas le brûlé.",
       "Poivre plutôt après cuisson si tu veux préserver ses arômes."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "coloration"
+    ],
+    "secondarySkills": [
+      "viande-repos"
     ]
   },
   {
@@ -14164,6 +15056,14 @@ var RECIPES = [
       "Si les champignons rendent trop d’eau, continue sans couvrir jusqu’à évaporation.",
       "Pour une grande quantité, cuis en deux fois.",
       "Une touche de vinaigre ou citron équilibre le beurre et le côté terreux."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "evaporation"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "legumes-texture"
     ]
   },
   {
@@ -14254,6 +15154,14 @@ var RECIPES = [
       "Si la peau colle, attends encore : elle se détache souvent quand elle est assez croustillante.",
       "Un saumon juste cuit reste légèrement nacré au centre.",
       "Évite de noyer la peau avec du citron avant service, elle perdrait son croustillant."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "cuisson-eau"
+    ],
+    "secondarySkills": [
+      "cuisson-residuelle",
+      "poisson-fragile"
     ]
   },
   {
@@ -14353,6 +15261,13 @@ var RECIPES = [
       "Pour une omelette très moelleuse, retire la poêle du feu dès que les œufs sont presque pris.",
       "Si le beurre brunit avant d’ajouter les œufs, baisse le feu ou recommence : le goût sera plus amer.",
       "Les herbes fragiles se mettent à la fin ; les garnitures cuites, comme des champignons, se préparent avant."
+    ],
+    "primarySkills": [
+      "mise-en-place",
+      "cuisson-douce"
+    ],
+    "secondarySkills": [
+      "oeufs-coagulation"
     ]
   },
   {
@@ -14464,6 +15379,15 @@ var RECIPES = [
       "Si les pâtes semblent sèches, ajoute une cuillère d’eau de cuisson et mélange de nouveau.",
       "Le citron doit réveiller le plat, pas le dominer : ajoute le jus progressivement.",
       "Cette recette teste surtout le timing : la sauce doit attendre les pâtes, pas l’inverse."
+    ],
+    "primarySkills": [
+      "mise-en-place",
+      "timing"
+    ],
+    "secondarySkills": [
+      "cuisson-eau",
+      "assaisonnement-sel",
+      "acidite"
     ]
   },
   {
@@ -14573,6 +15497,15 @@ var RECIPES = [
       "Pour une salade plus complète, ajoute œuf dur, fromage, croûtons ou légumineuses.",
       "Une salade réussie dépend autant de l’essorage que de la vinaigrette.",
       "Pour une meilleure texture, mélange feuilles tendres et éléments croquants."
+    ],
+    "primarySkills": [
+      "mise-en-place",
+      "decoupe-reguliere"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "emulsion",
+      "legumes-texture"
     ]
   },
   {
@@ -14678,6 +15611,15 @@ var RECIPES = [
       "Si la poêle est trop pleine, cuis les légumes en deux fois plutôt que de les entasser.",
       "Un grésillement net est bon signe. Le silence indique souvent une poêle trop froide ou trop humide.",
       "Pour plus de goût, ajoute des herbes fraîches seulement à la fin."
+    ],
+    "primarySkills": [
+      "materiel",
+      "securite"
+    ],
+    "secondarySkills": [
+      "decoupe-reguliere",
+      "cuisson-poele",
+      "legumes-texture"
     ]
   },
   {
@@ -14795,6 +15737,15 @@ var RECIPES = [
       "Trop épais : ajoute un peu d’eau chaude ou de bouillon. Trop liquide : fais réduire quelques minutes sans couvercle.",
       "Pour plus de relief, ajoute un trait de citron ou de vinaigre doux au moment de servir.",
       "Les parures propres de poireau, carotte et oignon peuvent servir à faire un bouillon."
+    ],
+    "primarySkills": [
+      "mise-en-place",
+      "decoupe-reguliere"
+    ],
+    "secondarySkills": [
+      "cuisson-douce",
+      "assaisonnement-sel",
+      "legumes-texture"
     ]
   },
   {
@@ -14906,6 +15857,15 @@ var RECIPES = [
       "Si les blancs sont très épais, aplatis-les légèrement pour une cuisson plus régulière.",
       "Si la sauce devient trop épaisse, ajoute une cuillère d’eau ou de bouillon.",
       "La moutarde se dose progressivement : elle doit relever la sauce, pas la rendre agressive."
+    ],
+    "primarySkills": [
+      "materiel",
+      "securite"
+    ],
+    "secondarySkills": [
+      "cuisson-poele",
+      "viande-repos",
+      "volaille-moelleux"
     ]
   },
   {
@@ -15008,6 +15968,14 @@ var RECIPES = [
     "tips": [
       "Si la poêle devient silencieuse et humide, retire une partie des légumes ou monte le feu.",
       "Pour une version plus complète, ajoute un œuf mollet, du riz ou des nouilles."
+    ],
+    "primarySkills": [
+      "decoupe-reguliere",
+      "cuisson-poele"
+    ],
+    "secondarySkills": [
+      "legumes-texture",
+      "diagnostic"
     ]
   },
   {
@@ -15112,6 +16080,13 @@ var RECIPES = [
     "tips": [
       "Le glaçage doit être brillant, pas noyé.",
       "Si les carottes sont encore fermes et qu’il n’y a plus d’eau, ajoute une petite cuillère d’eau et poursuis doucement."
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "reduction"
+    ],
+    "secondarySkills": [
+      "legumes-texture"
     ]
   },
   {
@@ -15210,6 +16185,14 @@ var RECIPES = [
     "tips": [
       "Pour une version plus gourmande, ajoute des amandes torréfiées.",
       "Si tu sers immédiatement, tu peux éviter le bain froid, mais surveille la cuisson de près."
+    ],
+    "primarySkills": [
+      "cuisson-eau",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "acidite",
+      "legumes-texture"
     ]
   },
   {
@@ -15314,6 +16297,15 @@ var RECIPES = [
     "tips": [
       "Les verts tendres peuvent être gardés pour une soupe ou un bouillon.",
       "Ajoute œuf dur haché ou noisettes pour une version plus complète."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-eau"
+    ],
+    "secondarySkills": [
+      "acidite",
+      "emulsion",
+      "legumes-texture"
     ]
   },
   {
@@ -15418,6 +16410,14 @@ var RECIPES = [
     "tips": [
       "La sauce doit briller et enrober, pas former une flaque.",
       "Si c’est sec, ajoute eau de cuisson. Si c’est liquide, mélange encore sur feu doux."
+    ],
+    "primarySkills": [
+      "timing",
+      "cuisson-eau"
+    ],
+    "secondarySkills": [
+      "liaison",
+      "amidon"
     ]
   },
   {
@@ -15516,7 +16516,12 @@ var RECIPES = [
     "tips": [
       "Le ratio dépend du riz : ajuste après test avec ta marque.",
       "Pour plus de parfum, remplace l’eau par un bouillon peu salé."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-eau",
+      "amidon"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "puree-pommes-terre-maitrisee",
@@ -15608,7 +16613,12 @@ var RECIPES = [
     "tips": [
       "Pour une purée très lisse, passe au tamis après presse-purée, pas au mixeur.",
       "Si la purée est trop épaisse, ajoute du lait chaud petit à petit."
-    ]
+    ],
+    "primarySkills": [
+      "liaison",
+      "amidon"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "pommes-terre-rissolees",
@@ -15712,7 +16722,12 @@ var RECIPES = [
     "tips": [
       "Si la poêle est petite, cuis en deux fois.",
       "Pour plus de croustillant, laisse les pommes de terre refroidir après précuisson avant de les rissoler."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "amidon"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "riz-saute-recuperation",
@@ -15822,6 +16837,14 @@ var RECIPES = [
     "tips": [
       "Le riz de la veille fonctionne mieux car il est plus sec.",
       "Ajoute peu de sauce au départ : on peut toujours en remettre."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "cuisson-eau"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "amidon"
     ]
   },
   {
@@ -15926,6 +16949,14 @@ var RECIPES = [
     "tips": [
       "Pour plus de coloration, utilise deux plaques plutôt qu’une plaque surchargée.",
       "Ajoute les épices au début si elles supportent la chaleur, mais les herbes tendres à la fin."
+    ],
+    "primarySkills": [
+      "decoupe-reguliere",
+      "cuisson-four"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "legumes-texture"
     ]
   },
   {
@@ -16030,6 +17061,13 @@ var RECIPES = [
     "tips": [
       "Si le dessus colore trop vite, couvre légèrement avec papier cuisson ou aluminium.",
       "Pour un gratin plus net, cuis plus doux et plus longtemps plutôt que trop fort."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-four"
+    ],
+    "secondarySkills": [
+      "legumes-texture"
     ]
   },
   {
@@ -16134,6 +17172,14 @@ var RECIPES = [
     "tips": [
       "Si la peau colore trop vite, baisse le four ou protège légèrement.",
       "Un repos sous aluminium posé, non fermé, garde la chaleur sans ramollir complètement la peau."
+    ],
+    "primarySkills": [
+      "cuisson-four",
+      "cuisson-residuelle"
+    ],
+    "secondarySkills": [
+      "viande-repos",
+      "volaille-moelleux"
     ]
   },
   {
@@ -16250,6 +17296,14 @@ var RECIPES = [
     "tips": [
       "Le plat sera souvent meilleur réchauffé doucement le lendemain.",
       "Si la sauce est trop grasse, retire une partie du gras en surface avant de servir."
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "reduction"
+    ],
+    "secondarySkills": [
+      "legumes-texture",
+      "viande-repos"
     ]
   },
   {
@@ -16357,6 +17411,13 @@ var RECIPES = [
     "tips": [
       "Une noix de beurre ou un filet d’huile peut donner de la rondeur.",
       "Une soupe trop salée se corrige surtout en l’allongeant avec un élément non salé."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "diagnostic"
     ]
   },
   {
@@ -16447,6 +17508,13 @@ var RECIPES = [
     "tips": [
       "Pour une vinaigrette plus douce, remplace une partie du vinaigre par du citron ou choisis un vinaigre de cidre.",
       "Pour une salade amère, une huile de noix ou une pointe de miel peut arrondir."
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "acidite"
+    ],
+    "secondarySkills": [
+      "emulsion"
     ]
   },
   {
@@ -16544,7 +17612,12 @@ var RECIPES = [
     "tips": [
       "Un bol stable sur un torchon humide évite de courir après le récipient.",
       "Pour une mayonnaise plus vive, ajoute l’acide à la fin plutôt que tout au début."
-    ]
+    ],
+    "primarySkills": [
+      "emulsion",
+      "diagnostic"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "sauce-vierge-tomate-herbes",
@@ -16640,7 +17713,12 @@ var RECIPES = [
     "tips": [
       "Parfaite avec poisson vapeur, légumes grillés ou volaille froide.",
       "Des câpres ou olives ajoutent du relief, mais attention au sel."
-    ]
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "acidite"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "bechamel-sans-grumeaux",
@@ -16732,7 +17810,12 @@ var RECIPES = [
     "tips": [
       "Si des grumeaux apparaissent, fouette énergiquement ou mixe brièvement.",
       "Pour une sauce plus fluide, ajoute un peu de lait chaud."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-eau",
+      "liaison"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "sauce-creme-champignons",
@@ -16842,6 +17925,14 @@ var RECIPES = [
     "tips": [
       "Très bonne avec poulet, pâtes, pommes de terre ou légumes rôtis.",
       "Pour plus d’umami, ajoute une petite quantité de parmesan hors du feu."
+    ],
+    "primarySkills": [
+      "evaporation",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "reduction",
+      "legumes-texture"
     ]
   },
   {
@@ -16946,7 +18037,12 @@ var RECIPES = [
     "tips": [
       "Pour une sauce plus lisse, mixe brièvement après cuisson.",
       "Pour une sauce plus profonde, réduis davantage à feu doux."
-    ]
+    ],
+    "primarySkills": [
+      "acidite",
+      "reduction"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "steak-sauce-echalote",
@@ -17050,6 +18146,13 @@ var RECIPES = [
     "tips": [
       "Si la sauce est trop forte, allonge avec une cuillère d’eau.",
       "Si elle est plate, ajoute une goutte de vinaigre ou réduis un peu plus."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "deglacage"
+    ],
+    "secondarySkills": [
+      "viande-repos"
     ]
   },
   {
@@ -17158,7 +18261,12 @@ var RECIPES = [
     "tips": [
       "Sale peu si le bouillon doit être réduit ensuite.",
       "Congèle en petites portions pour sauces, risottos et soupes."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "legumes-texture"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "beurre-blanc-poisson",
@@ -17262,7 +18370,12 @@ var RECIPES = [
     "tips": [
       "Si la sauce épaissit trop, ajoute quelques gouttes d’eau tiède.",
       "Si elle tranche, repars avec une cuillère d’eau tiède et incorpore doucement la sauce."
-    ]
+    ],
+    "primarySkills": [
+      "emulsion",
+      "poisson-fragile"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "hollandaise-asperges",
@@ -17366,7 +18479,12 @@ var RECIPES = [
     "tips": [
       "Si la sauce devient trop épaisse, détends avec quelques gouttes d’eau tiède.",
       "Si elle chauffe trop, retire immédiatement du bain-marie et fouette."
-    ]
+    ],
+    "primarySkills": [
+      "emulsion",
+      "oeufs-coagulation"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "omelette-herbes-baveuse",
@@ -17450,6 +18568,13 @@ var RECIPES = [
     "tips": [
       "Baveux ne veut pas dire cru : la texture doit être humide mais chaude.",
       "Pour une omelette plus riche, ajoute une petite noix de beurre au moment de servir."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-residuelle"
+    ],
+    "secondarySkills": [
+      "oeufs-coagulation"
     ]
   },
   {
@@ -17554,6 +18679,13 @@ var RECIPES = [
     "tips": [
       "Adapte le temps selon la taille des œufs.",
       "Un œuf très froid sorti du frigo peut demander légèrement plus de temps."
+    ],
+    "primarySkills": [
+      "cuisson-eau",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "oeufs-coagulation"
     ]
   },
   {
@@ -17658,6 +18790,13 @@ var RECIPES = [
     "tips": [
       "Un centre légèrement tremblotant est souvent un bon signe.",
       "Sale prudemment si la garniture contient fromage ou lardons."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-four"
+    ],
+    "secondarySkills": [
+      "oeufs-coagulation"
     ]
   },
   {
@@ -17756,6 +18895,13 @@ var RECIPES = [
     "tips": [
       "Pour une pièce très épaisse, termine au four doux après saisie.",
       "Si la poêle fume énormément et que les sucs noircissent, baisse ou retire du feu quelques secondes."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "cuisson-residuelle"
+    ],
+    "secondarySkills": [
+      "viande-repos"
     ]
   },
   {
@@ -17860,6 +19006,13 @@ var RECIPES = [
     "tips": [
       "La bavette se sert souvent saignante ou à point léger.",
       "Si la sauce est trop intense, ajoute une cuillère d’eau avant le beurre."
+    ],
+    "primarySkills": [
+      "decoupe-reguliere",
+      "deglacage"
+    ],
+    "secondarySkills": [
+      "viande-repos"
     ]
   },
   {
@@ -17970,6 +19123,14 @@ var RECIPES = [
     "tips": [
       "Une pointe de citron ou de vinaigre peut équilibrer la crème.",
       "Si la sauce est trop épaisse, détends avec une cuillère d’eau ou de bouillon."
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "cuisson-residuelle"
+    ],
+    "secondarySkills": [
+      "viande-repos",
+      "patisserie-precision"
     ]
   },
   {
@@ -18086,7 +19247,12 @@ var RECIPES = [
     "tips": [
       "Le lendemain, le goût est souvent plus fondu.",
       "Saler prudemment au début : la sauce va réduire."
-    ]
+    ],
+    "primarySkills": [
+      "reduction",
+      "viande-repos"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "blanc-poulet-moelleux",
@@ -18190,6 +19356,15 @@ var RECIPES = [
     "tips": [
       "Pour plus de sécurité, utilise un thermomètre à cœur.",
       "Une marinade yaourt-citron-herbes peut apporter du goût, mais ne remplace pas la cuisson juste."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "cuisson-douce"
+    ],
+    "secondarySkills": [
+      "cuisson-residuelle",
+      "viande-repos",
+      "volaille-moelleux"
     ]
   },
   {
@@ -18300,7 +19475,12 @@ var RECIPES = [
     "tips": [
       "Pour retrouver une peau plus nette, passe brièvement sous le grill après braisage.",
       "Ajoute une pointe de citron ou de moutarde pour réveiller le jus."
-    ]
+    ],
+    "primarySkills": [
+      "viande-repos",
+      "volaille-moelleux"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "poulet-crapaudine-herbes",
@@ -18404,6 +19584,14 @@ var RECIPES = [
     "tips": [
       "Demande au boucher d’ouvrir le poulet si tu ne veux pas le faire.",
       "Place des pommes de terre ou légumes dessous pour récupérer les jus."
+    ],
+    "primarySkills": [
+      "decoupe-reguliere",
+      "cuisson-four"
+    ],
+    "secondarySkills": [
+      "viande-repos",
+      "volaille-moelleux"
     ]
   },
   {
@@ -18496,6 +19684,14 @@ var RECIPES = [
     "tips": [
       "Si la peau colle, attends encore quelques secondes avant de forcer.",
       "Le centre peut rester légèrement nacré pour plus de moelleux."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "cuisson-eau"
+    ],
+    "secondarySkills": [
+      "cuisson-residuelle",
+      "poisson-fragile"
     ]
   },
   {
@@ -18594,7 +19790,12 @@ var RECIPES = [
     "tips": [
       "Ajoute des tiges d’herbes ou une rondelle de citron dans l’eau pour parfumer légèrement.",
       "Si le poisson est trop cuit, sers-le avec une sauce plus généreuse."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "poisson-fragile"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "moules-marinieres",
@@ -18698,7 +19899,12 @@ var RECIPES = [
     "tips": [
       "Filtre le jus si tu veux le transformer en sauce.",
       "Les moules se servent dès ouverture : elles supportent mal l’attente."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "poisson-fragile"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "crevettes-sautees-ail-citron",
@@ -18800,6 +20006,14 @@ var RECIPES = [
     "tips": [
       "Si les crevettes sont déjà cuites, réduis fortement le temps : il s’agit surtout de les réchauffer.",
       "Une pointe de piment fonctionne bien, mais doit rester secondaire."
+    ],
+    "primarySkills": [
+      "cuisson-poele",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "acidite",
+      "poisson-fragile"
     ]
   },
   {
@@ -18896,7 +20110,11 @@ var RECIPES = [
     "tips": [
       "Des câpres ou cornichons hachés ajoutent de l’acidité et du relief.",
       "Cette recette sert à apprendre qu’un ratage peut devenir une autre préparation."
-    ]
+    ],
+    "primarySkills": [
+      "poisson-fragile"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "meringue-francaise-sechee",
@@ -18988,7 +20206,12 @@ var RECIPES = [
     "tips": [
       "Si les meringues collent encore, prolonge le séchage à basse température.",
       "Stocke dans une boîte hermétique une fois totalement froides."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "patisserie-precision"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "caramel-beurre-sale",
@@ -19080,7 +20303,12 @@ var RECIPES = [
     "tips": [
       "Le caramel épaissit en refroidissant.",
       "Si le goût est brûlé, recommence : la crème ne l’effacera pas."
-    ]
+    ],
+    "primarySkills": [
+      "securite",
+      "patisserie-precision"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "ganache-chocolat-base",
@@ -19166,7 +20394,12 @@ var RECIPES = [
     "tips": [
       "Si la ganache tranche, ajoute une petite cuillère de crème chaude et mixe doucement.",
       "Pour une tarte, verse la ganache encore fluide sur le fond refroidi."
-    ]
+    ],
+    "primarySkills": [
+      "emulsion",
+      "patisserie-precision"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "assiette-poisson-legumes-sauce",
@@ -19265,7 +20498,12 @@ var RECIPES = [
     "tips": [
       "Le poisson doit être servi immédiatement après dressage.",
       "Si la sauce est fragile, sers-en une partie à côté."
-    ]
+    ],
+    "primarySkills": [
+      "legumes-texture",
+      "poisson-fragile"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "bol-improvise-riz-legumes-oeuf",
@@ -19370,6 +20608,14 @@ var RECIPES = [
     "tips": [
       "Structure utile : base + légumes + protéine + sauce + finition.",
       "Ajoute un croquant si le bol paraît trop mou."
+    ],
+    "primarySkills": [
+      "cuisson-eau",
+      "oeufs-coagulation"
+    ],
+    "secondarySkills": [
+      "legumes-texture",
+      "amidon"
     ]
   },
   {
@@ -19468,6 +20714,13 @@ var RECIPES = [
     "tips": [
       "Compare une cuillère avant/après pour comprendre l’effet de chaque correction.",
       "Cet atelier peut être répété avec sauces, purées ou mijotés."
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "liaison"
+    ],
+    "secondarySkills": [
+      "diagnostic"
     ]
   },
   {
@@ -19560,7 +20813,11 @@ var RECIPES = [
     "tips": [
       "Un bon test modifie une seule chose importante.",
       "La prochaine version doit être plus précise, pas forcément plus complexe."
-    ]
+    ],
+    "primarySkills": [
+      "liaison"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "pate-brisee-salee-base",
@@ -19652,7 +20909,11 @@ var RECIPES = [
     "tips": [
       "Pour une quiche, la pâte doit être précuite mais pas trop colorée.",
       "Si elle casse à l’abaisse, laisse-la revenir 5 minutes à température ambiante."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-residuelle"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "pate-pizza-simple",
@@ -19750,7 +21011,11 @@ var RECIPES = [
     "tips": [
       "Une fermentation plus longue au froid donne souvent plus de goût.",
       "Garde la garniture simple : une pizza surchargée cuit mal."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-four"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "focaccia-debutant",
@@ -19854,7 +21119,11 @@ var RECIPES = [
     "tips": [
       "La pâte doit rester souple et un peu collante.",
       "L’huile d’olive fait partie de la texture, pas seulement du goût."
-    ]
+    ],
+    "primarySkills": [
+      "amidon"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "creme-patissiere-base",
@@ -19952,6 +21221,14 @@ var RECIPES = [
     "tips": [
       "Si la crème a quelques grumeaux, fouette ou mixe brièvement.",
       "Avant utilisation, détends-la au fouet pour retrouver une texture lisse."
+    ],
+    "primarySkills": [
+      "liaison",
+      "oeufs-coagulation"
+    ],
+    "secondarySkills": [
+      "amidon",
+      "patisserie-precision"
     ]
   },
   {
@@ -20062,6 +21339,13 @@ var RECIPES = [
     "tips": [
       "Si le dessus colore trop vite, couvre légèrement en fin de cuisson.",
       "Le cake se tranche mieux une fois refroidi."
+    ],
+    "primarySkills": [
+      "cuisson-four",
+      "acidite"
+    ],
+    "secondarySkills": [
+      "patisserie-precision"
     ]
   },
   {
@@ -20160,7 +21444,12 @@ var RECIPES = [
     "tips": [
       "Pour une tarte aux fruits, laisse refroidir complètement avant de garnir.",
       "Un fond bien cuit sent le biscuit et reste sec au toucher."
-    ]
+    ],
+    "primarySkills": [
+      "cuisson-residuelle",
+      "patisserie-precision"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "chantilly-stable",
@@ -20238,7 +21527,11 @@ var RECIPES = [
     "tips": [
       "Pour garnir une poche, vise une texture ferme mais encore lisse.",
       "Si elle commence à grainer, arrête immédiatement et ajoute une petite cuillère de crème froide en mélangeant doucement."
-    ]
+    ],
+    "primarySkills": [
+      "patisserie-precision"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "verrine-cake-sec-recuperation",
@@ -20328,7 +21621,11 @@ var RECIPES = [
     "tips": [
       "Fonctionne très bien avec cake citron, quatre-quarts ou génoise sèche.",
       "Ajoute un élément croquant au dernier moment si le dessert manque de texture."
-    ]
+    ],
+    "primarySkills": [
+      "patisserie-precision"
+    ],
+    "secondarySkills": []
   },
   {
     "id": "poulet-roti",
@@ -20421,6 +21718,14 @@ var RECIPES = [
     "tips": [
       "Veille : frotter avec ail + herbes la veille, laisser au frigo à découvert toute la nuit → peau encore plus sèche et croustillante.",
       "Sauce rapide : déglacer le plat de cuisson avec 10 cl de vin blanc ou bouillon, racler les sucs, réduire 2 min."
+    ],
+    "primarySkills": [
+      "cuisson-four",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "viande-repos",
+      "volaille-moelleux"
     ]
   },
   {
@@ -20559,6 +21864,14 @@ var RECIPES = [
       "Essorer très soigneusement la salade",
       "Assaisonner seulement au dernier moment",
       "Goûter la vinaigrette avant de l’ajouter"
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "acidite"
+    ],
+    "secondarySkills": [
+      "emulsion",
+      "legumes-texture"
     ]
   },
   {
@@ -20696,6 +22009,13 @@ var RECIPES = [
       "Faire suer les aromates sans coloration",
       "Cuire à frémissement, pas à gros bouillons",
       "Mixer avant d’ajouter trop de liquide"
+    ],
+    "primarySkills": [
+      "cuisson-douce",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "legumes-texture"
     ]
   },
   {
@@ -20808,6 +22128,13 @@ var RECIPES = [
     "tips": [
       "Meilleur le lendemain : le plat réchauffé doucement est toujours plus savoureux car les saveurs ont eu le temps de se marier.",
       "Si la sauce est trop liquide en fin de cuisson : retirer la viande, faire réduire la sauce à feu moyen 10-15 min."
+    ],
+    "primarySkills": [
+      "assaisonnement-sel",
+      "legumes-texture"
+    ],
+    "secondarySkills": [
+      "viande-repos"
     ]
   },
   {
@@ -20920,6 +22247,1234 @@ var RECIPES = [
       "Utiliser un bain-marie déjà chaud",
       "Surveiller visuellement les 3 dernières minutes",
       "Sortir avant que le jaune soit complètement pris"
+    ],
+    "primarySkills": [
+      "cuisson-four",
+      "assaisonnement-sel"
+    ],
+    "secondarySkills": [
+      "oeufs-coagulation"
+    ]
+  },
+  {
+    "id": "exercice-dorer-legumes-sans-detremper",
+    "title": "Exercice : faire dorer des légumes sans les détremper",
+    "family": "légume",
+    "isExercise": true,
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 12,
+    "servings": 2,
+    "skills": [
+      "cuisson-poele",
+      "evaporation",
+      "coloration",
+      "feu-fort"
+    ],
+    "primarySkills": [
+      "evaporation",
+      "coloration"
+    ],
+    "secondarySkills": [
+      "feu-fort",
+      "cuisson-poele",
+      "legumes-texture"
+    ],
+    "objectives": [
+      "Faire évaporer l’humidité avant de chercher la coloration",
+      "Obtenir des légumes dorés, non mous et non bouillis",
+      "Ajuster le feu selon le bruit et la quantité d’eau"
+    ],
+    "equipment": [
+      "Grande poêle",
+      "Planche",
+      "Couteau",
+      "Spatule"
+    ],
+    "successCriteria": [
+      "Les légumes sont dorés sur plusieurs faces",
+      "Il ne reste presque pas d’eau au fond de la poêle",
+      "La texture reste légèrement croquante"
+    ],
+    "criticalPoints": [
+      "Ne surcharge pas la poêle : cuis en deux fournées si besoin",
+      "Ne remue pas en continu, laisse le contact se faire",
+      "Baisse le feu si les sucs brunissent trop vite"
+    ],
+    "fixes": [
+      {
+        "problem": "Légumes détrempés",
+        "solution": "Retire une partie des légumes et continue à feu fort pour évaporer."
+      },
+      {
+        "problem": "Ça brûle avant de cuire",
+        "solution": "Baisse à feu moyen et ajoute une petite cuillère d’eau pour décoller les sucs."
+      }
+    ],
+    "ingredients": [
+      {
+        "qty": "350",
+        "unit": "g",
+        "item": "légumes fermes",
+        "note": "courgette, carotte fine, champignons ou poivron"
+      },
+      {
+        "qty": "1",
+        "unit": "c. à soupe",
+        "item": "huile neutre ou olive",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "pincée",
+        "item": "sel",
+        "note": "à ajuster en fin"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "poivre ou herbes",
+        "note": "optionnel"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer des morceaux réguliers",
+        "action": "Coupe les légumes en morceaux proches en taille. Éponge-les si leur surface est humide.",
+        "why": "Des tailles proches cuisent ensemble. Une surface sèche favorise l’évaporation et la coloration.",
+        "mistake": "Mettre des légumes humides en poêle chaude → vapeur et projections.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Chauffer la poêle",
+        "action": "Chauffe la poêle à feu fort 1 à 2 minutes, puis ajoute l’huile.",
+        "why": "La chaleur doit être suffisante pour entendre un grésillement net dès l’arrivée des légumes.",
+        "mistake": "Démarrer dans une poêle tiède → les légumes rendent de l’eau avant de colorer.",
+        "timer": 2
+      },
+      {
+        "id": 3,
+        "title": "Cuire sans surcharger",
+        "action": "Ajoute les légumes en une couche. Si la poêle est pleine, garde une partie pour une deuxième fournée.",
+        "why": "L’espace permet à l’eau de s’évaporer au lieu de s’accumuler.",
+        "mistake": "Tout mettre d’un coup → cuisson vapeur, texture molle.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Colorer puis ajuster",
+        "action": "Laisse les légumes au contact, puis remue. Baisse à feu moyen quand la coloration démarre.",
+        "why": "Le feu fort évapore et colore ; le feu moyen termine sans brûler.",
+        "mistake": "Remuer sans arrêt → pas de contact, donc peu de coloration.",
+        "timer": 5
+      },
+      {
+        "id": 5,
+        "title": "Assaisonner et vérifier",
+        "action": "Sale en fin de cuisson, goûte et ajoute herbes ou poivre.",
+        "why": "Saler trop tôt peut faire ressortir l’eau ; goûter confirme la texture et l’équilibre.",
+        "mistake": "Saler fortement au départ → légumes plus humides et assaisonnement moins maîtrisé.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Refais cet exercice avec une poêle moins pleine : la différence est très visible.",
+      "Le bon signe : un grésillement net, pas un bain d’eau."
+    ]
+  },
+  {
+    "id": "exercice-oeufs-brouilles-sans-secher",
+    "title": "Exercice : œufs brouillés sans les sécher",
+    "family": "œufs",
+    "isExercise": true,
+    "difficulty": 1,
+    "timePrep": 5,
+    "timeCook": 6,
+    "servings": 1,
+    "skills": [
+      "oeufs",
+      "feu-doux",
+      "cuisson-residuelle"
+    ],
+    "primarySkills": [
+      "oeufs-coagulation",
+      "feu-doux"
+    ],
+    "secondarySkills": [
+      "cuisson-residuelle",
+      "signes-cuisson"
+    ],
+    "objectives": [
+      "Contrôler la coagulation des œufs",
+      "Sortir du feu avant la surcuisson",
+      "Obtenir une texture crémeuse et humide"
+    ],
+    "equipment": [
+      "Petite poêle ou casserole",
+      "Spatule souple",
+      "Bol"
+    ],
+    "successCriteria": [
+      "Les œufs restent brillants et crémeux",
+      "Aucun morceau sec ou caoutchouteux",
+      "La cuisson termine hors du feu"
+    ],
+    "criticalPoints": [
+      "Feu doux ou moyen-doux uniquement",
+      "Retire la poêle dès que la texture commence à prendre",
+      "Remue régulièrement sans fouetter violemment"
+    ],
+    "fixes": [
+      {
+        "problem": "Œufs secs",
+        "solution": "Sors-les plus tôt la prochaine fois et ajoute une noix de beurre ou une cuillère de crème hors feu."
+      }
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "noix",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "pincée",
+        "item": "sel",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "herbes",
+        "note": "optionnel"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Battre simplement",
+        "action": "Bats les œufs avec une pincée de sel juste pour mélanger blanc et jaune.",
+        "why": "Un mélange homogène donne une coagulation plus régulière.",
+        "mistake": "Fouetter longtemps pour incorporer beaucoup d’air → texture moins contrôlée.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Démarrer doux",
+        "action": "Fais fondre le beurre à feu doux, sans coloration.",
+        "why": "Le beurre indique la température : il doit mousser doucement, pas brunir.",
+        "mistake": "Beurre noisette ou fumant → poêle trop chaude pour des œufs crémeux.",
+        "timer": 1
+      },
+      {
+        "id": 3,
+        "title": "Cuire en remuant",
+        "action": "Verse les œufs et remue lentement avec la spatule en raclant le fond.",
+        "why": "Le raclage répartit la chaleur et évite les plaques sèches.",
+        "mistake": "Laisser figer sans remuer → fond sec et dessus liquide.",
+        "timer": 3
+      },
+      {
+        "id": 4,
+        "title": "Sortir avant le point parfait",
+        "action": "Retire du feu quand les œufs sont encore un peu trop souples.",
+        "why": "La chaleur résiduelle continue la coagulation dans l’assiette.",
+        "mistake": "Attendre que ce soit parfait dans la poêle → trop cuit au service.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Finir et goûter",
+        "action": "Ajoute herbes ou poivre, goûte, puis sers immédiatement.",
+        "why": "Les œufs attendent mal : ils continuent à sécher.",
+        "mistake": "Les laisser dans la poêle chaude → surcuisson rapide.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "La bonne texture est brillante, pas mate.",
+      "Si tu hésites, retire du feu : tu peux toujours remettre quelques secondes."
+    ]
+  },
+  {
+    "id": "exercice-poulet-saisir-finir-doucement",
+    "title": "Exercice : saisir puis finir doucement un blanc de poulet",
+    "family": "viande",
+    "isExercise": true,
+    "difficulty": 2,
+    "timePrep": 8,
+    "timeCook": 14,
+    "servings": 2,
+    "skills": [
+      "cuisson-poele",
+      "saisie",
+      "repos",
+      "volaille"
+    ],
+    "primarySkills": [
+      "coloration",
+      "volaille-moelleux"
+    ],
+    "secondarySkills": [
+      "feu-fort",
+      "feu-moyen",
+      "cuisson-residuelle",
+      "viande-repos"
+    ],
+    "objectives": [
+      "Colorer sans brûler",
+      "Finir la cuisson à cœur sans dessécher",
+      "Utiliser le repos pour garder le moelleux"
+    ],
+    "equipment": [
+      "Poêle",
+      "Pince ou spatule",
+      "Assiette",
+      "Couvercle optionnel"
+    ],
+    "successCriteria": [
+      "Surface dorée",
+      "Chair opaque mais encore juteuse",
+      "Jus clair après repos"
+    ],
+    "criticalPoints": [
+      "Saisir au départ, puis baisser",
+      "Ne pas couper immédiatement",
+      "Ne pas brûler les sucs si tu veux déglacer"
+    ],
+    "fixes": [
+      {
+        "problem": "Poulet sec",
+        "solution": "Réduis le temps à feu fort et laisse reposer couvert hors feu."
+      },
+      {
+        "problem": "Surface brûlée",
+        "solution": "Baisse plus tôt et termine avec un couvercle ou au four doux."
+      }
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "blancs de poulet",
+        "note": "épaisseur régulière si possible"
+      },
+      {
+        "qty": "1",
+        "unit": "c. à soupe",
+        "item": "huile",
+        "note": ""
+      },
+      {
+        "qty": "10",
+        "unit": "g",
+        "item": "beurre",
+        "note": "optionnel"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "trait",
+        "item": "citron",
+        "note": "optionnel"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer et saler",
+        "action": "Sèche le poulet, sale légèrement et laisse-le 5 minutes à température ambiante.",
+        "why": "Une surface sèche colore mieux et une épaisseur tempérée cuit plus régulièrement.",
+        "mistake": "Mettre un poulet humide et très froid → mauvaise coloration et cuisson irrégulière.",
+        "timer": 5
+      },
+      {
+        "id": 2,
+        "title": "Saisir la première face",
+        "action": "Chauffe la poêle, ajoute l’huile, puis saisis le poulet sans le bouger.",
+        "why": "Le contact fixe crée la coloration et les sucs.",
+        "mistake": "Bouger trop tôt → la croûte se déchire et colore moins.",
+        "timer": 3
+      },
+      {
+        "id": 3,
+        "title": "Retourner et baisser",
+        "action": "Retourne le poulet, baisse à feu moyen et ajoute le beurre si tu l’utilises.",
+        "why": "La surface est colorée ; il faut maintenant laisser la chaleur atteindre le centre.",
+        "mistake": "Rester à feu très fort → extérieur brûlé, intérieur pas forcément cuit.",
+        "timer": 5
+      },
+      {
+        "id": 4,
+        "title": "Finir doucement",
+        "action": "Couvre brièvement si le morceau est épais, puis coupe le feu.",
+        "why": "La chaleur douce finit sans contracter brutalement les fibres.",
+        "mistake": "Chercher à aller vite → viande sèche.",
+        "timer": 3
+      },
+      {
+        "id": 5,
+        "title": "Laisser reposer",
+        "action": "Pose le poulet sur une assiette 5 minutes avant de couper.",
+        "why": "Le repos répartit les jus et termine la cuisson.",
+        "mistake": "Couper immédiatement → jus perdu dans l’assiette.",
+        "timer": 5
+      }
+    ],
+    "tips": [
+      "Avec un thermomètre, vise environ 68–70°C puis repos.",
+      "Déglace la poêle avec citron ou eau pour comprendre les sucs."
+    ]
+  },
+  {
+    "id": "exercice-sauce-minute-eau-cuisson",
+    "title": "Exercice : lier une sauce minute avec l’eau de cuisson",
+    "family": "pâtes",
+    "isExercise": true,
+    "difficulty": 1,
+    "timePrep": 5,
+    "timeCook": 12,
+    "servings": 2,
+    "skills": [
+      "pates",
+      "amidon",
+      "liaison",
+      "timing"
+    ],
+    "primarySkills": [
+      "amidon",
+      "liaison"
+    ],
+    "secondarySkills": [
+      "timing",
+      "emulsion",
+      "assaisonnement-sel"
+    ],
+    "objectives": [
+      "Utiliser l’amidon de l’eau de cuisson pour lier",
+      "Finir les pâtes dans la sauce",
+      "Obtenir une sauce qui nappe sans crème"
+    ],
+    "equipment": [
+      "Casserole",
+      "Poêle ou sauteuse",
+      "Pince ou cuillère",
+      "Tasse"
+    ],
+    "successCriteria": [
+      "La sauce nappe les pâtes",
+      "Il reste un léger brillant",
+      "Les pâtes ne sont ni sèches ni noyées"
+    ],
+    "criticalPoints": [
+      "Garde toujours une tasse d’eau de cuisson",
+      "Finis les pâtes une minute dans la poêle",
+      "Ajoute l’eau progressivement"
+    ],
+    "fixes": [
+      {
+        "problem": "Sauce sèche",
+        "solution": "Ajoute un peu d’eau de cuisson et mélange vivement."
+      },
+      {
+        "problem": "Sauce liquide",
+        "solution": "Continue à feu moyen en remuant pour réduire et lier."
+      }
+    ],
+    "ingredients": [
+      {
+        "qty": "180",
+        "unit": "g",
+        "item": "pâtes",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "gousse",
+        "item": "ail",
+        "note": "émincé"
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "parmesan",
+        "note": "râpé"
+      },
+      {
+        "qty": "1",
+        "unit": "c. à soupe",
+        "item": "huile d’olive",
+        "note": ""
+      },
+      {
+        "qty": "1/2",
+        "unit": "",
+        "item": "citron",
+        "note": "zeste ou jus léger"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Cuire les pâtes",
+        "action": "Lance les pâtes dans une eau salée et garde-les une minute moins que le temps indiqué.",
+        "why": "La dernière minute servira à finir la cuisson dans la sauce.",
+        "mistake": "Cuire à fond dans l’eau → les pâtes absorbent moins bien la sauce.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Préparer la base",
+        "action": "Fais chauffer l’huile et l’ail doucement dans la poêle.",
+        "why": "L’ail doit parfumer sans brûler.",
+        "mistake": "Ail brun foncé → amertume.",
+        "timer": 2
+      },
+      {
+        "id": 3,
+        "title": "Garder l’eau de cuisson",
+        "action": "Avant d’égoutter, prélève une tasse d’eau de cuisson.",
+        "why": "L’amidon aide à lier la sauce aux pâtes.",
+        "mistake": "Jeter toute l’eau → impossible de détendre ou lier correctement.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Lier dans la poêle",
+        "action": "Ajoute les pâtes dans la poêle avec un peu d’eau de cuisson. Mélange vivement.",
+        "why": "Le mouvement, l’amidon et le gras forment une sauce brillante.",
+        "mistake": "Verser toute l’eau d’un coup → sauce noyée.",
+        "timer": 2
+      },
+      {
+        "id": 5,
+        "title": "Finir hors feu",
+        "action": "Ajoute parmesan et citron hors feu, puis ajuste avec un peu d’eau si besoin.",
+        "why": "Hors feu, le fromage fond sans faire de paquets.",
+        "mistake": "Parmesan à feu fort → texture granuleuse.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Le bon signe : les pâtes brillent et ne collent pas.",
+      "Ajoute l’eau par petites touches : tu contrôles mieux."
+    ]
+  },
+  {
+    "id": "exercice-corriger-plat-fade",
+    "title": "Exercice : corriger un plat fade",
+    "family": "sauce",
+    "isExercise": true,
+    "difficulty": 1,
+    "timePrep": 8,
+    "timeCook": 8,
+    "servings": 2,
+    "skills": [
+      "assaisonnement",
+      "acidite",
+      "diagnostic",
+      "rattrapage"
+    ],
+    "primarySkills": [
+      "diagnostic",
+      "equilibre-gout"
+    ],
+    "secondarySkills": [
+      "assaisonnement-sel",
+      "acidite",
+      "rattrapage"
+    ],
+    "objectives": [
+      "Diagnostiquer pourquoi un plat semble plat",
+      "Corriger avec sel, acidité, gras ou aromates",
+      "Goûter après chaque correction"
+    ],
+    "equipment": [
+      "Petite casserole ou bol",
+      "Cuillère",
+      "Citron ou vinaigre"
+    ],
+    "successCriteria": [
+      "Le goût est plus net sans devenir trop salé",
+      "L’acidité réveille sans dominer",
+      "Tu peux expliquer quelle correction a fonctionné"
+    ],
+    "criticalPoints": [
+      "Corrige par petites touches",
+      "Goûte entre chaque ajout",
+      "Ne mélange pas toutes les corrections d’un coup"
+    ],
+    "fixes": [
+      {
+        "problem": "Trop acide",
+        "solution": "Ajoute un peu de gras ou un élément doux."
+      },
+      {
+        "problem": "Trop salé",
+        "solution": "Allonge avec un élément non salé et évite de réduire davantage."
+      }
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "bol",
+        "item": "base simple",
+        "note": "soupe, légumes cuits ou sauce tomate"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel",
+        "note": "par petites pincées"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "citron ou vinaigre",
+        "note": "quelques gouttes"
+      },
+      {
+        "qty": "1",
+        "unit": "c. à café",
+        "item": "huile ou beurre",
+        "note": "optionnel"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "herbes ou poivre",
+        "note": "optionnel"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Goûter sans corriger",
+        "action": "Goûte la base et décris le problème : manque de sel, plat lourd, goût plat ou manque de parfum.",
+        "why": "Nommer le problème évite de corriger au hasard.",
+        "mistake": "Ajouter sel, citron et herbes d’un coup → impossible de comprendre ce qui agit.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Tester le sel",
+        "action": "Ajoute une petite pincée de sel, mélange et goûte.",
+        "why": "Le sel révèle souvent les goûts déjà présents.",
+        "mistake": "Saler fortement immédiatement → correction difficile.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Tester l’acidité",
+        "action": "Ajoute quelques gouttes de citron ou vinaigre, mélange et goûte.",
+        "why": "L’acidité donne de la tension et peut réveiller un plat mou.",
+        "mistake": "Verser trop d’acide → plat agressif.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Tester le gras ou l’aromate",
+        "action": "Ajoute une touche de gras ou d’herbes si le plat manque encore de rondeur ou de parfum.",
+        "why": "Le gras porte les arômes ; les herbes donnent une finition fraîche.",
+        "mistake": "Utiliser les herbes pour masquer un problème de sel ou d’acidité.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Noter la correction gagnante",
+        "action": "Note ce qui a vraiment changé le plat.",
+        "why": "C’est ce qui transforme un rattrapage en compétence réutilisable.",
+        "mistake": "Réussir par chance sans mémoriser la cause → progression limitée.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Corrige toujours en petites quantités.",
+      "Le bon réflexe : goûter, corriger, goûter."
+    ]
+  }
+];
+
+var REVIEW_CARDS = [
+  {
+    "id": "diag-poelee-detrempee",
+    "type": "diagnostic",
+    "title": "Poêlée détrempée",
+    "question": "Tes légumes rendent beaucoup d’eau et ne dorent pas. Diagnostic ?",
+    "answer": "Poêle trop chargée, feu trop faible, légumes trop humides ou morceaux trop petits.",
+    "skills": [
+      "evaporation",
+      "feu-fort"
+    ],
+    "lessons": [
+      "maitriser-intensite-feu",
+      "sauter-sans-detremper"
+    ],
+    "recipe": "exercice-dorer-legumes-sans-detremper"
+  },
+  {
+    "id": "diag-ail-amer",
+    "type": "diagnostic",
+    "title": "Ail amer",
+    "question": "Ton ail brunit très vite et sent amer. Pourquoi ?",
+    "answer": "Le feu est trop fort ou l’ail est ajouté trop tôt. L’ail haché brûle vite.",
+    "skills": [
+      "feu-fort",
+      "aromates"
+    ],
+    "lessons": [
+      "maitriser-intensite-feu",
+      "ail-oignon-echalote"
+    ]
+  },
+  {
+    "id": "rattrapage-plat-fade",
+    "type": "rattrapage",
+    "title": "Plat fade",
+    "question": "Un plat est fade. Quelle méthode de correction ?",
+    "answer": "Goûter, corriger d’abord le sel par petites touches, puis tester acidité, gras ou aromates.",
+    "skills": [
+      "assaisonnement-sel",
+      "acidite",
+      "diagnostic"
+    ],
+    "lessons": [
+      "saler-par-couches",
+      "acidite-reveiller-plat"
+    ],
+    "recipe": "exercice-corriger-plat-fade"
+  },
+  {
+    "id": "rattrapage-trop-sale",
+    "type": "rattrapage",
+    "title": "Trop salé",
+    "question": "Ta sauce est trop salée après réduction. Que faire ?",
+    "answer": "Arrêter de réduire, allonger avec un élément non salé, puis rééquilibrer avec gras ou acidité.",
+    "skills": [
+      "reduction",
+      "rattrapage"
+    ],
+    "lessons": [
+      "corriger-plat-rate",
+      "reduire-sauce-mijotee"
+    ]
+  },
+  {
+    "id": "cuisson-oeufs-secs",
+    "type": "diagnostic",
+    "title": "Œufs secs",
+    "question": "Tes œufs brouillés sont mats et secs. Cause probable ?",
+    "answer": "Chaleur trop forte, cuisson trop longue ou arrêt trop tardif. Les œufs continuent à cuire hors du feu.",
+    "skills": [
+      "oeufs-coagulation",
+      "feu-doux"
+    ],
+    "lessons": [
+      "chaleur-douce-forte",
+      "omelette-brouilles"
+    ],
+    "recipe": "exercice-oeufs-brouilles-sans-secher"
+  },
+  {
+    "id": "cuisson-poulet-sec",
+    "type": "diagnostic",
+    "title": "Poulet sec",
+    "question": "Un blanc de poulet est sec malgré une belle coloration. Pourquoi ?",
+    "answer": "Trop longtemps à feu fort ou pas assez de repos. Il faut saisir puis finir plus doucement.",
+    "skills": [
+      "volaille-moelleux",
+      "cuisson-residuelle"
+    ],
+    "lessons": [
+      "cuire-blanc-volaille",
+      "repos-cuisson-residuelle"
+    ],
+    "recipe": "exercice-poulet-saisir-finir-doucement"
+  },
+  {
+    "id": "sauce-liquide",
+    "type": "rattrapage",
+    "title": "Sauce trop liquide",
+    "question": "Ta sauce ne nappe pas la cuillère. Que faire ?",
+    "answer": "Réduire à feu moyen ou ajouter une liaison adaptée, puis vérifier la texture sur le dos de la cuillère.",
+    "skills": [
+      "reduction",
+      "liaison"
+    ],
+    "lessons": [
+      "comprendre-liaison-sauce",
+      "reduire-jus-court"
+    ]
+  },
+  {
+    "id": "pates-sauce-seche",
+    "type": "rattrapage",
+    "title": "Pâtes sèches",
+    "question": "Tes pâtes collent et la sauce disparaît. Que faire ?",
+    "answer": "Ajouter un peu d’eau de cuisson et mélanger vivement pour relier amidon, gras et sauce.",
+    "skills": [
+      "amidon",
+      "liaison"
+    ],
+    "lessons": [
+      "cuire-pates-justes",
+      "comprendre-amidon"
+    ],
+    "recipe": "exercice-sauce-minute-eau-cuisson"
+  },
+  {
+    "id": "poisson-surcuit",
+    "type": "diagnostic",
+    "title": "Poisson sec",
+    "question": "Ton poisson est sec et fibreux. Que s’est-il passé ?",
+    "answer": "La chair fragile a trop coagulé. Il faut viser une cuisson courte, nacrée et parfois finir hors feu.",
+    "skills": [
+      "poisson-fragile",
+      "cuisson-douce"
+    ],
+    "lessons": [
+      "comprendre-poisson",
+      "corriger-poisson-trop-cuit"
+    ]
+  },
+  {
+    "id": "four-legumes-mous",
+    "type": "diagnostic",
+    "title": "Légumes au four mous",
+    "question": "Tes légumes au four sont mous et pâles. Diagnostic ?",
+    "answer": "Plaque trop remplie, four pas assez chaud ou morceaux humides. L’eau empêche la concentration.",
+    "skills": [
+      "cuisson-four",
+      "evaporation"
+    ],
+    "lessons": [
+      "rotir-legumes",
+      "comprendre-four"
+    ]
+  },
+  {
+    "id": "timing-pates",
+    "type": "timing",
+    "title": "Pâtes prêtes trop tôt",
+    "question": "Les pâtes sont égouttées mais la sauce n’est pas prête. Erreur ?",
+    "answer": "Le timing n’a pas été construit autour de l’élément fragile : les pâtes attendent mal.",
+    "skills": [
+      "timing"
+    ],
+    "lessons": [
+      "timing-plat-simple",
+      "lire-recette-cuisinier"
+    ]
+  },
+  {
+    "id": "mise-en-place-liquide",
+    "type": "organisation",
+    "title": "Liquide de déglaçage oublié",
+    "question": "Tes sucs brûlent pendant que tu cherches le bouillon. Erreur ?",
+    "answer": "Le liquide de déglaçage devait être mesuré et prêt avant l’étape chaude.",
+    "skills": [
+      "mise-en-place",
+      "deglacage"
+    ],
+    "lessons": [
+      "mise-en-place-pro",
+      "deglacer-correctement"
+    ]
+  },
+  {
+    "id": "sel-reduction",
+    "type": "assaisonnement",
+    "title": "Sel et réduction",
+    "question": "Pourquoi goûter avant de resaler une sauce qui réduit ?",
+    "answer": "La réduction concentre déjà le sel. Resaler trop tôt peut rendre la sauce trop salée.",
+    "skills": [
+      "reduction",
+      "assaisonnement-sel"
+    ],
+    "lessons": [
+      "reduire-jus-court",
+      "saler-par-couches"
+    ]
+  },
+  {
+    "id": "acidite-role",
+    "type": "assaisonnement",
+    "title": "Rôle de l’acidité",
+    "question": "Pourquoi quelques gouttes de citron réveillent un plat ?",
+    "answer": "L’acidité crée du relief, coupe la lourdeur et rend les saveurs plus lisibles.",
+    "skills": [
+      "acidite"
+    ],
+    "lessons": [
+      "acidite-reveiller-plat"
+    ]
+  },
+  {
+    "id": "couteau-roule",
+    "type": "decoupe",
+    "title": "Aliment rond",
+    "question": "Pourquoi créer une face plate avant de couper une carotte ?",
+    "answer": "Un aliment stable limite les dérapages et permet une coupe régulière.",
+    "skills": [
+      "decoupe-securite"
+    ],
+    "lessons": [
+      "prise-couteau-griffe"
+    ]
+  },
+  {
+    "id": "taille-cuisson",
+    "type": "decoupe",
+    "title": "Tailles irrégulières",
+    "question": "Pourquoi des tailles très différentes posent problème ?",
+    "answer": "Les petits morceaux surcuisent pendant que les gros restent fermes.",
+    "skills": [
+      "decoupe-reguliere"
+    ],
+    "lessons": [
+      "tailles-regulieres"
+    ]
+  },
+  {
+    "id": "feu-fort-usage",
+    "type": "cuisson",
+    "title": "Feu fort",
+    "question": "À quoi sert vraiment le feu fort ?",
+    "answer": "À saisir, colorer ou évaporer vite, mais rarement à finir une cuisson fragile.",
+    "skills": [
+      "feu-fort"
+    ],
+    "lessons": [
+      "maitriser-intensite-feu"
+    ]
+  },
+  {
+    "id": "feu-doux-usage",
+    "type": "cuisson",
+    "title": "Feu doux",
+    "question": "Pourquoi utiliser un feu doux ?",
+    "answer": "Pour garder le contrôle sur les textures fragiles : œufs, sauces, poissons, beurre.",
+    "skills": [
+      "feu-doux"
+    ],
+    "lessons": [
+      "chaleur-douce-forte"
+    ]
+  },
+  {
+    "id": "grésillement",
+    "type": "signe",
+    "title": "Grésillement",
+    "question": "Que signale un grésillement net dans une poêle ?",
+    "answer": "L’eau s’évapore au contact de la chaleur. C’est souvent bon signe pour saisir ou sauter.",
+    "skills": [
+      "signes-cuisson",
+      "evaporation"
+    ],
+    "lessons": [
+      "signes-cuisson"
+    ]
+  },
+  {
+    "id": "silence-poele",
+    "type": "signe",
+    "title": "Silence en poêle",
+    "question": "Une poêle chargée devient presque silencieuse. Que comprendre ?",
+    "answer": "La température a chuté ou l’eau s’accumule : on bascule vers une cuisson vapeur.",
+    "skills": [
+      "evaporation",
+      "feu-fort"
+    ],
+    "lessons": [
+      "sauter-sans-detremper"
+    ]
+  },
+  {
+    "id": "repos-viande",
+    "type": "cuisson",
+    "title": "Repos viande",
+    "question": "Pourquoi laisser reposer une viande ?",
+    "answer": "La chaleur se répartit, la pression baisse et les jus restent mieux dans la chair.",
+    "skills": [
+      "viande-repos",
+      "cuisson-residuelle"
+    ],
+    "lessons": [
+      "repos-decoupe-viande",
+      "repos-cuisson-residuelle"
+    ]
+  },
+  {
+    "id": "beurre-brule",
+    "type": "signe",
+    "title": "Beurre brûlé",
+    "question": "Le beurre sent âcre et devient noir. Que faire ?",
+    "answer": "Sortir du feu, jeter si amer, recommencer plus doux ou utiliser beurre clarifié pour forte chaleur.",
+    "skills": [
+      "signes-cuisson",
+      "feu-fort"
+    ],
+    "lessons": [
+      "signes-cuisson"
+    ]
+  },
+  {
+    "id": "emulsion-cassee",
+    "type": "rattrapage",
+    "title": "Émulsion cassée",
+    "question": "Une sauce émulsionnée tranche. Premier réflexe ?",
+    "answer": "Reprendre avec une petite quantité d’eau, moutarde ou base stable, puis réincorporer doucement.",
+    "skills": [
+      "emulsion",
+      "rattrapage"
+    ],
+    "lessons": [
+      "comprendre-emulsion",
+      "mayonnaise-maison"
+    ]
+  },
+  {
+    "id": "vinaigrette-equilibre",
+    "type": "assaisonnement",
+    "title": "Vinaigrette agressive",
+    "question": "Une vinaigrette pique trop. Comment l’équilibrer ?",
+    "answer": "Ajouter gras, douceur ou un peu de moutarde, puis goûter. Ne pas ajouter du sel au hasard.",
+    "skills": [
+      "emulsion",
+      "acidite"
+    ],
+    "lessons": [
+      "vinaigrette-equilibree"
+    ]
+  },
+  {
+    "id": "sauce-granuleuse-fromage",
+    "type": "rattrapage",
+    "title": "Fromage granuleux",
+    "question": "Le parmesan forme des paquets dans les pâtes. Pourquoi ?",
+    "answer": "Chaleur trop forte ou pas assez d’eau amidonnée. Finir hors feu et détendre progressivement.",
+    "skills": [
+      "amidon",
+      "liaison"
+    ],
+    "lessons": [
+      "comprendre-amidon"
+    ],
+    "recipe": "exercice-sauce-minute-eau-cuisson"
+  },
+  {
+    "id": "legumes-verts-couleur",
+    "type": "cuisson",
+    "title": "Légumes verts ternes",
+    "question": "Pourquoi les haricots verts deviennent ternes ?",
+    "answer": "Cuisson trop longue, eau pas assez vive ou refroidissement tardif.",
+    "skills": [
+      "cuisson-eau",
+      "legumes-texture"
+    ],
+    "lessons": [
+      "legumes-verts-couleur-croquant"
+    ]
+  },
+  {
+    "id": "poele-trop-petite",
+    "type": "materiel",
+    "title": "Poêle trop petite",
+    "question": "Quel effet a une poêle trop petite ?",
+    "answer": "Elle concentre l’humidité : les aliments rendent de l’eau et colorent moins.",
+    "skills": [
+      "materiel",
+      "evaporation"
+    ],
+    "lessons": [
+      "choisir-bon-ustensile",
+      "poele-casserole-sauteuse"
+    ]
+  },
+  {
+    "id": "casserole-trop-large",
+    "type": "materiel",
+    "title": "Casserole trop large",
+    "question": "Pourquoi une grande casserole peut poser problème pour une petite sauce ?",
+    "answer": "La surface accélère l’évaporation et peut concentrer le sel trop vite.",
+    "skills": [
+      "materiel",
+      "reduction"
+    ],
+    "lessons": [
+      "poele-casserole-sauteuse"
+    ]
+  },
+  {
+    "id": "diagnostic-texture",
+    "type": "diagnostic",
+    "title": "Texture avant temps",
+    "question": "Pourquoi ne pas suivre uniquement le temps indiqué ?",
+    "answer": "Épaisseur, matériel, quantité et température de départ changent tout. Les signes confirment le temps.",
+    "skills": [
+      "signes-cuisson",
+      "diagnostic"
+    ],
+    "lessons": [
+      "signes-cuisson"
+    ]
+  },
+  {
+    "id": "corriger-apprendre",
+    "type": "méthode",
+    "title": "Ratage utile",
+    "question": "Comment transformer un plat raté en apprentissage ?",
+    "answer": "Nommer le problème, identifier une cause probable, noter une correction et refaire un exercice ciblé.",
+    "skills": [
+      "diagnostic",
+      "rattrapage"
+    ],
+    "lessons": [
+      "diagnostiquer-un-plat",
+      "corriger-plat-rate"
+    ]
+  }
+];
+
+var TRAINING_PLAN = [
+  {
+    "id": "mois-1",
+    "title": "Mois 1 — Cuisiner sans stress",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Organisation",
+        "lessons": [
+          "lire-recette-cuisinier",
+          "poste-travail-efficace"
+        ],
+        "recipe": "omelette-herbes-organisee"
+      },
+      {
+        "week": 2,
+        "title": "Feu et poêle",
+        "lessons": [
+          "choisir-bon-ustensile",
+          "maitriser-intensite-feu"
+        ],
+        "recipe": "exercice-dorer-legumes-sans-detremper"
+      },
+      {
+        "week": 3,
+        "title": "Découpe utile",
+        "lessons": [
+          "prise-couteau-griffe",
+          "tailles-regulieres"
+        ],
+        "recipe": "soupe-legumes-methode"
+      },
+      {
+        "week": 4,
+        "title": "Lire la cuisson",
+        "lessons": [
+          "comprendre-chaleur",
+          "signes-cuisson"
+        ],
+        "recipe": "exercice-poulet-saisir-finir-doucement"
+      }
+    ]
+  },
+  {
+    "id": "mois-2",
+    "title": "Mois 2 — Construire le goût",
+    "weeks": [
+      {
+        "week": 5,
+        "title": "Sel et acidité",
+        "lessons": [
+          "saler-par-couches",
+          "acidite-reveiller-plat"
+        ],
+        "recipe": "exercice-corriger-plat-fade"
+      },
+      {
+        "week": 6,
+        "title": "Sauces froides",
+        "lessons": [
+          "comprendre-emulsion",
+          "vinaigrette-equilibree"
+        ],
+        "recipe": "vinaigrette-moutarde-equilibree"
+      },
+      {
+        "week": 7,
+        "title": "Amidon et liaison",
+        "lessons": [
+          "comprendre-amidon",
+          "cuire-pates-justes"
+        ],
+        "recipe": "exercice-sauce-minute-eau-cuisson"
+      },
+      {
+        "week": 8,
+        "title": "Réduire et napper",
+        "lessons": [
+          "comprendre-liaison-sauce",
+          "reduire-jus-court"
+        ],
+        "recipe": "poulet-creme-moutarde-simple"
+      }
+    ]
+  },
+  {
+    "id": "mois-3",
+    "title": "Mois 3 — Devenir autonome",
+    "weeks": [
+      {
+        "week": 9,
+        "title": "Œufs et cuisson douce",
+        "lessons": [
+          "coagulation-oeufs",
+          "omelette-brouilles"
+        ],
+        "recipe": "exercice-oeufs-brouilles-sans-secher"
+      },
+      {
+        "week": 10,
+        "title": "Légumes",
+        "lessons": [
+          "comprendre-legumes",
+          "cuire-legumes-selon-texture"
+        ],
+        "recipe": "legumes-sautes-par-densite"
+      },
+      {
+        "week": 11,
+        "title": "Poisson ou volaille",
+        "lessons": [
+          "comprendre-poisson",
+          "cuire-blanc-volaille"
+        ],
+        "recipe": "poisson-vapeur-citron-herbes"
+      },
+      {
+        "week": 12,
+        "title": "Correction et improvisation",
+        "lessons": [
+          "diagnostiquer-un-plat",
+          "improviser-avec-ce-qu-on-a"
+        ],
+        "recipe": "exercice-corriger-plat-fade"
+      }
     ]
   }
 ];

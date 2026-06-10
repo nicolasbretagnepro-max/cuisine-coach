@@ -39,6 +39,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
 var COVER_GRADIENTS = {'viande':'linear-gradient(135deg,#fff1e7,#b91c1c)','poisson':'linear-gradient(135deg,#e0f7fa,#0284c7)','légume':'linear-gradient(135deg,#ecfdf5,#16a34a)','sauce':'linear-gradient(135deg,#fff7ed,#d97706)','pâtisserie':'linear-gradient(135deg,#fdf2f8,#db2777)','pâtes':'linear-gradient(135deg,#fef3c7,#ca8a04)','œufs':'linear-gradient(135deg,#fff7ed,#f59e0b)','soupe':'linear-gradient(135deg,#f0fdf4,#15803d)','dessert':'linear-gradient(135deg,#fdf2f8,#be185d)'};
 var RECIPE_EMOJIS = {'viande':'🥩','poisson':'🐟','légume':'🥦','sauce':'🫙','pâtisserie':'🥐','pâtes':'🍝','œufs':'🥚','soupe':'🍲','dessert':'🍰'};
 var FAMILY_LABELS = {'tous':'Tous','viande':'🥩 Viande','poisson':'🐟 Poisson','légume':'🥦 Légumes','sauce':'🫙 Sauces','pâtisserie':'🥐 Pâtisserie','pâtes':'🍝 Pâtes & riz','œufs':'🥚 Œufs','soupe':'🍲 Soupes','dessert':'🍰 Desserts'};
+var SKILL_GROUP_LABELS = {organisation:'Organisation', 'materiel-feu':'Matériel et feu', 'feu-cuisson':'Feu et cuisson', decoupe:'Découpe', gout:'Goût', sauces:'Sauces', produits:'Produits', patisserie:'Pâtisserie', autonomie:'Autonomie'};
 var ISSUE_OPTIONS = [
   {id:'trop-cuit', label:'Trop cuit', lessons:['signes-cuisson','repos-cuisson-residuelle']},
   {id:'pas-assez-cuit', label:'Pas assez cuit', lessons:['signes-cuisson','comprendre-chaleur']},
@@ -74,13 +75,17 @@ function findLesson(id){for(var i=0;i<LESSONS.length;i++)if(LESSONS[i].id===id)r
 function findRecipe(id){for(var i=0;i<RECIPES.length;i++)if(RECIPES[i].id===id)return RECIPES[i];return null;}
 function isLessonLocked(lesson){var p=lesson.prerequisites||[];return p.some(function(pid){return !state.isLessonDone(pid);});}
 function nextAvailableLesson(){for(var i=0;i<LESSONS.length;i++)if(!state.isLessonDone(LESSONS[i].id)&&!isLessonLocked(LESSONS[i]))return LESSONS[i];return null;}
-function skillLabel(s){return String(s||'').replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});}
+function skillLabel(s){return (typeof SKILLS!=='undefined'&&SKILLS&&SKILLS[s]&&SKILLS[s].label)||String(s||'').replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});}
+function skillDescription(s){return (typeof SKILLS!=='undefined'&&SKILLS&&SKILLS[s]&&SKILLS[s].description)||'';}
+function skillGroup(s){return (typeof SKILLS!=='undefined'&&SKILLS&&SKILLS[s]&&SKILLS[s].group)||'autonomie';}
+function recipeAllSkills(r){var out=[];[(r&&r.primarySkills)||[],(r&&r.secondarySkills)||[],(r&&r.skills)||[]].forEach(function(arr){arr.forEach(function(x){if(out.indexOf(x)<0)out.push(x);});});return out;}
+function lessonSkills(l){return (l&&l.skillIds&&l.skillIds.length)?l.skillIds:[];}
 function issueById(id){for(var i=0;i<ISSUE_OPTIONS.length;i++)if(ISSUE_OPTIONS[i].id===id)return ISSUE_OPTIONS[i];return null;}
 function issueLabel(id){var it=issueById(id);return it?it.label:skillLabel(id);}
 function isNoteMode(mode){return mode==='note'||(mode&&mode.indexOf('note-practice-')===0);}
 function noteLessonId(mode){return mode&&mode.indexOf('note-practice-')===0?mode.replace('note-practice-',''):'';}
 function contextMode(mode){return mode&&mode.indexOf('note-practice-')===0?'practice-'+noteLessonId(mode):mode;}
-function defaultRecipeSkills(recipe,ctx){var out=[];((recipe&&recipe.skills)||[]).forEach(function(s){if(out.indexOf(s)<0)out.push(s);});if(!out.length&&recipe&&recipe.family)out.push(recipe.family);return out.slice(0,5);}
+function defaultRecipeSkills(recipe,ctx){var out=[];recipeAllSkills(recipe).forEach(function(s){if(out.indexOf(s)<0)out.push(s);});if(ctx&&ctx.lesson)lessonSkills(ctx.lesson).forEach(function(s){if(out.indexOf(s)<0)out.push(s);});if(!out.length&&recipe&&recipe.family)out.push(recipe.family);return out.slice(0,6);}
 function latestCorrectionItems(limit){
   var attempts=state.getRecipeAttempts?state.getRecipeAttempts():{},items=[];
   Object.keys(attempts||{}).forEach(function(rid){
@@ -126,10 +131,10 @@ function renderLevelCard(level,compact){
   var p=level.progress||coachLevelProgress(level);
   return '<div class="coach-level-card'+(compact?' compact':'')+'"><div class="coach-level-top"><div class="coach-level-emoji">'+level.emoji+'</div><div class="grow"><div class="coach-level-title">'+esc(level.title)+'</div><div class="coach-level-goal">'+esc(level.goal)+'</div></div><span class="badge badge-neutral">'+p.pct+'%</span></div><div class="progress-bar thin mt-10"><div class="progress-fill" style="width:'+p.pct+'%"></div></div><div class="t-small t-muted mt-6">'+p.done+'/'+p.total+' leçons</div></div>';
 }
-function recipeSkillChips(r,limit){var skills=(r&&r.skills)||[];if(!skills.length)return '';limit=limit||4;return '<div class="skill-chips">'+skills.slice(0,limit).map(function(s){return '<span class="skill-chip">'+esc(skillLabel(s))+'</span>';}).join('')+(skills.length>limit?'<span class="skill-chip more">+'+(skills.length-limit)+'</span>':'')+'</div>';}
-function allRecipeSkills(){var out=[];RECIPES.forEach(function(r){(r.skills||[]).forEach(function(s){if(out.indexOf(s)<0)out.push(s);});});return out.sort();}
+function recipeSkillChips(r,limit){var skills=recipeAllSkills(r);if(!skills.length)return '';limit=limit||4;return '<div class="skill-chips">'+skills.slice(0,limit).map(function(s){return '<span class="skill-chip">'+esc(skillLabel(s))+'</span>';}).join('')+(skills.length>limit?'<span class="skill-chip more">+'+(skills.length-limit)+'</span>':'')+'</div>';}
+function allRecipeSkills(){var out=[];RECIPES.forEach(function(r){recipeAllSkills(r).forEach(function(s){if(out.indexOf(s)<0)out.push(s);});});return out.sort(function(a,b){return skillLabel(a).localeCompare(skillLabel(b),'fr');});}
 function normalizeText(s){s=String(s||'').toLowerCase();return s.normalize?s.normalize('NFD').replace(/[\u0300-\u036f]/g,''):s;}
-function recipeSearchBlob(r){return normalizeText([r.title,r.family,(r.skills||[]).join(' '),(r.objectives||[]).join(' '),(r.ingredients||[]).map(function(i){return i.item+' '+(i.note||'');}).join(' ')].join(' '));}
+function recipeSearchBlob(r){return normalizeText([r.title,r.family,(r.isExercise?'exercice entrainement entraînement pratique':''),recipeAllSkills(r).map(skillLabel).join(' '),(r.skills||[]).join(' '),(r.objectives||[]).join(' '),(r.ingredients||[]).map(function(i){return i.item+' '+(i.note||'');}).join(' ')].join(' '));}
 function lessonToReview(){var candidate=null;LESSONS.forEach(function(l){var sc=state.getLessonScore(l.id);if(sc&&sc.pct<100&&(!candidate||sc.pct<candidate.score.pct))candidate={lesson:l,score:sc};});return candidate?candidate.lesson:null;}
 function smartRecipePick(){for(var i=0;i<RECIPES.length;i++){var r=RECIPES[i],time=(r.timePrep||0)+(r.timeCook||0);if(!state.isRecipeDone(r.id)&&r.difficulty===1&&time<=25)return r;}for(var j=0;j<RECIPES.length;j++)if(!state.isRecipeDone(RECIPES[j].id))return RECIPES[j];return RECIPES[0]||null;}
 
@@ -262,8 +267,58 @@ function coachPlan(){
   var next=nextAvailableLesson(),review=lessonToReview(),pending=pendingPracticeItems(6),goal=state.get('weeklyGoal')||2,done=weeklyLearningCount(),weeklyRecipe=weeklyRecipeRecommendation(next,pending);
   return {lesson:next,review:review,pending:pending,weeklyRecipe:weeklyRecipe,weeklyLearningDone:done,weeklyGoal:goal,recipesDone:recipesDoneThisWeek(),level:currentCoachLevel(),spacedReviews:spacedReviewItems(3)};
 }
+
+function reviewCardItems(limit){
+  if(typeof REVIEW_CARDS==='undefined'||!REVIEW_CARDS)return [];
+  var cards=REVIEW_CARDS.slice();
+  var sp=state.getSkillProgress?state.getSkillProgress():{};
+  var weak={};
+  Object.keys(sp||{}).forEach(function(k){var x=sp[k]||{};if((x.mastery||0)<2||Object.keys(x.issues||{}).length)weak[k]=true;});
+  cards.sort(function(a,b){
+    var aw=(a.skills||[]).some(function(k){return weak[k];})?1:0;
+    var bw=(b.skills||[]).some(function(k){return weak[k];})?1:0;
+    return bw-aw;
+  });
+  return typeof limit==='number'?cards.slice(0,limit):cards;
+}
+function renderReviewCardMini(card){
+  var href=card.recipe?'#recipe/'+card.recipe:'#learn';
+  if(!card.recipe&&card.lessons&&card.lessons.length){for(var i=0;i<card.lessons.length;i++){if(findLesson(card.lessons[i])){href='#lesson/'+card.lessons[i]+'/review';break;}}}
+  return '<a class="review-card-mini" href="'+href+'"><div class="review-card-type">'+esc(card.type||'révision')+'</div><div class="review-card-title">'+esc(card.title)+'</div><div class="review-card-q">'+esc(card.question)+'</div><div class="review-card-a">'+esc(card.answer)+'</div></a>';
+}
+function renderSkillTaxonomyIntro(limit){
+  if(typeof SKILLS==='undefined'||!SKILLS)return '';
+  var keys=Object.keys(SKILLS),groups={};
+  keys.forEach(function(k){var g=skillGroup(k);if(!groups[g])groups[g]=[];groups[g].push(k);});
+  var order=['organisation','materiel-feu','feu-cuisson','decoupe','gout','sauces','produits','patisserie','autonomie'];
+  var h='<section class="skill-taxonomy-panel mt-16"><div class="t-h3">Compétences suivies</div><div class="t-small t-muted mt-4">Les leçons et les recettes alimentent désormais une taxonomie stable : cela rend la maîtrise plus précise.</div><div class="skill-taxonomy-grid mt-12">';
+  order.forEach(function(g){if(!groups[g])return;h+='<div class="skill-group-card"><div class="skill-group-title">'+esc(SKILL_GROUP_LABELS[g]||g)+'</div><div class="skill-group-list">'+groups[g].slice(0,limit||5).map(function(k){return '<span>'+esc(skillLabel(k))+'</span>';}).join('')+'</div></div>';});
+  h+='</div></section>';return h;
+}
+function issueDiagnosis(issueId){
+  var map={
+    'trop-mou':'Cause probable : poêle trop chargée, feu trop faible ou humidité non évaporée. Exercice conseillé : faire dorer sans détremper.',
+    'pas-assez-colore':'Cause probable : surface trop humide, manque de contact ou température insuffisante. Travaille évaporation et coloration.',
+    'brule-amer':'Cause probable : feu trop fort trop longtemps, ail ou sucs brûlés. Baisse plus tôt et lis l’odeur.',
+    'trop-cuit':'Cause probable : arrêt trop tardif ou cuisson résiduelle non anticipée. Sors plus tôt.',
+    'trop-sec':'Cause probable : chaleur trop forte, temps trop long ou repos absent. Travaille cuisson douce et repos.',
+    'fade':'Cause probable : sel insuffisant ou manque d’acidité. Corrige par petites touches et goûte entre chaque ajout.',
+    'trop-sale':'Cause probable : réduction après salage ou ajout trop massif. Allonge et évite de réduire davantage.',
+    'sauce-liquide':'Cause probable : réduction trop courte ou liaison insuffisante. Réduis à feu moyen ou lie progressivement.',
+    'mauvais-timing':'Cause probable : élément fragile terminé trop tôt. Construis le planning autour du service.',
+    'organisation':'Cause probable : mise en place incomplète ou poste encombré. Prépare les éléments critiques avant le feu.'
+  };
+  return map[issueId]||'';
+}
+function renderIssueDiagnosisBlock(issues){
+  issues=issues||[]; if(!issues.length)return '';
+  var h='<div class="diagnosis-box mt-12"><div class="diagnosis-title">Diagnostic probable</div><div class="stack-8 mt-8">';
+  issues.slice(0,3).forEach(function(id){var d=issueDiagnosis(id);if(d)h+='<div class="diagnosis-item"><strong>'+esc(issueLabel(id))+'</strong><span>'+esc(d)+'</span></div>';});
+  h+='</div></div>'; return h;
+}
+
 function recipeContextLabel(id){
-  var map={quick15:'15 min',quick30:'30 min',practice:'Pratiquer une technique',complete:'Repas complet',leftovers:'Restes',easy:'Très facile'};
+  var map={quick15:'15 min',quick30:'30 min',practice:'Pratiquer une technique',exercise:'Recettes-exercices',complete:'Repas complet',leftovers:'Restes',easy:'Très facile'};
   return map[id]||'';
 }
 function recipeMatchesContext(r,context){
@@ -271,7 +326,8 @@ function recipeMatchesContext(r,context){
   var total=(r.timePrep||0)+(r.timeCook||0),blob=recipeSearchBlob(r);
   if(context==='quick15')return total<=20;
   if(context==='quick30')return total<=30;
-  if(context==='practice')return (r.skills||[]).length>=2||(r.objectives||[]).length>=2;
+  if(context==='practice')return recipeAllSkills(r).length>=2||(r.objectives||[]).length>=2;
+  if(context==='exercise')return !!r.isExercise;
   if(context==='complete')return r.family!=='sauce'&&r.family!=='dessert'&&total>=20;
   if(context==='leftovers')return blob.indexOf('reste')>=0||blob.indexOf('anti gaspi')>=0||blob.indexOf('improvis')>=0||blob.indexOf('placard')>=0;
   if(context==='easy')return r.difficulty===1&&total<=35;
@@ -593,6 +649,14 @@ function renderHome(){
   }
   h+='</section>';
 
+
+  var quickCards=reviewCardItems(2);
+  if(quickCards.length){
+    h+='<section class="review-cards-panel mt-16"><div class="row-sb"><div><div class="t-h3">Cartes rapides</div><div class="t-small t-muted mt-4">2 minutes pour réviser un diagnostic sans cuisiner.</div></div><span class="badge badge-blue">Duolingo cuisine</span></div><div class="review-card-row mt-12">';
+    quickCards.forEach(function(card){h+=renderReviewCardMini(card);});
+    h+='</div></section>';
+  }
+
   if(plan.pending&&plan.pending.length){
     h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer plus tard</div><div class="t-small t-muted mt-4">Tes cours alimentent cette file. Une seule recette est mise en avant chaque semaine.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
     plan.pending.forEach(function(item){h+=renderPracticeMiniCard(item);});
@@ -654,6 +718,14 @@ function renderLearn(){
   h+='<section class="coach-level-panel mt-16"><div class="t-h3">Parcours de maîtrise</div><div class="t-small t-muted mt-4">5 niveaux pour passer de l’organisation aux plats autonomes. Les prérequis restent conservés.</div><div class="stack-10 mt-12">';
   COACH_LEVELS.forEach(function(level){h+=renderLevelCard(Object.assign({},level,{progress:coachLevelProgress(level)}),true);});
   h+='</div></section>';
+
+
+  h+=renderSkillTaxonomyIntro(4);
+  if(typeof REVIEW_CARDS!=='undefined'&&REVIEW_CARDS&&REVIEW_CARDS.length){
+    h+='<section class="review-cards-panel mt-16"><div class="t-h3">Cartes de révision rapides</div><div class="t-small t-muted mt-4">Diagnostics, rattrapages et réflexes utiles les jours sans cuisine.</div><div class="review-card-grid mt-12">';
+    reviewCardItems(8).forEach(function(card){h+=renderReviewCardMini(card);});
+    h+='</div></section>';
+  }
 
   h+='<div class="learn-groups stack-16">';
   groups.forEach(function(group,gidx){
@@ -874,12 +946,20 @@ function renderRecipes(filter,search){
   nh+=renderWeeklyMissionCard(plan.weeklyRecipe, plan, true);
   nh+='<section class="cook-today-panel mt-12">';
   nh+='<div class="row-sb"><div><div class="t-h4">Recettes libres</div><div class="t-small t-muted mt-4">Choisis une recette en plus de la pratique hebdomadaire, ou filtre selon ton temps et ton énergie.</div></div></div>'; 
-  var contexts=[{id:'tous',label:'Tout'},{id:'quick15',label:'15 min'},{id:'quick30',label:'30 min'},{id:'practice',label:'Technique'},{id:'complete',label:'Repas complet'},{id:'leftovers',label:'Restes'},{id:'easy',label:'Très facile'}];
+  var contexts=[{id:'tous',label:'Tout'},{id:'quick15',label:'15 min'},{id:'quick30',label:'30 min'},{id:'practice',label:'Technique'},{id:'exercise',label:'Exercices'},{id:'complete',label:'Repas complet'},{id:'leftovers',label:'Restes'},{id:'easy',label:'Très facile'}];
   nh+='<div class="context-row mt-12">';
   contexts.forEach(function(c){nh+='<button class="context-chip'+(active.context===c.id?' active':'')+'" data-context="'+c.id+'" type="button">'+esc(c.label)+'</button>';});
   nh+='</div>';
   if(active.context!=='tous')nh+='<div class="context-help mt-8">Filtre actif : '+esc(recipeContextLabel(active.context))+'. Tu peux le combiner avec les filtres ci-dessous.</div>';
   nh+='</section>';
+
+  var exercises=RECIPES.filter(function(r){return r.isExercise;}).slice(0,5);
+  if(exercises.length){
+    nh+='<section class="exercise-panel mt-12"><div class="row-sb"><div><div class="t-h4">Recettes-exercices</div><div class="t-small t-muted mt-4">Courtes recettes conçues pour travailler une compétence précise.</div></div><button class="context-chip" data-context="exercise" type="button">Voir</button></div><div class="exercise-scroll mt-12">';
+    exercises.forEach(function(r){nh+='<a class="exercise-card" href="#recipe/'+r.id+'"><div class="exercise-emoji">'+recipeEmoji(r)+'</div><div class="exercise-title">'+esc(r.title.replace('Exercice : ',''))+'</div><div class="exercise-sub">'+esc(recipeAllSkills(r).slice(0,2).map(skillLabel).join(' · '))+'</div></a>';});
+    nh+='</div></section>';
+  }
+
   var pending=pendingPracticeItems(4);
   if(pending.length){
     nh+='<section class="pending-panel mt-12"><div class="row-sb"><div><div class="t-h4">À pratiquer depuis tes cours</div><div class="t-small t-muted mt-4">File de pratiques issue de tes cours. À utiliser pour ta recette hebdomadaire.</div></div><span class="badge badge-orange">'+pending.length+'</span></div><div class="stack-8 mt-12">';
@@ -933,6 +1013,7 @@ function renderRecipeDetail(id,mode){
   h+='<span class="badge badge-neutral">⏱ '+recipe.timeCook+' min</span>';
   h+='<span class="badge badge-neutral">👥 '+recipe.servings+' pers.</span></div></div>';
   h+=recipeSkillChips(recipe,8);
+  if(recipe.isExercise){h+='<div class="exercise-brief mt-12"><div class="exercise-brief-kicker">Recette-exercice</div><div class="exercise-brief-title">Objectif : pratiquer une compétence précise</div><div class="exercise-brief-sub">Prends cette recette comme un entraînement : observe, corrige, puis note ton bilan.</div></div>';}
 
   if(done)h+='<div class="recipe-done-banner mt-12">✅ <span>Tu as déjà cuisiné cette recette</span></div>';
 
@@ -1017,7 +1098,7 @@ function renderRecipeDetail(id,mode){
     if(existingNote.photo)h+='<img class="recipe-note-photo" src="'+existingNote.photo+'" alt="Ma réalisation" />';
     if(existingNote.rating){var stars='';for(var s=0;s<existingNote.rating;s++)stars+='⭐';h+='<div class="recipe-note-rating">'+stars+'</div>';}
     if(existingNote.result){var resultMap={success:'Réussi',partial:'Partiellement réussi',fail:'À retravailler'};h+='<div class="recipe-note-result">'+esc(resultMap[existingNote.result]||existingNote.result)+'</div>';}
-    if(existingNote.issues&&existingNote.issues.length){h+='<div class="recipe-note-issues">'+existingNote.issues.map(function(x){return '<span>'+esc(issueLabel(x))+'</span>';}).join('')+'</div>';}
+    if(existingNote.issues&&existingNote.issues.length){h+='<div class="recipe-note-issues">'+existingNote.issues.map(function(x){return '<span>'+esc(issueLabel(x))+'</span>';}).join('')+'</div>';h+=renderIssueDiagnosisBlock(existingNote.issues);}
     if(existingNote.note)h+='<div class="recipe-note-text">'+esc(existingNote.note)+'</div>'; 
     h+='<div class="recipe-note-date">'+formatDate(existingNote.date)+'</div></div>';
   } else if(!existingNote&&!isNoteMode(mode)){
@@ -1034,14 +1115,14 @@ function renderNoteForm(existing,recipeId){
   var recipe=findRecipe(recipeId),cur=existing?(existing.rating||0):0;
   var curResult=(existing&&existing.result)||'partial';
   var curIssues=(existing&&existing.issues)||[];
-  var skills=((existing&&existing.skills)||((recipe&&recipe.skills)||[])).slice(0,5);
+  var skills=((existing&&existing.skills)||defaultRecipeSkills(recipe,null)).slice(0,6);
   var h='<div class="card mt-12" id="note-form"><div class="t-h4" style="margin-bottom:14px">'+( existing?'Modifier mon bilan':'Bilan après recette')+'</div><div class="add-form">';
   h+='<div class="field"><label class="field-label">Résultat réel</label><div class="result-choice">';
   [{id:'success',label:'Réussi'},{id:'partial',label:'Partiel'},{id:'fail',label:'À retravailler'}].forEach(function(r){h+='<button class="result-chip'+(curResult===r.id?' active':'')+'" data-result="'+r.id+'" type="button">'+r.label+'</button>';});
   h+='</div></div>';
   h+='<div class="field"><label class="field-label">Ce qui a posé problème</label><div class="issue-chip-grid">';
   ISSUE_OPTIONS.forEach(function(it){h+='<button class="issue-chip'+(curIssues.indexOf(it.id)>=0?' active':'')+'" data-issue="'+it.id+'" type="button">'+esc(it.label)+'</button>';});
-  h+='</div></div>';
+  h+='</div><div id="diagnosis-preview">'+renderIssueDiagnosisBlock(curIssues)+'</div></div>';
   if(skills.length){h+='<div class="field"><label class="field-label">Compétences travaillées</label><div class="note-skill-list">'+skills.map(function(sk){return '<span>'+esc(skillLabel(sk))+'</span>';}).join('')+'</div></div>';}
   h+='<div class="field"><label class="field-label">Photo de ton plat</label>';
   if(existing&&existing.photo){
@@ -1411,7 +1492,7 @@ function _bindNoteFormHandlers(recipeId,mode){
     btn.addEventListener('click',function(){document.querySelectorAll('.result-chip').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');});
   });
   document.querySelectorAll('.issue-chip').forEach(function(btn){
-    btn.addEventListener('click',function(){btn.classList.toggle('active');});
+    btn.addEventListener('click',function(){btn.classList.toggle('active');var box=document.getElementById('diagnosis-preview');if(box){var issues=[].slice.call(document.querySelectorAll('.issue-chip.active')).map(function(b){return b.dataset.issue;});box.innerHTML=renderIssueDiagnosisBlock(issues);}});
   });
   var sw=document.getElementById('note-stars');
   if(sw)sw.querySelectorAll('.star-btn').forEach(function(btn){

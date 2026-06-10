@@ -32,7 +32,7 @@ async function check(file){
     let detail = res.status + ' · ' + text.length + ' caractères';
     if(file==='index.html' && !text.trim().startsWith('<!doctype html>')) { ok=false; detail += ' · index invalide'; }
     if(file==='app.css' && !text.includes('CHEF COACH')) { ok=false; detail += ' · CSS suspect'; }
-    if(file==='content/data.js' && !text.includes('var MODULES') && !text.includes('var LESSONS')) { ok=false; detail += ' · données absentes'; }
+    if(file==='content/data.js' && (!text.includes('var MODULES') || !text.includes('var LESSONS') || !text.includes('var SKILLS') || !text.includes('var REVIEW_CARDS'))) { ok=false; detail += ' · données ou Lot C absents'; }
     if(file==='js/state.js' && !text.includes('var state')) { ok=false; detail += ' · state absent'; }
     if(file==='js/app.js' && !text.includes('renderBootError')) { ok=false; detail += ' · app suspecte'; }
     row.innerHTML = '<strong>'+file+'</strong> — <span class="'+(ok?'ok':'bad')+'">'+(ok?'OK':'Problème')+'</span><br><span class="muted">'+detail+'</span>';
