@@ -22907,7 +22907,1499 @@ var RECIPES = [
       "Le bon réflexe : goûter, corriger, goûter."
     ]
   }
-];
+,
+  {
+    "id": "tarte-flambee-alsacienne",
+    "title": "Tarte flambée alsacienne",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 12,
+    "servings": 4,
+    "skills": [
+      "pate-levee-pizza-focaccia",
+      "cuisson-pates-salees",
+      "assaisonnement"
+    ],
+    "primarySkills": [
+      "pate-levee-pizza-focaccia",
+      "cuisson-pates-salees"
+    ],
+    "secondarySkills": [
+      "assaisonnement"
+    ],
+    "objectives": [
+      "Obtenir une pâte fine et croustillante cuite à blanc",
+      "Doser la crème fraîche pour un résultat fondant sans détremper la pâte",
+      "Maîtriser la cuisson à haute température pour un fond sec et des bords dorés"
+    ],
+    "ingredients": [
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "farine T45",
+        "note": ""
+      },
+      {
+        "qty": "5",
+        "unit": "g",
+        "item": "levure boulangère sèche",
+        "note": ""
+      },
+      {
+        "qty": "120",
+        "unit": "ml",
+        "item": "eau tiède",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "crème fraîche épaisse",
+        "note": "40% de MG"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "fromage blanc",
+        "note": "égoutté"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés finement"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "lardons fumés",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, noix de muscade",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Pétrir la pâte",
+        "action": "Mélange la farine, la levure, une pincée de sel, l'eau tiède et l'huile. Pétris 5 minutes jusqu'à obtenir une boule lisse et non collante. Laisse reposer 20 minutes sous un torchon.",
+        "why": "La levure n'a pas besoin de pousser longtemps ici : on cherche juste à détendre le gluten pour étaler la pâte très fine sans qu'elle se rétracte.",
+        "mistake": "Pâte trop épaisse → fond mou et pâteux. Elle doit être étirée jusqu'à presque transparente.",
+        "timer": 20
+      },
+      {
+        "id": 2,
+        "title": "Préchauffer le four à fond",
+        "action": "Règle ton four à 250°C (ou au maximum) en chaleur statique. Place une plaque de cuisson à l'intérieur pour qu'elle soit brûlante. Laisse chauffer au moins 15 minutes.",
+        "why": "La tarte flambée cuit en 10-12 minutes à très haute température. Une plaque froide = fond qui ne saisit pas = pâte qui ne croustille jamais.",
+        "mistake": "Four pas assez chaud → la crème bout lentement et détremble la pâte avant qu'elle soit cuite.",
+        "timer": 15
+      },
+      {
+        "id": 3,
+        "title": "Préparer la garniture",
+        "action": "Mélange la crème fraîche et le fromage blanc. Sale légèrement, poivre, râpe une pincée de muscade. Émince les oignons en rondelles très fines. Fais légèrement revenir les lardons à sec 2 minutes pour en retirer un peu de gras.",
+        "why": "Le mélange crème-fromage blanc allège la garniture. Une crème pure seule serait trop lourde et trop grasse pour cuire en 12 minutes.",
+        "mistake": "Trop de garniture → le centre ne sèche pas et reste humide.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Étaler la pâte",
+        "action": "Sur un plan fariné, étale la pâte au rouleau en rectangle très fin (2 mm maximum). Pose-la sur une feuille de papier cuisson.",
+        "why": "Plus la pâte est fine, plus elle sera croustillante. C'est ce qui distingue la tarte flambée d'une pizza épaisse.",
+        "mistake": "Laisser la pâte se rétracter → étale-la en plusieurs fois en laissant reposer 2 minutes entre chaque passage.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Garnir et enfourner",
+        "action": "Étale la crème en couche fine en laissant un bord de 1 cm. Répartis les oignons puis les lardons. Fais glisser la pâte (avec son papier cuisson) sur la plaque brûlante. Enfourne 10-12 minutes jusqu'à ce que les bords soient bien dorés.",
+        "why": "La chaleur de la plaque saisit immédiatement le dessous de la pâte, garantissant le croustillant.",
+        "mistake": "Ouvrir le four avant 8 minutes → chute de température, cuisson incomplète.",
+        "timer": 12
+      }
+    ],
+    "tips": [
+      "Ajoute quelques feuilles de roquette à la sortie du four pour un contraste chaud-froid.",
+      "Variante végétarienne : remplace les lardons par des champignons émincés légèrement sautés.",
+      "Si tu n'as pas de fromage blanc, utilise uniquement de la crème fraîche épaisse à 30%."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tarte-flambee-alsacienne",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application directe des leçons pâte levée et cuisson à haute température.",
+        "focus": [
+          "Étaler la pâte la plus fine possible",
+          "Respecter la chauffe longue du four",
+          "Doser la garniture pour ne pas détremper"
+        ],
+        "successCriteria": [
+          "La pâte est croustillante et non molle sous la garniture",
+          "Les bords sont bien dorés, presque brûlés par endroits"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "magret-canard-miel-orange",
+    "title": "Magret de canard miel et orange",
+    "family": "viande",
+    "difficulty": 3,
+    "timePrep": 15,
+    "timeCook": 20,
+    "servings": 2,
+    "skills": [
+      "saisir-colorer-maillard",
+      "repos-decoupe-viande",
+      "jus-deglacage"
+    ],
+    "primarySkills": [
+      "saisir-colorer-maillard",
+      "repos-decoupe-viande"
+    ],
+    "secondarySkills": [
+      "deglacer-correctement",
+      "reduire-jus-court"
+    ],
+    "objectives": [
+      "Cuire le magret côté peau pour fondre le gras sans brûler la chair",
+      "Respecter le repos pour une découpe qui ne saigne pas",
+      "Réaliser un jus réduit acidulé-sucré à partir des sucs de cuisson"
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "magrets de canard",
+        "note": "300 g chacun environ"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "miel",
+        "note": "miel d'acacia de préférence"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "orange",
+        "note": "jus + zeste"
+      },
+      {
+        "qty": "5",
+        "unit": "cl",
+        "item": "vinaigre balsamique",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Quadriller la peau",
+        "action": "Avec un couteau bien aiguisé, quadrille la peau du magret en losanges sans entailler la chair. Profondeur : 5 mm maximum. Sale et poivre les deux faces.",
+        "why": "Le quadrillage permet au gras de s'évacuer pendant la cuisson, évitant que la peau ne gonfle et reste molle.",
+        "mistake": "Couper trop profond et entailler la chair → la viande se dessèche côté peau à la cuisson.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Saisir côté peau à froid",
+        "action": "Pose le magret côté peau dans une poêle froide. Allume le feu à moyen. Laisse la peau fondre lentement pendant 8-10 minutes en vidant le gras régulièrement dans un bol.",
+        "why": "Partir à froid permet au gras de fondre progressivement sans brûler. La peau devient croustillante par évaporation de l'eau interne.",
+        "mistake": "Poêle trop chaude au départ → gras brûlé, peau amère et chair surcuite côté peau.",
+        "timer": 10
+      },
+      {
+        "id": 3,
+        "title": "Retourner et finir la cuisson",
+        "action": "Retourne le magret côté chair. Cuis 3-4 minutes pour une cuisson rosée, 5-6 minutes pour à point. Appuie légèrement : la chair doit résister mais pas être dure.",
+        "why": "La cuisson est très rapide côté chair car le gras a déjà transmis de la chaleur à travers la pièce pendant la cuisson côté peau.",
+        "mistake": "Cuire trop longtemps côté chair → canard gris et sec, toute la texture est perdue.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Repos sous papier aluminium",
+        "action": "Pose les magrets côté peau en haut sur une planche. Recouvre lâchement de papier aluminium. Laisse reposer 5 minutes.",
+        "why": "Le repos redistribue les jus vers le centre de la viande. Sans repos, tout le jus coule à la découpe et la viande devient sèche.",
+        "mistake": "Couvrir hermétiquement → la vapeur ramollit la peau croustillante qu'on a mis 10 minutes à obtenir.",
+        "timer": 5
+      },
+      {
+        "id": 5,
+        "title": "Réaliser la sauce miel-orange",
+        "action": "Dans la même poêle, élimine l'excès de gras en gardant 1 cuillère. Déglacer avec le jus d'orange et le vinaigre balsamique. Ajoute le miel. Réduis 2-3 minutes à feu vif jusqu'à consistance sirupeuse. Monte avec le beurre froid hors du feu.",
+        "why": "Les sucs caramélisés dans la poêle donnent la profondeur à la sauce. La réduction concentre les arômes. Le beurre en fin apporte brillance et rondeur.",
+        "mistake": "Réduire trop longtemps → sauce amère et trop sucrée, plus de nuance.",
+        "timer": 3
+      },
+      {
+        "id": 6,
+        "title": "Découper et dresser",
+        "action": "Tranche le magret en biais en tranches de 1 cm d'épaisseur. Dispose en éventail dans l'assiette, peau vers le haut. Nappé de sauce autour (pas dessus).",
+        "why": "Verser la sauce sur la peau la ramollit immédiatement. En sauce autour, le croustillant est préservé jusqu'à la dégustation.",
+        "mistake": "Découper trop épais → on perd la texture en bouche, chaque tranche doit tenir en une bouchée.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Garde le gras de canard récupéré : il se conserve 2 semaines au frigo et parfume magnifiquement les pommes de terre sautées.",
+      "Accompagne de purée de patate douce ou de haricots verts pour contraster avec la richesse du canard.",
+      "La cuisson rosée est à 58-62°C à cœur. Un thermomètre est bienvenu pour les premières fois."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "magret-canard-miel-orange",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application des techniques saisir côté peau, repos et déglaçage sur une pièce noble.",
+        "focus": [
+          "Démarrer la cuisson à froid côté peau",
+          "Contrôler la couleur de la chair pour estimer la cuisson",
+          "Observer le changement de texture de la sauce à la réduction"
+        ],
+        "successCriteria": [
+          "La peau est croustillante et la chair est uniformément rosée à la découpe",
+          "La sauce nappe légèrement la cuillère sans être collante"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "risotto-parmesan-citron",
+    "title": "Risotto parmesan et citron",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 10,
+    "timeCook": 25,
+    "servings": 4,
+    "skills": [
+      "comprendre-amidon",
+      "saler-par-couches",
+      "assaisonnement"
+    ],
+    "primarySkills": [
+      "comprendre-amidon"
+    ],
+    "secondarySkills": [
+      "saler-par-couches",
+      "sauce-creme-nappante"
+    ],
+    "objectives": [
+      "Comprendre le rôle de l'amidon du riz pour obtenir la texture crémeuse sans crème",
+      "Maîtriser l'ajout progressif du bouillon pour contrôler la cuisson",
+      "Réaliser la mantecatura (montée au beurre-parmesan) pour une texture veloutée"
+    ],
+    "ingredients": [
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "riz Arborio ou Carnaroli",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "l",
+        "item": "bouillon de légumes ou de volaille",
+        "note": "chaud, maintenu à frémissement"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "ciselé fin"
+      },
+      {
+        "qty": "10",
+        "unit": "cl",
+        "item": "vin blanc sec",
+        "note": ""
+      },
+      {
+        "qty": "80",
+        "unit": "g",
+        "item": "parmesan",
+        "note": "fraîchement râpé"
+      },
+      {
+        "qty": "50",
+        "unit": "g",
+        "item": "beurre froid",
+        "note": "coupé en cubes"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "zeste + quelques gouttes de jus"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre blanc",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Nacrer le riz",
+        "action": "Fais chauffer l'huile d'olive à feu moyen. Fais revenir l'oignon ciselé 3 minutes sans coloration. Ajoute le riz sec, mélange 2 minutes jusqu'à ce que les grains deviennent translucides avec un cœur blanc. C'est le stade nacré.",
+        "why": "Le nacrage enrobe chaque grain d'un film de matière grasse qui régule la libération de l'amidon pendant la cuisson. Sans cette étape, le risotto colle et la texture est irrégulière.",
+        "mistake": "Colorer l'oignon ou brûler le riz → amertume qui ne part pas à la cuisson.",
+        "timer": 5
+      },
+      {
+        "id": 2,
+        "title": "Déglacer au vin blanc",
+        "action": "Verse le vin blanc d'un coup sur le riz chaud. Mélange jusqu'à absorption complète. Le riz doit absorber tout le vin avant d'ajouter le bouillon.",
+        "why": "L'alcool du vin s'évapore et laisse ses arômes dans le riz. Cette étape fixe les parfums et équilibre l'acidité finale du plat.",
+        "mistake": "Sauter cette étape → risotto plat en goût, sans profondeur.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Ajouter le bouillon louche par louche",
+        "action": "Ajoute une louche de bouillon chaud. Mélange régulièrement à feu moyen. N'ajoute la louche suivante que lorsque la précédente est presque totalement absorbée. Répète pendant 18-20 minutes.",
+        "why": "L'ajout progressif crée une friction entre les grains qui libère l'amidon progressivement. C'est cet amidon, pas de la crème, qui donne la texture crémeuse caractéristique.",
+        "mistake": "Tout verser d'un coup → riz cuit mais pas crémeux, texture de soupe.",
+        "timer": 20
+      },
+      {
+        "id": 4,
+        "title": "Vérifier la cuisson",
+        "action": "Goûte un grain : il doit être tendre avec un tout petit fil de résistance au centre (al dente). Si le riz est encore trop ferme, ajoute encore une louche. Retire du feu quand le riz est à ce stade.",
+        "why": "Le risotto continue à cuire avec la chaleur résiduelle et pendant la mantecatura. Si tu arrêtes à cuisson parfaite, il sera trop cuit à la dégustation.",
+        "mistake": "Cuire jusqu'à ce que ce soit complètement fondant → risotto collant et sur-cuit à table.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Mantecatura : monter au beurre et parmesan",
+        "action": "Hors du feu, ajoute les cubes de beurre froid et le parmesan râpé d'un coup. Mélange vigoureusement en mouvements circulaires pendant 1 minute pour créer une émulsion. Ajoute le zeste de citron et quelques gouttes de jus.",
+        "why": "La mantecatura émulsionne le beurre froid dans l'amidon chaud. Cela crée un liant lisse et brillant. L'acidité du citron allège et contraste avec le gras du parmesan.",
+        "mistake": "Beurre chaud ou fondu → il ne s'émulsionne pas, il se sépare et le risotto devient gras.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Le risotto attend les convives, pas l'inverse. Sers immédiatement après la mantecatura.",
+      "Variations : ajoute des asperges précuites à la vapeur, des crevettes sautées ou des champignons dorés au moment de servir.",
+      "Si le risotto est trop épais avant de servir, détends avec une petite louche de bouillon chaud juste avant la mantecatura."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "risotto-parmesan-citron",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Le risotto est la démonstration parfaite du rôle de l'amidon et du contrôle de cuisson par ajouts progressifs.",
+        "focus": [
+          "Observer le riz devenir translucide au nacrage",
+          "Sentir la texture changer à chaque louche de bouillon",
+          "Évaluer la résistance du grain avant la mantecatura"
+        ],
+        "successCriteria": [
+          "Le risotto coule lentement quand on incline l'assiette (all'onda)",
+          "Texture crémeuse sans ajout de crème, grain encore légèrement al dente"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "daurade-poele-vierge-tomates",
+    "title": "Daurade à la poêle, vierge de tomates",
+    "family": "poisson",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 8,
+    "servings": 2,
+    "skills": [
+      "poisson-poele-peau",
+      "sauce-vierge-tomate-herbes",
+      "saisir-colorer-maillard"
+    ],
+    "primarySkills": [
+      "poisson-poele-peau"
+    ],
+    "secondarySkills": [
+      "sauce-vierge-tomate-herbes"
+    ],
+    "objectives": [
+      "Obtenir une peau de poisson croustillante sans qu'elle accroche",
+      "Contrôler la cuisson par les signaux visuels plutôt que par le temps",
+      "Réaliser une sauce vierge tiède qui ne cuit pas les tomates"
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "filets de daurade",
+        "note": "avec peau, 180 g chacun"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "tomates cerises",
+        "note": "coupées en deux"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "jus"
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": "qualité"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gousse d'ail",
+        "note": "ciselée fine"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "basilic frais, ciboulette",
+        "note": "ciselés"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "câpres",
+        "note": "égouttées"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": "pour la cuisson du poisson"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer la sauce vierge",
+        "action": "Mélange les tomates cerises coupées, l'ail ciselé, les câpres, l'huile d'olive, le jus de citron, le basilic et la ciboulette dans un bol. Sale, poivre. Laisse mariner à température ambiante pendant 15 minutes.",
+        "why": "La sauce vierge est une sauce crue qui se parfume à froid. Les 15 minutes permettent aux arômes de l'ail et des herbes de diffuser dans l'huile sans perdre leur fraîcheur.",
+        "mistake": "Préparer à l'avance et mettre au frigo → les herbes noircissent, les tomates rendent de l'eau.",
+        "timer": 15
+      },
+      {
+        "id": 2,
+        "title": "Sécher et assaisonner le poisson",
+        "action": "Sèche soigneusement les filets avec du papier absorbant des deux côtés. Sale uniquement côté peau juste avant la cuisson. Ne sale pas côté chair maintenant.",
+        "why": "L'humidité est l'ennemie du croustillant. Une peau humide va bouillir dans la poêle plutôt que dorer. Le sel sur la chair en avance fait sortir l'eau par osmose.",
+        "mistake": "Saler les deux faces à l'avance → la chair perd son eau, texture cotonneuse à la cuisson.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Saisir côté peau",
+        "action": "Chauffe l'huile neutre dans une poêle antiadhésive à feu vif jusqu'à légère fumée. Pose le filet côté peau. Appuie 30 secondes avec une spatule pour aplatir la peau contre la poêle. Baisse à feu moyen-vif. Cuis 5-6 minutes sans toucher.",
+        "why": "La pression au départ évite que la peau gondole et se décolle par endroits. Sans contact total avec la poêle, une partie de la peau reste molle.",
+        "mistake": "Trop bouger le filet → la peau accroche et se déchire. Elle se décolle naturellement quand elle est prête.",
+        "timer": 6
+      },
+      {
+        "id": 4,
+        "title": "Retourner et finir",
+        "action": "Retourne le filet côté chair. Coupe le feu. La chaleur résiduelle cuit le dessus en 90 secondes. Le poisson est cuit quand la chair est devenue opaque jusqu'aux deux tiers de sa hauteur.",
+        "why": "Le poisson est fragile : finir hors du feu évite la sur-cuisson. La chair doit rester nacrée au centre pour garder sa texture fondante.",
+        "mistake": "Remettre sur le feu pour vérifier la cuisson → le centre se transforme en coton en 30 secondes de trop.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Dresser et servir immédiatement",
+        "action": "Pose le filet peau vers le haut dans l'assiette. Verse la sauce vierge à la cuillère autour du poisson, pas dessus. Quelques herbes fraîches sur le poisson.",
+        "why": "La sauce vierge est crue et fraîche : elle doit contraster avec le poisson chaud, pas tiédir dessus. Le contact ramollirait aussi la peau.",
+        "mistake": "Attendre avant de servir → la peau croustillante rend de l'humidité en 2 minutes et redevient molle.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Le même principe de cuisson fonctionne avec le bar, le saumon, la truite, le maquereau ou le rouget.",
+      "Ajoute une goutte de vinaigre de Xérès dans la sauce vierge pour une pointe d'acidité supplémentaire.",
+      "Pour vérifier la fraîcheur de ta daurade : les yeux doivent être brillants et la chair ferme sous le doigt."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "daurade-poele-vierge-tomates",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application précise de la cuisson côté peau et du contrôle visuel de la cuisson d'un poisson.",
+        "focus": [
+          "Sécher parfaitement la peau avant cuisson",
+          "Appuyer les premières secondes pour un contact total",
+          "Observer la remontée de l'opacité dans la chair"
+        ],
+        "successCriteria": [
+          "La peau reste intacte et se détache d'un bloc, sans parties molles",
+          "La chair est nacrée au centre, opaque sur les bords"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poulet-basquaise",
+    "title": "Poulet à la basquaise",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 45,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "sauter-sans-detremper",
+      "sauce-tomate-base"
+    ],
+    "primarySkills": [
+      "principe-cuisson-longue"
+    ],
+    "secondarySkills": [
+      "saisir-colorer-maillard",
+      "sauce-tomate-reduite"
+    ],
+    "objectives": [
+      "Colorer les morceaux de poulet pour fixer les sucs avant de mijoter",
+      "Réaliser une piperade généreuse qui devient la sauce du plat",
+      "Gérer le temps de cuisson pour que la volaille reste moelleuse dans la sauce"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poulet entier découpé en morceaux",
+        "note": "ou 4 cuisses"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "poivrons",
+        "note": "2 rouges, 1 vert"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "tomates mûres",
+        "note": "concassées grossièrement"
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "jambon de Bayonne",
+        "note": "coupé en lardons"
+      },
+      {
+        "qty": "15",
+        "unit": "cl",
+        "item": "vin blanc sec",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "piment d'Espelette",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "huile d'olive, sel, thym, laurier",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Colorer le poulet",
+        "action": "Sale et poivre les morceaux de poulet. Dans une cocotte, chauffe l'huile à feu vif. Colore les morceaux sur toutes les faces pendant 5-6 minutes au total. Travaille en deux fois si la cocotte est trop petite. Retire et réserve.",
+        "why": "La coloration de Maillard crée une croûte qui retient les jus à l'intérieur pendant le mijotage. Elle ajoute aussi une profondeur de goût que la sauce absorbera.",
+        "mistake": "Trop remplir la cocotte → les morceaux bouillent dans leur jus au lieu de colorer, texture molle.",
+        "timer": 6
+      },
+      {
+        "id": 2,
+        "title": "Faire la piperade",
+        "action": "Dans la même cocotte, fais revenir les oignons 5 minutes. Ajoute les poivrons coupés en lamelles, l'ail, le jambon. Cuis 8-10 minutes à feu moyen en remuant jusqu'à ce que les poivrons soient fondants.",
+        "why": "Les poivrons doivent être cuits avant l'ajout du poulet. S'ils restent croquants, ils ne dégageront pas leurs sucres dans la sauce pendant le mijotage.",
+        "mistake": "Passer trop vite cette étape → sauce aqueuse et poivrons encore fermes dans le plat final.",
+        "timer": 10
+      },
+      {
+        "id": 3,
+        "title": "Déglacer et ajouter les tomates",
+        "action": "Monte le feu. Verse le vin blanc et gratte le fond de la cocotte pour décoller les sucs. Ajoute les tomates concassées, le piment d'Espelette, le thym et le laurier. Sale légèrement (le jambon est salé). Mélange bien.",
+        "why": "Les sucs au fond de la cocotte concentrent les arômes de caramélisation. Le déglaçage les incorpore directement dans la sauce.",
+        "mistake": "Ne pas gratter le fond → ces sucs brûlent à la prochaine ébullition et donnent un goût amer.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Mijoter",
+        "action": "Replace les morceaux de poulet dans la cocotte. Porte à légère ébullition, puis baisse le feu au minimum. Couvre et laisse mijoter 35-40 minutes. Le poulet est cuit quand le jus ressort clair quand tu piques une cuisse.",
+        "why": "Le mijotage à feu très doux permet aux fibres de la viande de se détendre. Un bouillon qui bout trop fort donne une viande filandreuse.",
+        "mistake": "Laisser bouillir à gros bouillons → chair sèche et sauce qui réduit trop vite.",
+        "timer": 38
+      },
+      {
+        "id": 5,
+        "title": "Corriger et servir",
+        "action": "Retire le couvercle les 5 dernières minutes pour réduire légèrement la sauce si elle est trop liquide. Vérifie l'assaisonnement, ajuste en piment d'Espelette si besoin. Sers avec du riz blanc ou des pommes de terre vapeur.",
+        "why": "La sauce doit napper légèrement les morceaux. Trop liquide, elle perd de la profondeur et mouille l'assiette.",
+        "mistake": "Corriger en sel sans goûter → le jambon a déjà salé le plat, souvent ça suffit.",
+        "timer": 5
+      }
+    ],
+    "tips": [
+      "Préparé la veille, le poulet basquaise est encore meilleur : les saveurs s'homogénéisent au repos.",
+      "Utilise des poivrons rôtis au four et épluchés pour un résultat plus fondant et smoky.",
+      "Le piment d'Espelette s'ajoute en fin de cuisson pour garder sa vivacité aromatique."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poulet-basquaise",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application des principes de coloration avant mijotage et de construction d'une sauce par réduction.",
+        "focus": [
+          "Observer la différence entre poulet coloré et non coloré dans la sauce",
+          "Contrôler l'intensité du feu pendant le mijotage",
+          "Évaluer la consistance de la sauce en fin de cuisson"
+        ],
+        "successCriteria": [
+          "Le poulet est fondant sans être sec et se détache de l'os facilement",
+          "La sauce est légèrement épaisse et bien parfumée, pas aqueuse"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tarte-aux-pommes-normande",
+    "title": "Tarte aux pommes normande",
+    "family": "pâtisserie",
+    "difficulty": 2,
+    "timePrep": 25,
+    "timeCook": 40,
+    "servings": 6,
+    "skills": [
+      "pate-brisee-salee",
+      "oeufs-liant-cremes-appareils",
+      "cremes-base-patisserie"
+    ],
+    "primarySkills": [
+      "pate-brisee-salee",
+      "oeufs-liant-cremes-appareils"
+    ],
+    "secondarySkills": [
+      "comprendre-patisserie-precision"
+    ],
+    "objectives": [
+      "Réaliser une pâte brisée croustillante qui ne détrempe pas sous la garniture",
+      "Préparer un appareil normand (œufs, crème, sucre) à la bonne consistance",
+      "Cuire les pommes juste pour qu'elles soient fondantes sans rendre trop d'eau"
+    ],
+    "ingredients": [
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "beurre froid",
+        "note": "coupé en cubes"
+      },
+      {
+        "qty": "40",
+        "unit": "ml",
+        "item": "eau froide",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "pinch",
+        "item": "sel",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "pommes Golden ou Reine des Reinettes",
+        "note": "épluchées, épépinées"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "sucre en poudre",
+        "note": ""
+      },
+      {
+        "qty": "15",
+        "unit": "cl",
+        "item": "crème fraîche épaisse",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "extrait de vanille",
+        "note": ""
+      },
+      {
+        "qty": "20",
+        "unit": "g",
+        "item": "amandes en poudre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Réaliser la pâte brisée",
+        "action": "Mélange rapidement la farine, le sel et le beurre froid du bout des doigts jusqu'à obtenir une texture sableuse. Ajoute l'eau froide cuillère par cuillère. Rassemble en boule sans trop pétrir. Enveloppe dans un film, place au frigo 20 minutes.",
+        "why": "Le beurre froid forme de petites poches de gras dans la farine : en fondant à la cuisson, elles créent le croustillant feuilleté caractéristique. Pétrir trop développe le gluten et rend la pâte élastique et dure.",
+        "mistake": "Utiliser du beurre à température ambiante → il s'incorpore complètement à la farine, pâte sans texture.",
+        "timer": 20
+      },
+      {
+        "id": 2,
+        "title": "Foncer le moule",
+        "action": "Étale la pâte sur 3 mm d'épaisseur sur un plan fariné. Beurre le moule à tarte (diamètre 26 cm). Dépose la pâte, appuie bien dans les angles. Coupe l'excédent. Pique le fond avec une fourchette. Remets au frigo 10 minutes.",
+        "why": "Piquer le fond évite les cloques de vapeur à la cuisson. Le repos au frigo stabilise le beurre et évite que la pâte ne rétrécisse au four.",
+        "mistake": "Ne pas piquer → fond qui gonfle irrégulièrement et décolle les bords.",
+        "timer": 10
+      },
+      {
+        "id": 3,
+        "title": "Précuire le fond à blanc",
+        "action": "Préchauffe le four à 190°C. Pose une feuille de papier cuisson sur la pâte, remplis de billes de cuisson ou de légumineuses sèches. Cuis 15 minutes. Retire les billes et le papier, cuis encore 5 minutes pour sécher le fond.",
+        "why": "La précuisson à blanc sèche le fond de tarte pour qu'il résiste à l'humidité de la garniture. Sans cette étape, le fond sera détrempé après cuisson.",
+        "mistake": "Retirer trop tôt les billes → fond mal cuit qui se bossèle en remettant au four avec la garniture.",
+        "timer": 20
+      },
+      {
+        "id": 4,
+        "title": "Préparer pommes et appareil normand",
+        "action": "Coupe les pommes en lamelles de 4-5 mm. Fouette les œufs avec le sucre jusqu'à blanchiment. Ajoute la crème fraîche, la vanille et les amandes en poudre. Mélange bien. Saupoudre les amandes en poudre sur le fond de tarte encore chaud.",
+        "why": "Les amandes en poudre sur le fond créent une barrière imperméable supplémentaire contre l'humidité des pommes. L'appareil doit être lisse et sans grumeaux pour une cuisson homogène.",
+        "mistake": "Pommes trop épaisses → elles restent crues pendant que l'appareil est déjà pris.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Garnir et cuire",
+        "action": "Dispose les lamelles de pommes en rosace sur le fond de tarte. Verse l'appareil normand sur les pommes jusqu'aux deux tiers de la hauteur du bord. Enfourne à 180°C pour 30-35 minutes. La tarte est prête quand l'appareil est légèrement gonflé et doré.",
+        "why": "L'appareil normand coagule autour de 75-80°C. La dorure en surface indique la caramélisation des sucres et la bonne prise des œufs.",
+        "mistake": "Verser trop d'appareil → ça déborde à la cuisson, fond mouillé.",
+        "timer": 33
+      }
+    ],
+    "tips": [
+      "Badigeonne la tarte encore chaude de confiture d'abricot tiédie pour un aspect brillant.",
+      "Remplace la moitié des pommes par des poires ou des coings pour une version automnale.",
+      "Sers tiède avec une boule de glace vanille ou une cuillère de crème fraîche épaisse."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tarte-aux-pommes-normande",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Combinaison pâte brisée maîtrisée + cuisson à blanc + appareil liant : les trois techniques de base de la pâtisserie salée et sucrée.",
+        "focus": [
+          "Contrôler la température du beurre pour la pâte brisée",
+          "Observer la tenue de l'appareil à la cuisson",
+          "Vérifier la dorure sans ouvrir le four trop tôt"
+        ],
+        "successCriteria": [
+          "La pâte est croustillante et le fond n'est pas détrempé",
+          "L'appareil est pris, légèrement doré, les pommes fondantes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "veloute-courge-noisettes",
+    "title": "Velouté de courge butternut, huile de noisette",
+    "family": "soupe",
+    "difficulty": 1,
+    "timePrep": 15,
+    "timeCook": 30,
+    "servings": 4,
+    "skills": [
+      "comprendre-legumes",
+      "saler-par-couches",
+      "comprendre-liaison-sauce"
+    ],
+    "primarySkills": [
+      "comprendre-legumes"
+    ],
+    "secondarySkills": [
+      "saler-par-couches",
+      "comprendre-liaison-sauce"
+    ],
+    "objectives": [
+      "Construire un velouté onctueux sans crème excessive grâce à la structure de la courge",
+      "Comprendre comment le sel par couches construit la profondeur d'un potage",
+      "Maîtriser la texture finale par la quantité de liquide de mixage"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "courge butternut",
+        "note": "environ 1 kg épluchée"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gousse d'ail",
+        "note": ""
+      },
+      {
+        "qty": "800",
+        "unit": "ml",
+        "item": "bouillon de légumes",
+        "note": "chaud"
+      },
+      {
+        "qty": "10",
+        "unit": "cl",
+        "item": "crème fraîche liquide",
+        "note": "optionnelle"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile de noisette",
+        "note": "pour la finition"
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "noisettes torréfiées",
+        "note": "concassées grossièrement"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, muscade",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Suer les aromates",
+        "action": "Dans une cocotte, fais fondre le beurre à feu doux. Ajoute l'oignon émincé. Sale légèrement. Cuis 5-6 minutes sans coloration jusqu'à ce qu'il soit translucide et fondant. Ajoute l'ail et cuis encore 1 minute.",
+        "why": "Suer l'oignon sans coloration crée une base sucrée et douce. Si l'oignon colore, le velouté aura un goût grillé qui masquera la délicatesse de la courge.",
+        "mistake": "Trop peu cuire les oignons → goût piquant résiduel dans le velouté fini.",
+        "timer": 6
+      },
+      {
+        "id": 2,
+        "title": "Ajouter la courge et nacrer",
+        "action": "Découpe la courge en cubes de 3-4 cm. Ajoute dans la cocotte, mélange 2 minutes pour enrober les cubes dans le beurre. Sale légèrement à cette étape.",
+        "why": "Enrober les cubes dans le beurre avant le liquide développe les arômes de la courge par légère caramélisation. Ce sel par couches construit la base de goût du velouté.",
+        "mistake": "Mettre directement le bouillon sans cette étape → velouté plat, sans profondeur.",
+        "timer": 2
+      },
+      {
+        "id": 3,
+        "title": "Cuire dans le bouillon",
+        "action": "Verse le bouillon chaud à hauteur des légumes. Porte à ébullition, baisse le feu, couvre et laisse cuire 20-25 minutes. La courge est prête quand elle s'écrase facilement sous une fourchette.",
+        "why": "La courge butternut est riche en pectine et en amidon : en cuisant, elle libère ces éléments qui donneront la texture onctueuse au velouté, même sans crème.",
+        "mistake": "Trop de bouillon → velouté trop liquide. Mieux vaut mixer avec peu de liquide et ajuster après.",
+        "timer": 22
+      },
+      {
+        "id": 4,
+        "title": "Mixer et ajuster la texture",
+        "action": "Mixe hors du feu (plongeant ou blender). Commence avec peu de liquide, puis ajoute du bouillon cuillère par cuillère jusqu'à la texture voulue. Passe au tamis si tu veux un résultat parfaitement lisse. Ajoute la crème fraîche si tu veux plus de rondeur. Ajuste l'assaisonnement.",
+        "why": "Le mixage libère l'amidon de la courge qui crée l'onctuosité. Contrôler le liquide permet de maîtriser l'épaisseur finale.",
+        "mistake": "Mixer un blender plein bouillant → explosion de vapeur, brûlures. Toujours remplir à moitié et tenir le couvercle.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Finition et dressage",
+        "action": "Verse le velouté chaud dans des bols. Dépose une cuillère de crème en cercle, quelques noisettes torréfiées concassées, et un filet d'huile de noisette. Une pincée de muscade râpée.",
+        "why": "L'huile de noisette apportée froide en finition garde tous ses arômes : cuite, elle perd ses notes grillées caractéristiques. Les noisettes ajoutent la texture croquante qui manque à un velouté.",
+        "mistake": "Huile de noisette cuite dans la soupe → arômes dégradés, gaspillage d'un produit de qualité.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Ajoute une pomme en cubes avec la courge pour une note sucrée-acidulée naturelle.",
+      "Varie les toppings : graines de courge torréfiées, cheddar râpé, lardons croustillants.",
+      "Ce velouté se congèle très bien avant l'étape crème. Décongèle au bain-marie en remuant."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "veloute-courge-noisettes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Le velouté est l'exercice idéal pour travailler le sel par couches et comprendre l'onctuosité naturelle des légumes.",
+        "focus": [
+          "Suer les oignons sans coloration : observer la transparence",
+          "Goûter à chaque étape d'assaisonnement",
+          "Contrôler la consistance en ajoutant le bouillon progressivement"
+        ],
+        "successCriteria": [
+          "Texture onctueuse et nappante sans avoir besoin de beaucoup de crème",
+          "Goût profond et équilibré, douceur de courge en avant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "moelleux-chocolat-coeur-fondant",
+    "title": "Moelleux au chocolat, cœur fondant",
+    "family": "dessert",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 11,
+    "servings": 4,
+    "skills": [
+      "chocolat-fondre-sans-bruler",
+      "oeufs-liant-cremes-appareils",
+      "comprendre-patisserie-precision"
+    ],
+    "primarySkills": [
+      "chocolat-fondre-sans-bruler",
+      "oeufs-liant-cremes-appareils"
+    ],
+    "secondarySkills": [
+      "comprendre-patisserie-precision"
+    ],
+    "objectives": [
+      "Tempérer le chocolat fondu pour incorporer les œufs sans les coaguler",
+      "Comprendre le timing de cuisson au degré près pour conserver un cœur liquide",
+      "Maîtriser la technique de démoulage sans casser le gâteau"
+    ],
+    "ingredients": [
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "chocolat noir 70%",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "beurre",
+        "note": "en cubes + un peu pour les moules"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "œufs entiers",
+        "note": "à température ambiante"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "jaunes d'œufs",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "sucre en poudre",
+        "note": ""
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "pinch",
+        "item": "sel",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "cacao en poudre non sucré",
+        "note": "pour chemiser les moules"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer les moules et préchauffer",
+        "action": "Beurre généreusement 4 ramequins ou moules à muffins. Saupoudre de cacao non sucré, retourne pour enlever l'excédent. Mets au frigo. Préchauffe le four à 200°C chaleur tournante.",
+        "why": "Le cacao remplace la farine pour chemiser : il évite l'aspect blanchâtre à la surface et ajoute du goût. Moules froids = démoulage plus facile car le gâteau se rétracte légèrement.",
+        "mistake": "Moules mal beurrés → le gâteau accroche et se casse au démoulage. Insister dans les angles.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Fondre le chocolat et le beurre",
+        "action": "Fais fondre le chocolat cassé en morceaux avec le beurre au bain-marie. Remue régulièrement. Retire du feu dès que tout est fondu et lisse. Laisse tiédir 5 minutes : la température doit redescendre à 45-50°C environ.",
+        "why": "Si le mélange chocolat-beurre est trop chaud quand tu ajoutes les œufs, tu vas les coaguler et obtenir des morceaux d'œuf cuit dans ton appareil.",
+        "mistake": "Fondre au micro-ondes sans surveiller → le chocolat brûle en surface et prend un goût amer irréparable.",
+        "timer": 5
+      },
+      {
+        "id": 3,
+        "title": "Fouetter les œufs et le sucre",
+        "action": "Fouette énergiquement les œufs entiers, les jaunes et le sucre dans un saladier pendant 3-4 minutes. Le mélange doit tripler de volume et former un ruban épais en retombant du fouet.",
+        "why": "L'incorporation d'air dans les œufs crée la légèreté du moelleux. Sans ce fouettage, le résultat est dense et lourd, sans la texture mi-fondante mi-aérienne caractéristique.",
+        "mistake": "Fouetter à peine 30 secondes → appareil trop dense, moelleux compact.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Assembler l'appareil",
+        "action": "Verse le chocolat tiédi sur le mélange œufs-sucre. Mélange délicatement à la spatule en mouvements circulaires. Ajoute la farine et le sel tamisés. Incorpore en soulevant la masse, sans écraser.",
+        "why": "Mélanger trop vigoureusement après la farine développe le gluten : résultat élastique et caoutchouteux. Le but est d'incorporer juste assez pour qu'il n'y ait plus de traces de farine.",
+        "mistake": "Trop mélanger une fois la farine ajoutée → gâteau qui gonfle et retombe, texture de caoutchouc.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Remplir les moules et cuire",
+        "action": "Remplis les moules aux trois quarts. Enfourne à 200°C pendant 10-12 minutes. Le bord doit être pris et le centre légèrement tremblotant quand tu secoues doucement le moule.",
+        "why": "Le cœur fondant est la zone qui n'a pas totalement coagulé. 10 minutes = très coulant, 12 minutes = fondant. La différence se joue à 1-2 minutes selon ton four.",
+        "mistake": "Ne pas faire un test avec le premier moule → enfourne un seul d'abord pour calibrer ton four.",
+        "timer": 11
+      },
+      {
+        "id": 6,
+        "title": "Démouler immédiatement",
+        "action": "Laisse reposer 1 minute hors du four. Passe un couteau le long du bord. Pose une assiette sur le moule, retourne d'un geste sec. Soulève le moule délicatement. Sers immédiatement.",
+        "why": "Le cœur fondant continue à cuire avec la chaleur résiduelle. Chaque minute de plus après la sortie du four le solidifie un peu plus.",
+        "mistake": "Attendre 5 minutes → cœur figé, tu as un simple gâteau au chocolat sans le fondant.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Prépare l'appareil la veille et garde les moules remplis au frigo. Ajoute 2-3 minutes de cuisson.",
+      "Sers avec une boule de glace vanille ou une crème anglaise légère pour contraster le chaud et le froid.",
+      "Pour un cœur caramel : enfonce un carré de caramel au beurre salé au centre avant cuisson."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "moelleux-chocolat-coeur-fondant",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application directe de la fonte correcte du chocolat, du fouettage des œufs et du timing de cuisson précis.",
+        "focus": [
+          "Contrôler la température du chocolat avant d'ajouter les œufs",
+          "Observer le ruban lors du fouettage des œufs",
+          "Évaluer le tremblotement du centre pour déterminer la cuisson"
+        ],
+        "successCriteria": [
+          "Le cœur coule légèrement quand on coupe le moelleux",
+          "Le bord est cuit et aéré, sans zone crue"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "salade-lentilles-saumon-fume",
+    "title": "Salade de lentilles du Puy, saumon fumé et crème citronnée",
+    "family": "poisson",
+    "difficulty": 1,
+    "timePrep": 15,
+    "timeCook": 25,
+    "servings": 4,
+    "skills": [
+      "cuire-pates-justes",
+      "saler-par-couches",
+      "vinaigrette-moutarde-equilibree"
+    ],
+    "primarySkills": [
+      "cuire-pates-justes"
+    ],
+    "secondarySkills": [
+      "saler-par-couches",
+      "sauces-froides-emulsions"
+    ],
+    "objectives": [
+      "Cuire les lentilles à la bonne texture sans les défaire en bouillie",
+      "Assaisonner une salade de légumineuses qui absorbe beaucoup sans devenir fade",
+      "Équilibrer les saveurs fumées, acides et crémeuses dans une même assiette"
+    ],
+    "ingredients": [
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "lentilles vertes du Puy",
+        "note": ""
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "saumon fumé",
+        "note": "en tranches ou en morceaux"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "carotte",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon piqué d'un clou de girofle",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "bouquet garni",
+        "note": "thym, laurier"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "crème fraîche épaisse",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "zeste + jus"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "câpres",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "échalote",
+        "note": "ciselée fin"
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "moutarde à l'ancienne",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "aneth frais, sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Cuire les lentilles",
+        "action": "Rinse les lentilles, ne les fais pas tremper. Plonge dans 3 fois leur volume d'eau froide avec la carotte, l'oignon piqué et le bouquet garni. Porte à ébullition, baisse le feu. Cuis 20-25 minutes à petits frémissements. Ne sale pas pendant la cuisson.",
+        "why": "Le sel en cours de cuisson durcit la peau des lentilles et les empêche de cuire correctement à cœur. On sale après égouttage, quand elles absorbent encore la chaleur.",
+        "mistake": "Faire bouillir à gros bouillons → lentilles qui s'ouvrent et se défont, salade bouillie.",
+        "timer": 22
+      },
+      {
+        "id": 2,
+        "title": "Égoutter et assaisonner chaud",
+        "action": "Égoute les lentilles, retire les aromates. Transvase immédiatement dans un grand saladier. Assaisonne de suite avec l'huile d'olive, la moutarde, le vinaigre ou le jus de citron, sel et poivre. Mélange bien.",
+        "why": "Les lentilles chaudes absorbent l'assaisonnement comme des éponges. Assaisonnées froides, la vinaigrette reste en surface et la salade reste fade.",
+        "mistake": "Attendre qu'elles refroidissent → lentilles ternes et insipides malgré une bonne vinaigrette.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Préparer la crème citronnée",
+        "action": "Mélange la crème fraîche avec le zeste de citron, quelques gouttes de jus, l'aneth ciselé, sel et poivre. Réserve au frais.",
+        "why": "L'acidité du citron allège la crème fraîche et tranche avec le gras du saumon fumé. C'est le contrepoint frais qui équilibre le plat.",
+        "mistake": "Trop de jus de citron → crème qui prend une texture grumeleuse par coagulation des protéines.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Finaliser la salade",
+        "action": "Ajoute l'échalote ciselée et les câpres aux lentilles tiédies. Vérifie l'assaisonnement. Dispose dans les assiettes ou dans un plat de service. Pose les tranches de saumon fumé par-dessus. Dépose une cuillère de crème citronnée, quelques câpres et des brins d'aneth.",
+        "why": "Le saumon fumé ne doit pas être mélangé dans la salade : il perdrait sa texture en lamelles et son visuel. Il doit rester visible, posé délicatement sur les lentilles.",
+        "mistake": "Préparer entièrement à l'avance avec le saumon → il rend son sel et detteint sur les lentilles.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Remplace le saumon fumé par des œufs mollets pour une version végétarienne tout aussi satisfaisante.",
+      "Ajoute des dés de betterave cuite pour une note sucrée-terreuse et un contraste de couleur.",
+      "Les restes de lentilles assaisonnées se conservent 2 jours au frigo et s'améliorent avec le temps."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "salade-lentilles-saumon-fume",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "La lentille est l'exercice de cuisson de légumineuse le plus pédagogique : simple mais précis.",
+        "focus": [
+          "Ne pas saler l'eau de cuisson et observer la différence de texture",
+          "Assaisonner les lentilles encore chaudes pour voir l'absorption",
+          "Équilibrer les saveurs : acide, gras, fumé, frais"
+        ],
+        "successCriteria": [
+          "Les lentilles sont fermes, entières, pas en purée",
+          "La salade est bien assaisonnée à cœur, pas seulement en surface"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tajine-agneau-citron-confit",
+    "title": "Tajine d'agneau, citron confit et olives",
+    "family": "viande",
+    "difficulty": 3,
+    "timePrep": 20,
+    "timeCook": 90,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "ail-oignon-echalote",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "principe-cuisson-longue"
+    ],
+    "secondarySkills": [
+      "ail-oignon-echalote",
+      "saler-par-couches"
+    ],
+    "objectives": [
+      "Maîtriser la cuisson longue à l'étouffée qui transforme l'épaule d'agneau en viande fondante",
+      "Comprendre le rôle des épices marocaines ajoutées à différentes étapes",
+      "Équilibrer les saveurs salées du citron confit et des olives avec l'acidité naturelle du plat"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "kg",
+        "item": "épaule d'agneau",
+        "note": "coupée en morceaux de 4-5 cm"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron confit au sel",
+        "note": "1/4 utilisé, pulpe retirée"
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "olives vertes dénoyautées",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "curcuma",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "gingembre en poudre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "0.5",
+        "unit": "tsp",
+        "item": "cannelle",
+        "note": ""
+      },
+      {
+        "qty": "0.5",
+        "unit": "tsp",
+        "item": "poivre noir moulu",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "coriandre fraîche, persil plat",
+        "note": ""
+      },
+      {
+        "qty": "30",
+        "unit": "cl",
+        "item": "eau ou bouillon léger",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mariner et colorer la viande",
+        "action": "Mélange les morceaux d'agneau avec toutes les épices sèches, l'ail écrasé, l'huile et une pincée de sel. Laisse mariner 30 minutes minimum à température ambiante. Dans une cocotte ou un tajine, colore les morceaux en deux fois à feu vif 3-4 minutes par face.",
+        "why": "La marinade aux épices permet aux arômes de pénétrer la viande. La coloration en surface crée une croûte qui retient les jus pendant la longue cuisson.",
+        "mistake": "Sauter la marinade → épices restent en surface, goût monodimensionnel dans la sauce.",
+        "timer": 30
+      },
+      {
+        "id": 2,
+        "title": "Suer les oignons",
+        "action": "Retire la viande. Dans la même cocotte, fais revenir les oignons émincés à feu moyen pendant 8-10 minutes jusqu'à ce qu'ils soient dorés et fondants. Déglace avec un peu d'eau en grattant le fond.",
+        "why": "La caramélisation des oignons apporte la sucrosité naturelle qui équilibre les épices et l'acidité du citron confit. C'est la base de la sauce du tajine.",
+        "mistake": "Oignons crus dans le tajine → ils restent en lamelles et donnent un goût amer après 90 minutes de cuisson.",
+        "timer": 10
+      },
+      {
+        "id": 3,
+        "title": "Assembler et cuire à l'étouffée",
+        "action": "Replace la viande sur les oignons. Ajoute l'eau ou le bouillon à mi-hauteur de la viande. Porte à ébullition, baisse au minimum, couvre hermétiquement. Cuis 70-80 minutes. Vérifie toutes les 20 minutes, ajoute un peu d'eau si nécessaire.",
+        "why": "La cuisson à l'étouffée crée de la vapeur qui circule en circuit fermé. La viande cuit dans son propre jus condensé. C'est cette vapeur intense qui transforme le collagène de l'épaule en gélatine fondante.",
+        "mistake": "Couvercle mal ajusté → vapeur qui s'échappe, viande qui attache et brûle en bas.",
+        "timer": 75
+      },
+      {
+        "id": 4,
+        "title": "Ajouter le citron confit et les olives",
+        "action": "30 minutes avant la fin de cuisson, ouvre le couvercle. Ajoute le citron confit émincé (seulement la peau, pas la pulpe) et les olives. Remets le couvercle. Ces éléments n'ont besoin que de 30 minutes pour parfumer le jus.",
+        "why": "Le citron confit et les olives sont très salés et intenses. Ajoutés trop tôt, ils dominent tout le plat. Ajoutés 30 minutes avant la fin, ils parfument sans écraser les autres saveurs.",
+        "mistake": "Ajouter en début de cuisson → le plat est écrasé par l'amertume et le sel du citron confit.",
+        "timer": 30
+      },
+      {
+        "id": 5,
+        "title": "Réduire la sauce et finir",
+        "action": "Retire le couvercle les 10 dernières minutes pour réduire légèrement la sauce. Elle doit napper. Goûte et ajuste le sel avec parcimonie (citron confit + olives = déjà salé). Parsème de coriandre et persil ciselés. Sers avec de la semoule ou du pain.",
+        "why": "La sauce du tajine contient le collagène dissous de l'agneau : réduite, elle devient sirupeuse et nappe bien la viande. Ne pas trop réduire, elle doit rester abondante.",
+        "mistake": "Saler sans goûter à la fin → le plat devient immangeable avec le sel naturel des condiments.",
+        "timer": 10
+      }
+    ],
+    "tips": [
+      "Un vrai tajine en terre cuite donne un résultat différent d'une cocotte : la cuisson est plus douce et la sauce moins réduite.",
+      "Prépare 24h à l'avance et réchauffe doucement : c'est toujours meilleur le lendemain.",
+      "Ajoute des pruneaux ou des abricots secs en même temps que le citron confit pour une version sucrée-salée."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tajine-agneau-citron-confit",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application du principe de cuisson longue à l'étouffée et de la gestion des épices et condiments en phases.",
+        "focus": [
+          "Observer la transformation de la viande entre 30 min et 90 min de cuisson",
+          "Sentir les différentes phases aromatiques à l'ouverture du couvercle",
+          "Goûter la sauce avant et après ajout du citron confit"
+        ],
+        "successCriteria": [
+          "La viande se détache de l'os et se déchire à la fourchette sans effort",
+          "La sauce est équilibrée : épicée, légèrement acidulée, ni trop salée ni trop fade"
+        ]
+      }
+    ]
+  }];
 
 var REVIEW_CARDS = [
   {
