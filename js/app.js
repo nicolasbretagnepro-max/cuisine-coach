@@ -263,6 +263,41 @@ function recipesDoneThisWeek(){
   return n;
 }
 function recipeDoneThisWeek(recipeId){var dates=(state.getCompletedRecipeDates?state.getCompletedRecipeDates():(state.get('completedRecipeDates')||{}));return dateInThisWeek(dates[recipeId]);}
+function lessonDoneThisWeek(lessonId){var scores=state.get('lessonScores')||{};return !!(scores[lessonId]&&dateInThisWeek(scores[lessonId].date));}
+function latestCompletedLessons(limit){
+  var scores=state.get('lessonScores')||{},out=[];
+  Object.keys(scores).forEach(function(id){var lesson=findLesson(id),sc=scores[id];if(lesson&&sc&&sc.date)out.push({lesson:lesson,date:sc.date,score:sc});});
+  out.sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});
+  out=out.map(function(x){return x.lesson;});
+  return typeof limit==='number'?out.slice(0,limit):out;
+}
+function weeklyTechniqueCandidate(next,review,reason){
+  var due=spacedReviewItems(1)[0];
+  var lesson=(review||null);
+  var isReview=false;
+  if(due&&due.lesson&&!lessonDoneThisWeek(due.lesson.id)){lesson=due.lesson;isReview=true;}
+  if(!lesson&&next)lesson=next;
+  if(!lesson)return null;
+  return {type:'lesson',lesson:lesson,review:isReview,source:isReview?'review':'next-technique',done:lessonDoneThisWeek(lesson.id),reason:reason||'Tu as déjà validé la pratique : on pousse maintenant la technique utile pour continuer à progresser.'};
+}
+function recipeCandidateFromLessons(lessons,pending,next){
+  lessons=lessons||[];
+  for(var i=0;i<lessons.length;i++){
+    var practices=getPracticeRecipes(lessons[i]);
+    for(var j=0;j<practices.length;j++){
+      var r=practices[j].recipe;
+      if(r&&!recipeIsAlreadyDone(r.id))return {recipe:r,lesson:lessons[i],source:'recent-technique'};
+    }
+  }
+  pending=pending||[];
+  for(var k=0;k<pending.length;k++){
+    if(pending[k].recipe&&!recipeIsAlreadyDone(pending[k].recipe.id))return {recipe:pending[k].recipe,lesson:pending[k].lesson,source:'practice'};
+  }
+  var related=relatedRecipeForLesson(next);
+  if(related&&!recipeIsAlreadyDone(related.id))return {recipe:related,lesson:next||null,source:'lesson'};
+  var fallback=smartRecipePick();
+  return fallback?{recipe:fallback,lesson:null,source:'fallback'}:null;
+}
 function chooseWeeklyRecipeCandidate(next,pending){
   pending=pending||pendingPracticeItems(6);
   for(var i=0;i<pending.length;i++){if(pending[i].recipe&&!recipeIsAlreadyDone(pending[i].recipe.id))return {recipe:pending[i].recipe,lesson:pending[i].lesson,source:'practice'};}
@@ -271,19 +306,46 @@ function chooseWeeklyRecipeCandidate(next,pending){
   var fallback=smartRecipePick();
   return fallback?{recipe:fallback,lesson:null,source:'fallback'}:null;
 }
-function weeklyRecipeRecommendation(next,pending){
-  var current=weekId(new Date()),plan=state.getWeeklyRecipePlan?state.getWeeklyRecipePlan():(state.get('weeklyRecipePlan')||null);
-  if(plan&&plan.weekId===current){
-    var planned=findRecipe(plan.recipeId);
-    if(planned&&!recipeIsAlreadyDone(planned.id))return {recipe:planned,lesson:plan.lessonId?findLesson(plan.lessonId):null,source:plan.source||'weekly',done:false};
+function weeklyMissionCandidate(next,review,pending,metrics){
+  var stats=state.getStats(),learningDone=metrics.learningDone,learningGoal=metrics.learningGoal,recipesDone=metrics.recipesDone;
+  var techniqueBehind=learningDone<learningGoal,recipeBehind=recipesDone<1;
+  var recent=latestCompletedLessons(4),recipePick=recipeCandidateFromLessons(recent,pending,next);
+  if(recipeBehind&&!techniqueBehind&&recipePick)return recipePick;
+  if(techniqueBehind&&!recipeBehind)return weeklyTechniqueCandidate(next,review,'Tu as déjà cuisiné cette semaine : on pousse une technique pour garder le rythme.');
+  if(recipeBehind&&techniqueBehind){
+    if(stats.lessonsCount>stats.recipesCount+1&&recipePick)return recipePick;
+    return weeklyTechniqueCandidate(next,review,'Commence par une technique courte, puis l’app te proposera une recette d’application cohérente.');
   }
-  var pick=chooseWeeklyRecipeCandidate(next,pending);
-  if(pick&&state.setWeeklyRecipePlan)state.setWeeklyRecipePlan({weekId:current,recipeId:pick.recipe.id,lessonId:pick.lesson?pick.lesson.id:null,source:pick.source,createdAt:new Date().toISOString()});
-  return pick?Object.assign({done:recipeDoneThisWeek(pick.recipe.id)},pick):null;
+  if(recipePick&&pending&&pending.length)return recipePick;
+  return weeklyTechniqueCandidate(next,review,'Objectif de base atteint : tu peux consolider la prochaine technique sans pression.');
+}
+function weeklyPlanStillValid(plan,metrics){
+  if(!plan||plan.weekId!==weekId(new Date()))return null;
+  if((plan.type||'recipe')==='lesson'){
+    var lesson=findLesson(plan.lessonId);
+    if(!lesson||lessonDoneThisWeek(lesson.id))return null;
+    if(metrics.learningDone>=metrics.learningGoal&&metrics.recipesDone<1)return null;
+    return {type:'lesson',lesson:lesson,review:plan.source==='review',source:plan.source||'weekly',done:false,reason:plan.reason||''};
+  }
+  var planned=findRecipe(plan.recipeId);
+  if(!planned||recipeIsAlreadyDone(planned.id))return null;
+  if(metrics.recipesDone>=1&&metrics.learningDone<metrics.learningGoal)return null;
+  return {type:'recipe',recipe:planned,lesson:plan.lessonId?findLesson(plan.lessonId):null,source:plan.source||'weekly',done:false};
+}
+function weeklyRecipeRecommendation(next,pending,review,metrics){
+  var current=weekId(new Date()),plan=state.getWeeklyRecipePlan?state.getWeeklyRecipePlan():(state.get('weeklyRecipePlan')||null);
+  metrics=metrics||{learningDone:weeklyLearningCount(),learningGoal:state.get('weeklyGoal')||2,recipesDone:recipesDoneThisWeek()};
+  var valid=weeklyPlanStillValid(plan,metrics);
+  if(valid)return valid;
+  var pick=weeklyMissionCandidate(next,review,pending,metrics);
+  if(pick&&state.setWeeklyRecipePlan)state.setWeeklyRecipePlan({weekId:current,type:pick.type||'recipe',recipeId:pick.recipe?pick.recipe.id:null,lessonId:pick.lesson?pick.lesson.id:null,source:pick.source,reason:pick.reason||'',createdAt:new Date().toISOString()});
+  if(pick&&pick.recipe)return Object.assign({type:'recipe',done:recipeDoneThisWeek(pick.recipe.id)},pick);
+  if(pick&&pick.lesson)return Object.assign({done:lessonDoneThisWeek(pick.lesson.id)},pick);
+  return null;
 }
 function coachPlan(){
-  var next=nextAvailableLesson(),review=lessonToReview(),pending=pendingPracticeItems(6),goal=state.get('weeklyGoal')||2,done=weeklyLearningCount(),weeklyRecipe=weeklyRecipeRecommendation(next,pending);
-  return {lesson:next,review:review,pending:pending,weeklyRecipe:weeklyRecipe,weeklyLearningDone:done,weeklyGoal:goal,recipesDone:recipesDoneThisWeek(),level:currentCoachLevel(),spacedReviews:spacedReviewItems(3)};
+  var next=nextAvailableLesson(),review=lessonToReview(),pending=pendingPracticeItems(6),goal=state.get('weeklyGoal')||2,done=weeklyLearningCount(),recipesDone=recipesDoneThisWeek(),weeklyRecipe=weeklyRecipeRecommendation(next,pending,review,{learningDone:done,learningGoal:goal,recipesDone:recipesDone});
+  return {lesson:next,review:review,pending:pending,weeklyRecipe:weeklyRecipe,weeklyLearningDone:done,weeklyGoal:goal,recipesDone:recipesDone,level:currentCoachLevel(),spacedReviews:spacedReviewItems(3)};
 }
 
 function reviewCardItems(limit){
@@ -647,7 +709,7 @@ function renderHome(){
   h+='<div class="row-sb"><div>';
   h+='<div class="hero-greeting">'+esc(today)+'</div>';
   h+='<div class="hero-title">Bonjour, '+esc(name)+'</div>';
-  h+='<div class="hero-sub">Une recette par semaine. Les leçons quand tu peux.</div>';
+  h+='<div class="hero-sub">Une mission utile chaque semaine : technique ou recette, selon ton avance.</div>';
   h+='</div><div class="streak-pill">🔥 '+stats.streak+' jour'+(stats.streak>1?'s':'')+'</div></div>';
   h+='</div>';
 
@@ -676,7 +738,7 @@ function renderHome(){
   }
 
   if(plan.pending&&plan.pending.length){
-    h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer plus tard</div><div class="t-small t-muted mt-4">Tes cours alimentent cette file. Une seule recette est mise en avant chaque semaine.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
+    h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer plus tard</div><div class="t-small t-muted mt-4">Tes cours alimentent cette file. La mission hebdo pioche dedans quand tu es en avance côté technique.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
     plan.pending.forEach(function(item){h+=renderPracticeMiniCard(item);});
     h+='</div></section>';
   }
@@ -963,7 +1025,7 @@ function renderRecipes(filter,search){
   var nh='<div class="t-title mt-4">Cuisiner</div>';
   nh+=renderWeeklyMissionCard(plan.weeklyRecipe, plan, true);
   nh+='<section class="cook-today-panel mt-12">';
-  nh+='<div class="row-sb"><div><div class="t-h4">Recettes libres</div><div class="t-small t-muted mt-4">Choisis une recette en plus de la pratique hebdomadaire, ou filtre selon ton temps et ton énergie.</div></div></div>'; 
+  nh+='<div class="row-sb"><div><div class="t-h4">Recettes libres</div><div class="t-small t-muted mt-4">Choisis une recette en plus de ta mission hebdo, ou filtre selon ton temps et ton énergie.</div></div></div>'; 
   var contexts=[{id:'tous',label:'Tout'},{id:'quick15',label:'15 min'},{id:'quick30',label:'30 min'},{id:'practice',label:'Technique'},{id:'exercise',label:'Exercices'},{id:'complete',label:'Repas complet'},{id:'leftovers',label:'Restes'},{id:'easy',label:'Très facile'}];
   nh+='<div class="context-row mt-12">';
   contexts.forEach(function(c){nh+='<button class="context-chip'+(active.context===c.id?' active':'')+'" data-context="'+c.id+'" type="button">'+esc(c.label)+'</button>';});
@@ -980,7 +1042,7 @@ function renderRecipes(filter,search){
 
   var pending=pendingPracticeItems(4);
   if(pending.length){
-    nh+='<section class="pending-panel mt-12"><div class="row-sb"><div><div class="t-h4">À pratiquer depuis tes cours</div><div class="t-small t-muted mt-4">File de pratiques issue de tes cours. À utiliser pour ta recette hebdomadaire.</div></div><span class="badge badge-orange">'+pending.length+'</span></div><div class="stack-8 mt-12">';
+    nh+='<section class="pending-panel mt-12"><div class="row-sb"><div><div class="t-h4">À pratiquer depuis tes cours</div><div class="t-small t-muted mt-4">File de pratiques issue de tes cours. Elle sert à choisir une recette quand tes techniques avancent plus vite.</div></div><span class="badge badge-orange">'+pending.length+'</span></div><div class="stack-8 mt-12">';
     pending.forEach(function(item){nh+=renderPracticeMiniCard(item);});
     nh+='</div></section>';
   }
