@@ -73,6 +73,30 @@ function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 function showToast(msg){var o=document.querySelector('.toast');if(o)o.remove();var t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove();},3200);}
 function findLesson(id){for(var i=0;i<LESSONS.length;i++)if(LESSONS[i].id===id)return LESSONS[i];return null;}
 function findRecipe(id){for(var i=0;i<RECIPES.length;i++)if(RECIPES[i].id===id)return RECIPES[i];return null;}
+// ── LOT E : portions ajustables ────────────────
+var _servingsSel = {};
+function parseQty(q){
+  q=String(q||'').trim().replace(',','.');
+  if(!q)return null;
+  if(q.indexOf('/')>0){var p=q.split('/');var a=parseFloat(p[0]),b=parseFloat(p[1]);return (isFinite(a)&&isFinite(b)&&b)?a/b:null;}
+  var n=parseFloat(q);
+  return isFinite(n)?n:null;
+}
+function formatQty(n){
+  if(n==null)return '';
+  var whole=Math.floor(n+0.0001),frac=n-whole;
+  var FR={'0':'','0.25':'¼','0.5':'½','0.75':'¾'};
+  var best=0,bd=1;
+  [0,0.25,0.5,0.75].forEach(function(f){var d=Math.abs(frac-f);if(d<bd){bd=d;best=f;}});
+  if(bd<=0.05){var fs=FR[String(best)];if(whole===0)return fs||'0';return fs?whole+' '+fs:String(whole);}
+  return String(Math.round(n*10)/10).replace('.',',');
+}
+function scaledQty(qty,factor){
+  if(factor===1)return qty;
+  var n=parseQty(qty);
+  if(n==null)return qty;
+  return formatQty(n*factor);
+}
 function isLessonLocked(lesson){var p=lesson.prerequisites||[];return p.some(function(pid){return !state.isLessonDone(pid);});}
 function nextAvailableLesson(){for(var i=0;i<LESSONS.length;i++)if(!state.isLessonDone(LESSONS[i].id)&&!isLessonLocked(LESSONS[i]))return LESSONS[i];return null;}
 function skillLabel(s){return (typeof SKILLS!=='undefined'&&SKILLS&&SKILLS[s]&&SKILLS[s].label)||String(s||'').replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});}
@@ -136,8 +160,7 @@ function allRecipeSkills(){var out=[];RECIPES.forEach(function(r){recipeAllSkill
 function normalizeText(s){s=String(s||'').toLowerCase();return s.normalize?s.normalize('NFD').replace(/[\u0300-\u036f]/g,''):s;}
 function recipeSearchBlob(r){return normalizeText([r.title,r.family,(r.isExercise?'exercice entrainement entraînement pratique':''),recipeAllSkills(r).map(skillLabel).join(' '),(r.skills||[]).join(' '),(r.objectives||[]).join(' '),(r.ingredients||[]).map(function(i){return i.item+' '+(i.note||'');}).join(' ')].join(' '));}
 function lessonToReview(){var candidate=null;LESSONS.forEach(function(l){var sc=state.getLessonScore(l.id);if(sc&&sc.pct<100&&(!candidate||sc.pct<candidate.score.pct))candidate={lesson:l,score:sc};});return candidate?candidate.lesson:null;}
-function recipeIsAlreadyDone(recipeId){return !!(recipeId&&state.isRecipeDone&&state.isRecipeDone(recipeId));}
-function smartRecipePick(){for(var i=0;i<RECIPES.length;i++){var r=RECIPES[i],time=(r.timePrep||0)+(r.timeCook||0);if(!recipeIsAlreadyDone(r.id)&&r.difficulty===1&&time<=25)return r;}for(var j=0;j<RECIPES.length;j++)if(!recipeIsAlreadyDone(RECIPES[j].id))return RECIPES[j];return RECIPES[0]||null;}
+function smartRecipePick(){for(var i=0;i<RECIPES.length;i++){var r=RECIPES[i],time=(r.timePrep||0)+(r.timeCook||0);if(!state.isRecipeDone(r.id)&&r.difficulty===1&&time<=25)return r;}for(var j=0;j<RECIPES.length;j++)if(!state.isRecipeDone(RECIPES[j].id))return RECIPES[j];return RECIPES[0]||null;}
 
 function getPracticeRecipes(lesson){
   if(!lesson)return [];
@@ -192,33 +215,19 @@ function weeklyPracticeContext(info){
   return null;
 }
 function weeklyStatusText(info){
-  if(!info)return 'À choisir';
-  if(info.type==='lesson')return info.done?'Technique travaillée cette semaine':'À travailler cette semaine';
-  if(!info.recipe)return 'À choisir';
+  if(!info||!info.recipe)return 'À choisir';
   if(info.done)return 'Terminée cette semaine';
   return 'À faire cette semaine';
 }
 function renderWeeklyMissionCard(info, plan, compact){
-  if(info&&info.type==='lesson'&&info.lesson){
-    var l=info.lesson, href=info.review?'#lesson/'+l.id+'/review':'#lesson/'+l.id;
-    var lessonStatus=weeklyStatusText(info);
-    var hLesson='<section class="weekly-mission-card'+(info.done?' done':'')+(compact?' compact':'')+'">';
-    hLesson+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">Technique de la semaine</div><div class="weekly-mission-title">'+esc(l.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(lessonStatus)+'</span></div>';
-    hLesson+='<div class="weekly-mission-meta"><span>📚 '+l.duration+' min</span><span>'+esc(info.review?'Révision':'Nouvelle technique')+'</span><span>'+esc((l.objectives&&l.objectives[0])||'Progression')+'</span></div>';
-    hLesson+='<div class="weekly-before"><div class="weekly-before-label">Pourquoi maintenant</div><span>'+esc(info.reason||'Tu as déjà cuisiné cette semaine : le meilleur pas suivant est de consolider une technique.')+'</span></div>';
-    if(l.objectives&&l.objectives.length){hLesson+='<div class="weekly-focus"><div class="weekly-focus-title">Objectifs :</div><ul>';l.objectives.slice(0,3).forEach(function(o){hLesson+='<li>'+esc(o)+'</li>';});hLesson+='</ul></div>';}
-    hLesson+='<div class="weekly-actions"><a class="btn btn-primary btn-sm" href="'+href+'">'+(info.review?'Réviser':'Lire la technique')+'</a><a class="btn btn-secondary btn-sm" href="#learn">Parcours</a><a class="btn btn-ghost btn-sm" href="#recipes">Recettes</a></div>';
-    hLesson+='</section>';
-    return hLesson;
-  }
   if(!info||!info.recipe){
-    return '<section class="weekly-mission-card empty'+(compact?' compact':'')+'"><div class="weekly-mission-kicker">Mission de la semaine</div><div class="weekly-mission-title">Aucune mission planifiée</div><div class="weekly-mission-sub">Termine une leçon ou ajoute une pratique pour obtenir une recommandation adaptée.</div><div class="weekly-actions"><a class="btn btn-primary btn-sm" href="#learn">Continuer les leçons</a><a class="btn btn-secondary btn-sm" href="#recipes">Voir les recettes</a></div></section>';
+    return '<section class="weekly-mission-card empty'+(compact?' compact':'')+'"><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">Aucune recette planifiée</div><div class="weekly-mission-sub">Termine une leçon ou ajoute une pratique pour obtenir une recommandation adaptée.</div><div class="weekly-actions"><a class="btn btn-primary btn-sm" href="#learn">Continuer les leçons</a><a class="btn btn-secondary btn-sm" href="#recipes">Voir les recettes</a></div></section>';
   }
   var r=info.recipe, lesson=info.lesson, ctx=weeklyPracticeContext(info), practice=ctx&&ctx.practice;
   var total=(r.timePrep||0)+(r.timeCook||0), href=lesson?practiceHref(r.id,lesson.id):'#recipe/'+r.id;
   var status=weeklyStatusText(info), focus=(practice&&practice.focus?practice.focus:[]).slice(0,3), success=(practice&&practice.successCriteria?practice.successCriteria:[]).slice(0,2);
   var h='<section class="weekly-mission-card'+(info.done?' done':'')+(compact?' compact':'')+'">';
-  h+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">'+esc(info.source==='recent-technique'?'Recette d’application':'Recette de la semaine')+'</div><div class="weekly-mission-title">'+esc(r.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(status)+'</span></div>';
+  h+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">'+esc(r.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(status)+'</span></div>';
   h+='<div class="weekly-mission-meta"><span>⏱ '+total+' min</span><span>'+esc(r.difficulty===1?'Facile':r.difficulty===2?'Intermédiaire':r.difficulty===3?'Avancé':'Expert')+'</span><span>'+esc(familyLabel(r.family))+'</span></div>';
   if(lesson){
     h+='<div class="weekly-before"><div class="weekly-before-label">À faire avant si possible</div><a href="#lesson/'+lesson.id+'">'+esc(lesson.title)+' · '+lesson.duration+' min</a></div>';
@@ -263,89 +272,29 @@ function recipesDoneThisWeek(){
   return n;
 }
 function recipeDoneThisWeek(recipeId){var dates=(state.getCompletedRecipeDates?state.getCompletedRecipeDates():(state.get('completedRecipeDates')||{}));return dateInThisWeek(dates[recipeId]);}
-function lessonDoneThisWeek(lessonId){var scores=state.get('lessonScores')||{};return !!(scores[lessonId]&&dateInThisWeek(scores[lessonId].date));}
-function latestCompletedLessons(limit){
-  var scores=state.get('lessonScores')||{},out=[];
-  Object.keys(scores).forEach(function(id){var lesson=findLesson(id),sc=scores[id];if(lesson&&sc&&sc.date)out.push({lesson:lesson,date:sc.date,score:sc});});
-  out.sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});
-  out=out.map(function(x){return x.lesson;});
-  return typeof limit==='number'?out.slice(0,limit):out;
-}
-function weeklyTechniqueCandidate(next,review,reason){
-  var due=spacedReviewItems(1)[0];
-  var lesson=(review||null);
-  var isReview=false;
-  if(due&&due.lesson&&!lessonDoneThisWeek(due.lesson.id)){lesson=due.lesson;isReview=true;}
-  if(!lesson&&next)lesson=next;
-  if(!lesson)return null;
-  return {type:'lesson',lesson:lesson,review:isReview,source:isReview?'review':'next-technique',done:lessonDoneThisWeek(lesson.id),reason:reason||'Tu as déjà validé la pratique : on pousse maintenant la technique utile pour continuer à progresser.'};
-}
-function recipeCandidateFromLessons(lessons,pending,next){
-  lessons=lessons||[];
-  for(var i=0;i<lessons.length;i++){
-    var practices=getPracticeRecipes(lessons[i]);
-    for(var j=0;j<practices.length;j++){
-      var r=practices[j].recipe;
-      if(r&&!recipeIsAlreadyDone(r.id))return {recipe:r,lesson:lessons[i],source:'recent-technique'};
-    }
-  }
-  pending=pending||[];
-  for(var k=0;k<pending.length;k++){
-    if(pending[k].recipe&&!recipeIsAlreadyDone(pending[k].recipe.id))return {recipe:pending[k].recipe,lesson:pending[k].lesson,source:'practice'};
-  }
-  var related=relatedRecipeForLesson(next);
-  if(related&&!recipeIsAlreadyDone(related.id))return {recipe:related,lesson:next||null,source:'lesson'};
-  var fallback=smartRecipePick();
-  return fallback?{recipe:fallback,lesson:null,source:'fallback'}:null;
-}
 function chooseWeeklyRecipeCandidate(next,pending){
   pending=pending||pendingPracticeItems(6);
-  for(var i=0;i<pending.length;i++){if(pending[i].recipe&&!recipeIsAlreadyDone(pending[i].recipe.id))return {recipe:pending[i].recipe,lesson:pending[i].lesson,source:'practice'};}
+  for(var i=0;i<pending.length;i++){if(pending[i].recipe&&!recipeDoneThisWeek(pending[i].recipe.id))return {recipe:pending[i].recipe,lesson:pending[i].lesson,source:'practice'};}
   var related=relatedRecipeForLesson(next);
-  if(related&&!recipeIsAlreadyDone(related.id))return {recipe:related,lesson:next||null,source:'lesson'};
+  if(related&&!recipeDoneThisWeek(related.id))return {recipe:related,lesson:next||null,source:'lesson'};
+  var favs=state.getFavorites?state.getFavorites():[];
+  for(var fi=0;fi<favs.length;fi++){
+    var frv=findRecipe(favs[fi]);
+    if(frv&&!state.isRecipeDone(frv.id)&&!recipeDoneThisWeek(frv.id))return {recipe:frv,lesson:null,source:'favorite'};
+  }
   var fallback=smartRecipePick();
   return fallback?{recipe:fallback,lesson:null,source:'fallback'}:null;
 }
-function weeklyMissionCandidate(next,review,pending,metrics){
-  var stats=state.getStats(),learningDone=metrics.learningDone,learningGoal=metrics.learningGoal,recipesDone=metrics.recipesDone;
-  var techniqueBehind=learningDone<learningGoal,recipeBehind=recipesDone<1;
-  var recent=latestCompletedLessons(4),recipePick=recipeCandidateFromLessons(recent,pending,next);
-  if(recipeBehind&&!techniqueBehind&&recipePick)return recipePick;
-  if(techniqueBehind&&!recipeBehind)return weeklyTechniqueCandidate(next,review,'Tu as déjà cuisiné cette semaine : on pousse une technique pour garder le rythme.');
-  if(recipeBehind&&techniqueBehind){
-    if(stats.lessonsCount>stats.recipesCount+1&&recipePick)return recipePick;
-    return weeklyTechniqueCandidate(next,review,'Commence par une technique courte, puis l’app te proposera une recette d’application cohérente.');
-  }
-  if(recipePick&&pending&&pending.length)return recipePick;
-  return weeklyTechniqueCandidate(next,review,'Objectif de base atteint : tu peux consolider la prochaine technique sans pression.');
-}
-function weeklyPlanStillValid(plan,metrics){
-  if(!plan||plan.weekId!==weekId(new Date()))return null;
-  if((plan.type||'recipe')==='lesson'){
-    var lesson=findLesson(plan.lessonId);
-    if(!lesson||lessonDoneThisWeek(lesson.id))return null;
-    if(metrics.learningDone>=metrics.learningGoal&&metrics.recipesDone<1)return null;
-    return {type:'lesson',lesson:lesson,review:plan.source==='review',source:plan.source||'weekly',done:false,reason:plan.reason||''};
-  }
-  var planned=findRecipe(plan.recipeId);
-  if(!planned||recipeIsAlreadyDone(planned.id))return null;
-  if(metrics.recipesDone>=1&&metrics.learningDone<metrics.learningGoal)return null;
-  return {type:'recipe',recipe:planned,lesson:plan.lessonId?findLesson(plan.lessonId):null,source:plan.source||'weekly',done:false};
-}
-function weeklyRecipeRecommendation(next,pending,review,metrics){
+function weeklyRecipeRecommendation(next,pending){
   var current=weekId(new Date()),plan=state.getWeeklyRecipePlan?state.getWeeklyRecipePlan():(state.get('weeklyRecipePlan')||null);
-  metrics=metrics||{learningDone:weeklyLearningCount(),learningGoal:state.get('weeklyGoal')||2,recipesDone:recipesDoneThisWeek()};
-  var valid=weeklyPlanStillValid(plan,metrics);
-  if(valid)return valid;
-  var pick=weeklyMissionCandidate(next,review,pending,metrics);
-  if(pick&&state.setWeeklyRecipePlan)state.setWeeklyRecipePlan({weekId:current,type:pick.type||'recipe',recipeId:pick.recipe?pick.recipe.id:null,lessonId:pick.lesson?pick.lesson.id:null,source:pick.source,reason:pick.reason||'',createdAt:new Date().toISOString()});
-  if(pick&&pick.recipe)return Object.assign({type:'recipe',done:recipeDoneThisWeek(pick.recipe.id)},pick);
-  if(pick&&pick.lesson)return Object.assign({done:lessonDoneThisWeek(pick.lesson.id)},pick);
-  return null;
+  if(plan&&plan.weekId===current){var planned=findRecipe(plan.recipeId);if(planned)return {recipe:planned,lesson:plan.lessonId?findLesson(plan.lessonId):null,source:plan.source||'weekly',done:recipeDoneThisWeek(planned.id)};}
+  var pick=chooseWeeklyRecipeCandidate(next,pending);
+  if(pick&&state.setWeeklyRecipePlan)state.setWeeklyRecipePlan({weekId:current,recipeId:pick.recipe.id,lessonId:pick.lesson?pick.lesson.id:null,source:pick.source,createdAt:new Date().toISOString()});
+  return pick?Object.assign({done:recipeDoneThisWeek(pick.recipe.id)},pick):null;
 }
 function coachPlan(){
-  var next=nextAvailableLesson(),review=lessonToReview(),pending=pendingPracticeItems(6),goal=state.get('weeklyGoal')||2,done=weeklyLearningCount(),recipesDone=recipesDoneThisWeek(),weeklyRecipe=weeklyRecipeRecommendation(next,pending,review,{learningDone:done,learningGoal:goal,recipesDone:recipesDone});
-  return {lesson:next,review:review,pending:pending,weeklyRecipe:weeklyRecipe,weeklyLearningDone:done,weeklyGoal:goal,recipesDone:recipesDone,level:currentCoachLevel(),spacedReviews:spacedReviewItems(3)};
+  var next=nextAvailableLesson(),review=lessonToReview(),pending=pendingPracticeItems(6),goal=state.get('weeklyGoal')||2,done=weeklyLearningCount(),weeklyRecipe=weeklyRecipeRecommendation(next,pending);
+  return {lesson:next,review:review,pending:pending,weeklyRecipe:weeklyRecipe,weeklyLearningDone:done,weeklyGoal:goal,recipesDone:recipesDoneThisWeek(),level:currentCoachLevel(),spacedReviews:spacedReviewItems(3)};
 }
 
 function reviewCardItems(limit){
@@ -398,12 +347,13 @@ function renderIssueDiagnosisBlock(issues){
 }
 
 function recipeContextLabel(id){
-  var map={quick15:'15 min',quick30:'30 min',practice:'Pratiquer une technique',exercise:'Recettes-exercices',complete:'Repas complet',leftovers:'Restes',easy:'Très facile'};
+  var map={favorites:'Favoris',quick15:'15 min',quick30:'30 min',practice:'Pratiquer une technique',exercise:'Recettes-exercices',complete:'Repas complet',leftovers:'Restes',easy:'Très facile'};
   return map[id]||'';
 }
 function recipeMatchesContext(r,context){
   if(!context||context==='tous')return true;
   var total=(r.timePrep||0)+(r.timeCook||0),blob=recipeSearchBlob(r);
+  if(context==='favorites')return state.isFavorite(r.id);
   if(context==='quick15')return total<=20;
   if(context==='quick30')return total<=30;
   if(context==='practice')return recipeAllSkills(r).length>=2||(r.objectives||[]).length>=2;
@@ -436,16 +386,8 @@ function inferCriticalPoints(recipe){
   (recipe.steps||[]).forEach(function(s){if(s.mistake&&out.length<3)out.push(s.mistake);});
   return out;
 }
-function inferFixes(recipe){
-  if(recipe.fixes&&recipe.fixes.length)return recipe.fixes;
-  var hay=normalizeText([recipe.title,recipe.family,(recipe.skills||[]).join(' '),(recipe.objectives||[]).join(' ')].join(' '));
-  var out=[];
-  if(hay.indexOf('sauce')>=0||hay.indexOf('reduction')>=0){out.push({problem:'Sauce trop liquide',solution:'Prolonge la réduction à feu moyen et remue pour éviter que le fond accroche.'});out.push({problem:'Sauce trop salée',solution:'Allonge légèrement avec un élément non salé, puis rééquilibre avec gras ou acidité.'});}
-  if(hay.indexOf('oeuf')>=0||hay.indexOf('œuf')>=0){out.push({problem:'Texture trop prise',solution:'Sors du feu plus tôt la prochaine fois : les œufs continuent à cuire hors du feu.'});}
-  if(hay.indexOf('poisson')>=0){out.push({problem:'Poisson trop sec',solution:'Raccourcis la cuisson et vise une chair encore nacrée au centre.'});}
-  if(hay.indexOf('legume')>=0||hay.indexOf('légume')>=0){out.push({problem:'Légumes mous ou détrempés',solution:'Cuis en plus petite quantité et laisse l’humidité s’évaporer avant de chercher la coloration.'});}
-  return out.slice(0,3);
-}
+// LOT D : inferFixes supprimé — les rattrapages "Si ça se passe mal" ne s'affichent
+// que si la recette définit des `fixes` manuels dans content/data.js.
 
 function stepIngredients(recipe,step){var hay=normalizeText([step.title,step.action,step.why,step.mistake].join(' '));var matches=(recipe.ingredients||[]).filter(function(ing){var words=normalizeText(ing.item).split(/[^a-z0-9œ]+/).filter(function(w){return w.length>2;});return words.some(function(w){return hay.indexOf(w)>=0;});});if(!matches.length)matches=(recipe.ingredients||[]).slice(0,5);return matches;}
 function applyTheme(){
@@ -709,7 +651,7 @@ function renderHome(){
   h+='<div class="row-sb"><div>';
   h+='<div class="hero-greeting">'+esc(today)+'</div>';
   h+='<div class="hero-title">Bonjour, '+esc(name)+'</div>';
-  h+='<div class="hero-sub">Une mission utile chaque semaine : technique ou recette, selon ton avance.</div>';
+  h+='<div class="hero-sub">Une recette par semaine. Les leçons quand tu peux.</div>';
   h+='</div><div class="streak-pill">🔥 '+stats.streak+' jour'+(stats.streak>1?'s':'')+'</div></div>';
   h+='</div>';
 
@@ -732,13 +674,13 @@ function renderHome(){
 
   var quickCards=reviewCardItems(2);
   if(quickCards.length){
-    h+='<section class="review-cards-panel mt-16"><div class="row-sb"><div><div class="t-h3">Cartes rapides</div><div class="t-small t-muted mt-4">2 minutes pour réviser un diagnostic sans cuisiner.</div></div><span class="badge badge-blue">Duolingo cuisine</span></div><div class="review-card-row mt-12">';
+    h+='<section class="review-cards-panel mt-16"><div class="row-sb"><div><div class="t-h3">Cartes rapides</div><div class="t-small t-muted mt-4">2 minutes pour réviser un diagnostic sans cuisiner.</div></div><span class="badge badge-blue">2 min</span></div><div class="review-card-row mt-12">';
     quickCards.forEach(function(card){h+=renderReviewCardMini(card);});
     h+='</div></section>';
   }
 
   if(plan.pending&&plan.pending.length){
-    h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer plus tard</div><div class="t-small t-muted mt-4">Tes cours alimentent cette file. La mission hebdo pioche dedans quand tu es en avance côté technique.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
+    h+='<section class="pending-panel mt-16"><div class="row-sb"><div><div class="t-h3">À pratiquer plus tard</div><div class="t-small t-muted mt-4">Tes cours alimentent cette file. Une seule recette est mise en avant chaque semaine.</div></div><span class="badge badge-orange">'+plan.pending.length+'</span></div><div class="stack-8 mt-12">';
     plan.pending.forEach(function(item){h+=renderPracticeMiniCard(item);});
     h+='</div></section>';
   }
@@ -948,10 +890,25 @@ function renderLessonStep(lesson,step){
   return renderLessonComplete(lesson,_quizState.correct,lesson.quiz.length);
 }
 
+// LOT D : mélange des options au rendu — corrige le biais de position des bonnes réponses.
+function shuffledQuestion(q){
+  var order=q.options.map(function(_,i){return i;});
+  for(var i=order.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1));
+    var t=order[i];order[i]=order[j];order[j]=t;
+  }
+  return {
+    q:q.q,
+    options:order.map(function(i){return q.options[i];}),
+    answer:order.indexOf(q.answer),
+    explanation:q.explanation
+  };
+}
+
 function renderQuizQuestion(lesson,qIndex){
   var qs=lesson.quiz;
   if(qIndex>=qs.length)return renderLessonComplete(lesson,_quizState.correct,qs.length);
-  var q=qs[qIndex];
+  var q=shuffledQuestion(qs[qIndex]);
   var h='<div class="quiz-section" data-lesson="'+lesson.id+'" data-qindex="'+qIndex+'" data-answer="'+q.answer+'" data-total="'+qs.length+'">';
   h+='<div class="quiz-label">🧠 Question '+(qIndex+1)+'/'+qs.length+'</div>';
   h+='<div class="quiz-q">'+esc(q.q)+'</div>';
@@ -1025,8 +982,8 @@ function renderRecipes(filter,search){
   var nh='<div class="t-title mt-4">Cuisiner</div>';
   nh+=renderWeeklyMissionCard(plan.weeklyRecipe, plan, true);
   nh+='<section class="cook-today-panel mt-12">';
-  nh+='<div class="row-sb"><div><div class="t-h4">Recettes libres</div><div class="t-small t-muted mt-4">Choisis une recette en plus de ta mission hebdo, ou filtre selon ton temps et ton énergie.</div></div></div>'; 
-  var contexts=[{id:'tous',label:'Tout'},{id:'quick15',label:'15 min'},{id:'quick30',label:'30 min'},{id:'practice',label:'Technique'},{id:'exercise',label:'Exercices'},{id:'complete',label:'Repas complet'},{id:'leftovers',label:'Restes'},{id:'easy',label:'Très facile'}];
+  nh+='<div class="row-sb"><div><div class="t-h4">Recettes libres</div><div class="t-small t-muted mt-4">Choisis une recette en plus de la pratique hebdomadaire, ou filtre selon ton temps et ton énergie.</div></div></div>'; 
+  var contexts=[{id:'tous',label:'Tout'},{id:'favorites',label:'❤ Favoris'},{id:'quick15',label:'15 min'},{id:'quick30',label:'30 min'},{id:'practice',label:'Technique'},{id:'exercise',label:'Exercices'},{id:'complete',label:'Repas complet'},{id:'leftovers',label:'Restes'},{id:'easy',label:'Très facile'}];
   nh+='<div class="context-row mt-12">';
   contexts.forEach(function(c){nh+='<button class="context-chip'+(active.context===c.id?' active':'')+'" data-context="'+c.id+'" type="button">'+esc(c.label)+'</button>';});
   nh+='</div>';
@@ -1042,7 +999,7 @@ function renderRecipes(filter,search){
 
   var pending=pendingPracticeItems(4);
   if(pending.length){
-    nh+='<section class="pending-panel mt-12"><div class="row-sb"><div><div class="t-h4">À pratiquer depuis tes cours</div><div class="t-small t-muted mt-4">File de pratiques issue de tes cours. Elle sert à choisir une recette quand tes techniques avancent plus vite.</div></div><span class="badge badge-orange">'+pending.length+'</span></div><div class="stack-8 mt-12">';
+    nh+='<section class="pending-panel mt-12"><div class="row-sb"><div><div class="t-h4">À pratiquer depuis tes cours</div><div class="t-small t-muted mt-4">File de pratiques issue de tes cours. À utiliser pour ta recette hebdomadaire.</div></div><span class="badge badge-orange">'+pending.length+'</span></div><div class="stack-8 mt-12">';
     pending.forEach(function(item){nh+=renderPracticeMiniCard(item);});
     nh+='</div></section>';
   }
@@ -1091,7 +1048,9 @@ function renderRecipeDetail(id,mode){
   h+='<div class="recipe-meta-row mt-8">'+difficultyBadge(recipe.difficulty);
   h+='<span class="badge badge-neutral">🍳 '+recipe.timePrep+' min</span>';
   h+='<span class="badge badge-neutral">⏱ '+recipe.timeCook+' min</span>';
-  h+='<span class="badge badge-neutral">👥 '+recipe.servings+' pers.</span></div></div>';
+  h+='<span class="badge badge-neutral">👥 '+recipe.servings+' pers.</span>';
+  h+='<button class="fav-btn'+(state.isFavorite(id)?' active':'')+'" data-fav="'+id+'" type="button" aria-label="Ajouter aux favoris">'+(state.isFavorite(id)?'❤':'🤍')+'</button>';
+  h+='</div></div>';
   h+=recipeSkillChips(recipe,8);
   if(recipe.isExercise){h+='<div class="exercise-brief mt-12"><div class="exercise-brief-kicker">Recette-exercice</div><div class="exercise-brief-title">Objectif : pratiquer une compétence précise</div><div class="exercise-brief-sub">Prends cette recette comme un entraînement : observe, corrige, puis note ton bilan.</div></div>';}
 
@@ -1118,14 +1077,21 @@ function renderRecipeDetail(id,mode){
   recipe.objectives.forEach(function(o){h+='<div class="objective-item"><div class="objective-dot"></div><span>'+esc(o)+'</span></div>';});
   h+='</div></div>';
 
-  h+='<div class="card mt-12"><div class="t-h4" style="margin-bottom:10px">Ingrédients · '+recipe.servings+' pers.</div><div class="ingredients-list">';
+  var servSel=_servingsSel[id]||recipe.servings, servFactor=servSel/recipe.servings;
+  h+='<div class="card mt-12"><div class="row-sb" style="margin-bottom:10px"><div class="t-h4">Ingrédients</div>';
+  h+='<div class="serv-stepper"><button class="serv-btn" data-serv-delta="-1" type="button" aria-label="Une personne de moins">−</button>';
+  h+='<span class="serv-count">'+servSel+' pers.</span>';
+  h+='<button class="serv-btn" data-serv-delta="1" type="button" aria-label="Une personne de plus">+</button></div></div>';
+  if(servFactor!==1)h+='<div class="t-small t-muted" style="margin-bottom:8px">Quantités ajustées — les étapes restent écrites pour '+recipe.servings+' pers.</div>';
+  h+='<div class="ingredients-list">';
   recipe.ingredients.forEach(function(ing){
-    var qty=ing.qty?(ing.qty+(ing.unit?' '+ing.unit:'')):'';
+    var sq=scaledQty(ing.qty,servFactor);
+    var qty=sq?(sq+(ing.unit?' '+ing.unit:'')):'';
     h+='<div class="ingredient-row"><span class="ingredient-qty">'+esc(qty)+'</span><span class="ingredient-name">'+esc(ing.item)+'</span>'+(ing.note?'<span class="ingredient-note">'+esc(ing.note)+'</span>':'')+'</div>';
   });
   h+='</div></div>';
 
-  var equipment=inferRecipeEquipment(recipe),success=inferSuccessCriteria(recipe),critical=inferCriticalPoints(recipe),fixes=inferFixes(recipe);
+  var equipment=inferRecipeEquipment(recipe),success=inferSuccessCriteria(recipe),critical=inferCriticalPoints(recipe),fixes=(recipe.fixes&&recipe.fixes.length)?recipe.fixes:[];
   h+='<div class="card mt-12"><div class="t-h4" style="margin-bottom:10px">Avant de commencer</div>';
   h+='<div class="prep-summary-grid">';
   h+='<div class="prep-summary-item"><div class="prep-summary-label">Temps réel</div><div class="prep-summary-value">'+((recipe.timePrep||0)+(recipe.timeCook||0))+' min</div></div>';
@@ -1165,6 +1131,8 @@ function renderRecipeDetail(id,mode){
   h+='<div class="stack-8 mt-20">';
   h+='<a href="'+cookingHref(recipe.id,trainingLessonId)+'" class="btn btn-primary btn-lg btn-full">👨‍🍳 '+(trainingLessonId?'Lancer l’entraînement':'Commencer la recette')+'</a>';
   if(trainingLessonId)h+='<a href="#cooking/'+recipe.id+'" class="btn btn-secondary btn-full">Je veux juste cuisiner</a>';
+  h+='<button class="btn btn-secondary btn-full" data-shop-add="'+recipe.id+'" type="button">🛒 Ajouter les ingrédients à ma liste</button>';
+  h+='<button class="btn btn-ghost btn-full" data-shop-open type="button">Voir ma liste de courses</button>';
   h+='</div>';
 
   // ── Section Ma réalisation ───────────────────
@@ -1207,12 +1175,15 @@ function renderNoteForm(existing,recipeId){
   h+='<div class="field"><label class="field-label">Photo de ton plat</label>';
   if(existing&&existing.photo){
     h+='<img id="note-photo-preview" class="recipe-note-photo" src="'+existing.photo+'" style="margin-bottom:8px" />';
-    h+='<button class="btn btn-sm btn-secondary mt-8" id="note-photo-btn" type="button">📸 Changer</button>';
   } else {
-    h+='<div class="photo-placeholder" id="note-photo-btn"><div class="photo-icon">📸</div><span>Prendre ou choisir une photo</span></div>';
     h+='<img id="note-photo-preview" class="photo-preview hidden" alt="Aperçu" />';
   }
-  h+='<input type="file" id="note-photo-input" accept="image/*" capture="environment" style="display:none" /></div>';
+  h+='<div class="photo-source-row">';
+  h+='<button class="btn btn-sm btn-secondary" id="note-photo-camera-btn" type="button">📷 Prendre une photo</button>';
+  h+='<button class="btn btn-sm btn-secondary" id="note-photo-gallery-btn" type="button">🖼 Choisir dans la galerie</button>';
+  h+='</div>';
+  h+='<input type="file" id="note-photo-camera" accept="image/*" capture="environment" style="display:none" />';
+  h+='<input type="file" id="note-photo-gallery" accept="image/*" style="display:none" /></div>';
   h+='<div class="field"><label class="field-label">Satisfaction</label><div class="stars-input" id="note-stars">';
   [1,2,3,4,5].forEach(function(i){h+='<button class="star-btn'+(i<=cur?' active':'')+'" data-star="'+i+'" type="button" aria-label="'+i+' sur 5">⭐</button>';});
   h+='</div></div>';
@@ -1554,20 +1525,23 @@ function _openNoteForm(recipeId,existing,mode){
 }
 function _bindNoteFormHandlers(recipeId,mode){
   _noteStar=(state.getRecipeNote(recipeId)||{}).rating||0;
-  var photoInput=document.getElementById('note-photo-input'),photoBtn=document.getElementById('note-photo-btn');
-  if(photoBtn)photoBtn.addEventListener('click',function(){if(photoInput)photoInput.click();});
-  if(photoInput){
-    photoInput.addEventListener('change',function(){
-      var file=photoInput.files[0];if(!file)return;
-      // Compression avant stockage
-      compressImage(file,function(compressed){
-        if(!compressed){showToast('❌ Photo impossible à compresser');return;}
-        var preview=document.getElementById('note-photo-preview');
-        if(preview){preview.src=compressed;preview.classList.remove('hidden');preview.style.cssText='width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin-bottom:8px;display:block';}
-        if(photoBtn)photoBtn.style.display='none';
-      });
+  // Photo : appareil photo OU galerie (deux inputs, même traitement)
+  var camInput=document.getElementById('note-photo-camera'),galInput=document.getElementById('note-photo-gallery');
+  var camBtn=document.getElementById('note-photo-camera-btn'),galBtn=document.getElementById('note-photo-gallery-btn');
+  function _onPhotoPicked(input){
+    var file=input.files[0];if(!file)return;
+    // Compression avant stockage
+    compressImage(file,function(compressed){
+      if(!compressed){showToast('❌ Photo impossible à charger');return;}
+      var preview=document.getElementById('note-photo-preview');
+      if(preview){preview.src=compressed;preview.classList.remove('hidden');preview.style.cssText='width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin-bottom:8px;display:block';}
+      input.value='';
     });
   }
+  if(camBtn)camBtn.addEventListener('click',function(){if(camInput)camInput.click();});
+  if(galBtn)galBtn.addEventListener('click',function(){if(galInput)galInput.click();});
+  if(camInput)camInput.addEventListener('change',function(){_onPhotoPicked(camInput);});
+  if(galInput)galInput.addEventListener('change',function(){_onPhotoPicked(galInput);});
   document.querySelectorAll('.result-chip').forEach(function(btn){
     btn.addEventListener('click',function(){document.querySelectorAll('.result-chip').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');});
   });
@@ -1601,5 +1575,136 @@ function _bindNoteFormHandlers(recipeId,mode){
   var cancelBtn=document.getElementById('note-cancel');
   if(cancelBtn)cancelBtn.addEventListener('click',function(){location.hash='recipe/'+recipeId;});
 }
+
+// ════════════════════════════════════════════════
+//   LOT E : liste de courses + délégation favoris/portions
+// ════════════════════════════════════════════════
+// Styles Lot E injectés ici pour ne pas avoir à modifier app.css
+(function(){
+  var css=''+
+  '.serv-stepper{display:flex;align-items:center;gap:10px}'+
+  '.serv-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:var(--card,#fff);font-size:17px;font-weight:800;line-height:1;cursor:pointer;color:inherit}'+
+  '.serv-btn:active{transform:scale(.92)}'+
+  '.serv-count{font-size:13px;font-weight:800;min-width:56px;text-align:center}'+
+  '.fav-btn{border:1px solid var(--border);background:transparent;border-radius:999px;padding:3px 10px;font-size:15px;cursor:pointer;line-height:1.4}'+
+  '.fav-btn.active{border-color:rgba(220,38,38,.35);background:rgba(220,38,38,.08)}'+
+  '.shop-overlay-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;display:flex;align-items:flex-end;justify-content:center}'+
+  '.shop-overlay-card{background:var(--bg,#faf8f5);width:100%;max-width:560px;max-height:82vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom))}'+
+  '.shop-list{display:flex;flex-direction:column;gap:6px}'+
+  '.shop-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--card,#fff);cursor:pointer;color:inherit;font-size:14px}'+
+  '.shop-row.checked{opacity:.5}'+
+  '.shop-row.checked .shop-item{text-decoration:line-through}'+
+  '.shop-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;color:var(--green,#16a34a)}'+
+  '.shop-qty{font-weight:800;min-width:56px;flex-shrink:0}'+
+  '.shop-item{flex:1}'+
+  '.shop-src{font-size:11px;color:var(--muted,#888);max-width:35%;text-align:right}'+
+  '.photo-source-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}'+
+  '.photo-source-row .btn{flex:1;min-width:150px}';
+  var st=document.createElement('style');
+  st.id='lot-e-style';
+  st.textContent=css;
+  document.head.appendChild(st);
+})();
+
+function shoppingGroups(){
+  var groups={},order=[];
+  state.getShoppingList().forEach(function(it){
+    var key=normalizeText(it.item)+'|'+(it.unit||'');
+    if(!groups[key]){groups[key]={item:it.item,unit:it.unit||'',qtySum:0,hasQty:false,hasNonNum:false,recipes:[],ids:[],checkedAll:true};order.push(key);}
+    var g=groups[key],n=parseQty(it.qty);
+    if(n==null){if(it.qty)g.hasNonNum=true;}else{g.qtySum+=n;g.hasQty=true;}
+    if(it.recipeTitle&&g.recipes.indexOf(it.recipeTitle)<0)g.recipes.push(it.recipeTitle);
+    g.ids.push(it.id);
+    if(!it.checked)g.checkedAll=false;
+  });
+  return order.map(function(k){return groups[k];});
+}
+
+function openShoppingOverlay(){
+  var old=document.getElementById('shop-overlay');
+  if(old)old.remove();
+  var groups=shoppingGroups();
+  var ov=document.createElement('div');
+  ov.id='shop-overlay';
+  ov.className='shop-overlay-backdrop';
+  var h='<div class="shop-overlay-card">';
+  h+='<div class="row-sb"><div class="t-h3">🛒 Ma liste de courses</div><button class="back-btn" id="shop-close" type="button" aria-label="Fermer">✕</button></div>';
+  if(!groups.length){
+    h+='<div class="empty-state" style="padding:24px 0"><div class="empty-icon">🛒</div><div class="empty-title">Liste vide</div><div class="empty-sub">Ajoute les ingrédients d\'une recette depuis sa page.</div></div>';
+  } else {
+    h+='<div class="shop-list mt-12">';
+    groups.forEach(function(g){
+      var qty=g.hasQty?formatQty(g.qtySum)+(g.unit?' '+g.unit:''):(g.hasNonNum?'—':'');
+      h+='<button class="shop-row'+(g.checkedAll?' checked':'')+'" data-shop-group="'+g.ids.join(',')+'" type="button">';
+      h+='<span class="shop-check">'+(g.checkedAll?'✓':'')+'</span>';
+      h+='<span class="shop-qty">'+esc(qty)+'</span>';
+      h+='<span class="shop-item">'+esc(g.item)+'</span>';
+      if(g.recipes.length)h+='<span class="shop-src">'+esc(g.recipes.join(' · '))+'</span>';
+      h+='</button>';
+    });
+    h+='</div>';
+    h+='<div class="stack-8 mt-16">';
+    h+='<button class="btn btn-secondary btn-full" id="shop-clear-checked" type="button">Retirer les éléments cochés</button>';
+    h+='<button class="btn btn-ghost btn-full" id="shop-clear-all" type="button" style="color:var(--red)">Vider la liste</button>';
+    h+='</div>';
+  }
+  h+='</div>';
+  ov.innerHTML=h;
+  document.body.appendChild(ov);
+}
+
+document.addEventListener('click',function(e){
+  var t;
+  // Favori
+  if((t=e.target.closest('[data-fav]'))){
+    var on=state.toggleFavorite(t.dataset.fav);
+    t.classList.toggle('active',on);
+    t.textContent=on?'❤':'🤍';
+    showToast(on?'❤ Ajouté aux favoris':'Retiré des favoris');
+    return;
+  }
+  // Portions +/-
+  if((t=e.target.closest('[data-serv-delta]'))){
+    var parts=location.hash.slice(1).split('/');
+    if(parts[0]!=='recipe'||!parts[1])return;
+    var rid=parts[1],r=findRecipe(rid);
+    if(!r)return;
+    var cur=_servingsSel[rid]||r.servings;
+    var next=Math.max(1,Math.min(12,cur+parseInt(t.dataset.servDelta,10)));
+    if(next===cur)return;
+    _servingsSel[rid]=next;
+    route();
+    return;
+  }
+  // Ajouter à la liste de courses
+  if((t=e.target.closest('[data-shop-add]'))){
+    var r2=findRecipe(t.dataset.shopAdd);
+    if(!r2)return;
+    var f=(_servingsSel[r2.id]||r2.servings)/r2.servings;
+    var items=(r2.ingredients||[]).map(function(ing){
+      return {recipeId:r2.id,recipeTitle:r2.title,qty:scaledQty(ing.qty,f),unit:ing.unit||'',item:ing.item,note:ing.note||''};
+    });
+    var n=state.addShoppingItems(items);
+    showToast('🛒 '+n+' ingrédient'+(n>1?'s':'')+' ajouté'+(n>1?'s':'')+' à ta liste');
+    return;
+  }
+  // Ouvrir / fermer / actions de la liste
+  if(e.target.closest('[data-shop-open]')){openShoppingOverlay();return;}
+  if((t=e.target.closest('[data-shop-group]'))){
+    t.dataset.shopGroup.split(',').forEach(function(id){state.toggleShoppingItem(id);});
+    openShoppingOverlay();
+    return;
+  }
+  if(e.target.closest('#shop-clear-checked')){state.clearCheckedShoppingItems();openShoppingOverlay();return;}
+  if(e.target.closest('#shop-clear-all')){
+    if(confirm('Vider toute la liste ?')){state.clearShoppingList();openShoppingOverlay();}
+    return;
+  }
+  if(e.target.closest('#shop-close')||e.target.id==='shop-overlay'){
+    var sov=document.getElementById('shop-overlay');
+    if(sov)sov.remove();
+    return;
+  }
+});
 
 })();
