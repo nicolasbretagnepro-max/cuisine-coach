@@ -1,4 +1,4 @@
 Chef Coach
-Version: v18-lot-c-pedagogie
-Cache: chef-coach-v18-lot-c
-Objectif: taxonomie de compétences, recettes-exercices, cartes de révision, diagnostic de débrief et cohérence cours-recettes renforcée.
+Version: v20-lot-e
+Cache: chef-coach-v20-lot-e
+Objectif: lots D et E — quiz sans biais de position, rattrapages manuels, 14 recettes d'application, couverture cours-recettes rééquilibrée, portions ajustables, liste de courses, favoris.

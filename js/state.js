@@ -1,6 +1,7 @@
-
-
-
+// ════════════════════════════════════════════════
+//   STATE.JS — Chef Coach — v20 (Lot E)
+//   Ajouts : favoriteRecipes, shoppingList (+ import/export)
+// ════════════════════════════════════════════════
 
 var state = (function () {
   var KEY = 'chef-coach-v1';
@@ -9,22 +10,24 @@ var state = (function () {
     completedLessons: [],
     lessonScores:     {},
     completedRecipes: [],
-    completedRecipeDates: {}, 
-    recipeNotes:      {},   
-    recipeAttempts:   {},   
-    skillProgress:    {},   
-    pendingPractices: [],   
-    weeklyRecipePlan: null, 
+    completedRecipeDates: {},
+    recipeNotes:      {},
+    recipeAttempts:   {},
+    skillProgress:    {},
+    pendingPractices: [],
+    weeklyRecipePlan: null,
     practiceFrequency: 'weekly',
+    favoriteRecipes:  [],
+    shoppingList:     [],
     xp:               0,
     streak:           0,
     lastActiveDate:   null,
     userName:         '',
     onboarded:        false,
-    level:            null, 
+    level:            null,
     weeklyGoal:       2,
-    theme:            'system', 
-    lastOpened:       null, 
+    theme:            'system',
+    lastOpened:       null,
   };
 
   var _data = null;
@@ -61,6 +64,12 @@ var state = (function () {
     out.skillProgress = _cleanObject(raw.skillProgress);
     out.pendingPractices = _cleanArray(raw.pendingPractices).filter(function(p) {
       return p && typeof p === 'object' && p.lessonId && p.recipeId;
+    });
+    out.favoriteRecipes = _cleanArray(raw.favoriteRecipes).filter(function(id) {
+      return typeof id === 'string';
+    });
+    out.shoppingList = _cleanArray(raw.shoppingList).filter(function(it) {
+      return it && typeof it === 'object' && it.item;
     });
     out.xp = Math.max(0, _cleanNumber(raw.xp, 0));
     out.streak = Math.max(0, _cleanNumber(raw.streak, 0));
@@ -141,7 +150,6 @@ var state = (function () {
       this.save();
     },
 
-    
     isLessonDone: function(id) { return _data.completedLessons.indexOf(id) >= 0; },
 
     completeLesson: function(id, correct, total) {
@@ -171,7 +179,6 @@ var state = (function () {
 
     getLessonScore: function(id) { return _data.lessonScores[id] || null; },
 
-    
     addPendingPractices: function(lessonId, practices) {
       practices = _cleanArray(practices);
       if (!practices.length) return 0;
@@ -222,7 +229,6 @@ var state = (function () {
       if (_data.pendingPractices.length !== before) this.save();
     },
 
-    
     isRecipeDone: function(id) { return _data.completedRecipes.indexOf(id) >= 0; },
 
     completeRecipe: function(id) {
@@ -254,7 +260,82 @@ var state = (function () {
       this.save();
     },
 
-    
+    // ── Favoris (Lot E) ──────────────────────────
+    isFavorite: function(id) {
+      return (_data.favoriteRecipes || []).indexOf(id) >= 0;
+    },
+
+    toggleFavorite: function(id) {
+      if (!_data.favoriteRecipes) _data.favoriteRecipes = [];
+      var i = _data.favoriteRecipes.indexOf(id);
+      if (i >= 0) { _data.favoriteRecipes.splice(i, 1); }
+      else { _data.favoriteRecipes.push(id); }
+      this.save();
+      return i < 0;
+    },
+
+    getFavorites: function() {
+      return (_data.favoriteRecipes || []).slice();
+    },
+
+    // ── Liste de courses (Lot E) ─────────────────
+    getShoppingList: function() {
+      return _cleanArray(_data.shoppingList);
+    },
+
+    addShoppingItems: function(items) {
+      items = _cleanArray(items);
+      if (!items.length) return 0;
+      if (!_data.shoppingList) _data.shoppingList = [];
+      var added = 0;
+      var base = Date.now();
+      items.forEach(function(it, i) {
+        if (!it || !it.item) return;
+        _data.shoppingList.push({
+          id: 'sl-' + base + '-' + i,
+          recipeId: it.recipeId || null,
+          recipeTitle: it.recipeTitle || '',
+          qty: it.qty || '',
+          unit: it.unit || '',
+          item: String(it.item),
+          note: it.note || '',
+          checked: false,
+          dateAdded: _today()
+        });
+        added++;
+      });
+      if (added) this.save();
+      return added;
+    },
+
+    toggleShoppingItem: function(id) {
+      var found = false;
+      (_data.shoppingList || []).forEach(function(it) {
+        if (it.id === id) { it.checked = !it.checked; found = true; }
+      });
+      if (found) this.save();
+      return found;
+    },
+
+    removeShoppingItem: function(id) {
+      var before = (_data.shoppingList || []).length;
+      _data.shoppingList = (_data.shoppingList || []).filter(function(it) { return it.id !== id; });
+      if (_data.shoppingList.length !== before) this.save();
+    },
+
+    clearCheckedShoppingItems: function() {
+      var before = (_data.shoppingList || []).length;
+      _data.shoppingList = (_data.shoppingList || []).filter(function(it) { return !it.checked; });
+      if (_data.shoppingList.length !== before) this.save();
+    },
+
+    clearShoppingList: function() {
+      _data.shoppingList = [];
+      this.save();
+    },
+
+    // ─────────────────────────────────────────────
+
     getRecipeNote: function(id) { return _data.recipeNotes[id] || null; },
 
     setRecipeNote: function(id, entry) {
@@ -313,7 +394,6 @@ var state = (function () {
       return Object.assign({}, _data.skillProgress || {});
     },
 
-    
     getStats: function() {
       var noteCount = Object.keys(_data.recipeNotes).length;
       return {
@@ -324,6 +404,8 @@ var state = (function () {
         notesCount:    noteCount,
         practicesCount: (_data.pendingPractices || []).length,
         practiceFrequency: _data.practiceFrequency || 'weekly',
+        favoritesCount: (_data.favoriteRecipes || []).length,
+        shoppingCount: (_data.shoppingList || []).length,
         attemptsCount: Object.keys(_data.recipeAttempts || {}).reduce(function(sum, id) { return sum + ((_data.recipeAttempts[id] || []).length); }, 0),
         skillsCount: Object.keys(_data.skillProgress || {}).length,
       };

@@ -1,11 +1,11 @@
-const CACHE = 'chef-coach-v18-lot-c';
+const CACHE = 'chef-coach-v20-lot-e';
 const ASSETS = [
   './',
   './index.html',
-  './app.css?v=18',
-  './js/app.js?v=18',
-  './js/state.js?v=18',
-  './content/data.js?v=18',
+  './app.css?v=20',
+  './js/app.js?v=20',
+  './js/state.js?v=20',
+  './content/data.js?v=20',
   './manifest.webmanifest',
   './reset.html',
   './debug.html',
