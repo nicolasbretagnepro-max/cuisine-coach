@@ -24399,6 +24399,6323 @@ var RECIPES = [
         ]
       }
     ]
+  },
+  {
+    "id": "curry-pois-chiches-coco",
+    "title": "Curry de pois chiches au lait de coco",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 20,
+    "servings": 4,
+    "skills": [
+      "ail-oignon-echalote",
+      "saler-par-couches",
+      "principe-cuisson-longue"
+    ],
+    "primarySkills": [
+      "ail-oignon-echalote"
+    ],
+    "secondarySkills": [
+      "saler-par-couches"
+    ],
+    "objectives": [
+      "Construire une base aromatique oignon-ail-épices qui parfume tout le plat",
+      "Équilibrer le gras du lait de coco avec l'acidité de la tomate",
+      "Obtenir une sauce nappante sans liaison ajoutée"
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "boîtes de pois chiches",
+        "note": "400 g chacune, égouttés"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "hachées"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "gingembre frais râpé",
+        "note": "ou 1 c. à café en poudre"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "pâte de curry ou curry en poudre",
+        "note": ""
+      },
+      {
+        "qty": "400",
+        "unit": "ml",
+        "item": "lait de coco",
+        "note": "1 boîte"
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "tomates concassées",
+        "note": "1 boîte"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "épinards frais",
+        "note": "ou surgelés"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, coriandre fraîche, citron vert",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Construire la base aromatique",
+        "action": "Chauffe l'huile à feu moyen dans une sauteuse. Fais revenir l'oignon 4-5 minutes avec une pincée de sel jusqu'à ce qu'il soit translucide. Ajoute l'ail, le gingembre et le curry. Cuis 1 minute en remuant jusqu'à ce que les épices embaument.",
+        "why": "Faire frire brièvement les épices dans le gras libère leurs arômes liposolubles. C'est ce qui fait la différence entre un curry profond et un curry plat où les épices ont été jetées dans le liquide.",
+        "mistake": "Brûler les épices → amertume irrécupérable. 1 minute suffit, elles ne doivent pas fumer.",
+        "timer": 6
+      },
+      {
+        "id": 2,
+        "title": "Ajouter tomates et lait de coco",
+        "action": "Verse les tomates concassées et le lait de coco. Mélange bien en grattant le fond. Sale légèrement. Porte à frémissement.",
+        "why": "La tomate apporte l'acidité qui équilibre la richesse du lait de coco. Sans elle, le curry serait écœurant au bout de trois bouchées.",
+        "mistake": "Faire bouillir fort le lait de coco → il peut trancher et donner un aspect granuleux.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Mijoter avec les pois chiches",
+        "action": "Ajoute les pois chiches égouttés. Laisse mijoter à feu doux 12-15 minutes à découvert, en remuant de temps en temps. La sauce doit réduire et épaissir légèrement.",
+        "why": "Les pois chiches absorbent la sauce en mijotant et libèrent un peu d'amidon qui la lie naturellement. La réduction à découvert concentre les saveurs.",
+        "mistake": "Couvrir → la sauce ne réduit pas et reste liquide comme une soupe.",
+        "timer": 14
+      },
+      {
+        "id": 4,
+        "title": "Finir avec les épinards et servir",
+        "action": "Ajoute les épinards, mélange 2 minutes jusqu'à ce qu'ils soient tombés. Goûte, ajuste en sel. Sers avec du riz, un trait de citron vert et de la coriandre ciselée.",
+        "why": "Les épinards cuisent en 2 minutes : ajoutés plus tôt, ils deviendraient gris et amers. Le citron vert en finition réveille tout le plat.",
+        "mistake": "Oublier l'acidité finale → curry correct mais sans éclat. Le citron est le détail qui change tout.",
+        "timer": 2
+      }
+    ],
+    "tips": [
+      "Coût total : environ 6 € pour 4 personnes. Un des meilleurs rapports qualité-prix-protéines qui existe.",
+      "Ajoute une patate douce en cubes avec les tomates pour une version plus consistante (+15 min de cuisson).",
+      "Se conserve 3 jours au frigo et se congèle parfaitement. Encore meilleur réchauffé."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "curry-pois-chiches-coco",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice parfait pour travailler la base aromatique et la friture des épices dans le gras.",
+        "focus": [
+          "Sentir le moment où les épices libèrent leurs arômes",
+          "Observer la sauce épaissir à découvert",
+          "Goûter avant et après le citron vert"
+        ],
+        "successCriteria": [
+          "La sauce nappe les pois chiches sans être liquide",
+          "Le curry est parfumé en profondeur, pas seulement en surface"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shakshuka-poivrons",
+    "title": "Shakshuka aux poivrons et œufs pochés",
+    "family": "œufs",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 25,
+    "servings": 2,
+    "skills": [
+      "coagulation-oeufs",
+      "sauce-tomate-reduite",
+      "ail-oignon-echalote"
+    ],
+    "primarySkills": [
+      "coagulation-oeufs"
+    ],
+    "secondarySkills": [
+      "sauce-tomate-reduite"
+    ],
+    "objectives": [
+      "Réduire une sauce tomate-poivrons assez épaisse pour porter les œufs",
+      "Pocher les œufs directement dans la sauce sans les casser ni les surcuire",
+      "Contrôler la cuisson du blanc pris et du jaune coulant"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poivron rouge",
+        "note": "en lamelles"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "hachées"
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "tomates concassées",
+        "note": "1 boîte"
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "œufs",
+        "note": "très frais"
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "paprika fumé",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, coriandre ou persil, feta (optionnel)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Fondre oignon et poivron",
+        "action": "Chauffe l'huile dans une poêle large à feu moyen. Fais revenir l'oignon et le poivron avec une pincée de sel pendant 8-10 minutes jusqu'à ce qu'ils soient bien fondants. Ajoute l'ail, le cumin et le paprika, cuis 1 minute.",
+        "why": "Le poivron doit être complètement fondant avant l'ajout des tomates : il ne cuira presque plus ensuite. Croquant dans une shakshuka, c'est raté.",
+        "mistake": "Aller trop vite sur cette étape → poivrons fermes et goût cru d'oignon dans le plat final.",
+        "timer": 10
+      },
+      {
+        "id": 2,
+        "title": "Réduire la sauce tomate",
+        "action": "Ajoute les tomates concassées, sale, poivre. Laisse mijoter à découvert 10 minutes en remuant. La sauce doit épaissir : quand tu traces un sillon avec la cuillère, il doit rester visible 2 secondes.",
+        "why": "Une sauce trop liquide ne peut pas porter les œufs : ils coulent au fond et se mélangent. La réduction crée le lit qui maintient chaque œuf dans son puits.",
+        "mistake": "Pocher les œufs dans une sauce liquide → blancs dispersés partout, impossible à servir proprement.",
+        "timer": 10
+      },
+      {
+        "id": 3,
+        "title": "Pocher les œufs dans la sauce",
+        "action": "Baisse à feu doux. Creuse 4 puits dans la sauce avec le dos d'une cuillère. Casse un œuf dans chaque puits. Couvre et laisse cuire 6-8 minutes : le blanc doit être pris, le jaune encore coulant.",
+        "why": "Le couvercle crée une vapeur qui cuit le dessus du blanc sans avoir à retourner les œufs. Le feu doux évite que le fond de la sauce attache pendant ce temps.",
+        "mistake": "Feu trop fort ou cuisson trop longue → jaunes durs, la shakshuka perd tout son intérêt de sauce-jaune coulant.",
+        "timer": 7
+      },
+      {
+        "id": 4,
+        "title": "Finir et servir à la poêle",
+        "action": "Coupe le feu dès que les blancs sont pris. Parsème d'herbes fraîches et de feta émiettée si tu en utilises. Sers directement dans la poêle avec du pain pour saucer.",
+        "why": "Les œufs continuent de cuire dans la sauce chaude après extinction du feu. Servir immédiatement préserve les jaunes coulants.",
+        "mistake": "Laisser la poêle sur le feu éteint mais chaud 5 minutes → jaunes figés à l'arrivée à table.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Plat complet à moins de 4 € pour 2 personnes, parfait midi comme soir.",
+      "Versions : ajoute des pois chiches pour plus de consistance, ou du chorizo pour une version non végé.",
+      "Les œufs doivent être très frais : un blanc d'œuf vieux s'étale au lieu de rester groupé autour du jaune."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "shakshuka-poivrons",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Travaille deux compétences en un plat : la réduction d'une sauce tomate et la coagulation contrôlée des œufs.",
+        "focus": [
+          "Tester l'épaisseur de la sauce avec le sillon de cuillère",
+          "Surveiller la prise du blanc à travers le couvercle",
+          "Couper le feu au bon moment"
+        ],
+        "successCriteria": [
+          "Les blancs sont pris et restent dans leurs puits",
+          "Les jaunes coulent quand on les perce avec le pain"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dahl-lentilles-corail",
+    "title": "Dahl de lentilles corail",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 25,
+    "servings": 4,
+    "skills": [
+      "comprendre-amidon",
+      "ail-oignon-echalote",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "comprendre-amidon"
+    ],
+    "secondarySkills": [
+      "ail-oignon-echalote",
+      "saler-par-couches"
+    ],
+    "objectives": [
+      "Cuire les lentilles corail jusqu'à la texture crémeuse caractéristique du dahl",
+      "Réaliser un tempérage d'épices (tadka) pour la finition",
+      "Doser le liquide pour une consistance entre soupe et purée"
+    ],
+    "ingredients": [
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "lentilles corail",
+        "note": "rincées"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "gingembre frais râpé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "curcuma",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "cumin en graines",
+        "note": ""
+      },
+      {
+        "qty": "200",
+        "unit": "ml",
+        "item": "lait de coco",
+        "note": ""
+      },
+      {
+        "qty": "600",
+        "unit": "ml",
+        "item": "eau",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile neutre ou ghee",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, coriandre fraîche, citron",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Démarrer la base",
+        "action": "Chauffe 1 cuillère d'huile à feu moyen. Fais revenir l'oignon 4 minutes avec une pincée de sel. Ajoute l'ail, le gingembre et le curcuma. Cuis 1 minute en remuant.",
+        "why": "Le curcuma cuit dans le gras libère sa couleur et perd son goût terreux cru. C'est la base de couleur et d'arôme du dahl.",
+        "mistake": "Curcuma jeté directement dans l'eau → goût de poussière et couleur terne.",
+        "timer": 5
+      },
+      {
+        "id": 2,
+        "title": "Cuire les lentilles",
+        "action": "Ajoute les lentilles corail rincées, l'eau et le lait de coco. Porte à ébullition, baisse à frémissement. Cuis 18-20 minutes en remuant de temps en temps, surtout en fin de cuisson. Les lentilles doivent se défaire complètement.",
+        "why": "Contrairement aux lentilles vertes, les corail sont décortiquées : elles se délitent à la cuisson et libèrent leur amidon. C'est cet effondrement qui crée la texture crémeuse du dahl, sans mixage.",
+        "mistake": "Ne pas remuer en fin de cuisson → l'amidon attache et brûle au fond, goût de brûlé dans tout le plat.",
+        "timer": 19
+      },
+      {
+        "id": 3,
+        "title": "Ajuster la consistance et l'assaisonnement",
+        "action": "Le dahl doit avoir la texture d'une purée souple qui s'étale lentement. Trop épais : ajoute un peu d'eau chaude. Trop liquide : prolonge la cuisson à découvert. Sale franchement, goûte, ajuste.",
+        "why": "Les légumineuses demandent plus de sel qu'on ne pense : leur amidon absorbe et masque la salinité. Un dahl sous-salé paraît fade même avec toutes les épices.",
+        "mistake": "Saler timidement une seule fois → goûter et corriger en deux ou trois passes.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Tempérer les épices (tadka) et finir",
+        "action": "Dans une petite poêle, chauffe 2 cuillères d'huile à feu vif. Jette les graines de cumin : elles doivent grésiller et embaumer en 30 secondes. Verse immédiatement cette huile parfumée brûlante sur le dahl. Sers avec coriandre, un trait de citron et du riz.",
+        "why": "Le tadka est la signature du dahl : l'huile brûlante extrait instantanément les arômes des épices entières et les dépose en surface. C'est un parfum frais qui ne s'obtient pas en cuisant les épices 20 minutes.",
+        "mistake": "Laisser les graines noircir → amertume. Dès qu'elles grésillent et sentent bon, on verse.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 4 € pour 4 personnes. Riche en protéines, se congèle très bien.",
+      "Ajoute des épinards ou des dés de tomate fraîche en fin de cuisson pour varier.",
+      "Le tadka fonctionne aussi avec graines de moutarde, ail émincé ou piment séché."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "dahl-lentilles-corail",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Démonstration parfaite du rôle de l'amidon des légumineuses et de la technique du tempérage d'épices.",
+        "focus": [
+          "Observer les lentilles se déliter et créer le crémeux",
+          "Saler en plusieurs passes en goûtant",
+          "Réussir le timing du tadka : grésillement sans noircissement"
+        ],
+        "successCriteria": [
+          "Texture crémeuse homogène obtenue sans mixeur",
+          "Le parfum du cumin tempéré domine à la première cuillère"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gnocchis-poeles-tomates-cerises",
+    "title": "Gnocchis poêlés, tomates cerises et mozzarella",
+    "family": "pâtes",
+    "difficulty": 1,
+    "timePrep": 5,
+    "timeCook": 15,
+    "servings": 2,
+    "skills": [
+      "saisir-colorer-maillard",
+      "sauter-sans-detremper"
+    ],
+    "primarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "secondarySkills": [
+      "sauter-sans-detremper"
+    ],
+    "objectives": [
+      "Dorer des gnocchis à la poêle sans les pocher, pour une croûte croustillante",
+      "Faire éclater les tomates cerises pour créer une sauce minute",
+      "Gérer l'ordre des ajouts pour que chaque élément garde sa texture"
+    ],
+    "ingredients": [
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "gnocchis frais",
+        "note": "rayon frais, pas besoin de les pocher"
+      },
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "tomates cerises",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "boule de mozzarella",
+        "note": "125 g, égouttée et déchirée"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "écrasées"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "basilic frais, sel, poivre, piment (optionnel)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Dorer les gnocchis à sec",
+        "action": "Chauffe 2 cuillères d'huile dans une grande poêle à feu moyen-vif. Verse les gnocchis crus directement (sans les pocher) en une seule couche. Laisse dorer 3-4 minutes sans toucher, puis remue et dore encore 3-4 minutes.",
+        "why": "Poêlés directement, les gnocchis développent une croûte dorée croustillante avec un cœur moelleux : une texture impossible à obtenir en les pochant à l'eau, où ils restent mous.",
+        "mistake": "Remuer sans arrêt → ils n'ont jamais le temps de colorer. Pose et patience.",
+        "timer": 7
+      },
+      {
+        "id": 2,
+        "title": "Faire éclater les tomates",
+        "action": "Pousse les gnocchis sur un côté de la poêle. Ajoute 1 cuillère d'huile, l'ail écrasé et les tomates cerises entières. Cuis 4-5 minutes à feu vif jusqu'à ce qu'elles éclatent. Écrase-en la moitié avec le dos de la cuillère.",
+        "why": "Les tomates qui éclatent libèrent leur jus qui se mélange à l'huile et à l'ail : c'est la sauce du plat, faite en 5 minutes dans la même poêle.",
+        "mistake": "Couper les tomates avant → elles rendent leur eau immédiatement et bouillent au lieu de rôtir.",
+        "timer": 5
+      },
+      {
+        "id": 3,
+        "title": "Mélanger et assaisonner",
+        "action": "Mélange gnocchis et tomates. Sale, poivre, ajoute le piment si tu en utilises. Laisse 1 minute pour que les gnocchis s'enrobent du jus de tomates.",
+        "why": "Le jus de tomate légèrement réduit nappe les gnocchis dorés sans les détremper s'il ne reste qu'une minute en contact à feu vif.",
+        "mistake": "Laisser mijoter longtemps → la croûte des gnocchis ramollit, tout le travail de dorage est perdu.",
+        "timer": 1
+      },
+      {
+        "id": 4,
+        "title": "Finir hors du feu avec la mozzarella",
+        "action": "Coupe le feu. Répartis la mozzarella déchirée sur le dessus, couvre 1 minute : elle doit juste fondre à moitié. Parsème de basilic et sers immédiatement.",
+        "why": "Sur le feu, la mozzarella rend son eau et devient caoutchouteuse. Hors du feu, elle fond en restant crémeuse et filante.",
+        "mistake": "Mélanger la mozzarella dans la poêle chaude → fils élastiques et flaque d'eau au fond.",
+        "timer": 1
+      }
+    ],
+    "tips": [
+      "Plat complet en 20 minutes pour environ 6 € à deux. Idéal soir de semaine.",
+      "Remplace la mozzarella par de la burrata pour une version plus gourmande.",
+      "Ajoute des épinards frais avec les tomates ou des olives noires pour varier."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "gnocchis-poeles-tomates-cerises",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice rapide de coloration : apprendre à ne pas toucher pour laisser dorer.",
+        "focus": [
+          "Résister à l'envie de remuer pendant le dorage",
+          "Observer les tomates éclater et créer la sauce",
+          "Respecter l'ajout hors feu de la mozzarella"
+        ],
+        "successCriteria": [
+          "Les gnocchis ont une croûte dorée et croustillante",
+          "La mozzarella est fondante, pas caoutchouteuse"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "frittata-pommes-terre-oignons",
+    "title": "Frittata pommes de terre et oignons",
+    "family": "œufs",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 25,
+    "servings": 4,
+    "skills": [
+      "coagulation-oeufs",
+      "oeufs-liant-cremes-appareils",
+      "maitriser-intensite-feu"
+    ],
+    "primarySkills": [
+      "coagulation-oeufs"
+    ],
+    "secondarySkills": [
+      "maitriser-intensite-feu"
+    ],
+    "objectives": [
+      "Cuire une frittata épaisse à feu doux sans la dessécher ni la brûler dessous",
+      "Précuire les pommes de terre pour une garniture fondante",
+      "Maîtriser la finition au four ou le retournement"
+    ],
+    "ingredients": [
+      {
+        "qty": "8",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "pommes de terre",
+        "note": "à chair ferme, en fines rondelles"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "parmesan ou comté râpé",
+        "note": ""
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, thym ou romarin",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Précuire pommes de terre et oignons",
+        "action": "Chauffe 3 cuillères d'huile à feu moyen dans une poêle de 24 cm allant au four. Ajoute les rondelles de pommes de terre et les oignons, sale. Cuis 12-15 minutes en remuant régulièrement, jusqu'à ce que les pommes de terre soient tendres et légèrement dorées.",
+        "why": "Les pommes de terre ne cuiraient jamais dans le temps de prise des œufs. Elles doivent être entièrement cuites avant l'ajout de l'appareil.",
+        "mistake": "Rondelles trop épaisses → centre cru dans la frittata. 3-4 mm maximum.",
+        "timer": 14
+      },
+      {
+        "id": 2,
+        "title": "Préparer l'appareil",
+        "action": "Bats les œufs dans un saladier avec le fromage râpé, sel, poivre et thym. Bats juste assez pour homogénéiser, sans faire mousser.",
+        "why": "Trop battre incorpore de l'air qui fait gonfler la frittata à la cuisson puis retomber en texture spongieuse. On cherche une texture dense et moelleuse.",
+        "mistake": "Oublier que le fromage est salé → goûter mentalement avant de saler la main lourde.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Cuire à feu très doux",
+        "action": "Verse les œufs sur les pommes de terre dans la poêle. Baisse le feu au minimum. Cuis 10-12 minutes sans toucher : les bords doivent être pris, le centre encore légèrement tremblotant.",
+        "why": "Les œufs coagulent à partir de 65°C. Un feu doux donne une coagulation lente et une texture crémeuse. Un feu fort caoutchoutifie le dessous avant que le centre ne prenne.",
+        "mistake": "Feu moyen 'pour aller plus vite' → dessous brûlé, centre liquide, frittata ratée.",
+        "timer": 11
+      },
+      {
+        "id": 4,
+        "title": "Finir le dessus",
+        "action": "Passe la poêle sous le gril du four 2-3 minutes pour prendre le dessus (poignée compatible four !). Alternative sans four : couvre la poêle 3-4 minutes à feu minimum. Le centre doit être pris mais encore moelleux.",
+        "why": "Le dessus de la frittata est la dernière zone à coaguler. Le gril dore légèrement en prenant la surface, sans toucher au moelleux du centre.",
+        "mistake": "Gril trop longtemps → la frittata gonfle comme un soufflé puis devient sèche en retombant.",
+        "timer": 3
+      },
+      {
+        "id": 5,
+        "title": "Reposer et démouler",
+        "action": "Laisse reposer 5 minutes hors du feu. Passe une spatule sur les bords et glisse la frittata sur une planche. Sers tiède ou à température ambiante, en parts.",
+        "why": "Le repos finit la prise du centre par chaleur résiduelle et permet de démouler sans casser. La frittata est aussi bonne tiède que chaude.",
+        "mistake": "Découper immédiatement → le centre encore fragile s'affaisse dans l'assiette.",
+        "timer": 5
+      }
+    ],
+    "tips": [
+      "Moins de 5 € pour 4 personnes. Excellente froide le lendemain, parfaite en lunchbox.",
+      "Varie la garniture avec ce qui traîne : courgettes, restes de légumes rôtis, fromage de chèvre.",
+      "La poêle doit être bien antiadhésive ou bien culottée, c'est la clé du démoulage."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "frittata-pommes-terre-oignons",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "L'exercice de référence pour la coagulation lente des œufs à feu doux.",
+        "focus": [
+          "Maintenir un feu réellement minimum pendant toute la prise",
+          "Observer la progression de la coagulation des bords vers le centre",
+          "Arrêter quand le centre tremble encore légèrement"
+        ],
+        "successCriteria": [
+          "Le dessous est doré, pas brun foncé",
+          "Le centre est moelleux et crémeux, ni liquide ni sec"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quesadillas-haricots-rouges",
+    "title": "Quesadillas haricots rouges et cheddar",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 10,
+    "servings": 2,
+    "skills": [
+      "maitriser-intensite-feu",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "maitriser-intensite-feu"
+    ],
+    "secondarySkills": [],
+    "objectives": [
+      "Écraser et assaisonner les haricots pour une garniture qui se tient",
+      "Dorer la tortilla à sec sans brûler avant que le fromage fonde",
+      "Gérer le feu pour synchroniser croustillant extérieur et fondant intérieur"
+    ],
+    "ingredients": [
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "tortillas de blé",
+        "note": ""
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "haricots rouges en boîte",
+        "note": "égouttés"
+      },
+      {
+        "qty": "120",
+        "unit": "g",
+        "item": "cheddar râpé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "paprika fumé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon rouge",
+        "note": "ciselé fin"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron vert",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, coriandre, yaourt ou crème (pour servir)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer la garniture de haricots",
+        "action": "Écrase grossièrement les haricots égouttés à la fourchette : moitié purée, moitié morceaux. Mélange avec le cumin, le paprika, l'oignon ciselé, du sel et un trait de citron vert. Goûte et corrige.",
+        "why": "Mi-écrasés, les haricots forment un liant qui colle la quesadilla et empêche la garniture de tomber à la découpe, tout en gardant de la mâche.",
+        "mistake": "Garniture pas assez assaisonnée → les haricots nature sont fades, il faut saler et épicer franchement.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Monter les quesadillas",
+        "action": "Étale la moitié de la garniture sur une tortilla, en laissant 1 cm de bord. Parsème de cheddar râpé. Recouvre d'une seconde tortilla et appuie bien. Répète pour la deuxième quesadilla.",
+        "why": "Le fromage placé contre la tortilla supérieure fond et la soude à la garniture : c'est la colle du montage.",
+        "mistake": "Trop garnir → impossible à retourner, tout déborde à la cuisson.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Dorer à sec à feu moyen",
+        "action": "Chauffe une poêle à sec à feu moyen (sans matière grasse). Pose la quesadilla. Cuis 3-4 minutes par face en appuyant légèrement avec une spatule. La tortilla doit être dorée par plaques et le fromage fondu.",
+        "why": "Le feu moyen est le bon compromis : assez chaud pour dorer la tortilla, assez doux pour laisser au fromage le temps de fondre au centre. À feu fort, la tortilla brûle avant la fonte.",
+        "mistake": "Feu trop fort par impatience → extérieur brûlé, cheddar à peine tiède au centre.",
+        "timer": 7
+      },
+      {
+        "id": 4,
+        "title": "Découper et servir",
+        "action": "Glisse la quesadilla sur une planche. Attends 1 minute puis coupe en quartiers avec un grand couteau ou une roulette à pizza. Sers avec yaourt, coriandre et quartiers de citron vert.",
+        "why": "La minute de repos laisse le fromage se raffermir légèrement : la découpe est nette et la garniture ne s'échappe pas.",
+        "mistake": "Couper brûlant → le fromage liquide coule et tu vides ta quesadilla sur la planche.",
+        "timer": 1
+      }
+    ],
+    "tips": [
+      "Repas express à moins de 4 € pour 2. Parfait avec une salade verte.",
+      "Ajoute du maïs, des poivrons sautés ou des restes de légumes rôtis dans la garniture.",
+      "Version non végé : restes de poulet effiloché mélangés aux haricots."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "quesadillas-haricots-rouges",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Petit exercice de gestion du feu : synchroniser dorage extérieur et fonte intérieure.",
+        "focus": [
+          "Tenir un feu moyen constant",
+          "Vérifier la coloration en soulevant un coin",
+          "Retourner d'un geste franc"
+        ],
+        "successCriteria": [
+          "Tortilla dorée et croustillante sans zones brûlées",
+          "Fromage entièrement fondu au centre"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "one-pot-pates-courgettes-citron",
+    "title": "One pot pasta courgettes, citron et parmesan",
+    "family": "pâtes",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 15,
+    "servings": 3,
+    "skills": [
+      "comprendre-amidon",
+      "cuire-pates-justes"
+    ],
+    "primarySkills": [
+      "comprendre-amidon"
+    ],
+    "secondarySkills": [
+      "cuire-pates-justes"
+    ],
+    "objectives": [
+      "Comprendre comment l'amidon des pâtes lie la sauce en cuisson one pot",
+      "Doser le liquide juste pour une cuisson sans égouttage",
+      "Finir avec une émulsion parmesan-citron crémeuse sans crème"
+    ],
+    "ingredients": [
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "linguine ou spaghetti",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "courgettes",
+        "note": "en demi-rondelles fines"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "émincées"
+      },
+      {
+        "qty": "750",
+        "unit": "ml",
+        "item": "eau chaude",
+        "note": "ou bouillon léger"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "zeste + jus d'une moitié"
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "parmesan râpé",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, basilic ou menthe",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Démarrer aromates et courgettes",
+        "action": "Dans une sauteuse large, chauffe l'huile à feu moyen-vif. Fais revenir l'ail 30 secondes puis ajoute les courgettes. Sale. Cuis 3-4 minutes : elles doivent commencer à dorer mais rester fermes.",
+        "why": "Les courgettes finiront de cuire avec les pâtes. Précuites entièrement maintenant, elles seraient en purée au moment de servir.",
+        "mistake": "Ail brûlé en 30 secondes de trop → amertume dans tout le plat. Il doit juste blondir.",
+        "timer": 4
+      },
+      {
+        "id": 2,
+        "title": "Cuire les pâtes dans le minimum d'eau",
+        "action": "Ajoute les pâtes et l'eau chaude salée (elle doit à peine couvrir). Porte à ébullition et cuis à feu vif le temps indiqué sur le paquet moins 1 minute, en remuant très souvent.",
+        "why": "Avec peu d'eau, l'amidon libéré par les pâtes reste concentré dans le liquide au lieu de partir à l'égouttage. C'est lui qui va lier la sauce. Remuer évite que les pâtes collent entre elles dans ce liquide épais.",
+        "mistake": "Trop d'eau → tu obtiens une soupe de pâtes, pas une sauce liée. Mieux vaut rajouter un peu d'eau en cours que d'en mettre trop au départ.",
+        "timer": 10
+      },
+      {
+        "id": 3,
+        "title": "Vérifier et ajuster",
+        "action": "En fin de cuisson, il doit rester un fond de liquide épais et brillant. Goûte une pâte : al dente. S'il reste trop de liquide, prolonge 1 minute à feu vif. S'il n'y en a plus assez, ajoute un demi-verre d'eau chaude.",
+        "why": "Ce liquide amidonné est ta future sauce : il doit être présent mais réduit, avec une consistance légèrement sirupeuse.",
+        "mistake": "Tout laisser évaporer → pâtes sèches qui collent, plus rien pour l'émulsion finale.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Émulsionner hors du feu",
+        "action": "Coupe le feu. Ajoute le parmesan, le zeste et le jus de citron. Mélange énergiquement 30 secondes : la sauce doit devenir crémeuse et napper les pâtes. Poivre généreusement, ajoute les herbes et sers.",
+        "why": "Le parmesan ajouté hors du feu fond dans l'eau amidonnée et crée une émulsion crémeuse. Sur le feu, ses protéines coagulent en grumeaux élastiques.",
+        "mistake": "Parmesan sur feu vif → boules de fromage filandreuses au lieu d'une sauce lisse.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Une seule sauteuse à laver, 25 minutes, environ 4 € pour 3 personnes.",
+      "Variante : remplace les courgettes par des brocolis en petits bouquets ou des petits pois surgelés.",
+      "Le secret est dans le remuage fréquent : c'est lui qui extrait l'amidon et lie la sauce."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "one-pot-pates-courgettes-citron",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application directe de la leçon sur l'amidon : voir concrètement le liquide de cuisson devenir une sauce.",
+        "focus": [
+          "Observer l'eau s'épaissir au fil de la cuisson",
+          "Doser le liquide restant en fin de cuisson",
+          "Réussir l'émulsion parmesan hors du feu"
+        ],
+        "successCriteria": [
+          "La sauce nappe les pâtes, brillante et crémeuse, sans crème ajoutée",
+          "Pas de grumeaux de fromage"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tarte-fine-tomates-moutarde",
+    "title": "Tarte fine tomates et moutarde",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 30,
+    "servings": 4,
+    "skills": [
+      "comprendre-four",
+      "cuisson-pates-salees"
+    ],
+    "primarySkills": [
+      "comprendre-four"
+    ],
+    "secondarySkills": [
+      "cuisson-pates-salees"
+    ],
+    "objectives": [
+      "Éviter le piège classique du fond détrempé par l'eau des tomates",
+      "Cuire une pâte feuilletée du commerce pour un résultat croustillant",
+      "Construire un montage simple qui maximise le goût avec 5 ingrédients"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "pâte feuilletée",
+        "note": "pur beurre de préférence"
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "tomates mûres mais fermes",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "moutarde de Dijon",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "emmental ou comté râpé",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "herbes de Provence, sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Dégorger les tomates",
+        "action": "Coupe les tomates en rondelles de 5 mm. Étale-les sur du papier absorbant, sale légèrement. Laisse dégorger 15 minutes pendant que le four préchauffe à 200°C. Tamponne avec un second papier avant utilisation.",
+        "why": "Le sel fait sortir l'eau des tomates par osmose AVANT la cuisson plutôt que dans la tarte. C'est l'étape qui sépare une tarte croustillante d'une tarte détrempée.",
+        "mistake": "Poser les tomates crues directement → l'eau libérée au four imbibe la pâte qui ne cuit jamais au centre.",
+        "timer": 15
+      },
+      {
+        "id": 2,
+        "title": "Préparer le fond",
+        "action": "Déroule la pâte feuilletée sur sa feuille de cuisson, sur une plaque. Pique tout le fond à la fourchette. Étale la moutarde en couche fine en laissant un bord de 2 cm. Parsème le fromage râpé sur la moutarde.",
+        "why": "La moutarde parfume et le fromage crée une barrière grasse imperméable entre la pâte et les tomates : double protection contre l'humidité.",
+        "mistake": "Oublier de piquer → la pâte gonfle en dôme et renverse la garniture.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Monter et enfourner",
+        "action": "Dispose les rondelles de tomates dégorgées en les chevauchant légèrement. Sale très peu (elles sont déjà salées), poivre, parsème d'herbes de Provence et arrose d'un filet d'huile d'olive. Enfourne à 200°C, grille du bas, pour 25-30 minutes.",
+        "why": "La position basse du four expose le fond de la tarte au maximum de chaleur : c'est lui qui doit cuire et croustiller, le dessus suivra.",
+        "mistake": "Grille du milieu ou du haut → dessus cuit, fond blanc et mou.",
+        "timer": 28
+      },
+      {
+        "id": 4,
+        "title": "Vérifier la cuisson et servir",
+        "action": "La tarte est prête quand les bords sont bien gonflés et dorés et que le fond, soulevé avec une spatule, est rigide et coloré. Laisse tiédir 5 minutes avant de couper. Sers avec une salade verte.",
+        "why": "Le seul vrai test est de regarder sous la tarte : un bord doré peut cacher un centre cru. Le fond doit être rigide.",
+        "mistake": "Sortir dès que les bords sont dorés sans vérifier le fond → centre pâteux.",
+        "timer": 5
+      }
+    ],
+    "tips": [
+      "Moins de 5 € pour 4 personnes en plat principal avec salade.",
+      "Variante chèvre-miel-thym ou courgettes en fines lamelles (dégorgées aussi).",
+      "Hors saison, utilise des tomates cerises coupées en deux, posées côté coupé vers le haut : elles rendent moins d'eau."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tarte-fine-tomates-moutarde",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice anti-détrempe : dégorgement, barrière de gras et position dans le four.",
+        "focus": [
+          "Mesurer l'eau rendue par les tomates au dégorgement",
+          "Utiliser la grille du bas du four",
+          "Vérifier le fond avant de sortir la tarte"
+        ],
+        "successCriteria": [
+          "Le fond est croustillant jusqu'au centre",
+          "Les tomates sont rôties, pas bouillies"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rosti-pommes-terre",
+    "title": "Röstis de pommes de terre dorés",
+    "family": "légume",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 20,
+    "servings": 2,
+    "skills": [
+      "comprendre-amidon",
+      "maitriser-intensite-feu",
+      "saisir-colorer-maillard"
+    ],
+    "primarySkills": [
+      "comprendre-amidon",
+      "maitriser-intensite-feu"
+    ],
+    "secondarySkills": [],
+    "objectives": [
+      "Utiliser l'amidon naturel de la pomme de terre crue comme seul liant",
+      "Essorer la râpée pour obtenir le croustillant",
+      "Gérer un feu moyen patient pour cuire le centre sans brûler l'extérieur"
+    ],
+    "ingredients": [
+      {
+        "qty": "600",
+        "unit": "g",
+        "item": "pommes de terre",
+        "note": "à chair ferme, type Charlotte"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "optionnel, râpé"
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "huile neutre ou beurre clarifié",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Râper et essorer",
+        "action": "Épluche et râpe les pommes de terre à la grosse grille. Place la râpée dans un torchon propre et tords fort au-dessus de l'évier pour extraire un maximum d'eau. Récupère la râpée bien sèche dans un saladier, sale et poivre.",
+        "why": "L'eau est l'ennemie du croustillant : une râpée humide cuit à la vapeur dans la poêle au lieu de frire. L'essorage au torchon est l'étape qui fait tout.",
+        "mistake": "Essorer mollement → röstis gris, mous et qui se délitent.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Ne pas rincer : garder l'amidon",
+        "action": "Ne rince surtout pas la râpée avant l'essorage. L'amidon blanc qui colle aux brins est précieux : mélange bien la râpée essorée pour le répartir.",
+        "why": "L'amidon de surface est le seul liant du rösti : il soude les brins entre eux à la cuisson. Rincée, la râpée s'éparpille dans la poêle comme des allumettes.",
+        "mistake": "Rincer 'pour enlever l'amidon' comme pour des frites → rösti impossible à retourner, tout se défait.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Cuire la première face",
+        "action": "Chauffe la moitié de l'huile à feu moyen dans une poêle de 24 cm. Étale la râpée en galette de 1,5 cm d'épaisseur en tassant avec la spatule. Cuis 8-10 minutes à feu moyen sans toucher. Le bord doit devenir doré et croustillant.",
+        "why": "Le feu moyen laisse le temps à la chaleur de cuire le centre pendant que le contact avec la poêle dore le dessous. Trop fort, le dessous brûle sur un centre cru.",
+        "mistake": "Vouloir retourner trop tôt → la croûte n'est pas formée, le rösti se casse. Attendre que le bord soit visiblement doré.",
+        "timer": 9
+      },
+      {
+        "id": 4,
+        "title": "Retourner avec une assiette",
+        "action": "Pose une assiette plate sur la poêle. Retourne l'ensemble d'un geste franc : le rösti est sur l'assiette, face dorée visible. Ajoute le reste d'huile dans la poêle, fais glisser le rösti face crue dessous. Cuis encore 8-10 minutes.",
+        "why": "La technique de l'assiette permet de retourner une galette large sans la casser : impossible à la spatule seule sur cette taille.",
+        "mistake": "Tenter le retour à la spatule → rösti cassé en trois morceaux. L'assiette est non négociable.",
+        "timer": 9
+      },
+      {
+        "id": 5,
+        "title": "Servir immédiatement",
+        "action": "Glisse le rösti sur une planche, coupe en parts. Sers brûlant, avec une salade, un œuf au plat ou du fromage à raclette fondu.",
+        "why": "Comme toutes les fritures, le rösti perd son croustillant en refroidissant : il rend son humidité interne en quelques minutes.",
+        "mistake": "Réserver au chaud sous aluminium → la vapeur piégée ramollit la croûte.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 2 € pour 2 personnes. Le plat économique par excellence.",
+      "Version repas complet : œuf au plat dessus et salade verte à côté.",
+      "Petits röstis individuels : plus faciles à retourner pour s'entraîner avant la grande galette."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "rosti-pommes-terre",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Double exercice : comprendre l'amidon comme liant et tenir un feu moyen patient.",
+        "focus": [
+          "Essorer au maximum et constater la quantité d'eau extraite",
+          "Ne pas rincer pour préserver l'amidon liant",
+          "Attendre la croûte avant de retourner"
+        ],
+        "successCriteria": [
+          "Le rösti se retourne d'un bloc sans se casser",
+          "Extérieur croustillant doré, centre fondant cuit"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chili-sin-carne",
+    "title": "Chili sin carne",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 15,
+    "timeCook": 30,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "saler-par-couches",
+      "ail-oignon-echalote"
+    ],
+    "primarySkills": [
+      "saler-par-couches"
+    ],
+    "secondarySkills": [
+      "principe-cuisson-longue"
+    ],
+    "objectives": [
+      "Construire la profondeur d'un mijoté végétarien par couches successives",
+      "Torréfier les épices pour développer leurs arômes",
+      "Obtenir une texture épaisse et riche sans viande"
+    ],
+    "ingredients": [
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "haricots rouges en boîte",
+        "note": "égouttés"
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "tomates concassées",
+        "note": ""
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "lentilles vertes cuites",
+        "note": "ou 1 petite boîte"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poivron rouge",
+        "note": "en dés"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "concentré de tomates",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "paprika fumé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "carré de chocolat noir",
+        "note": "le secret"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "piment, sel, huile, coriandre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Suer les légumes",
+        "action": "Fais revenir l'oignon émincé et le poivron en dés dans 2 cuillères d'huile à feu moyen, avec une pincée de sel, pendant 6-7 minutes. Ajoute l'ail haché, le cumin et le paprika. Cuis 1 minute.",
+        "why": "Première couche de goût : les légumes sués au sel libèrent leurs sucres, et les épices torréfiées dans le gras donnent la base aromatique fumée du chili.",
+        "mistake": "Légumes pas assez cuits à cette étape → ils ne fondront jamais dans la sauce.",
+        "timer": 7
+      },
+      {
+        "id": 2,
+        "title": "Torréfier le concentré de tomates",
+        "action": "Ajoute le concentré de tomates au centre de la casserole. Laisse-le cuire 1-2 minutes en remuant : il doit foncer légèrement et coller un peu au fond.",
+        "why": "Le concentré cru a un goût acide et métallique. Torréfié, il caramélise et développe des notes profondes umami qui remplacent la richesse de la viande.",
+        "mistake": "Verser les tomates directement sur le concentré cru → le chili garde une pointe d'acidité métallique.",
+        "timer": 2
+      },
+      {
+        "id": 3,
+        "title": "Mijoter l'ensemble",
+        "action": "Ajoute les tomates concassées, les haricots rouges, les lentilles et un demi-verre d'eau. Sale, ajoute le piment selon ton goût. Mijote à feu doux et à découvert 20-25 minutes en remuant régulièrement.",
+        "why": "Le mijotage à découvert réduit et concentre. Les lentilles, en se défaisant partiellement, épaississent la texture et donnent la consistance 'viande hachée' du chili.",
+        "mistake": "Mijoter couvert → texture de soupe au lieu de la consistance épaisse attendue.",
+        "timer": 22
+      },
+      {
+        "id": 4,
+        "title": "Le carré de chocolat final",
+        "action": "Hors du feu, ajoute le carré de chocolat noir et mélange jusqu'à fonte complète. Goûte : ajuste sel, piment, et une pointe de sucre si l'acidité domine. Sers avec du riz, de la crème et de la coriandre.",
+        "why": "Le chocolat noir (technique mexicaine du mole) arrondit l'acidité de la tomate et ajoute une profondeur sombre qu'on ne sait pas identifier mais qui change tout.",
+        "mistake": "Trop de chocolat → goût de dessert. Un seul carré pour 4 personnes, pas plus.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 5 € pour 4 personnes, riche en protéines végétales. Se congèle parfaitement.",
+      "Encore meilleur le lendemain : les épices ont eu le temps de diffuser.",
+      "Sers en bowl avec riz, avocat et chips de maïs pour une version tex-mex complète."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "chili-sin-carne",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice complet de construction du goût par couches : suer, torréfier, mijoter, équilibrer.",
+        "focus": [
+          "Goûter après chaque couche pour suivre la construction du goût",
+          "Observer le concentré de tomates foncer à la torréfaction",
+          "Équilibrer acidité, sel et piquant en fin de cuisson"
+        ],
+        "successCriteria": [
+          "Texture épaisse qui se tient dans l'assiette",
+          "Goût profond et complexe, sans qu'on devine le chocolat"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "riz-saute-thai-basilic",
+    "title": "Riz sauté thaï au basilic et œuf",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 10,
+    "timeCook": 10,
+    "servings": 2,
+    "skills": [
+      "sauter-sans-detremper",
+      "maitriser-intensite-feu",
+      "coagulation-oeufs"
+    ],
+    "primarySkills": [
+      "sauter-sans-detremper"
+    ],
+    "secondarySkills": [
+      "maitriser-intensite-feu"
+    ],
+    "objectives": [
+      "Sauter du riz à feu très vif sans qu'il devienne pâteux",
+      "Comprendre pourquoi le riz de la veille est indispensable",
+      "Organiser sa mise en place pour une cuisson de 10 minutes chrono"
+    ],
+    "ingredients": [
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "riz cuit froid",
+        "note": "impérativement de la veille"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poivron ou 100 g de haricots verts",
+        "note": "en petits morceaux"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "hachées"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "sauce soja",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "sauce d'huître ou soja sucrée",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gros bouquet de basilic",
+        "note": "thaï si possible"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "piment frais (optionnel), citron vert",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Tout préparer avant d'allumer",
+        "action": "Émiette le riz froid à la main pour séparer les grains. Prépare tous les ingrédients dans des bols à portée de main : ail, légumes, sauces mélangées, basilic effeuillé, œufs battus. La cuisson durera 10 minutes sans pause.",
+        "why": "Le sauté à feu vif ne pardonne aucune hésitation : chercher un ingrédient pendant 30 secondes, c'est brûler ce qui est dans la poêle. La mise en place complète est obligatoire.",
+        "mistake": "Commencer à cuire en préparant au fur et à mesure → ail brûlé, riz attaché, stress garanti.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Cuire l'œuf en premier",
+        "action": "Chauffe 1 cuillère d'huile à feu vif dans un wok ou une grande poêle. Verse les œufs battus, laisse prendre 20 secondes, brouille grossièrement en gros morceaux et débarrasse dans un bol dès qu'ils sont juste pris.",
+        "why": "L'œuf cuit séparément reste en morceaux moelleux identifiables. Cuit avec le riz, il l'enrobe en bouillie et tout devient pâteux.",
+        "mistake": "Trop cuire l'œuf → il finira sec après son retour dans la poêle chaude en fin de recette.",
+        "timer": 1
+      },
+      {
+        "id": 3,
+        "title": "Sauter légumes puis riz",
+        "action": "Remets 2 cuillères d'huile à feu très vif. Saute l'ail et le piment 15 secondes, ajoute les légumes 2 minutes. Ajoute le riz émietté. Saute 3-4 minutes en remuant par à-coups : laisse le riz au contact 20-30 secondes entre chaque mélange.",
+        "why": "Le riz froid de la veille a un amidon rétrogradé : les grains restent séparés et peuvent griller. Les pauses entre les mélanges permettent au riz de toaster contre le métal, ce qui donne le goût wok.",
+        "mistake": "Riz du jour encore tiède → bouillie collante garantie, aucune sauce ne sauvera ça.",
+        "timer": 6
+      },
+      {
+        "id": 4,
+        "title": "Saucer, finir et servir",
+        "action": "Verse les sauces sur le riz, mélange 30 secondes. Remets les œufs, ajoute le basilic, mélange 20 secondes : le basilic doit juste tomber. Coupe le feu. Sers immédiatement avec un quartier de citron vert.",
+        "why": "Les sauces en fin de cuisson glacent le riz sans le détremper. Le basilic ajouté au dernier moment garde son parfum frais explosif, qui disparaîtrait en 2 minutes de cuisson.",
+        "mistake": "Saucer trop tôt → le liquide détrempe le riz qu'on a mis 5 minutes à sécher.",
+        "timer": 1
+      }
+    ],
+    "tips": [
+      "Le plat anti-gaspi par excellence : restes de riz + fond de frigo, environ 3 € pour 2.",
+      "Version non végé : ajoute des dés de poulet ou des crevettes sautés avant les légumes.",
+      "Pas de basilic thaï ? Basilic classique + quelques gouttes de citron vert s'en approchent."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "riz-saute-thai-basilic",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice intense de mise en place et de feu vif : tout se joue en 10 minutes.",
+        "focus": [
+          "Préparer 100% des ingrédients avant d'allumer",
+          "Maintenir un feu vif constant sans paniquer",
+          "Respecter l'ordre des ajouts et les temps courts"
+        ],
+        "successCriteria": [
+          "Les grains de riz sont séparés et légèrement toastés",
+          "L'œuf reste en morceaux moelleux, le basilic est parfumé"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poulet-teriyaki-express",
+    "title": "Poulet teriyaki express",
+    "family": "viande",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 15,
+    "servings": 2,
+    "skills": [
+      "saisir-colorer-maillard",
+      "reduire-jus-court"
+    ],
+    "primarySkills": [
+      "reduire-jus-court"
+    ],
+    "secondarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "objectives": [
+      "Colorer des morceaux de poulet sans les dessécher",
+      "Réaliser une sauce teriyaki maison en 5 minutes avec 4 ingrédients",
+      "Glacer la viande dans la réduction pour un enrobage brillant"
+    ],
+    "ingredients": [
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "hauts de cuisse de poulet désossés",
+        "note": "ou filets, en morceaux de 3 cm"
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "sauce soja",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "miel ou sucre",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "vinaigre de riz ou mirin",
+        "note": "ou vinaigre de cidre"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "gingembre frais râpé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gousse d'ail",
+        "note": "râpée"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "graines de sésame, oignon nouveau, riz pour servir",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer la sauce",
+        "action": "Mélange dans un bol la sauce soja, le miel, le vinaigre, le gingembre et l'ail râpés. Réserve à portée de main.",
+        "why": "La sauce teriyaki n'est que ça : salé (soja), sucré (miel), acide (vinaigre) et aromatique (gingembre-ail). La préparer avant permet de la verser au bon moment sans interrompre la cuisson.",
+        "mistake": "Doser au pif directement dans la poêle → équilibre raté et impossible à corriger une fois réduit.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Colorer le poulet",
+        "action": "Chauffe l'huile à feu vif dans une poêle. Dépose les morceaux de poulet en une seule couche. Laisse colorer 3 minutes sans toucher, puis retourne et colore 2-3 minutes. Le poulet doit être doré mais peut être encore légèrement rosé au centre.",
+        "why": "Les hauts de cuisse pardonnent tout, mais le secret est de ne pas cuire complètement à cette étape : le poulet finira de cuire dans la sauce, ce qui le garde juteux.",
+        "mistake": "Cuire le poulet à cœur avant la sauce → il sera sec après les 3 minutes de glaçage.",
+        "timer": 6
+      },
+      {
+        "id": 3,
+        "title": "Réduire et glacer",
+        "action": "Verse la sauce dans la poêle chaude. Elle va bouillonner immédiatement. Baisse à feu moyen-vif et laisse réduire 3-4 minutes en remuant pour enrober les morceaux. La sauce est prête quand elle nappe le poulet d'un film brillant et sirupeux.",
+        "why": "Le sucre de la sauce caramélise en réduisant et forme un glaçage qui adhère à la viande. C'est la réduction qui transforme un mélange liquide en laque brillante.",
+        "mistake": "Réduire trop longtemps → le sucre brûle, la sauce devient amère et colle à la poêle en caramel dur.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Dresser",
+        "action": "Sers immédiatement sur du riz blanc. Parsème de graines de sésame et d'oignon nouveau émincé.",
+        "why": "Le glaçage fige en refroidissant : servi immédiatement, il est brillant et coulant sur le riz.",
+        "mistake": "Préparer en avance → le glaçage se solidifie et le poulet refroidi perd son moelleux.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "25 minutes, environ 5 € pour 2. Les hauts de cuisse sont moins chers et plus moelleux que le filet.",
+      "Ajoute des brocolis vapeur ou des pak choï sautés pour un repas complet.",
+      "La même sauce glace aussi du saumon, du tofu ferme ou des aubergines rôties."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poulet-teriyaki-express",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice express de réduction : voir une sauce liquide devenir un glaçage sirupeux en 4 minutes.",
+        "focus": [
+          "Colorer sans cuire à cœur",
+          "Observer les bulles de la sauce grossir en réduisant",
+          "Arrêter au stade nappant, avant le caramel"
+        ],
+        "successCriteria": [
+          "Le poulet est juteux et enrobé d'un glaçage brillant",
+          "La sauce nappe sans être brûlée ni liquide"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pates-carbonara-vraie",
+    "title": "Pâtes à la carbonara, la vraie",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 10,
+    "timeCook": 15,
+    "servings": 2,
+    "skills": [
+      "coagulation-oeufs",
+      "comprendre-amidon",
+      "cuire-pates-justes"
+    ],
+    "primarySkills": [
+      "coagulation-oeufs",
+      "comprendre-amidon"
+    ],
+    "secondarySkills": [
+      "cuire-pates-justes"
+    ],
+    "objectives": [
+      "Réaliser la crème d'œufs-fromage sans crème fraîche, liée à l'eau de cuisson",
+      "Maîtriser la température pour une sauce onctueuse sans œufs brouillés",
+      "Comprendre le rôle de l'amidon dans l'émulsion finale"
+    ],
+    "ingredients": [
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "spaghetti ou rigatoni",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "lardons fumés ou pancetta",
+        "note": "guanciale pour les puristes"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "jaunes d'œufs",
+        "note": "+ 1 œuf entier"
+      },
+      {
+        "qty": "50",
+        "unit": "g",
+        "item": "parmesan ou pecorino râpé",
+        "note": "+ un peu pour servir"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "poivre noir du moulin, sel (pour l'eau)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer la crème d'œufs",
+        "action": "Dans un saladier, mélange les jaunes, l'œuf entier, le fromage râpé et beaucoup de poivre noir fraîchement moulu. Bats à la fourchette jusqu'à obtenir une pâte épaisse. Réserve.",
+        "why": "Le mélange œufs-fromage est la seule 'crème' de la vraie carbonara. Le fromage épaissit et assaisonne : pas besoin de sel supplémentaire ni de crème fraîche.",
+        "mistake": "Ajouter de la crème fraîche → ce n'est plus une carbonara et surtout, tu n'apprends pas la technique de liaison aux œufs.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Dorer les lardons et cuire les pâtes",
+        "action": "Lance les pâtes dans l'eau bouillante salée (cuisson al dente, 1 minute de moins que le paquet). Pendant ce temps, fais dorer les lardons à sec dans une grande poêle à feu moyen, 5-6 minutes, jusqu'à ce qu'ils soient croustillants. Coupe le feu et laisse la poêle hors du feu.",
+        "why": "Les lardons rendent leur propre gras : aucune matière grasse à ajouter. La poêle coupée mais chaude servira à assembler sans cuire trop fort.",
+        "mistake": "Garder la poêle sur le feu pour l'assemblage → c'est la cause numéro un des carbonara aux œufs brouillés.",
+        "timer": 6
+      },
+      {
+        "id": 3,
+        "title": "Réserver l'eau de cuisson",
+        "action": "Avant d'égoutter, prélève une grande tasse d'eau de cuisson des pâtes. Égoutte les pâtes et transvase-les immédiatement dans la poêle tiède avec les lardons. Mélange.",
+        "why": "Cette eau chargée d'amidon est l'ingrédient secret : c'est elle qui va émulsionner les œufs et le gras en sauce soyeuse au lieu d'une simple omelette aux pâtes.",
+        "mistake": "Jeter l'eau de cuisson → impossible de détendre la sauce, résultat pâteux ou grumeleux.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Lier hors du feu",
+        "action": "Attends 30 secondes que la poêle redescende en température. Verse la crème d'œufs sur les pâtes avec 2-3 cuillères d'eau de cuisson. Mélange vigoureusement et constamment 1 minute : la sauce doit devenir crémeuse et napper chaque pâte. Ajoute de l'eau cuillère par cuillère si trop épais.",
+        "why": "Entre 65 et 70°C, les œufs épaississent en crème. Au-delà de 75°C, ils coagulent en grumeaux. La chaleur résiduelle des pâtes suffit exactement : c'est pour ça qu'on travaille hors du feu.",
+        "mistake": "Verser les œufs sur les pâtes encore sur le feu → œufs brouillés instantanés, carbonara ratée.",
+        "timer": 1
+      },
+      {
+        "id": 5,
+        "title": "Servir sans attendre",
+        "action": "Sers immédiatement dans des assiettes chaudes, avec un tour de moulin à poivre et un peu de fromage râpé.",
+        "why": "La sauce aux œufs fige en refroidissant. Les assiettes chaudes et le service immédiat préservent l'onctuosité 5 minutes de plus.",
+        "mistake": "Laisser reposer dans la poêle → la sauce épaissit en bloc et perd sa fluidité.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 4 € pour 2 personnes. La technique vaut tous les restaurants italiens.",
+      "Rate ta première ? Normal. C'est la température qui s'apprend : poêle tiède, jamais chaude.",
+      "Le poivre n'est pas une option : la carbonara doit piquer légèrement, c'est sa signature."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pates-carbonara-vraie",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "L'exercice ultime de coagulation contrôlée : lier des œufs à la chaleur résiduelle sans les brouiller.",
+        "focus": [
+          "Couper le feu avant l'assemblage, systématiquement",
+          "Garder l'eau de cuisson et l'utiliser pour détendre",
+          "Mélanger sans arrêt pendant la liaison"
+        ],
+        "successCriteria": [
+          "Sauce crémeuse et brillante qui nappe les pâtes",
+          "Aucun grumeau d'œuf cuit visible"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "boulettes-boeuf-sauce-tomate",
+    "title": "Boulettes de bœuf, sauce tomate au basilic",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 25,
+    "servings": 4,
+    "skills": [
+      "saisir-colorer-maillard",
+      "sauce-tomate-reduite",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "saisir-colorer-maillard",
+      "sauce-tomate-reduite"
+    ],
+    "secondarySkills": [],
+    "objectives": [
+      "Façonner des boulettes moelleuses qui ne se défont pas à la cuisson",
+      "Colorer les boulettes pour le goût avant de les finir dans la sauce",
+      "Cuire les boulettes dans la sauce pour un échange de saveurs mutuel"
+    ],
+    "ingredients": [
+      {
+        "qty": "500",
+        "unit": "g",
+        "item": "bœuf haché",
+        "note": "15-20% de MG, pas du 5%"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "tranche de pain de mie",
+        "note": "trempée dans du lait"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "œuf",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "la moitié râpée pour les boulettes, l'autre émincée pour la sauce"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "800",
+        "unit": "g",
+        "item": "tomates concassées",
+        "note": "2 boîtes"
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "parmesan râpé",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "basilic frais, sel, poivre, sucre (1 pincée)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Préparer l'appareil à boulettes",
+        "action": "Essore le pain trempé dans le lait. Mélange à la main le bœuf, le pain essoré, l'œuf, l'oignon râpé, le parmesan, l'ail haché (1 gousse), sel et poivre. Mélange juste assez pour homogénéiser, sans pétrir.",
+        "why": "Le pain au lait (panade) retient l'humidité pendant la cuisson : c'est lui qui fait la différence entre une boulette moelleuse et une bille de viande compacte. Pétrir trop développe les protéines et durcit.",
+        "mistake": "Malaxer longtemps comme une pâte → boulettes denses et caoutchouteuses.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Façonner les boulettes",
+        "action": "Avec les mains légèrement humides, forme des boulettes de la taille d'une balle de ping-pong (environ 16). Roule sans serrer. Place-les sur une assiette.",
+        "why": "Les mains humides empêchent la viande de coller. Serrer fort chasse l'air et compacte : on roule juste assez pour que ça tienne.",
+        "mistake": "Boulettes de tailles différentes → cuisson inégale, certaines sèches quand d'autres sont crues.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Colorer les boulettes",
+        "action": "Chauffe l'huile à feu moyen-vif dans une sauteuse large. Colore les boulettes 5-6 minutes en les tournant pour dorer toutes les faces. Elles peuvent rester crues au centre. Réserve-les sur une assiette.",
+        "why": "La croûte de Maillard apporte le goût rôti et aide les boulettes à se tenir dans la sauce. La cuisson à cœur viendra du mijotage.",
+        "mistake": "Vouloir les cuire entièrement à la poêle → extérieur sec avant que le centre soit cuit.",
+        "timer": 6
+      },
+      {
+        "id": 4,
+        "title": "Faire la sauce dans la même sauteuse",
+        "action": "Dans les sucs de cuisson, fais revenir l'oignon émincé 4 minutes. Ajoute la deuxième gousse d'ail, puis les tomates concassées, une pincée de sucre, sel et poivre. Gratte les sucs du fond. Porte à frémissement.",
+        "why": "Les sucs caramélisés des boulettes parfument la sauce : c'est pour ça qu'on ne lave pas la sauteuse. La pincée de sucre corrige l'acidité des tomates en boîte.",
+        "mistake": "Faire la sauce dans une autre casserole → tu jettes le meilleur du goût avec les sucs.",
+        "timer": 5
+      },
+      {
+        "id": 5,
+        "title": "Mijoter les boulettes dans la sauce",
+        "action": "Replonge les boulettes dans la sauce avec leur jus rendu. Couvre à moitié et mijote à feu doux 15 minutes. Ajoute le basilic ciselé en fin de cuisson. Sers avec des pâtes, du riz ou de la purée.",
+        "why": "Échange mutuel : la sauce finit de cuire les boulettes en les gardant moelleuses, et les boulettes enrichissent la sauce de leur jus. C'est ce mijotage commun qui fait le plat.",
+        "mistake": "Faire bouillir fort → les boulettes se défont et la viande durcit.",
+        "timer": 15
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 4 personnes. Les boulettes crues se congèlent très bien sur une plaque.",
+      "Version économique : moitié bœuf, moitié chair à saucisse, encore plus moelleux.",
+      "Double la sauce et congèle-la : base parfaite pour des pâtes express un autre soir."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boulettes-boeuf-sauce-tomate",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Travaille la coloration, la panade et le mijotage doux : trois techniques dans un plat familial.",
+        "focus": [
+          "Mélanger l'appareil sans le pétrir",
+          "Colorer toutes les faces sans cuire à cœur",
+          "Maintenir un frémissement doux pendant le mijotage"
+        ],
+        "successCriteria": [
+          "Les boulettes sont moelleuses et entières, pas défaites",
+          "La sauce a pris le goût des sucs de viande"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "papillote-colin-legumes",
+    "title": "Papillote de colin aux petits légumes",
+    "family": "poisson",
+    "difficulty": 1,
+    "timePrep": 15,
+    "timeCook": 18,
+    "servings": 2,
+    "skills": [
+      "poisson-vapeur-poche-papillote",
+      "tailles-regulieres"
+    ],
+    "primarySkills": [
+      "poisson-vapeur-poche-papillote"
+    ],
+    "secondarySkills": [
+      "tailles-regulieres"
+    ],
+    "objectives": [
+      "Construire une papillote étanche qui cuit à la vapeur interne",
+      "Tailler les légumes assez fins pour qu'ils cuisent en même temps que le poisson",
+      "Cuire un poisson blanc économique sans le dessécher"
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "dos ou filets de colin",
+        "note": "150 g chacun, frais ou décongelés"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "carotte",
+        "note": "en julienne fine"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "courgette",
+        "note": "en julienne fine"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "blanc de poireau",
+        "note": "émincé fin"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "en rondelles fines"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "5",
+        "unit": "cl",
+        "item": "vin blanc sec",
+        "note": "ou jus de citron"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, aneth ou estragon",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Tailler les légumes en julienne fine",
+        "action": "Taille la carotte, la courgette et le poireau en bâtonnets fins de 3-4 mm d'épaisseur maximum (julienne). Préchauffe le four à 200°C.",
+        "why": "Le poisson cuit en 15 minutes : des légumes taillés épais seraient encore crus. La julienne fine cuit exactement dans le même temps que le colin. C'est la taille qui synchronise les cuissons.",
+        "mistake": "Légumes en gros bâtonnets → carottes croquantes crues sous un poisson cuit.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Monter les papillotes",
+        "action": "Coupe 2 grands rectangles de papier cuisson (40 cm). Au centre de chacun : un lit de julienne salée, le filet de colin salé et poivré dessus, 2 rondelles de citron, les herbes, un filet d'huile et une cuillère de vin blanc.",
+        "why": "Le lit de légumes isole le poisson du contact direct avec le papier chaud et l'humidifie par dessous. Le liquide ajouté génère la vapeur qui cuira l'ensemble.",
+        "mistake": "Oublier le liquide → pas de vapeur, papillote qui cuit à sec et poisson sec.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Fermer hermétiquement",
+        "action": "Rabats le papier sur le poisson et plie les bords ensemble par petits plis serrés successifs, en chassant le moins d'air possible aux pliures. La papillote doit être complètement étanche.",
+        "why": "La papillote est un mini four à vapeur : si elle fuit, la vapeur s'échappe, la pression ne monte pas et la cuisson est inégale. Les plis serrés sont la clé.",
+        "mistake": "Fermer avec un simple repli lâche → la papillote s'ouvre au four, le poisson cuit à sec.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Enfourner",
+        "action": "Pose les papillotes sur une plaque. Enfourne à 200°C pour 15-18 minutes. Les papillotes doivent gonfler : c'est le signe que la vapeur s'est formée à l'intérieur.",
+        "why": "Le gonflement indique que la température interne a atteint 100°C et que la cuisson vapeur fonctionne. Une papillote plate est une papillote qui fuit.",
+        "mistake": "Ouvrir le four pour vérifier avant 15 minutes → chute de température et perte de pression.",
+        "timer": 17
+      },
+      {
+        "id": 5,
+        "title": "Ouvrir et servir",
+        "action": "Sers les papillotes fermées dans les assiettes, à ouvrir à table avec précaution (vapeur brûlante). Le poisson doit être nacré et se détacher en flocons.",
+        "why": "Ouvrir à table libère le parfum d'un coup : c'est tout le plaisir de la papillote. Et le poisson ne refroidit pas pendant le service.",
+        "mistake": "Ouvrir le visage au-dessus de la papillote → la vapeur à 100°C brûle. Ouvrir de côté.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Le colin est l'un des poissons blancs les moins chers : environ 7 € pour 2 avec les légumes.",
+      "Fonctionne avec cabillaud, lieu, merlu ou saumon (ajoute 2-3 minutes pour le saumon).",
+      "Ajoute une cuillère de crème fraîche avant fermeture pour une sauce minute dans la papillote."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "papillote-colin-legumes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice de synchronisation des cuissons par la taille et de maîtrise de la cuisson vapeur en papillote.",
+        "focus": [
+          "Tailler une julienne régulière et fine",
+          "Fermer la papillote par plis serrés étanches",
+          "Vérifier le gonflement au four"
+        ],
+        "successCriteria": [
+          "La papillote a gonflé au four",
+          "Poisson nacré et légumes cuits en même temps"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "blanquette-veau-traditionnelle",
+    "title": "Blanquette de veau traditionnelle",
+    "family": "viande",
+    "difficulty": 3,
+    "timePrep": 25,
+    "timeCook": 90,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "roux-bechamel-veloute",
+      "bouillir-fremir-pocher"
+    ],
+    "primarySkills": [
+      "principe-cuisson-longue",
+      "roux-bechamel-veloute"
+    ],
+    "secondarySkills": [
+      "bouillir-fremir-pocher"
+    ],
+    "objectives": [
+      "Cuire la viande dans un bouillon sans coloration : le principe du blanc",
+      "Réaliser un velouté à partir du bouillon de cuisson lui-même",
+      "Lier la sauce à la crème et au jaune d'œuf sans la faire trancher"
+    ],
+    "ingredients": [
+      {
+        "qty": "800",
+        "unit": "g",
+        "item": "épaule ou tendron de veau",
+        "note": "en morceaux de 4 cm"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "carottes",
+        "note": "en tronçons"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon piqué de 2 clous de girofle",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "blanc de poireau",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "bouquet garni",
+        "note": "thym, laurier, queues de persil"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "champignons de Paris",
+        "note": "en quartiers"
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "15",
+        "unit": "cl",
+        "item": "crème fraîche épaisse",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "jaune d'œuf",
+        "note": ""
+      },
+      {
+        "qty": "0.5",
+        "unit": "",
+        "item": "citron",
+        "note": "jus"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "gros sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Blanchir la viande",
+        "action": "Place les morceaux de veau dans une cocotte, couvre d'eau froide. Porte à ébullition 2 minutes : une écume grise monte. Égoutte la viande, rince-la sous l'eau froide, lave la cocotte.",
+        "why": "Le blanchiment élimine les impuretés et les protéines qui troubleraient le bouillon. C'est ce qui garantit une sauce blanche et propre, signature de la blanquette.",
+        "mistake": "Sauter cette étape → bouillon gris, sauce terne et écumes dans la blanquette.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Cuire dans le bouillon sans coloration",
+        "action": "Remets la viande dans la cocotte propre avec les carottes, l'oignon piqué, le poireau et le bouquet garni. Couvre d'eau froide à hauteur, sale au gros sel. Porte à frémissement et cuis 1h15 à 1h30 à tout petits frémissements, à moitié couvert. Écume si besoin.",
+        "why": "La blanquette est une cuisson 'à blanc' : aucune coloration, tout le goût vient de l'infusion lente des aromates dans le bouillon. Un bouillon qui bout fort trouble la sauce et durcit la viande.",
+        "mistake": "Gros bouillons → viande filandreuse et bouillon trouble. On doit voir à peine quelques bulles.",
+        "timer": 80
+      },
+      {
+        "id": 3,
+        "title": "Préparer le velouté",
+        "action": "En fin de cuisson, prélève 50 cl de bouillon filtré. Dans une casserole, fais un roux : fonds le beurre, ajoute la farine, cuis 2 minutes en remuant sans coloration. Verse le bouillon chaud progressivement en fouettant. Cuis 5 minutes : la sauce doit napper la cuillère.",
+        "why": "Le velouté est un roux mouillé au bouillon de cuisson : la sauce porte ainsi tout le goût du plat. C'est la différence entre une blanquette et du veau à la crème.",
+        "mistake": "Verser le bouillon d'un coup sur le roux → grumeaux. Progressivement et en fouettant.",
+        "timer": 8
+      },
+      {
+        "id": 4,
+        "title": "Cuire les champignons et assembler",
+        "action": "Fais sauter les champignons dans une noix de beurre 5 minutes. Égoutte la viande et les carottes (jette l'oignon, le poireau et le bouquet). Réunis viande, carottes et champignons dans la cocotte, verse le velouté dessus. Garde au chaud à feu très doux.",
+        "why": "Les champignons cuits à part gardent leur tenue et leur goût : pochés dans le bouillon ils seraient spongieux.",
+        "mistake": "Laisser bouillir l'ensemble → la prochaine étape de liaison serait impossible.",
+        "timer": 5
+      },
+      {
+        "id": 5,
+        "title": "Lier à la crème et au jaune",
+        "action": "Hors du feu, mélange la crème, le jaune d'œuf et le jus de citron dans un bol. Verse une louche de sauce chaude dedans en fouettant (tempérage), puis reverse le tout dans la cocotte en mélangeant. Réchauffe à feu doux SANS bouillir. Goûte, ajuste sel et citron. Sers avec du riz.",
+        "why": "La liaison finale au jaune apporte le velours caractéristique. Le tempérage évite le choc thermique. Au-delà de 80°C, le jaune coagule et la sauce tranche en grumeaux.",
+        "mistake": "Faire bouillir après la liaison → sauce tranchée irrécupérable. Le frémissement est interdit à partir d'ici.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Le tendron, économique et gélatineux, donne une blanquette plus moelleuse que la noix.",
+      "Préparée la veille jusqu'à l'étape 4 incluse, la blanquette gagne en goût. Liaison finale au moment de servir.",
+      "La pointe de citron en fin est indispensable : elle réveille la sauce et équilibre la crème."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "blanquette-veau-traditionnelle",
+        "type": "synthesis",
+        "label": "Recette de synthèse",
+        "reason": "Combine cuisson à blanc, roux-velouté et liaison au jaune : trois techniques du programme dans le plat français de référence.",
+        "focus": [
+          "Maintenir un frémissement à peine visible 1h30",
+          "Réussir le velouté sans grumeaux",
+          "Tempérer la liaison et ne plus jamais bouillir"
+        ],
+        "successCriteria": [
+          "Sauce blanche, lisse et nappante, sans grumeaux",
+          "Viande fondante qui se coupe à la fourchette"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ratatouille-vraie",
+    "title": "Ratatouille, la vraie méthode",
+    "family": "légume",
+    "difficulty": 2,
+    "timePrep": 25,
+    "timeCook": 45,
+    "servings": 4,
+    "skills": [
+      "cuire-legumes-selon-texture",
+      "sauter-sans-detremper",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "cuire-legumes-selon-texture"
+    ],
+    "secondarySkills": [
+      "saler-par-couches"
+    ],
+    "objectives": [
+      "Cuire chaque légume séparément pour respecter sa texture et son temps de cuisson",
+      "Comprendre pourquoi le tout-dans-la-même-poêle donne une compote indistincte",
+      "Assembler en fin pour un plat où chaque légume reste identifiable"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "aubergine",
+        "note": "en dés de 2 cm"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "courgettes",
+        "note": "en dés de 2 cm"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "poivrons",
+        "note": "1 rouge, 1 jaune, en lanières"
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "tomates mûres",
+        "note": "ou 400 g de concassées"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "8",
+        "unit": "cl",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "thym, laurier, basilic, sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Cuire l'aubergine seule",
+        "action": "Chauffe 3 cuillères d'huile à feu moyen-vif. Saute les dés d'aubergine 8-10 minutes avec une pincée de sel, jusqu'à ce qu'ils soient dorés et fondants. Débarrasse dans un grand saladier.",
+        "why": "L'aubergine est une éponge : elle a besoin de beaucoup d'huile et de place pour dorer. Cuite avec d'autres légumes qui rendent de l'eau, elle bout et devient grise et amère.",
+        "mistake": "Économiser l'huile sur l'aubergine → elle accroche, reste ferme et amère.",
+        "timer": 9
+      },
+      {
+        "id": 2,
+        "title": "Cuire courgettes puis poivrons, séparément",
+        "action": "Dans la même poêle, 1 cuillère d'huile : saute les courgettes 5-6 minutes à feu vif, juste dorées et encore légèrement fermes. Débarrasse avec l'aubergine. Puis les poivrons 8 minutes jusqu'à fondants. Débarrasse.",
+        "why": "Chaque légume a son temps : la courgette cuit en 6 minutes, le poivron en 8, l'aubergine en 10. Les cuire ensemble, c'est choisir entre courgette en purée ou poivron croquant.",
+        "mistake": "Surcharger la poêle → les légumes rendent leur eau et cuisent vapeur au lieu de dorer.",
+        "timer": 14
+      },
+      {
+        "id": 3,
+        "title": "Faire la base tomate",
+        "action": "Toujours dans la même poêle, fais revenir les oignons 5 minutes. Ajoute l'ail haché, puis les tomates concassées, le thym et le laurier. Sale. Laisse compoter 10 minutes à feu doux jusqu'à obtenir une sauce épaisse.",
+        "why": "La tomate est le liant de la ratatouille : elle doit être réduite en compotée avant l'assemblage, sinon elle rend son eau sur les légumes dorés et tout se détrempe.",
+        "mistake": "Sauce tomate encore liquide à l'assemblage → ratatouille aqueuse au fond du plat.",
+        "timer": 15
+      },
+      {
+        "id": 4,
+        "title": "Assembler et mijoter brièvement",
+        "action": "Reverse tous les légumes dans la compotée de tomates. Mélange délicatement. Mijote 10-15 minutes à feu doux, à moitié couvert. Goûte et ajuste le sel. Termine avec le basilic ciselé hors du feu.",
+        "why": "Ce court mijotage commun marie les goûts sans détruire les textures acquises. C'est l'équilibre : assez pour l'harmonie, pas assez pour la compote.",
+        "mistake": "Mijoter 45 minutes 'pour que ce soit confit' → on retombe dans la purée indistincte qu'on a tout fait pour éviter.",
+        "timer": 12
+      }
+    ],
+    "tips": [
+      "Encore meilleure le lendemain, froide ou réchauffée. Excellente avec un œuf poché dessus.",
+      "Version express acceptable : tous les légumes rôtis au four à 200°C sur deux plaques, puis mélangés à la compotée.",
+      "En pleine saison (juillet-septembre), c'est un plat à moins de 5 € pour 4."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "ratatouille-vraie",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "L'exercice de référence sur la cuisson séparée : chaque légume selon sa texture.",
+        "focus": [
+          "Cuire en quatre fois sans céder à la tentation du tout-ensemble",
+          "Doser l'huile selon le légume",
+          "Réduire la tomate avant l'assemblage"
+        ],
+        "successCriteria": [
+          "Chaque légume est identifiable à l'œil et en bouche",
+          "Aucun jus aqueux au fond du plat"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "croque-monsieur-bechamel",
+    "title": "Croque-monsieur à la béchamel",
+    "family": "œufs",
+    "difficulty": 1,
+    "timePrep": 15,
+    "timeCook": 15,
+    "servings": 2,
+    "skills": [
+      "roux-bechamel-veloute",
+      "comprendre-four"
+    ],
+    "primarySkills": [
+      "roux-bechamel-veloute"
+    ],
+    "secondarySkills": [
+      "comprendre-four"
+    ],
+    "objectives": [
+      "Réaliser une petite béchamel épaisse de tartinage sans grumeaux",
+      "Monter un croque qui gratine sans détremper le pain",
+      "Utiliser le gril du four pour une surface gratinée bouillonnante"
+    ],
+    "ingredients": [
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "tranches de pain de mie épais",
+        "note": "ou pain de campagne"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "tranches de jambon blanc",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "gruyère ou comté râpé",
+        "note": ""
+      },
+      {
+        "qty": "20",
+        "unit": "g",
+        "item": "beurre",
+        "note": "+ un peu pour les tranches"
+      },
+      {
+        "qty": "20",
+        "unit": "g",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "20",
+        "unit": "cl",
+        "item": "lait",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, muscade",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Faire la béchamel épaisse",
+        "action": "Fonds le beurre dans une petite casserole. Ajoute la farine, cuis le roux 1-2 minutes en remuant. Verse le lait froid en deux fois en fouettant. Cuis 3-4 minutes jusqu'à une béchamel bien épaisse, type pâte à tartiner. Sale, poivre, muscade. Ajoute un quart du fromage râpé.",
+        "why": "Pour un croque, la béchamel doit être plus épaisse qu'une béchamel de gratin : elle doit se tartiner et tenir sur le pain sans couler à la cuisson.",
+        "mistake": "Béchamel trop liquide → elle imbibe le pain qui devient mou et coule dans le four.",
+        "timer": 6
+      },
+      {
+        "id": 2,
+        "title": "Toaster légèrement le pain",
+        "action": "Passe les 4 tranches de pain au grille-pain ou au four 3-4 minutes : elles doivent être à peine dorées et raffermies, pas grillées.",
+        "why": "Le pré-toastage crée une barrière croustillante qui résiste à l'humidité de la béchamel et du fromage fondu. C'est le secret du croque qui se tient.",
+        "mistake": "Pain frais et mou directement garni → croque flasque qui s'effondre à la découpe.",
+        "timer": 4
+      },
+      {
+        "id": 3,
+        "title": "Monter les croques",
+        "action": "Tartine une fine couche de béchamel sur 2 tranches. Pose le jambon plié, un peu de fromage râpé, referme avec les 2 autres tranches. Tartine généreusement le dessus de béchamel et couvre du reste de fromage râpé.",
+        "why": "La béchamel à l'intérieur lie jambon et pain ; celle du dessus, sous le fromage, crée le gratiné moelleux caractéristique du croque de brasserie.",
+        "mistake": "Trop de garniture intérieure → le croque glisse et s'ouvre à la dégustation.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Gratiner au four",
+        "action": "Place les croques sur une plaque. Enfourne 8-10 minutes à 210°C, puis 1-2 minutes sous le gril en surveillant : le dessus doit bouillonner et dorer par plaques.",
+        "why": "Le four chauffe le cœur, puis le gril (chaleur rayonnante intense par le haut) caramélise la surface : deux phases pour un croque chaud dedans et gratiné dessus.",
+        "mistake": "Tout faire au gril → surface brûlée et intérieur froid. Le gril, c'est la finition seulement.",
+        "timer": 10
+      }
+    ],
+    "tips": [
+      "Œuf au plat dessus = croque-madame. La référence du déjeuner express à moins de 3 € par personne.",
+      "La béchamel se prépare en avance et se garde 2 jours au frigo, filmée au contact.",
+      "Version montagnarde : reblochon à la place du gruyère et une pointe de moutarde dans la béchamel."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "croque-monsieur-bechamel",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "La béchamel en petite quantité et en consistance épaisse : un format d'entraînement parfait.",
+        "focus": [
+          "Obtenir une béchamel de tartinage, plus épaisse qu'en gratin",
+          "Pré-toaster le pain contre la détrempe",
+          "Utiliser le gril en finition seulement"
+        ],
+        "successCriteria": [
+          "Béchamel lisse et épaisse, sans grumeaux",
+          "Croque doré bouillonnant dessus, pain encore croustillant dessous"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "soupe-oignon-gratinee",
+    "title": "Soupe à l'oignon gratinée",
+    "family": "soupe",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 50,
+    "servings": 4,
+    "skills": [
+      "saisir-colorer-maillard",
+      "ail-oignon-echalote",
+      "role-fond-bouillon"
+    ],
+    "primarySkills": [
+      "ail-oignon-echalote",
+      "saisir-colorer-maillard"
+    ],
+    "secondarySkills": [
+      "role-fond-bouillon"
+    ],
+    "objectives": [
+      "Caraméliser lentement les oignons jusqu'à la couleur acajou : la patience comme technique",
+      "Déglacer et construire un bouillon profond à partir de presque rien",
+      "Gratiner croûtons et fromage sans noyer la soupe"
+    ],
+    "ingredients": [
+      {
+        "qty": "6",
+        "unit": "",
+        "item": "gros oignons jaunes",
+        "note": "environ 800 g, émincés"
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "15",
+        "unit": "cl",
+        "item": "vin blanc sec",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "l",
+        "item": "bouillon de bœuf ou de volaille",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "demi-baguette",
+        "note": "en tranches"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "gruyère ou comté râpé",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, thym, 1 pincée de sucre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Caraméliser les oignons : 30 minutes, pas moins",
+        "action": "Fonds le beurre dans une cocotte à feu moyen-doux. Ajoute tous les oignons émincés, une pincée de sel et une de sucre. Cuis 30-35 minutes en remuant toutes les 3-4 minutes. Les oignons passent de translucides à blonds, puis dorés, puis acajou foncé.",
+        "why": "Toute la profondeur de la soupe vient de cette caramélisation : les sucres des oignons brunissent lentement (réactions de Maillard et caramélisation combinées). À feu fort, ils brûlent en surface sans développer cette douceur profonde.",
+        "mistake": "S'arrêter au stade blond après 15 minutes → soupe d'oignons bouillis, pas soupe à l'oignon. La couleur acajou est non négociable.",
+        "timer": 32
+      },
+      {
+        "id": 2,
+        "title": "Singer et déglacer",
+        "action": "Saupoudre la farine sur les oignons, mélange et cuis 2 minutes. Verse le vin blanc, gratte le fond pour décoller les sucs. Laisse réduire 2 minutes.",
+        "why": "La farine (singer) liera légèrement la soupe. Le vin déglace les sucs caramélisés du fond, concentré de goût accumulé pendant 30 minutes.",
+        "mistake": "Ne pas cuire la farine → goût de farine crue dans la soupe.",
+        "timer": 4
+      },
+      {
+        "id": 3,
+        "title": "Mouiller et mijoter",
+        "action": "Verse le bouillon chaud, ajoute le thym. Porte à frémissement et laisse mijoter 15 minutes à découvert. Goûte et ajuste sel et poivre.",
+        "why": "Le mijotage marie le bouillon et les oignons caramélisés. Court : tout le travail de goût a déjà été fait à l'étape 1.",
+        "mistake": "Compenser des oignons pas assez caramélisés par un long mijotage → ça ne rattrape rien, la profondeur vient de la caramélisation, pas du temps de bouillon.",
+        "timer": 15
+      },
+      {
+        "id": 4,
+        "title": "Gratiner",
+        "action": "Toaste les tranches de baguette. Répartis la soupe dans des bols allant au four. Pose 2-3 croûtons par bol, couvre généreusement de fromage râpé. Passe sous le gril 3-5 minutes jusqu'à un gratiné doré et bouillonnant. Sers brûlant.",
+        "why": "Les croûtons toastés flottent et portent le fromage au lieu de couler. Le gril crée la croûte de fromage doré qui fait toute la théâtralité du plat.",
+        "mistake": "Pain frais non toasté → il coule, s'imbibe et le fromage gratine directement sur la soupe en plaque compacte.",
+        "timer": 4
+      }
+    ],
+    "tips": [
+      "Plat complet pour environ 4 € pour 4 personnes : le grand classique économique des brasseries.",
+      "Sans bols allant au four : gratine les croûtons au fromage sur une plaque et pose-les sur la soupe au moment de servir.",
+      "Un trait de cognac ou de porto avec le vin blanc pour la version brasserie de luxe."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "soupe-oignon-gratinee",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Le meilleur exercice de caramélisation lente qui existe : 30 minutes pour comprendre la transformation des sucres.",
+        "focus": [
+          "Observer les 4 stades de couleur des oignons",
+          "Tenir le feu moyen-doux sans accélérer",
+          "Déglacer et goûter la différence avant/après"
+        ],
+        "successCriteria": [
+          "Oignons couleur acajou uniforme, fondants, sans morceaux brûlés",
+          "Soupe profonde et sucrée-salée sans sucre ajouté perceptible"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hachis-parmentier-maison",
+    "title": "Hachis parmentier maison",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 30,
+    "timeCook": 30,
+    "servings": 4,
+    "skills": [
+      "purees-ecrases-gratins",
+      "ail-oignon-echalote",
+      "comprendre-four"
+    ],
+    "primarySkills": [
+      "purees-ecrases-gratins"
+    ],
+    "secondarySkills": [
+      "comprendre-four"
+    ],
+    "objectives": [
+      "Réaliser une purée maison souple qui gratine sans sécher",
+      "Parfumer une viande hachée pour qu'elle ne soit pas une simple couche de steak",
+      "Monter et gratiner un plat en couches équilibrées"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "kg",
+        "item": "pommes de terre",
+        "note": "Bintje ou autre farineuse"
+      },
+      {
+        "qty": "500",
+        "unit": "g",
+        "item": "bœuf haché",
+        "note": "ou restes de pot-au-feu effilochés"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "concentré de tomates",
+        "note": ""
+      },
+      {
+        "qty": "20",
+        "unit": "cl",
+        "item": "lait",
+        "note": "chaud"
+      },
+      {
+        "qty": "80",
+        "unit": "g",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "gruyère râpé ou chapelure",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, muscade, thym, persil",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Cuire les pommes de terre",
+        "action": "Épluche les pommes de terre, coupe-les en gros quartiers réguliers. Démarre à l'eau froide salée. Porte à ébullition et cuis 20-25 minutes : un couteau doit s'enfoncer sans résistance.",
+        "why": "Le départ à l'eau froide cuit uniformément du bord au centre. Démarrées à l'eau bouillante, elles seraient en purée dehors et fermes dedans.",
+        "mistake": "Petits morceaux pour aller plus vite → ils se gorgent d'eau et la purée sera liquide.",
+        "timer": 22
+      },
+      {
+        "id": 2,
+        "title": "Préparer la viande parfumée",
+        "action": "Pendant ce temps, fais revenir les oignons 5 minutes dans un peu de beurre. Ajoute l'ail, puis le bœuf haché. Cuis 5-6 minutes en émiettant. Ajoute le concentré de tomates, le thym, sel et poivre. Cuis 2 minutes. Termine avec le persil ciselé.",
+        "why": "La couche de viande porte tout le goût du plat : oignons fondus, concentré torréfié et herbes la transforment en garniture riche au lieu d'un simple steak émietté.",
+        "mistake": "Viande juste salée sans aromates → hachis fade, le défaut numéro un du parmentier.",
+        "timer": 13
+      },
+      {
+        "id": 3,
+        "title": "Faire la purée",
+        "action": "Égoutte parfaitement les pommes de terre, laisse-les évaporer 1 minute dans la casserole chaude. Écrase au presse-purée ou au moulin (jamais au mixeur). Incorpore le beurre puis le lait chaud progressivement. Sale, poivre, muscade. La purée doit être souple mais se tenir.",
+        "why": "Le mixeur éclate les cellules d'amidon et donne une purée collante comme de la colle. Le presse-purée préserve la texture. Le lait chaud s'incorpore sans refroidir ni raidir la purée.",
+        "mistake": "Purée trop liquide → elle coule dans la viande et le plat devient une bouillie sans étages.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Monter et gratiner",
+        "action": "Préchauffe le four à 200°C. Dans un plat à gratin, étale la viande, puis la purée par-dessus. Lisse, puis trace des sillons à la fourchette. Parsème de fromage râpé. Enfourne 25-30 minutes jusqu'à un dessus bien doré.",
+        "why": "Les sillons de fourchette augmentent la surface exposée : plus d'arêtes qui dorent et croustillent. C'est le détail qui fait le gratiné irrésistible.",
+        "mistake": "Surface lissée plate → gratiné uniforme et triste, sans pointes croustillantes.",
+        "timer": 27
+      }
+    ],
+    "tips": [
+      "Environ 7 € pour 4 personnes. Avec des restes de pot-au-feu effilochés, c'est le grand plat anti-gaspi français.",
+      "Se monte la veille et se gratine au dernier moment : parfait pour recevoir sans stress.",
+      "Version canard : confit effiloché à la place du bœuf, un classique du Sud-Ouest."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "hachis-parmentier-maison",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice complet de purée maison : départ eau froide, écrasage, hydratation au lait chaud, gratinage.",
+        "focus": [
+          "Écraser sans mixeur et sentir la différence de texture",
+          "Doser le lait pour une purée qui se tient",
+          "Tracer les sillons et observer le gratinage"
+        ],
+        "successCriteria": [
+          "Purée souple et non collante",
+          "Couches distinctes à la coupe, dessus doré et croustillant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pate-crepes-inratable",
+    "title": "Pâte à crêpes inratable",
+    "family": "dessert",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 20,
+    "servings": 4,
+    "skills": [
+      "oeufs-liant-cremes-appareils",
+      "maitriser-intensite-feu"
+    ],
+    "primarySkills": [
+      "oeufs-liant-cremes-appareils",
+      "maitriser-intensite-feu"
+    ],
+    "secondarySkills": [],
+    "objectives": [
+      "Réaliser une pâte fluide sans grumeaux en maîtrisant l'ordre d'incorporation",
+      "Comprendre le rôle du repos de la pâte",
+      "Régler le feu et le geste pour des crêpes fines et dorées dès la deuxième"
+    ],
+    "ingredients": [
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "500",
+        "unit": "ml",
+        "item": "lait",
+        "note": ""
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "beurre fondu",
+        "note": "+ un peu pour la poêle"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "sucre",
+        "note": "pour les crêpes sucrées"
+      },
+      {
+        "qty": "1",
+        "unit": "pinch",
+        "item": "sel",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "rhum ou fleur d'oranger",
+        "note": "optionnel"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mélanger dans le bon ordre",
+        "action": "Mets la farine, le sucre et le sel dans un saladier. Creuse un puits, casse les œufs dedans. Fouette en partant du centre en incorporant la farine petit à petit. Quand le mélange devient épais, verse le lait progressivement en fouettant, puis le beurre fondu et le parfum.",
+        "why": "Travailler d'abord une pâte épaisse permet au fouet d'écraser les grumeaux contre les parois. Dans une pâte d'emblée liquide, les grumeaux flottent et échappent au fouet : c'est l'origine de 90% des pâtes ratées.",
+        "mistake": "Verser tout le lait d'un coup sur la farine → grumeaux garantis. Il faudra passer au chinois ou au mixeur.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Laisser reposer 30 minutes minimum",
+        "action": "Couvre le saladier et laisse reposer à température ambiante 30 minutes (ou 1h au frigo).",
+        "why": "Pendant le repos, l'amidon de la farine s'hydrate complètement et le réseau de gluten formé au fouettage se détend. Résultat : des crêpes souples qui ne se déchirent pas, au lieu de crêpes élastiques et caoutchouteuses.",
+        "mistake": "Cuire immédiatement → crêpes qui rétrécissent dans la poêle et texture élastique.",
+        "timer": 30
+      },
+      {
+        "id": 3,
+        "title": "Régler le feu et la première crêpe",
+        "action": "Chauffe une poêle antiadhésive à feu moyen-vif. Graisse-la avec un papier absorbant imbibé de beurre. Verse une petite louche en inclinant la poêle d'un geste circulaire rapide pour étaler. La première crêpe sert de test : ajuste feu et quantité de pâte.",
+        "why": "La première crêpe est toujours un réglage : trop pâle = feu trop doux, brûlée = trop fort, épaisse = louche trop pleine. Elle se sacrifie pour calibrer les vingt suivantes.",
+        "mistake": "Se décourager sur la première → c'est un test, pas un échec. Même les crêpiers la ratent.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Enchaîner les crêpes",
+        "action": "Cuis chaque crêpe 1 à 2 minutes : retourne quand les bords se décollent et que le dessous est doré (soulève un bord pour vérifier). 30 secondes sur la deuxième face. Empile sur une assiette, couvre d'un torchon.",
+        "why": "Le signal de retournement est visuel (bords secs qui se soulèvent), pas chronométrique : chaque poêle et chaque feu sont différents. L'empilage sous torchon garde les crêpes souples et chaudes.",
+        "mistake": "Re-beurrer la poêle à chaque crêpe → crêpes grasses et friture. Une fois toutes les 4-5 crêpes suffit.",
+        "timer": 20
+      }
+    ],
+    "tips": [
+      "Environ 2 € pour une vingtaine de crêpes. Le goûter le plus rentable de la cuisine française.",
+      "Pâte trop épaisse après repos ? Détends avec un peu de lait. Trop liquide ? Une cuillère de farine fouettée énergiquement.",
+      "Version salée : retire le sucre, remplace 100 g de farine par du sarrasin."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pate-crepes-inratable",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice d'appareil liquide et de gestion du feu en série : 20 crêpes = 20 répétitions du même geste.",
+        "focus": [
+          "Incorporer le liquide progressivement pour éviter les grumeaux",
+          "Respecter le repos de la pâte",
+          "Utiliser la première crêpe comme test de réglage"
+        ],
+        "successCriteria": [
+          "Pâte fluide et lisse sans passage au chinois",
+          "Crêpes fines, dorées et souples à partir de la deuxième"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mousse-chocolat-classique",
+    "title": "Mousse au chocolat classique",
+    "family": "dessert",
+    "difficulty": 2,
+    "timePrep": 25,
+    "timeCook": 5,
+    "servings": 4,
+    "skills": [
+      "chocolat-fondre-sans-bruler",
+      "meringues-cremes-fouettees",
+      "oeufs-liant-cremes-appareils"
+    ],
+    "primarySkills": [
+      "chocolat-fondre-sans-bruler",
+      "meringues-cremes-fouettees"
+    ],
+    "secondarySkills": [],
+    "objectives": [
+      "Monter des blancs en neige au bec d'oiseau, ni granuleux ni liquides",
+      "Incorporer les blancs au chocolat sans les casser",
+      "Gérer la température du chocolat pour qu'il ne fige pas au contact des blancs"
+    ],
+    "ingredients": [
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "chocolat noir 60-70%",
+        "note": "de bonne qualité, c'est l'ingrédient principal"
+      },
+      {
+        "qty": "6",
+        "unit": "",
+        "item": "œufs",
+        "note": "très frais, blancs et jaunes séparés"
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "pinch",
+        "item": "sel",
+        "note": ""
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "beurre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Fondre le chocolat et tiédir",
+        "action": "Fais fondre le chocolat avec le beurre au bain-marie doux. Lisse, retire du feu et laisse tiédir 5 minutes : le mélange doit être à peine tiède au doigt (35-40°C). Incorpore alors les jaunes un par un en mélangeant vivement.",
+        "why": "Trop chaud, le chocolat cuirait les jaunes et ferait retomber les blancs à l'incorporation. Trop froid, il fige en paillettes dans la mousse. La fenêtre tiède est étroite mais essentielle.",
+        "mistake": "Incorporer les jaunes dans un chocolat brûlant → grumeaux d'œuf cuit, base ratée.",
+        "timer": 5
+      },
+      {
+        "id": 2,
+        "title": "Monter les blancs au bec d'oiseau",
+        "action": "Fouette les blancs avec la pincée de sel, d'abord doucement puis en accélérant. Quand ils moussent fermement, ajoute le sucre en pluie et fouette encore 1 minute. Stade parfait : en soulevant le fouet, la pointe de blanc forme un bec souple qui retombe légèrement.",
+        "why": "Le bec d'oiseau est le stade optimal : assez fermes pour porter la mousse, assez souples pour s'incorporer sans casser. Des blancs sur-montés deviennent granuleux et cassants, impossibles à mélanger proprement.",
+        "mistake": "Fouetter jusqu'au stade 'béton' → les blancs grainent et la mousse aura des morceaux blancs insolubles.",
+        "timer": 4
+      },
+      {
+        "id": 3,
+        "title": "Détendre puis incorporer délicatement",
+        "action": "Incorpore d'abord un tiers des blancs au chocolat en mélangeant franchement, sans précaution : c'est la détente. Puis ajoute le reste en deux fois, en soulevant la masse de bas en haut avec une maryse, en tournant le saladier. Arrête dès qu'il n'y a plus de traces blanches.",
+        "why": "Le premier tiers sacrifié allège le chocolat dense et rapproche les deux textures : le reste des blancs s'incorpore alors sans résistance. Sans détente, il faut trop mélanger et tout l'air s'échappe.",
+        "mistake": "Mélanger en tournant comme une pâte → tu chasses l'air patiemment incorporé, mousse dense et compacte.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Réfrigérer 4 heures minimum",
+        "action": "Répartis dans des ramequins ou laisse en saladier. Filme et place au frigo au moins 4 heures, idéalement une nuit.",
+        "why": "Le froid fige le beurre de cacao qui structure la mousse : c'est lui qui transforme une crème aérée en mousse qui se tient à la cuillère. Avant 4 heures, la texture est encore coulante.",
+        "mistake": "Servir après 1 heure d'impatience → mousse liquide au centre.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "4 ingrédients, environ 3 € pour 4 personnes : le dessert français au meilleur ratio simplicité/effet.",
+      "Œufs crus : œufs très frais obligatoires, à consommer sous 24h, déconseillé femmes enceintes.",
+      "Une pincée de fleur de sel sur le dessus au service : le contraste qui change tout."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "mousse-chocolat-classique",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "L'exercice de référence pour les blancs en neige et l'incorporation délicate à la maryse.",
+        "focus": [
+          "Identifier le stade bec d'oiseau",
+          "Pratiquer la détente au premier tiers",
+          "Soulever la masse sans tourner"
+        ],
+        "successCriteria": [
+          "Mousse aérée et légère, sans morceaux de blancs",
+          "Texture qui se tient à la cuillère après réfrigération"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tartiflette-savoyarde",
+    "title": "Tartiflette savoyarde",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 20,
+    "timeCook": 45,
+    "servings": 4,
+    "skills": [
+      "pommes-terre-cuissons",
+      "comprendre-four",
+      "ail-oignon-echalote"
+    ],
+    "primarySkills": [
+      "pommes-terre-cuissons"
+    ],
+    "secondarySkills": [
+      "comprendre-four"
+    ],
+    "objectives": [
+      "Précuire les pommes de terre au bon stade pour la finition au four",
+      "Construire les couches d'un gratin montagnard équilibré",
+      "Cuire le reblochon croûte vers le haut pour qu'il fonde en nappant"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "kg",
+        "item": "pommes de terre à chair ferme",
+        "note": "Charlotte ou Amandine"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "reblochon fermier",
+        "note": "450 g"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "lardons fumés",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "10",
+        "unit": "cl",
+        "item": "vin blanc de Savoie",
+        "note": "ou autre blanc sec"
+      },
+      {
+        "qty": "10",
+        "unit": "cl",
+        "item": "crème fraîche",
+        "note": "optionnelle mais conseillée"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gousse d'ail",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "poivre (pas de sel : lardons + reblochon suffisent)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Précuire les pommes de terre",
+        "action": "Cuis les pommes de terre entières en robe, départ eau froide salée, 15-20 minutes : un couteau doit entrer avec une légère résistance au centre. Égoutte, laisse tiédir, épluche et coupe en rondelles épaisses (1 cm).",
+        "why": "Les pommes de terre doivent être presque cuites mais encore fermes : elles finiront au four. Entièrement cuites maintenant, elles s'écraseraient en purée au montage.",
+        "mistake": "Cuisson complète à l'eau → rondelles qui se défont, tartiflette-bouillie.",
+        "timer": 18
+      },
+      {
+        "id": 2,
+        "title": "Dorer lardons et oignons, déglacer",
+        "action": "Fais dorer les lardons à sec dans une poêle 4-5 minutes. Ajoute les oignons et cuis 5-6 minutes jusqu'à fondants. Déglace au vin blanc et laisse réduire de moitié, 2 minutes.",
+        "why": "Le vin blanc déglace les sucs et son acidité coupe le gras du fromage et des lardons : c'est lui qui rend la tartiflette digeste (relativement).",
+        "mistake": "Sauter le vin blanc → plat plus lourd et plus plat en goût.",
+        "timer": 12
+      },
+      {
+        "id": 3,
+        "title": "Monter le plat",
+        "action": "Préchauffe le four à 200°C. Frotte un plat à gratin avec la gousse d'ail coupée. Alterne : moitié des pommes de terre, mélange lardons-oignons, reste des pommes de terre. Poivre entre les couches. Verse la crème dessus.",
+        "why": "Le frottage à l'ail parfume subtilement sans dominer. L'alternance des couches distribue le goût des lardons dans toute l'épaisseur.",
+        "mistake": "Saler par réflexe → lardons fumés + reblochon = déjà très salé. On poivre seulement.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Le reblochon croûte vers le haut",
+        "action": "Coupe le reblochon en deux dans l'épaisseur (deux disques). Pose les deux moitiés sur le plat, croûte vers le HAUT. Enfourne 20-25 minutes : le fromage doit avoir entièrement fondu sous sa croûte dorée.",
+        "why": "Croûte au-dessus, elle joue le rôle de couvercle : la pâte fond en dessous et s'écoule dans les pommes de terre, pendant que la croûte grille et protège de l'évaporation. Croûte en dessous, le fromage sèche en surface.",
+        "mistake": "Croûte vers le bas 'pour que ça fonde mieux' → c'est exactement l'inverse qui se produit.",
+        "timer": 22
+      }
+    ],
+    "tips": [
+      "Environ 12 € pour 4 personnes, mais c'est un repas complet d'hiver avec une salade verte vinaigrée (indispensable pour l'équilibre).",
+      "Le vrai reblochon fermier (pastille verte) fait une vraie différence sur ce plat à 4 ingrédients.",
+      "Variante croziflette : remplace les pommes de terre par des crozets de Savoie cuits."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tartiflette-savoyarde",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice de précuisson maîtrisée des pommes de terre et de gestion d'un gratin au fromage.",
+        "focus": [
+          "Arrêter la précuisson au stade ferme-presque-cuit",
+          "Déglacer au vin blanc et sentir l'acidité équilibrer le gras",
+          "Positionner le reblochon croûte en haut"
+        ],
+        "successCriteria": [
+          "Rondelles de pommes de terre intactes et fondantes",
+          "Fromage entièrement fondu et coulant sous une croûte dorée"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pad-thai-crevettes",
+    "title": "Pad thaï aux crevettes",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 10,
+    "servings": 2,
+    "skills": [
+      "sauter-sans-detremper",
+      "maitriser-intensite-feu",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "sauter-sans-detremper"
+    ],
+    "secondarySkills": [
+      "maitriser-intensite-feu"
+    ],
+    "objectives": [
+      "Réhydrater les nouilles de riz au bon stade : souples mais pas cuites",
+      "Construire l'équilibre thaï : salé, sucré, acide, piquant",
+      "Enchaîner un sauté complet en 10 minutes sans temps mort"
+    ],
+    "ingredients": [
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "nouilles de riz plates",
+        "note": "5 mm de large"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "crevettes crues décortiquées",
+        "note": "ou tofu ferme en dés"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "germes de soja",
+        "note": "haricots mungo"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons nouveaux",
+        "note": "en tronçons"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "hachées"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "sauce nuoc-mâm",
+        "note": "sauce poisson"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "sucre roux ou de palme",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "jus de citron vert",
+        "note": "+ quartiers pour servir"
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "cacahuètes grillées",
+        "note": "concassées"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "piment en poudre, coriandre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Réhydrater les nouilles à l'eau tiède",
+        "action": "Plonge les nouilles de riz dans un grand saladier d'eau tiède (pas bouillante) pendant 20-25 minutes. Elles doivent devenir souples et pliables mais rester fermes au centre, presque croquantes. Égoutte. Pendant ce temps, mélange nuoc-mâm, sucre et citron vert : la sauce est prête.",
+        "why": "Les nouilles finissent de cuire dans le wok en absorbant la sauce. Réhydratées à l'eau bouillante, elles seraient déjà cuites et se transformeraient en bouillie collante au sauté.",
+        "mistake": "Eau bouillante 'pour gagner du temps' → paquet de nouilles collées et cassées dans le wok. C'est l'erreur qui ruine 90% des premiers pad thaï.",
+        "timer": 22
+      },
+      {
+        "id": 2,
+        "title": "Saisir les crevettes et l'œuf",
+        "action": "Chauffe 1 cuillère d'huile à feu très vif dans un wok. Saute les crevettes 1-2 minutes jusqu'à rosées, réserve. Remets un peu d'huile, verse les œufs battus, brouille grossièrement 30 secondes et pousse-les sur le bord du wok.",
+        "why": "Chaque élément est saisi séparément à pleine puissance puis réuni : c'est le principe du wok. Tout cuire ensemble ferait chuter la température et tout bouillirait.",
+        "mistake": "Crevettes cuites 4 minutes 'pour être sûr' → caoutchouc. Rosées = cuites.",
+        "timer": 3
+      },
+      {
+        "id": 3,
+        "title": "Sauter les nouilles avec la sauce",
+        "action": "Ajoute 1 cuillère d'huile et l'ail, 15 secondes. Ajoute les nouilles égouttées et la sauce. Saute 2-3 minutes en remuant avec deux spatules : les nouilles absorbent la sauce, deviennent brillantes et tendres.",
+        "why": "C'est maintenant que les nouilles finissent de cuire, dans la sauce et non dans l'eau : elles se gorgent de goût au lieu de se gorger d'eau.",
+        "mistake": "Nouilles qui collent au wok → feu pas assez fort ou pas assez d'huile. Ajoute 1-2 cuillères d'eau si besoin.",
+        "timer": 3
+      },
+      {
+        "id": 4,
+        "title": "Assembler et servir",
+        "action": "Remets les crevettes, ajoute les germes de soja et les oignons nouveaux. Saute 1 minute : les germes doivent rester croquants. Goûte : ajuste avec citron (acide), nuoc-mâm (salé) ou sucre. Sers avec cacahuètes, coriandre, piment et un quartier de citron vert.",
+        "why": "Le pad thaï se goûte et s'ajuste en fin : l'équilibre salé-sucré-acide-piquant est personnel. Les garnitures à table permettent à chacun de finir son réglage.",
+        "mistake": "Servir sans goûter → l'équilibre thaï ne se devine pas, il se construit au goût.",
+        "timer": 1
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 2 : moins cher que le restaurant thaï et meilleur dès la deuxième fois.",
+      "Version végé : tofu ferme doré à la place des crevettes, sauce soja à la place du nuoc-mâm.",
+      "Tout doit être prêt avant d'allumer le feu : le pad thaï se joue en 8 minutes chrono."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pad-thai-crevettes",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice avancé de sauté au wok : gestion des nouilles de riz et construction de l'équilibre des saveurs.",
+        "focus": [
+          "Réhydrater à l'eau tiède et tester la souplesse",
+          "Saisir chaque élément séparément à feu vif",
+          "Goûter et ajuster l'équilibre salé-sucré-acide en fin"
+        ],
+        "successCriteria": [
+          "Nouilles tendres, brillantes et détachées, jamais collées en paquet",
+          "Équilibre net entre salé, sucré et acide"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bo-bun-boeuf",
+    "title": "Bo bun au bœuf",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 30,
+    "timeCook": 10,
+    "servings": 2,
+    "skills": [
+      "saisir-colorer-maillard",
+      "tailles-regulieres",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "tailles-regulieres"
+    ],
+    "secondarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "objectives": [
+      "Organiser un plat d'assemblage : tout préparer, assembler au dernier moment",
+      "Réaliser la sauce nuoc-mâm équilibrée qui lie tout le bol",
+      "Saisir un bœuf mariné à feu vif sans le bouillir"
+    ],
+    "ingredients": [
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "bœuf à fondue ou bavette",
+        "note": "en fines lamelles"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "vermicelles de riz",
+        "note": ""
+      },
+      {
+        "qty": "0.5",
+        "unit": "",
+        "item": "concombre",
+        "note": "en bâtonnets"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "carotte",
+        "note": "râpée ou en julienne"
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "salade verte ciselée",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "menthe et coriandre fraîches",
+        "note": "généreusement"
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "cacahuètes grillées concassées",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "sauce soja + 1 tbsp nuoc-mâm",
+        "note": "pour la marinade"
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "nuoc-mâm",
+        "note": "pour la sauce"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron vert",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mariner le bœuf",
+        "action": "Mélange les lamelles de bœuf avec la sauce soja, le nuoc-mâm, 1 gousse d'ail hachée et 1 cuillère de sucre. Laisse mariner 20 minutes pendant la suite des préparatifs.",
+        "why": "La marinade courte assaisonne en profondeur et le sucre aidera la caramélisation à la saisie. Plus de 30 minutes et le sel commencerait à cuire la viande fine.",
+        "mistake": "Lamelles trop épaisses → elles bouillent au lieu de saisir. 3-4 mm maximum.",
+        "timer": 20
+      },
+      {
+        "id": 2,
+        "title": "Préparer la sauce du bol",
+        "action": "Dissous 3 cuillères de sucre dans 4 cuillères d'eau chaude. Ajoute 4 cuillères de nuoc-mâm, le jus du citron vert et 1 gousse d'ail hachée fin. Goûte : ça doit être à la fois franchement salé, sucré et acide. Réserve.",
+        "why": "Cette sauce (nuoc cham) est l'assaisonnement de TOUT le bol : vermicelles, crudités et viande baignent dedans. Elle doit être intense car elle sera diluée par les ingrédients neutres.",
+        "mistake": "Sauce timide 'équilibrée' → bol entier fade. Elle doit paraître trop forte goûtée seule.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Cuire les vermicelles et tailler les crudités",
+        "action": "Cuis les vermicelles de riz selon le paquet (3-4 minutes à l'eau bouillante), rince à l'eau froide, égoutte bien. Taille le concombre en bâtonnets, râpe la carotte, cisèle la salade, effeuille les herbes.",
+        "why": "Le rinçage à froid stoppe la cuisson et élimine l'amidon de surface : les vermicelles restent détachés au lieu de coller en bloc dans le bol.",
+        "mistake": "Vermicelles non rincés → masse compacte impossible à mélanger avec les baguettes.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Saisir le bœuf à feu très vif",
+        "action": "Chauffe l'huile dans une poêle ou un wok jusqu'à fumée légère. Saisis le bœuf égoutté en deux fois, 1-2 minutes par fournée, sans trop remuer. Il doit caraméliser sur les bords.",
+        "why": "En deux fournées, la poêle reste brûlante et la viande saisit. En une seule, la température chute, la marinade fait bouillir la viande : grise et dure.",
+        "mistake": "Verser la viande et toute sa marinade d'un coup → ragoût bouilli au lieu d'un sauté caramélisé.",
+        "timer": 3
+      },
+      {
+        "id": 5,
+        "title": "Assembler le bol",
+        "action": "Dans chaque bol : salade au fond, vermicelles, crudités rangées par sections, bœuf chaud dessus. Parsème d'herbes et de cacahuètes. Verse la sauce sur l'ensemble au moment de servir. Chacun mélange son bol.",
+        "why": "Le contraste est le principe du bo bun : froid des crudités, chaud de la viande, croquant des cacahuètes, fraîcheur des herbes. Assemblé d'avance, tout tiédit et s'uniformise.",
+        "mistake": "Mélanger en cuisine avant de servir → on perd le contraste chaud-froid qui fait le plat.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 2. Ajoute des nems coupés dessus pour la version restaurant complète.",
+      "Version végé : tofu mariné sauté ou simplement les nems, c'est classique aussi.",
+      "Toute la préparation se fait à l'avance sauf la cuisson du bœuf : idéal pour recevoir."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bo-bun-boeuf",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice d'organisation et de tailles : un plat d'assemblage réussi est un plat préparé méthodiquement.",
+        "focus": [
+          "Tailler toutes les crudités en formats réguliers adaptés aux baguettes",
+          "Doser la sauce nuoc cham intense",
+          "Saisir la viande en deux fournées à feu maximal"
+        ],
+        "successCriteria": [
+          "Bœuf caramélisé sur les bords, pas bouilli",
+          "Bol contrasté : chaud/froid, croquant/fondant, le tout lié par la sauce"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "falafels-sauce-yaourt",
+    "title": "Falafels maison, sauce yaourt-citron",
+    "family": "légume",
+    "difficulty": 2,
+    "timePrep": 25,
+    "timeCook": 15,
+    "servings": 4,
+    "skills": [
+      "maitriser-intensite-feu",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "maitriser-intensite-feu"
+    ],
+    "secondarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "objectives": [
+      "Comprendre pourquoi les pois chiches doivent être crus-trempés et non en boîte",
+      "Façonner des falafels qui ne se délitent pas à la cuisson",
+      "Frire à la poêle à la bonne température sans friteuse"
+    ],
+    "ingredients": [
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "pois chiches secs",
+        "note": "trempés 24h, JAMAIS en boîte"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "grossièrement coupé"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gros bouquet de coriandre et persil",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "coriandre moulue",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "bicarbonate de soude",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "huile de friture (tournesol)",
+        "note": "1 cm dans la poêle"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "yaourt grec",
+        "note": ""
+      },
+      {
+        "qty": "0.5",
+        "unit": "",
+        "item": "citron",
+        "note": "jus"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, piment, pains pita, crudités",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "La veille : tremper les pois chiches",
+        "action": "Mets les pois chiches secs dans un grand saladier, couvre largement d'eau froide. Laisse tremper 24 heures. Ils vont doubler de volume. Égoutte et sèche-les bien.",
+        "why": "C'est LA règle des falafels : les pois chiches trempés mais crus contiennent l'amidon natif qui lie les boulettes. Les pois chiches en boîte (cuits) donnent une purée humide qui se désintègre dans l'huile.",
+        "mistake": "Utiliser des pois chiches en boîte → les falafels explosent ou se dissolvent à la friture. Aucune astuce ne compense.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Mixer la pâte",
+        "action": "Mixe les pois chiches crus égouttés avec l'oignon, l'ail, les herbes, les épices et le sel, par impulsions, jusqu'à obtenir une semoule grossière et humide qui se compacte quand tu la presses dans la main. Ajoute le bicarbonate, mixe 2 secondes. Réfrigère 30 minutes.",
+        "why": "La texture semoule (pas purée lisse) garde de la mâche et de la structure. Le bicarbonate alcalinise la pâte et rend l'intérieur aérien à la cuisson. Le repos au froid raffermit et facilite le façonnage.",
+        "mistake": "Mixer en purée lisse → falafels denses et pâteux comme du houmous frit.",
+        "timer": 30
+      },
+      {
+        "id": 3,
+        "title": "Façonner et tester l'huile",
+        "action": "Forme des boulettes légèrement aplaties (4 cm) en pressant fermement entre tes paumes. Chauffe 1 cm d'huile dans une poêle à feu moyen-vif. Test : un petit bout de pâte doit grésiller immédiatement et remonter en bullant (environ 170°C).",
+        "why": "Sans thermomètre, le test du morceau de pâte est fiable : pas de grésillement = huile froide qui imbibe ; fumée = huile brûlée. Le grésillement vif immédiat est le bon signal.",
+        "mistake": "Huile pas assez chaude → les falafels boivent l'huile et se délitent avant de croûter.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Frire en plusieurs fois",
+        "action": "Fris les falafels 4-5 par fournée, 2-3 minutes par face, jusqu'à brun doré foncé. Égoutte sur papier absorbant. Sale légèrement à chaud.",
+        "why": "Trop de falafels d'un coup fait chuter la température de l'huile : ils cuisent mou au lieu de croustiller. Les fournées maintiennent le choc thermique.",
+        "mistake": "Retourner trop tôt → la croûte ne s'est pas formée et la boulette se casse. Attendre le doré avant de toucher.",
+        "timer": 12
+      },
+      {
+        "id": 5,
+        "title": "Sauce et service",
+        "action": "Mélange le yaourt grec, le jus de citron, une gousse d'ail râpée et du sel. Sers les falafels chauds dans des pitas avec crudités et sauce, ou en assiette mezzé.",
+        "why": "Le yaourt acide et frais contraste avec la friture chaude et épicée : c'est l'équilibre du sandwich levantin.",
+        "mistake": "Falafels préparés en avance et réchauffés → ils sèchent. Ils se mangent dans les 15 minutes.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 4 € pour 4 personnes : les pois chiches secs sont l'une des protéines les moins chères du marché.",
+      "La pâte crue se congèle en boulettes : friture directe sans décongélation (+1 minute).",
+      "Ajoute une pincée de farine de pois chiche seulement si la pâte ne se tient vraiment pas."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "falafels-sauce-yaourt",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Initiation à la friture à la poêle : température de l'huile, fournées et formation de croûte.",
+        "focus": [
+          "Tester la température de l'huile avec un bout de pâte",
+          "Frire en petites fournées",
+          "Ne pas toucher avant la formation de la croûte"
+        ],
+        "successCriteria": [
+          "Falafels entiers, croûte brun doré, intérieur vert et moelleux",
+          "Pas d'huile détrempée : ils croustillent encore après 5 minutes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poulet-yassa",
+    "title": "Poulet yassa aux oignons et citron",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 50,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "ail-oignon-echalote",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "ail-oignon-echalote"
+    ],
+    "secondarySkills": [
+      "principe-cuisson-longue"
+    ],
+    "objectives": [
+      "Utiliser une marinade citron-moutarde comme base de sauce",
+      "Fondre une montagne d'oignons jusqu'à la confiture acidulée",
+      "Équilibrer l'acidité du citron par la douceur des oignons"
+    ],
+    "ingredients": [
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "cuisses de poulet",
+        "note": "ou hauts de cuisse"
+      },
+      {
+        "qty": "6",
+        "unit": "",
+        "item": "gros oignons",
+        "note": "oui, six : émincés"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "citrons",
+        "note": "jus"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "moutarde de Dijon",
+        "note": ""
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "piment entier",
+        "note": "optionnel, non coupé"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "feuille de laurier",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "cube de bouillon ou 20 cl de bouillon",
+        "note": ""
+      },
+      {
+        "qty": "4",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, riz pour servir",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mariner le poulet (2h minimum)",
+        "action": "Mélange le jus des citrons, la moutarde, l'ail haché, sel et poivre. Enrobe les cuisses de poulet et la moitié des oignons émincés dans cette marinade. Filme et réfrigère 2 heures minimum, idéalement une nuit.",
+        "why": "L'acidité du citron attendrit la surface de la viande et la marinade deviendra la sauce : rien ne se perd. C'est la signature du yassa sénégalais.",
+        "mistake": "Marinade de 20 minutes → le plat manquera de profondeur, le citron n'aura pas pénétré.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Dorer le poulet",
+        "action": "Égoutte les cuisses (garde la marinade et ses oignons). Sèche-les au papier absorbant. Fais-les dorer dans l'huile à feu vif, 4-5 minutes par face, jusqu'à une belle peau colorée. Réserve.",
+        "why": "Le séchage est crucial : un poulet humide de marinade bout au lieu de dorer. La coloration apporte le contraste rôti qui équilibre l'acidité de la sauce.",
+        "mistake": "Dorer le poulet ruisselant de marinade → vapeur, projections, et peau blanche molle.",
+        "timer": 9
+      },
+      {
+        "id": 3,
+        "title": "Fondre tous les oignons",
+        "action": "Dans la même cocotte, mets tous les oignons (ceux de la marinade égouttés + les frais). Cuis à feu moyen 15 minutes en remuant souvent : ils doivent fondre, blondir et réduire des deux tiers.",
+        "why": "Les oignons sont l'âme du yassa : ils fondent en confiture douce qui équilibre l'acidité de la marinade. Six oignons paraissent énormes crus, ils deviennent la juste quantité de sauce.",
+        "mistake": "Réduire la quantité d'oignons par scepticisme → sauce maigre et trop acide, le plat perd son sens.",
+        "timer": 15
+      },
+      {
+        "id": 4,
+        "title": "Mijoter le tout",
+        "action": "Verse la marinade réservée sur les oignons, ajoute le bouillon, le laurier et le piment entier. Replace les cuisses dorées. Couvre et mijote à feu doux 30-35 minutes, en retournant le poulet à mi-cuisson.",
+        "why": "La marinade crue cuit maintenant en sauce : l'acidité s'arrondit, les oignons s'y confisent, le poulet s'attendrit. Le piment entier parfume sans enflammer — il se retire avant de servir.",
+        "mistake": "Percer ou couper le piment → toute sa capsaïcine se libère et le plat devient brûlant.",
+        "timer": 32
+      },
+      {
+        "id": 5,
+        "title": "Ajuster et servir",
+        "action": "Goûte la sauce : ajuste le sel, et si elle est trop acide, laisse mijoter 5 minutes de plus à découvert (l'acidité s'évapore et les oignons compensent). Sers avec du riz blanc qui boira la sauce.",
+        "why": "Le yassa final doit être acidulé mais rond : l'acidité doit titiller, pas agresser. La correction se fait par réduction, pas par ajout de sucre.",
+        "mistake": "Corriger l'acidité au sucre → on déséquilibre vers le sucré-salé, ce n'est plus un yassa.",
+        "timer": 5
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 4. Encore meilleur réchauffé le lendemain, comme tous les plats d'oignons confits.",
+      "Version poisson : le yassa se fait aussi avec des darnes de thiof ou de daurade (cuisson réduite à 15 min).",
+      "Ajoute des olives vertes 10 minutes avant la fin pour la version classique dakaroise."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poulet-yassa",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice sur la transformation des oignons en masse et l'équilibrage acide-doux d'une sauce.",
+        "focus": [
+          "Sécher le poulet mariné avant de le dorer",
+          "Fondre une grande quantité d'oignons sans les brûler",
+          "Corriger l'acidité par réduction"
+        ],
+        "successCriteria": [
+          "Sauce abondante d'oignons fondants, acidulée mais ronde",
+          "Poulet doré qui se détache de l'os"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lasagnes-bolognaise-maison",
+    "title": "Lasagnes à la bolognaise maison",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 30,
+    "timeCook": 75,
+    "servings": 6,
+    "skills": [
+      "roux-bechamel-veloute",
+      "sauce-tomate-reduite",
+      "principe-cuisson-longue"
+    ],
+    "primarySkills": [
+      "roux-bechamel-veloute",
+      "sauce-tomate-reduite"
+    ],
+    "secondarySkills": [
+      "principe-cuisson-longue"
+    ],
+    "objectives": [
+      "Réaliser un ragù mijoté avec assez de liquide pour cuire les pâtes sèches",
+      "Faire une béchamel fluide adaptée aux lasagnes",
+      "Monter des couches équilibrées qui se tiennent à la découpe"
+    ],
+    "ingredients": [
+      {
+        "qty": "500",
+        "unit": "g",
+        "item": "bœuf haché",
+        "note": "ou moitié bœuf moitié chair à saucisse"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon + 1 carotte + 1 branche de céleri",
+        "note": "le soffritto, en petits dés"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "concentré de tomates",
+        "note": ""
+      },
+      {
+        "qty": "800",
+        "unit": "g",
+        "item": "tomates concassées",
+        "note": "2 boîtes"
+      },
+      {
+        "qty": "15",
+        "unit": "cl",
+        "item": "vin rouge",
+        "note": "optionnel"
+      },
+      {
+        "qty": "12",
+        "unit": "",
+        "item": "feuilles de lasagnes sèches",
+        "note": "sans précuisson"
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "farine",
+        "note": ""
+      },
+      {
+        "qty": "80",
+        "unit": "cl",
+        "item": "lait",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "parmesan râpé",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "huile d'olive, sel, poivre, muscade, laurier",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Le ragù : soffritto puis viande",
+        "action": "Fais revenir les dés d'oignon, carotte et céleri dans 2 cuillères d'huile à feu moyen, 8 minutes. Ajoute l'ail puis la viande hachée. Cuis 6-7 minutes en émiettant jusqu'à coloration. Ajoute le concentré, torréfie 2 minutes.",
+        "why": "Le soffritto (trio italien oignon-carotte-céleri) est le socle sucré et aromatique du ragù. La carotte adoucit naturellement l'acidité de la tomate.",
+        "mistake": "Viande juste grise et pas colorée → ragù plat. Il faut entendre grésiller et voir brunir.",
+        "timer": 16
+      },
+      {
+        "id": 2,
+        "title": "Mijoter le ragù, version fluide",
+        "action": "Déglace au vin rouge, laisse réduire 2 minutes. Ajoute les tomates, le laurier, sel et poivre, plus un grand verre d'eau. Mijote 30 minutes à feu doux à moitié couvert. Le ragù final doit rester FLUIDE, plus liquide qu'une sauce à pâtes.",
+        "why": "Les feuilles de lasagnes sèches cuisent au four en absorbant le liquide du ragù et de la béchamel. Un ragù trop réduit = pâtes croquantes et lasagnes sèches.",
+        "mistake": "Réduire le ragù comme une bolognaise classique → c'est l'erreur n°1 : les pâtes n'auront rien à boire.",
+        "timer": 32
+      },
+      {
+        "id": 3,
+        "title": "La béchamel fluide",
+        "action": "Fonds le beurre, ajoute la farine, cuis le roux 2 minutes. Verse le lait froid progressivement en fouettant. Cuis 5 minutes : la béchamel doit napper la cuillère mais couler facilement, comme une crème anglaise épaisse. Sel, poivre, muscade.",
+        "why": "Même logique que le ragù : une béchamel épaisse n'hydrate pas les pâtes et fige en couches compactes. Fluide, elle s'infiltre et lie l'ensemble.",
+        "mistake": "Béchamel de gratin bien épaisse → couches pâteuses et pâtes mal cuites.",
+        "timer": 8
+      },
+      {
+        "id": 4,
+        "title": "Monter les couches",
+        "action": "Préchauffe à 180°C. Dans un plat : fine couche de ragù au fond, puis feuilles de pâtes, ragù, béchamel, parmesan. Répète 3 fois. Termine par béchamel généreuse et parmesan, SANS pâtes apparentes sur le dessus.",
+        "why": "Le ragù au fond empêche les pâtes du bas d'attacher. Les pâtes du dessus, non couvertes, sècheraient en chips : la dernière couche est toujours béchamel + fromage.",
+        "mistake": "Feuilles qui se chevauchent en double épaisseur → zones de pâtes crues. Les couper pour ajuster au plat.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Cuire et reposer",
+        "action": "Couvre d'aluminium et enfourne 25 minutes à 180°C. Retire l'aluminium et cuis encore 15-20 minutes jusqu'à un dessus doré et bouillonnant. Vérifie les pâtes avec un couteau : aucune résistance. Laisse reposer 10 minutes avant de couper.",
+        "why": "L'aluminium retient la vapeur qui cuit les pâtes ; son retrait permet ensuite le gratinage. Le repos final raffermit les couches : sans lui, la part s'effondre en flaque dans l'assiette.",
+        "mistake": "Couper à la sortie du four → lasagnes liquides qui s'étalent. Les 10 minutes de repos sont incompressibles.",
+        "timer": 42
+      }
+    ],
+    "tips": [
+      "Environ 10 € pour 6 personnes. Se congèle en parts : le meal prep familial par excellence.",
+      "Montées la veille au frigo, les lasagnes sont encore meilleures : les pâtes se sont pré-hydratées.",
+      "Version végé : remplace le ragù par épinards-ricotta ou un ragù de lentilles et champignons."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "lasagnes-bolognaise-maison",
+        "type": "synthesis",
+        "label": "Recette de synthèse",
+        "reason": "Combine ragù mijoté, béchamel et gestion de l'hydratation des pâtes sèches : trois leçons dans un plat.",
+        "focus": [
+          "Garder ragù et béchamel volontairement fluides",
+          "Monter des couches régulières sans double épaisseur de pâtes",
+          "Respecter le repos avant découpe"
+        ],
+        "successCriteria": [
+          "Pâtes fondantes partout, y compris les coins",
+          "Parts qui se tiennent à la découpe en couches visibles"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paella-express-poulet-chorizo",
+    "title": "Paella express poulet-chorizo",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 35,
+    "servings": 4,
+    "skills": [
+      "cuire-riz-absorption-pilaf",
+      "saisir-colorer-maillard",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "cuire-riz-absorption-pilaf"
+    ],
+    "secondarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "objectives": [
+      "Cuire un riz par absorption SANS le remuer : la règle d'or de la paella",
+      "Construire le goût avec le gras du chorizo et le bouillon safrané",
+      "Obtenir le socarrat, la croûte caramélisée du fond"
+    ],
+    "ingredients": [
+      {
+        "qty": "350",
+        "unit": "g",
+        "item": "riz rond",
+        "note": "type paella ou risotto, PAS basmati"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "hauts de cuisse de poulet désossés",
+        "note": "en morceaux"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "chorizo doux ou fort",
+        "note": "en rondelles"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poivron rouge",
+        "note": "en lanières"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "petits pois surgelés",
+        "note": ""
+      },
+      {
+        "qty": "85",
+        "unit": "cl",
+        "item": "bouillon de volaille chaud",
+        "note": "2,5 fois le volume du riz"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "dose de safran ou 1 tsp de curcuma + paprika fumé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "en quartiers"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Dorer chorizo et poulet",
+        "action": "Dans une grande poêle (ou plat à paella), chauffe l'huile à feu vif. Fais dorer le chorizo 2 minutes : il rend son gras orangé. Ajoute le poulet salé et colore 5-6 minutes. Réserve le tout en laissant le gras dans la poêle.",
+        "why": "Le gras du chorizo, chargé de paprika, est la première couche de goût : tout le reste va cuire dedans. C'est l'assaisonnement de base de la paella express.",
+        "mistake": "Jeter le gras rendu → tu jettes le goût. Tout reste dans la poêle.",
+        "timer": 8
+      },
+      {
+        "id": 2,
+        "title": "Sofrito et nacrage du riz",
+        "action": "Dans le gras, fais revenir l'oignon et le poivron 5 minutes. Ajoute l'ail, puis le riz. Mélange 2 minutes pour enrober chaque grain de gras : il devient translucide.",
+        "why": "Le nacrage enrobe les grains d'un film gras qui les garde séparés pendant l'absorption : c'est ce qui distingue une paella d'un riz collant.",
+        "mistake": "Verser le bouillon sur un riz non nacré → grains qui collent en blocs.",
+        "timer": 7
+      },
+      {
+        "id": 3,
+        "title": "Mouiller et NE PLUS TOUCHER",
+        "action": "Verse le bouillon chaud safrané, sale, répartis le riz uniformément à la cuillère, replace poulet et chorizo dessus. Porte à ébullition 2 minutes, puis baisse à feu moyen-doux. À partir de maintenant : INTERDICTION DE REMUER. Cuis 16-18 minutes.",
+        "why": "C'est l'anti-risotto : remuer libérerait l'amidon et rendrait le riz crémeux-collant. La paella exige des grains détachés, obtenus par une absorption immobile. Le riz du dessus cuit à la vapeur du bouillon.",
+        "mistake": "Remuer 'pour vérifier' → amidon libéré, paella transformée en risotto au chorizo.",
+        "timer": 17
+      },
+      {
+        "id": 4,
+        "title": "Petits pois et socarrat",
+        "action": "À 5 minutes de la fin, répartis les petits pois sur le dessus sans mélanger. Quand le liquide a disparu, monte le feu à vif 1-2 minutes : tu dois entendre crépiter. C'est le socarrat, la croûte dorée du fond, qui se forme.",
+        "why": "Le socarrat est la signature de la paella : une fine couche de riz caramélisé au fond, croustillante et intense. Le crépitement (sans odeur de brûlé) est le signal sonore qu'elle se forme.",
+        "mistake": "Confondre crépitement et brûlé → si ça sent le cramé, coupe immédiatement. Le nez est le garde-fou.",
+        "timer": 2
+      },
+      {
+        "id": 5,
+        "title": "Reposer et servir",
+        "action": "Coupe le feu, couvre d'un torchon propre et laisse reposer 5 minutes. Sers à la poêle avec les quartiers de citron, en grattant bien le fond pour distribuer le socarrat.",
+        "why": "Le repos finit d'absorber l'humidité résiduelle et détend les grains. Le citron pressé au service tranche le gras du chorizo.",
+        "mistake": "Servir immédiatement → le fond du riz est encore humide et inégal.",
+        "timer": 5
+      }
+    ],
+    "tips": [
+      "Environ 9 € pour 4. Version fruits de mer : ajoute crevettes et moules sur le riz 8 minutes avant la fin.",
+      "Pas de safran ? Curcuma (couleur) + paprika fumé (goût) est un duo de substitution honnête.",
+      "Plus la poêle est large, mieux c'est : la paella cuit en couche fine, 3-4 cm maximum."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "paella-express-poulet-chorizo",
+        "type": "contrast",
+        "label": "Recette de contraste",
+        "reason": "L'exact opposé du risotto : même famille de riz, mais absorption immobile contre remuage permanent. Faire les deux apprend le rôle de l'amidon mieux que n'importe quel cours.",
+        "focus": [
+          "Ne jamais remuer après le mouillage",
+          "Écouter le crépitement du socarrat",
+          "Comparer mentalement avec la technique du risotto"
+        ],
+        "successCriteria": [
+          "Grains détachés et moelleux, jamais crémeux",
+          "Socarrat doré au fond, sans goût de brûlé"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "souvlaki-poulet-tzatziki",
+    "title": "Souvlaki de poulet, tzatziki maison",
+    "family": "viande",
+    "difficulty": 1,
+    "timePrep": 20,
+    "timeCook": 12,
+    "servings": 4,
+    "skills": [
+      "saisir-colorer-maillard",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "secondarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "objectives": [
+      "Mariner et griller des brochettes de poulet juteuses",
+      "Dégorger le concombre pour un tzatziki épais qui ne rend pas d'eau",
+      "Composer une assiette grecque équilibrée à petit prix"
+    ],
+    "ingredients": [
+      {
+        "qty": "600",
+        "unit": "g",
+        "item": "hauts de cuisse de poulet désossés",
+        "note": "en cubes de 3 cm"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "jus + zeste"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "huile d'olive",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "origan séché",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "paprika",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": "2 pour la marinade, 1 pour le tzatziki"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "concombre",
+        "note": ""
+      },
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "yaourt grec entier",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, pains pita, tomates, oignon rouge",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mariner le poulet",
+        "action": "Mélange les cubes de poulet avec le jus et le zeste de citron, l'huile d'olive, l'origan, le paprika, 2 gousses d'ail hachées, sel et poivre. Laisse mariner 30 minutes à température ambiante (ou jusqu'à 12h au frigo).",
+        "why": "Huile + acide + aromates : la marinade type. L'huile véhicule les arômes liposolubles de l'origan, le citron attendrit la surface.",
+        "mistake": "Utiliser du blanc de poulet sans y penser → possible mais moins juteux que le haut de cuisse, qui pardonne les grillades.",
+        "timer": 30
+      },
+      {
+        "id": 2,
+        "title": "Dégorger le concombre pour le tzatziki",
+        "action": "Râpe le concombre avec la peau à la grosse grille. Sale-le et laisse-le dégorger 15 minutes dans une passoire. Presse-le ensuite fortement entre tes mains, par poignées : il doit rendre un maximum d'eau.",
+        "why": "Le concombre est composé à 95% d'eau : non dégorgé, il transforme le tzatziki en soupe en 10 minutes. Le pressage manuel est l'étape qui fait le vrai tzatziki épais.",
+        "mistake": "Mélanger le concombre juste râpé au yaourt → tzatziki liquide qui détrempe le pita.",
+        "timer": 15
+      },
+      {
+        "id": 3,
+        "title": "Monter le tzatziki",
+        "action": "Mélange le yaourt grec, le concombre pressé, 1 gousse d'ail râpée fin, 1 cuillère d'huile d'olive, sel et poivre. Réserve au frais : il s'améliore en 30 minutes.",
+        "why": "Le repos au frais laisse l'ail diffuser dans le yaourt. Râpé fin plutôt que haché, il se répartit sans donner de morceaux piquants.",
+        "mistake": "Trop d'ail cru → il domine tout et s'intensifie avec le temps. Une gousse suffit.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Griller les brochettes",
+        "action": "Enfile les cubes de poulet sur des piques (pas trop serrés). Chauffe une poêle-gril ou une poêle à feu vif. Grille les brochettes 10-12 minutes en les tournant sur les 4 faces : elles doivent être bien marquées et dorées.",
+        "why": "Les cubes espacés cuisent uniformément ; serrés, les faces de contact restent crues. Le feu vif marque la viande et caramélise la marinade en surface.",
+        "mistake": "Tourner sans arrêt → aucune face n'a le temps de marquer. 3 minutes par face sans toucher.",
+        "timer": 11
+      },
+      {
+        "id": 5,
+        "title": "Assembler",
+        "action": "Réchauffe les pitas 1 minute à la poêle. Sers brochettes, tzatziki, tomates, oignon rouge émincé et pitas : chacun compose. Ou tout dans le pita roulé, version street food.",
+        "why": "Le contraste chaud-froid (poulet grillé / tzatziki glacé) est le cœur du plaisir du souvlaki.",
+        "mistake": "Tout assembler à l'avance → pita détrempé et tzatziki tiédi.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 4 personnes : la grillade d'été économique par excellence.",
+      "Au barbecue l'été, c'est encore meilleur : mêmes temps, feu moyen-vif.",
+      "Le tzatziki se garde 2 jours au frigo et accompagne aussi légumes rôtis et poissons grillés."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "souvlaki-poulet-tzatziki",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice de marinade-grillade et de dégorgement : deux techniques simples qui changent tout.",
+        "focus": [
+          "Construire une marinade huile-acide-aromates",
+          "Presser le concombre jusqu'à la dernière goutte",
+          "Marquer chaque face sans tourner sans arrêt"
+        ],
+        "successCriteria": [
+          "Poulet doré dehors, juteux dedans",
+          "Tzatziki épais qui ne rend pas d'eau après 15 minutes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ramen-miso-express",
+    "title": "Ramen miso express",
+    "family": "soupe",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 20,
+    "servings": 2,
+    "skills": [
+      "role-fond-bouillon",
+      "oeufs-coque-mollet-dur",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "role-fond-bouillon"
+    ],
+    "secondarySkills": [
+      "oeufs-coque-mollet-dur"
+    ],
+    "objectives": [
+      "Enrichir un bouillon simple en bouillon ramen profond avec 3 ingrédients",
+      "Réussir l'œuf mollet au jaune crémeux, signature du ramen",
+      "Assembler un bol chaud où chaque garniture reste distincte"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "l",
+        "item": "bouillon de volaille",
+        "note": "maison ou de bonne qualité"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "pâte miso",
+        "note": "blanche ou rouge"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "sauce soja",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "huile de sésame",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "portions de nouilles ramen",
+        "note": "fraîches ou sèches"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail + 2 cm de gingembre",
+        "note": "râpés"
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "champignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons nouveaux",
+        "note": "émincés"
+      },
+      {
+        "qty": "100",
+        "unit": "g",
+        "item": "épinards ou pak choï",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "graines de sésame",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Les œufs mollets d'abord",
+        "action": "Porte une casserole d'eau à ébullition. Plonge délicatement les œufs (sortis du frigo) et cuis exactement 6 minutes 30. Transfère immédiatement dans un bol d'eau glacée. Écale sous un filet d'eau après 5 minutes.",
+        "why": "6 min 30 départ eau bouillante : blanc pris, jaune crémeux-coulant. Le bain glacé stoppe net la cuisson et décolle la membrane, ce qui rend l'écalage propre sur un œuf si tendre.",
+        "mistake": "Écaler à chaud ou trop tôt → l'œuf mollet est fragile, il se déchire. Patience et eau froide.",
+        "timer": 7
+      },
+      {
+        "id": 2,
+        "title": "Enrichir le bouillon",
+        "action": "Fais revenir l'ail et le gingembre râpés 1 minute dans l'huile de sésame, dans une casserole. Ajoute les champignons, 2 minutes. Verse le bouillon, la sauce soja. Porte à frémissement 10 minutes.",
+        "why": "Un bouillon de volaille standard devient base de ramen par infusion d'aromates torréfiés : ail, gingembre et sésame apportent la profondeur japonaise sans 12 heures de cuisson d'os.",
+        "mistake": "Brûler l'ail dans l'huile de sésame → amertume. L'huile de sésame chauffe vite, feu moyen.",
+        "timer": 13
+      },
+      {
+        "id": 3,
+        "title": "Dissoudre le miso hors ébullition",
+        "action": "Baisse le feu sous le frémissement. Prélève une louche de bouillon dans un bol, délaye le miso dedans jusqu'à dissolution complète, reverse dans la casserole. Goûte : ajuste avec soja (sel) ou miso (profondeur). Ne fais plus bouillir.",
+        "why": "Le miso est un ferment vivant : l'ébullition tue ses arômes fins et le fait grainer. On le délaye toujours à part et on l'ajoute en fin, comme une liaison.",
+        "mistake": "Jeter la pâte de miso directement dans le bouillon bouillant → grumeaux au fond et arômes éventés.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Nouilles et légumes verts",
+        "action": "Cuis les nouilles ramen à part dans une grande casserole d'eau (selon paquet, 2-4 minutes). Égoutte-les bien. Plonge les épinards 30 secondes dans la même eau, égoutte.",
+        "why": "Les nouilles cuites dans le bouillon libéreraient leur amidon et le troubleraient en eau de colle. La cuisson séparée garde un bouillon limpide et des nouilles nettes.",
+        "mistake": "Cuire les nouilles dans le bouillon par simplicité → bouillon pâteux et nouilles trop molles à table.",
+        "timer": 4
+      },
+      {
+        "id": 5,
+        "title": "Assembler le bol",
+        "action": "Répartis les nouilles dans deux grands bols. Verse le bouillon brûlant dessus. Dispose en sections : épinards, champignons, œuf mollet coupé en deux, oignons nouveaux, sésame. Sers immédiatement.",
+        "why": "Le ramen se dresse en quartiers visibles : chaque garniture garde son identité et le mangeur compose chaque bouchée. L'œuf coupé au dernier moment garde son jaune intact jusqu'au bol.",
+        "mistake": "Tout mélanger dans la casserole → soupe de nouilles informe, on perd le rituel et les textures.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 6 € pour 2 : le miso s'amortit sur des mois au frigo (soupes, marinades, vinaigrettes).",
+      "Version protéinée : tranches de poulet rôti, porc char siu du commerce ou tofu poêlé.",
+      "Les œufs mollets marinés 2h dans soja + mirin (ajitsuke tamago) sont l'upgrade qui change tout."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "ramen-miso-express",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Travaille l'enrichissement d'un bouillon et la précision de l'œuf mollet chronométré.",
+        "focus": [
+          "Chronométrer l'œuf à la seconde et le choquer à l'eau glacée",
+          "Délayer le miso hors ébullition",
+          "Cuire les nouilles à part pour un bouillon limpide"
+        ],
+        "successCriteria": [
+          "Jaune d'œuf crémeux ni liquide ni dur",
+          "Bouillon profond et limpide, jamais pâteux"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bibimbap-legumes-boeuf",
+    "title": "Bibimbap légumes et bœuf",
+    "family": "pâtes",
+    "difficulty": 2,
+    "timePrep": 30,
+    "timeCook": 20,
+    "servings": 2,
+    "skills": [
+      "sauter-sans-detremper",
+      "tailles-regulieres",
+      "cuire-riz-absorption-pilaf"
+    ],
+    "primarySkills": [
+      "sauter-sans-detremper",
+      "tailles-regulieres"
+    ],
+    "secondarySkills": [
+      "cuire-riz-absorption-pilaf"
+    ],
+    "objectives": [
+      "Sauter chaque légume séparément et l'assaisonner individuellement (principe du namul)",
+      "Organiser une production en série avec une seule poêle",
+      "Composer un bol coréen équilibré couronné d'un œuf au plat"
+    ],
+    "ingredients": [
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "riz rond ou sushi",
+        "note": ""
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "bœuf haché ou en fines lamelles",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "carotte",
+        "note": "en julienne"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "courgette",
+        "note": "en julienne"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "champignons",
+        "note": "émincés"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "épinards frais",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "œufs",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "sauce soja",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile de sésame",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "gochujang",
+        "note": "pâte de piment coréenne, ou sriracha + 1 tsp miel"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "graines de sésame, huile neutre, sel",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Lancer le riz",
+        "action": "Rince le riz à l'eau froide jusqu'à eau claire. Cuis-le par absorption : 1 volume de riz, 1,2 volume d'eau, couvert, 12 minutes à feu doux puis 10 minutes de repos hors feu sans ouvrir.",
+        "why": "Le rinçage retire l'amidon de surface : le riz coréen doit être légèrement collant (il se mange aux baguettes) mais pas pâteux. Le repos vapeur finit la cuisson uniformément.",
+        "mistake": "Ouvrir le couvercle pendant le repos → la vapeur s'échappe et le dessus du riz reste ferme.",
+        "timer": 22
+      },
+      {
+        "id": 2,
+        "title": "Mariner le bœuf",
+        "action": "Mélange le bœuf avec 2 cuillères de soja, le sucre, 1 gousse d'ail hachée et 1 cuillère d'huile de sésame. Réserve le temps de préparer les légumes.",
+        "why": "La marinade sucrée-salée caramélisera à la poêle : c'est le profil bulgogi, la viande sucrée-grillée coréenne.",
+        "mistake": "Saler en plus de la sauce soja → la marinade est déjà l'assaisonnement complet.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Sauter les légumes UN PAR UN",
+        "action": "Dans une poêle chaude avec un filet d'huile neutre : la carotte 2 minutes avec une pincée de sel, débarrasse en tas sur une grande assiette. Puis la courgette 2 minutes, débarrasse. Les champignons 3 minutes avec un trait de soja, débarrasse. Les épinards 1 minute avec l'ail restant, presse-les et débarrasse. Ajoute quelques gouttes d'huile de sésame et du sésame sur chaque tas.",
+        "why": "Le bibimbap repose sur les namuls : chaque légume cuit et assaisonné séparément garde sa couleur, sa texture et son goût propre. C'est exactement l'inverse de la poêlée mélangée — et c'est ce qui fait le plat.",
+        "mistake": "Tout sauter ensemble pour gagner 5 minutes → poêlée uniforme grise, le bibimbap perd sa raison d'être.",
+        "timer": 9
+      },
+      {
+        "id": 4,
+        "title": "Bœuf puis œufs au plat",
+        "action": "Dans la même poêle à feu vif, saute le bœuf mariné 3-4 minutes jusqu'à caramélisation. Débarrasse. Baisse à feu moyen, un filet d'huile, et cuis les 2 œufs au plat : blanc pris et croustillant sur les bords, jaune coulant.",
+        "why": "Le jaune coulant est la sauce liante du bibimbap : mélangé au moment de manger, il enrobe le riz et lie tous les éléments.",
+        "mistake": "Jaune cuit dur → le bol perd son liant, il devient sec au mélange.",
+        "timer": 7
+      },
+      {
+        "id": 5,
+        "title": "Dresser et mélanger à table",
+        "action": "Riz au fond des bols. Dispose les légumes et le bœuf en quartiers réguliers autour, œuf au plat au centre, une cuillère de gochujang sur le bord. À table : chacun mélange vigoureusement tout son bol.",
+        "why": "Bibimbap signifie littéralement 'riz mélangé' : le dressage en quartiers est éphémère et le mélange à table fait partie du plat. Le gochujang se dose en mélangeant.",
+        "mistake": "Servir déjà mélangé → tu prives le mangeur du geste et du dosage du piment.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 2. Le gochujang se conserve des mois et relève soupes, marinades et riz sautés.",
+      "Version végé : remplace le bœuf par du tofu mariné dans la même sauce.",
+      "Les namuls se préparent à l'avance et se mangent à température ambiante : c'est authentique."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "bibimbap-legumes-boeuf",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice d'organisation en série : une poêle, cinq cuissons successives, zéro temps mort.",
+        "focus": [
+          "Tailler des juliennes régulières pour des cuissons de 2 minutes",
+          "Enchaîner les cuissons sans laver la poêle",
+          "Assaisonner chaque légume individuellement"
+        ],
+        "successCriteria": [
+          "Chaque légume a sa couleur vive et sa texture propre",
+          "L'œuf au plat a le jaune coulant qui lie le bol au mélange"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "butter-chicken",
+    "title": "Butter chicken (murgh makhani)",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 30,
+    "servings": 4,
+    "skills": [
+      "sauce-creme-nappante",
+      "saisir-colorer-maillard",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "sauce-creme-nappante"
+    ],
+    "secondarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "objectives": [
+      "Mariner le poulet au yaourt épicé pour l'attendrir et le parfumer",
+      "Construire une sauce tomate-beurre-crème onctueuse et équilibrée",
+      "Doser garam masala et acidité pour un curry rond, ni plat ni agressif"
+    ],
+    "ingredients": [
+      {
+        "qty": "600",
+        "unit": "g",
+        "item": "hauts de cuisse de poulet désossés",
+        "note": "en morceaux de 4 cm"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "yaourt nature",
+        "note": "pour la marinade"
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "garam masala",
+        "note": "+ 1 tsp pour la sauce"
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "curcuma + 1 tsp paprika",
+        "note": ""
+      },
+      {
+        "qty": "4",
+        "unit": "",
+        "item": "gousses d'ail + 3 cm de gingembre",
+        "note": "râpés"
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "tomates concassées ou passata",
+        "note": ""
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "beurre",
+        "note": ""
+      },
+      {
+        "qty": "15",
+        "unit": "cl",
+        "item": "crème liquide entière",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, coriandre fraîche, riz basmati ou naans",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mariner le poulet au yaourt",
+        "action": "Mélange le poulet avec le yaourt, la moitié de l'ail-gingembre, 2 tsp de garam masala, le curcuma, le paprika et du sel. Laisse mariner 30 minutes minimum (ou une nuit au frigo).",
+        "why": "L'acide lactique du yaourt attendrit la viande en douceur (plus progressivement que le citron) et la marinade épicée forme une croûte parfumée à la saisie. C'est le principe du poulet tandoori.",
+        "mistake": "Marinade de 5 minutes → le yaourt n'a aucun effet, le poulet est juste enrobé.",
+        "timer": 30
+      },
+      {
+        "id": 2,
+        "title": "Saisir le poulet fort",
+        "action": "Chauffe 20 g de beurre à feu vif dans une grande poêle. Saisis les morceaux de poulet égouttés (sans tout le surplus de marinade) 3-4 minutes en les retournant : des points de charred (légèrement noircis) sont bienvenus. Le centre peut rester rosé. Réserve.",
+        "why": "Les points légèrement brûlés imitent le four tandoor et apportent la note fumée caractéristique du butter chicken. Le poulet finira de cuire dans la sauce.",
+        "mistake": "Avoir peur des taches sombres → c'est le goût du plat. Noirci par endroits ≠ brûlé partout.",
+        "timer": 4
+      },
+      {
+        "id": 3,
+        "title": "Construire la sauce",
+        "action": "Dans la même poêle, fonds le reste du beurre. Fais revenir le reste d'ail-gingembre 1 minute. Ajoute les tomates, le sucre et du sel. Mijote 10 minutes à feu moyen jusqu'à une sauce épaissie dont le gras commence à se séparer sur les bords.",
+        "why": "La séparation du gras sur les bords est le signal indien classique : la tomate a perdu son eau et son acidité crue, la base est prête à recevoir la crème.",
+        "mistake": "Ajouter la crème sur une tomate encore aqueuse → sauce rose, fade et liquide.",
+        "timer": 11
+      },
+      {
+        "id": 4,
+        "title": "Crémer et finir le poulet",
+        "action": "Baisse le feu. Verse la crème, mélange, puis remets le poulet et son jus. Mijote doucement 8-10 minutes. Ajoute le garam masala restant en toute fin. Goûte : ajuste sel et sucre — la sauce doit être ronde, légèrement sucrée, ni acide ni écœurante.",
+        "why": "Le garam masala en fin de cuisson garde ses notes hautes (cardamome, cannelle) qui s'évaporent en cuisson longue. C'est un assaisonnement de finition, comme un poivre.",
+        "mistake": "Tout le garam masala au début → il ne reste que les notes lourdes, le curry sent la poussière d'épices.",
+        "timer": 9
+      }
+    ],
+    "tips": [
+      "Environ 9 € pour 4 : très en dessous du restaurant indien, pour un résultat comparable dès la deuxième fois.",
+      "Sers avec du riz basmati et des naans pour saucer : la sauce est la moitié du plat.",
+      "Se congèle parfaitement. Une noix de beurre au réchauffage relance l'onctuosité."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "butter-chicken",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice de sauce crémée : lire les signaux de la tomate (séparation du gras) et finir aux épices fraîches.",
+        "focus": [
+          "Saisir fort sans craindre les points sombres",
+          "Attendre la séparation du gras avant la crème",
+          "Réserver le garam masala pour la fin"
+        ],
+        "successCriteria": [
+          "Sauce orange soutenu, onctueuse et nappante",
+          "Équilibre rond : ni acide, ni écœurant, ni plat"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tacos-poulet-pico-gallo",
+    "title": "Tacos de poulet, pico de gallo",
+    "family": "viande",
+    "difficulty": 1,
+    "timePrep": 20,
+    "timeCook": 12,
+    "servings": 4,
+    "skills": [
+      "saisir-colorer-maillard",
+      "equilibrer-saveurs",
+      "tailles-regulieres"
+    ],
+    "primarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "secondarySkills": [
+      "saisir-colorer-maillard"
+    ],
+    "objectives": [
+      "Réaliser un pico de gallo frais : la salsa crue qui porte le taco",
+      "Cuire un poulet épicé juteux en morceaux fins",
+      "Comprendre l'architecture d'un taco : chaud, frais, acide, crémeux"
+    ],
+    "ingredients": [
+      {
+        "qty": "500",
+        "unit": "g",
+        "item": "hauts de cuisse de poulet désossés",
+        "note": "en lanières"
+      },
+      {
+        "qty": "8",
+        "unit": "",
+        "item": "tortillas de maïs ou de blé",
+        "note": "petites"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "tomates fermes",
+        "note": "en petits dés"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon rouge",
+        "note": "moitié en dés fins, moitié émincé"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "citrons verts",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "bouquet de coriandre",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "paprika fumé",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "origan séché",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "avocat mûr",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, piment (optionnel)",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Le pico de gallo en premier",
+        "action": "Mélange les dés de tomate, l'oignon rouge en dés fins, la moitié de la coriandre ciselée, le jus d'un citron vert et du sel. Laisse reposer 15 minutes à température ambiante.",
+        "why": "Le repos fait dégorger légèrement la tomate et marie les saveurs : le pico de gallo se bonifie en 15 minutes puis décline (l'oignon prend le dessus après 2 heures). On le fait donc en premier, jamais la veille.",
+        "mistake": "Dés de tomate trop gros → ils glissent hors du taco. 5 mm maximum, c'est une salsa, pas une salade.",
+        "timer": 15
+      },
+      {
+        "id": 2,
+        "title": "Épicer et cuire le poulet",
+        "action": "Mélange les lanières de poulet avec le cumin, le paprika fumé, l'origan, du sel et 1 cuillère d'huile. Chauffe le reste d'huile à feu vif et saute le poulet 6-8 minutes sans surcharger la poêle, jusqu'à doré avec des bords caramélisés. Arrose du jus d'un demi-citron vert en fin.",
+        "why": "Le déglaçage final au citron vert décolle les sucs épicés et les ramène sur la viande : c'est l'acidité chaude qui répond à l'acidité froide du pico.",
+        "mistake": "Poêle surchargée → le poulet rend son eau et bout dans les épices au lieu de griller.",
+        "timer": 8
+      },
+      {
+        "id": 3,
+        "title": "Réchauffer les tortillas",
+        "action": "Passe chaque tortilla 20-30 secondes par face dans une poêle sèche bien chaude. Empile-les dans un torchon plié pour les garder chaudes et souples.",
+        "why": "Une tortilla froide casse quand on la plie. La chaleur réactive son amidon et la rend souple ; le torchon la garde à la vapeur douce jusqu'au service.",
+        "mistake": "Micro-ondes sans précaution → tortillas caoutchouteuses qui durcissent en 2 minutes.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Assembler à table",
+        "action": "Écrase l'avocat avec du sel et un trait de citron vert. Sers tout en plats séparés : tortillas chaudes, poulet, pico de gallo, avocat écrasé, oignon émincé, coriandre. Chacun monte ses tacos : avocat, poulet, pico, garnitures.",
+        "why": "Le taco est une architecture : le gras de l'avocat en couche de fond protège la tortilla de l'humidité du pico, le chaud et le froid se superposent sans se mélanger.",
+        "mistake": "Monter les tacos en cuisine à l'avance → tortillas détrempées avant d'arriver à table.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 4 personnes et un format convivial : tout le monde compose.",
+      "Le pico de gallo accompagne aussi poissons grillés, œufs brouillés et viandes rôties.",
+      "Version végé : haricots noirs sautés au cumin ou patate douce rôtie au paprika."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tacos-poulet-pico-gallo",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice d'équilibre des saveurs : construire chaud/froid, gras/acide, fondant/croquant dans une seule bouchée.",
+        "focus": [
+          "Tailler un pico de gallo régulier à 5 mm",
+          "Saisir le poulet sans surcharger la poêle",
+          "Superposer les couches dans le bon ordre"
+        ],
+        "successCriteria": [
+          "Pico frais et acidulé qui ne détrempe pas la tortilla",
+          "Poulet juteux aux bords caramélisés"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pho-boeuf-express",
+    "title": "Phở au bœuf express",
+    "family": "soupe",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 30,
+    "servings": 2,
+    "skills": [
+      "role-fond-bouillon",
+      "bouillir-fremir-pocher",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "role-fond-bouillon"
+    ],
+    "secondarySkills": [
+      "bouillir-fremir-pocher"
+    ],
+    "objectives": [
+      "Parfumer un bouillon aux épices torréfiées en 30 minutes au lieu de 8 heures",
+      "Cuire le bœuf cru directement dans le bol par le bouillon brûlant",
+      "Équilibrer le bouillon au nuoc-mâm et finir aux herbes fraîches"
+    ],
+    "ingredients": [
+      {
+        "qty": "1.2",
+        "unit": "l",
+        "item": "bouillon de bœuf",
+        "note": "de bonne qualité"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "bœuf très tendre (filet, rumsteck)",
+        "note": "en tranches très fines, presque transparentes"
+      },
+      {
+        "qty": "150",
+        "unit": "g",
+        "item": "nouilles de riz plates",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "coupé en deux, non épluché"
+      },
+      {
+        "qty": "4",
+        "unit": "cm",
+        "item": "gingembre",
+        "note": "en tranches épaisses, non épluché"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "étoiles de badiane (anis étoilé)",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "bâton de cannelle",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "clous de girofle",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "nuoc-mâm",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "germes de soja, basilic thaï ou coriandre, citron vert, oignon nouveau, piment",
+        "note": "pour la table"
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Griller oignon et gingembre",
+        "action": "Pose les demi-oignons et les tranches de gingembre face coupée contre une poêle sèche très chaude (ou sous le gril). Laisse noircir franchement 5-6 minutes : les faces doivent être charbonnées.",
+        "why": "C'est LE secret du phở : la carbonisation de l'oignon et du gingembre apporte la profondeur fumée-sucrée qui distingue un vrai bouillon phở d'un simple bouillon épicé. Sans cette étape, il manquera toujours quelque chose.",
+        "mistake": "Juste dorer par timidité → l'effet n'existe qu'avec un vrai noircissement. C'est voulu, ce n'est pas brûler.",
+        "timer": 6
+      },
+      {
+        "id": 2,
+        "title": "Torréfier les épices et infuser",
+        "action": "Dans la casserole du bouillon, toaste à sec la badiane, la cannelle et les clous de girofle 1 minute jusqu'à ce qu'ils embaument. Verse le bouillon, ajoute l'oignon et le gingembre grillés. Frémissement doux, couvert, 25 minutes.",
+        "why": "La torréfaction réveille les huiles essentielles des épices entières ; l'infusion douce les diffuse sans amertume. 25 minutes suffisent pour parfumer un bouillon déjà fait — c'est le raccourci qui rend le phở accessible un soir de semaine.",
+        "mistake": "Ébullition forte → le bouillon se trouble et les épices deviennent amères et médicinales.",
+        "timer": 26
+      },
+      {
+        "id": 3,
+        "title": "Assaisonner et filtrer",
+        "action": "Retire oignon, gingembre et épices avec une écumoire (ou filtre). Assaisonne avec le nuoc-mâm et le sucre. Goûte : le bouillon doit être net, parfumé, salé juste sous le seuil — les garnitures vont le compléter. Garde-le à frémissement.",
+        "why": "Le nuoc-mâm sale et apporte l'umami marin typiquement vietnamien. On sous-sale très légèrement car les convives ajusteront à table.",
+        "mistake": "Laisser la badiane infuser indéfiniment → au-delà de 30 minutes, l'anis écrase tout.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Nouilles et bœuf cru au montage",
+        "action": "Cuis les nouilles de riz selon le paquet, rince brièvement, répartis dans deux grands bols. Dispose les tranches de bœuf CRU en rosace sur les nouilles. Verse le bouillon BOUILLANT directement sur la viande : elle cuit instantanément et devient rosée.",
+        "why": "La cuisson dans le bol est la signature du phở : la tranche fine saisie par le bouillon à 95°C reste tendre et rosée, impossible à obtenir autrement. D'où l'importance de trancher très fin (15 minutes au congélateur raffermissent la viande pour la découpe).",
+        "mistake": "Tranches épaisses → elles restent crues au centre ou durcissent. Presque transparentes, c'est la règle.",
+        "timer": 4
+      },
+      {
+        "id": 5,
+        "title": "Garnir à table",
+        "action": "Sers immédiatement avec les garnitures en plats séparés : germes de soja, herbes, citron vert, piment, oignon nouveau. Chacun compose et ajuste son bol.",
+        "why": "Les herbes crues plongées dans le bouillon brûlant libèrent leur parfum par infusion minute : c'est la moitié de l'expérience du phở.",
+        "mistake": "Mettre les herbes dans la casserole → cuites, elles noircissent et perdent tout.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 9 € pour 2 grands bols repas complets.",
+      "Demande au boucher de trancher le bœuf 'pour carpaccio' : il a la machine pour le faire parfaitement.",
+      "Version poulet (phở gà) : bouillon de volaille, mêmes épices, blanc de poulet poché émincé."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "pho-boeuf-express",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice de construction de bouillon : carbonisation volontaire, torréfaction d'épices et cuisson par versement.",
+        "focus": [
+          "Oser noircir franchement l'oignon et le gingembre",
+          "Maintenir un frémissement doux pendant l'infusion",
+          "Trancher le bœuf assez fin pour la cuisson au bol"
+        ],
+        "successCriteria": [
+          "Bouillon limpide, parfumé et fumé en profondeur",
+          "Bœuf rosé et tendre, cuit par le seul bouillon versé"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "houmous-creme-maison",
+    "title": "Houmous crémeux maison",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 15,
+    "timeCook": 0,
+    "servings": 4,
+    "skills": [
+      "equilibrer-saveurs",
+      "comprendre-emulsion"
+    ],
+    "primarySkills": [
+      "comprendre-emulsion"
+    ],
+    "secondarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "objectives": [
+      "Émulsionner tahini, citron et eau glacée en crème claire avant d'ajouter les pois chiches",
+      "Obtenir la texture aérienne des houmous levantins, loin des pâtes compactes du commerce",
+      "Équilibrer sésame, citron, ail et sel au goût"
+    ],
+    "ingredients": [
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "pois chiches en boîte",
+        "note": "ici la boîte est parfaite — égouttés, liquide réservé"
+      },
+      {
+        "qty": "80",
+        "unit": "g",
+        "item": "tahini",
+        "note": "purée de sésame, bien remué"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron",
+        "note": "jus"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gousse d'ail",
+        "note": "petite"
+      },
+      {
+        "qty": "5",
+        "unit": "cl",
+        "item": "eau glacée",
+        "note": "avec un glaçon"
+      },
+      {
+        "qty": "0.5",
+        "unit": "tsp",
+        "item": "cumin moulu",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, huile d'olive, paprika, pour servir",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Attendrir les pois chiches",
+        "action": "Verse les pois chiches égouttés dans une casserole, couvre d'eau avec une pincée de bicarbonate si tu en as. Fais frémir 10 minutes : ils doivent s'écraser sans résistance entre deux doigts. Égoutte.",
+        "why": "Même en boîte, les pois chiches gagnent à être re-attendris : plus ils sont mous, plus le houmous sera lisse. Le bicarbonate dégrade les peaux, principales responsables du grain.",
+        "mistake": "Mixer les pois chiches tels quels → houmous granuleux, le défaut numéro un des houmous maison.",
+        "timer": 10
+      },
+      {
+        "id": 2,
+        "title": "Émulsionner le tahini D'ABORD",
+        "action": "Dans le mixeur : tahini, jus de citron, ail et sel. Mixe 1 minute — le mélange épaissit et se bloque. Ajoute alors l'eau glacée progressivement en mixant : la pâte se détend et blanchit en crème claire et brillante.",
+        "why": "C'est l'ordre levantin : le tahini émulsionné à l'eau glacée d'abord crée la base aérienne dans laquelle les pois chiches s'incorporent. Tout mixer ensemble donne une pâte dense — la différence entre houmous de Tel-Aviv et houmous de supermarché tient à cet ordre.",
+        "mistake": "Paniquer quand le tahini se bloque au citron → c'est normal, c'est l'eau glacée qui le détend ensuite.",
+        "timer": 2
+      },
+      {
+        "id": 3,
+        "title": "Incorporer les pois chiches",
+        "action": "Ajoute les pois chiches chauds et le cumin. Mixe 2-3 minutes pleines, en raclant les bords. Détends avec le liquide de boîte réservé, cuillère par cuillère, jusqu'à une texture souple qui fait un ruban épais. Goûte : ajuste sel et citron.",
+        "why": "Le mixage long (bien plus long qu'on ne croit) est le second secret : 3 minutes lissent ce que 30 secondes laissent granuleux. Les pois chiches chauds s'émulsionnent mieux que froids.",
+        "mistake": "Arrêter le mixeur dès que ça 'a l'air bon' → 2 minutes de plus séparent le correct du soyeux.",
+        "timer": 3
+      },
+      {
+        "id": 4,
+        "title": "Dresser à la levantine",
+        "action": "Étale le houmous dans une assiette creuse en créant un tourbillon avec le dos d'une cuillère. Verse de l'huile d'olive dans les sillons, parsème de paprika et de quelques pois chiches entiers. Sers avec pain pita chaud ou légumes.",
+        "why": "Le houmous se mange à température ambiante, jamais glacé : le froid fige le tahini et tue les arômes. Le tourbillon n'est pas que décoratif, il retient l'huile d'olive.",
+        "mistake": "Servir sortant du frigo → texture raidie et goût muet. Sortir 30 minutes avant.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 2,50 € le grand bol, contre 4 € les 200 g en barquette industrielle, et sans comparaison de goût.",
+      "Se garde 4 jours au frigo, filmé au contact avec un filet d'huile.",
+      "Variantes : betterave cuite mixée dedans (rose), ou citron confit, ou houmous chaud aux pois chiches entiers et pignons."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "houmous-creme-maison",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Une émulsion sans cuisson : voir le tahini se bloquer puis se détendre à l'eau glacée est une leçon d'émulsion en direct.",
+        "focus": [
+          "Respecter l'ordre : tahini émulsionné avant les pois chiches",
+          "Mixer bien plus longtemps que l'intuition",
+          "Ajuster la texture au liquide, le goût au sel et citron"
+        ],
+        "successCriteria": [
+          "Texture soyeuse et aérienne, sans grain",
+          "Couleur claire, presque beige pâle, signe de la bonne émulsion"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "moussaka-simplifiee",
+    "title": "Moussaka simplifiée",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 30,
+    "timeCook": 60,
+    "servings": 6,
+    "skills": [
+      "roux-bechamel-veloute",
+      "comprendre-four",
+      "sauce-tomate-reduite"
+    ],
+    "primarySkills": [
+      "roux-bechamel-veloute",
+      "comprendre-four"
+    ],
+    "secondarySkills": [
+      "sauce-tomate-reduite"
+    ],
+    "objectives": [
+      "Rôtir les aubergines au four plutôt que les frire : moins de gras, plus simple",
+      "Réaliser une sauce viande-tomate-cannelle typiquement grecque",
+      "Couronner d'une béchamel épaisse enrichie à l'œuf qui gonfle et dore"
+    ],
+    "ingredients": [
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "aubergines",
+        "note": "en tranches de 1 cm dans la longueur"
+      },
+      {
+        "qty": "500",
+        "unit": "g",
+        "item": "agneau ou bœuf haché",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "tomates concassées",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "cannelle moulue",
+        "note": "l'épice signature"
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "origan séché",
+        "note": ""
+      },
+      {
+        "qty": "10",
+        "unit": "cl",
+        "item": "vin rouge",
+        "note": "optionnel"
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "beurre + 60 g farine + 70 cl lait",
+        "note": "pour la béchamel"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "œuf + 1 jaune",
+        "note": "pour enrichir la béchamel"
+      },
+      {
+        "qty": "60",
+        "unit": "g",
+        "item": "fromage râpé ou kefalotyri",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "huile d'olive, sel, poivre, muscade",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Rôtir les aubergines",
+        "action": "Préchauffe le four à 220°C. Badigeonne les tranches d'aubergine d'huile d'olive au pinceau, sale. Étale sur deux plaques et rôtis 20-25 minutes en retournant à mi-cuisson : elles doivent être dorées et fondantes.",
+        "why": "Traditionnellement frites, les aubergines absorbent alors des litres d'huile. Rôties au four, elles dorent et fondent avec un pinceau d'huile : même résultat dans le plat final, moitié moins de gras et de travail.",
+        "mistake": "Aubergines pas assez cuites à cette étape → elles ne cuiront presque plus dans le montage, et resteront caoutchouteuses.",
+        "timer": 22
+      },
+      {
+        "id": 2,
+        "title": "La sauce viande à la cannelle",
+        "action": "Fais revenir l'oignon 5 minutes dans 2 cuillères d'huile, ajoute l'ail puis la viande hachée. Colore 6 minutes en émiettant. Déglace au vin rouge, ajoute les tomates, la cannelle, l'origan, sel et poivre. Mijote 15 minutes à découvert : la sauce doit être épaisse, presque sèche.",
+        "why": "La cannelle dans la viande est la signature grecque qui distingue la moussaka d'un gratin bolognaise. La sauce doit être très réduite : elle est prise en sandwich et toute humidité excédentaire détremperait l'étage du dessous.",
+        "mistake": "Sauce encore liquide au montage → moussaka qui s'effondre en flaque à la découpe.",
+        "timer": 26
+      },
+      {
+        "id": 3,
+        "title": "La béchamel enrichie",
+        "action": "Roux : fonds le beurre, ajoute la farine, cuis 2 minutes. Verse le lait progressivement en fouettant, cuis 5 minutes en une béchamel épaisse. Sel, poivre, muscade. Hors du feu, laisse tiédir 3 minutes puis incorpore l'œuf et le jaune en fouettant vivement, et la moitié du fromage.",
+        "why": "L'œuf transforme la béchamel en appareil qui gonfle, se tient et dore au four — c'est la croûte soufflée caractéristique de la moussaka. Hors du feu et après tiédissement, sinon il coagule en grumeaux.",
+        "mistake": "Œuf dans la béchamel bouillante → œufs brouillés dans la béchamel. Trois minutes de patience.",
+        "timer": 10
+      },
+      {
+        "id": 4,
+        "title": "Monter et gratiner",
+        "action": "Four à 180°C. Dans un grand plat : moitié des aubergines, toute la viande, le reste des aubergines, puis la béchamel en couche épaisse. Parsème du fromage restant. Enfourne 35-40 minutes jusqu'à une surface bien dorée et gonflée. Repos impératif de 15 minutes avant découpe.",
+        "why": "Le repos est encore plus crucial que pour les lasagnes : la béchamel à l'œuf finit de prendre en refroidissant. Coupée chaude, la moussaka coule ; après 15 minutes, les parts se tiennent en étages nets.",
+        "mistake": "Servir à la sortie du four → étages effondrés. La moussaka se sert chaude, pas brûlante : c'est la tradition.",
+        "timer": 38
+      }
+    ],
+    "tips": [
+      "Environ 10 € pour 6 personnes, et meilleure réchauffée le lendemain.",
+      "Une couche de pommes de terre précuites en rondelles sous les aubergines : la version complète des tavernes.",
+      "Version végé : remplace la viande par des lentilles vertes cuites mijotées dans la même sauce tomate-cannelle."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "moussaka-simplifiee",
+        "type": "synthesis",
+        "label": "Recette de synthèse",
+        "reason": "Combine rôtissage, sauce réduite et béchamel enrichie à l'œuf : trois techniques pour un plat monté.",
+        "focus": [
+          "Réduire la sauce viande jusqu'au stade presque sec",
+          "Tempérer l'œuf dans la béchamel tiédie",
+          "Respecter les 15 minutes de repos avant découpe"
+        ],
+        "successCriteria": [
+          "Béchamel gonflée et dorée comme un soufflé posé",
+          "Parts qui se tiennent en trois étages nets"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "goulash-hongrois",
+    "title": "Goulash hongrois",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 20,
+    "timeCook": 120,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "ail-oignon-echalote",
+      "saler-par-couches"
+    ],
+    "primarySkills": [
+      "principe-cuisson-longue"
+    ],
+    "secondarySkills": [
+      "ail-oignon-echalote"
+    ],
+    "objectives": [
+      "Apprendre la règle d'or du paprika : jamais sur feu vif",
+      "Mijoter un bœuf en sauce où les oignons fondus font la liaison",
+      "Comprendre un mijoté qui se passe de farine et de vin"
+    ],
+    "ingredients": [
+      {
+        "qty": "800",
+        "unit": "g",
+        "item": "paleron ou macreuse de bœuf",
+        "note": "en cubes de 3-4 cm"
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gros oignons",
+        "note": "émincés — autant que de viande en volume"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "paprika doux hongrois",
+        "note": "de qualité, c'est l'âme du plat"
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "carvi ou cumin",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "poivrons",
+        "note": "1 rouge, 1 vert, en lanières"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "tomates ou 200 g de concassées",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "gousses d'ail",
+        "note": ""
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "pommes de terre fermes",
+        "note": "en gros cubes"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "saindoux ou huile",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, eau ou bouillon",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Colorer la viande",
+        "action": "Chauffe la matière grasse à feu vif dans une cocotte. Colore les cubes de bœuf en deux fournées, 4-5 minutes chacune, sur toutes les faces. Réserve.",
+        "why": "Les sucs de coloration sont la première fondation du goulash. En deux fournées, la cocotte reste assez chaude pour saisir au lieu de bouillir.",
+        "mistake": "Tout verser d'un coup → la viande rend son eau, bout, et grise sans jamais colorer.",
+        "timer": 9
+      },
+      {
+        "id": 2,
+        "title": "Fondre les oignons longuement",
+        "action": "Baisse à feu moyen. Fais fondre les oignons dans la même cocotte 10-12 minutes avec une pincée de sel, en grattant les sucs, jusqu'à blonds et fondants. Ajoute l'ail et le carvi, 1 minute.",
+        "why": "Dans le goulash, les oignons fondus PUIS délités par 2 heures de mijotage sont la seule liaison de la sauce : pas de farine, pas de crème. Leur quantité (énorme en apparence) et leur fonte sont structurelles, pas aromatiques.",
+        "mistake": "Réduire la dose d'oignons → sauce maigre et aqueuse en fin de cuisson.",
+        "timer": 12
+      },
+      {
+        "id": 3,
+        "title": "Le paprika HORS DU FEU",
+        "action": "Retire la cocotte du feu. Ajoute le paprika sur les oignons et mélange 30 secondes : il s'enrobe dans le gras chaud mais ne frit pas. Remets aussitôt la viande, les tomates et de l'eau chaude à hauteur. Replace sur le feu.",
+        "why": "Le paprika contient beaucoup de sucres : sur feu vif, il brûle en quelques secondes et devient âcre et amer — irrécupérable. Hors du feu, le gras à 100°C libère sa couleur et ses arômes sans le brûler. C'est LA règle hongroise.",
+        "mistake": "Paprika jeté dans la cocotte sur le feu 'comme une épice normale' → goulash amer, le défaut classique du débutant.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Mijoter longuement",
+        "action": "Sale, couvre et mijote à feu très doux 1h30, en remuant de temps en temps. Ajoute les poivrons et les pommes de terre, et un peu d'eau si nécessaire. Poursuis 30 minutes : viande fondante, pommes de terre cuites, sauce liée par les oignons délités.",
+        "why": "Le paleron a besoin de 2 heures pour transformer son collagène en gélatine. Les légumes ajoutés en deux temps gardent leur tenue : les pommes de terre en début seraient en purée.",
+        "mistake": "Goûter à 1 heure et conclure que la viande est dure et ratée → c'est l'étape normale. Le fondant arrive d'un coup entre 1h30 et 2h.",
+        "timer": 120
+      }
+    ],
+    "tips": [
+      "Environ 11 € pour 4 et encore meilleur le lendemain, comme tous les mijotés.",
+      "Une cuillère de crème aigre (ou crème + citron) au service : la touche d'Europe centrale.",
+      "Le vrai paprika hongrois (édes) se trouve en épicerie fine et change réellement le plat."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "goulash-hongrois",
+        "type": "contrast",
+        "label": "Recette de contraste",
+        "reason": "Un mijoté lié sans farine ni roux, par les seuls oignons délités : le contraste avec bœuf carottes ou blanquette éclaire ce que veut dire 'lier une sauce'.",
+        "focus": [
+          "Ajouter le paprika hors du feu, systématiquement",
+          "Ne pas lésiner sur les oignons",
+          "Attendre le basculement du fondant entre 1h30 et 2h"
+        ],
+        "successCriteria": [
+          "Sauce rouge profond, liée et veloutée sans farine",
+          "Aucune amertume : le paprika n'a pas brûlé"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "couscous-legumes-express",
+    "title": "Couscous aux légumes express",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 20,
+    "timeCook": 35,
+    "servings": 4,
+    "skills": [
+      "principe-cuisson-longue",
+      "saler-par-couches",
+      "cuire-legumes-selon-texture"
+    ],
+    "primarySkills": [
+      "cuire-legumes-selon-texture"
+    ],
+    "secondarySkills": [
+      "saler-par-couches"
+    ],
+    "objectives": [
+      "Échelonner les légumes dans le bouillon selon leur temps de cuisson",
+      "Construire un bouillon épicé qui parfume légumes et semoule",
+      "Réussir une semoule légère et égrainée sans couscoussier"
+    ],
+    "ingredients": [
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "semoule de couscous moyenne",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "carottes",
+        "note": "en gros tronçons"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "navets",
+        "note": "en quartiers"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "courgettes",
+        "note": "en gros tronçons"
+      },
+      {
+        "qty": "400",
+        "unit": "g",
+        "item": "pois chiches en boîte",
+        "note": "égouttés"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "concentré de tomates",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tsp",
+        "item": "ras-el-hanout",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "cumin + 1 tsp curcuma",
+        "note": ""
+      },
+      {
+        "qty": "1.2",
+        "unit": "l",
+        "item": "eau ou bouillon de légumes",
+        "note": ""
+      },
+      {
+        "qty": "40",
+        "unit": "g",
+        "item": "beurre",
+        "note": "pour la semoule"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "huile d'olive, sel, harissa, coriandre",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "La base du bouillon",
+        "action": "Fais revenir l'oignon 5 minutes dans 2 cuillères d'huile dans une grande cocotte. Ajoute le concentré de tomates et les épices, torréfie 1-2 minutes en remuant. Verse le bouillon, sale, porte à frémissement.",
+        "why": "Concentré et épices torréfiés dans le gras donnent au bouillon sa couleur rouge orangé et sa profondeur. Versés crus dans l'eau, ils flotteraient sans infuser.",
+        "mistake": "Bouillon non goûté à cette étape → c'est lui qui assaisonne tout le plat, il doit déjà être bon seul.",
+        "timer": 8
+      },
+      {
+        "id": 2,
+        "title": "Échelonner les légumes : durs d'abord",
+        "action": "Plonge carottes et navets dans le bouillon frémissant. Cuis 15 minutes. Ajoute ALORS les courgettes et les pois chiches. Poursuis 12-15 minutes : tous les légumes doivent être fondants en même temps.",
+        "why": "Carotte et navet demandent 30 minutes, la courgette 12 : l'échelonnement est la seule façon d'avoir tout fondant sans rien en bouillie. C'est la leçon de cuisson des légumes appliquée à un plat unique.",
+        "mistake": "Tout plonger ensemble → courgettes en charpie pendant que les navets résistent encore.",
+        "timer": 28
+      },
+      {
+        "id": 3,
+        "title": "La semoule au bouillon",
+        "action": "Pendant ce temps, verse la semoule dans un grand saladier avec un filet d'huile d'olive et une pincée de sel, mélange pour enrober. Prélève 35 cl de bouillon de cuisson brûlant, verse sur la semoule, couvre 5 minutes. Ajoute le beurre et égraine longuement à la fourchette.",
+        "why": "Hydratée au bouillon du plat plutôt qu'à l'eau, la semoule porte déjà le goût du couscous. L'huile préalable enrobe les grains et empêche les paquets ; l'égrainage au beurre finit la séparation.",
+        "mistake": "Égrainage expédié en 10 secondes → semoule en blocs compacts. C'est un vrai geste de 2 minutes.",
+        "timer": 6
+      },
+      {
+        "id": 4,
+        "title": "Dresser et servir",
+        "action": "Goûte et ajuste le bouillon en sel. Sers la semoule en dôme dans un grand plat, les légumes dessus, et le bouillon en saucière à part. La harissa, délayée dans un peu de bouillon, se sert à côté.",
+        "why": "Le bouillon à part permet à chacun d'arroser à son goût : la semoule s'imbibe vite et un couscous noyé d'office ne se rattrape pas.",
+        "mistake": "Harissa diluée directement dans la cocotte → tout le monde subit le même piquant.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 6 € pour 4 en version légumes. Ajoute merguez grillées ou poulet pour la version complète.",
+      "Raisins secs gonflés dans le bouillon chaud et amandes effilées : la touche sucrée-salée.",
+      "Le bouillon restant se congèle et fait une excellente base de soupe épicée."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "couscous-legumes-express",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Application directe de la cuisson échelonnée des légumes dans un seul bouillon.",
+        "focus": [
+          "Classer les légumes par temps de cuisson avant de commencer",
+          "Goûter le bouillon avant d'y plonger quoi que ce soit",
+          "Égrainer la semoule sérieusement"
+        ],
+        "successCriteria": [
+          "Tous les légumes fondants en même temps, aucun en purée",
+          "Semoule légère et détachée, grain par grain"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poke-bowl-saumon",
+    "title": "Poke bowl au saumon",
+    "family": "poisson",
+    "difficulty": 1,
+    "timePrep": 25,
+    "timeCook": 15,
+    "servings": 2,
+    "skills": [
+      "cuire-riz-absorption-pilaf",
+      "tailles-regulieres",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "tailles-regulieres"
+    ],
+    "secondarySkills": [
+      "cuire-riz-absorption-pilaf"
+    ],
+    "objectives": [
+      "Choisir et travailler un poisson cru en sécurité",
+      "Assaisonner un riz vinaigré façon sushi",
+      "Composer un bol équilibré : base, protéine, croquant, crémeux, peps"
+    ],
+    "ingredients": [
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "saumon très frais qualité sashimi",
+        "note": "ou saumon préalablement congelé 48h — demander au poissonnier"
+      },
+      {
+        "qty": "200",
+        "unit": "g",
+        "item": "riz rond ou sushi",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "vinaigre de riz",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "sauce soja",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "huile de sésame",
+        "note": ""
+      },
+      {
+        "qty": "0.5",
+        "unit": "",
+        "item": "concombre",
+        "note": "en dés"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "avocat",
+        "note": "en lamelles"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "carotte",
+        "note": "râpée"
+      },
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "oignons nouveaux",
+        "note": "émincés"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "graines de sésame, gingembre frais, citron vert",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "La sécurité du poisson cru d'abord",
+        "action": "Achète du saumon 'qualité sashimi' ou congèle ton pavé 48h à -18°C avant utilisation (puis décongèle au frigo). Demande explicitement au poissonnier un poisson pour consommation crue.",
+        "why": "La congélation préalable tue les parasites (anisakis) : c'est une obligation réglementaire pour les restaurants servant du cru, et la même règle s'applique à la maison. Le saumon frais standard du rayon n'est pas prévu pour être mangé cru tel quel.",
+        "mistake": "Utiliser n'importe quel pavé frais par confiance → risque parasitaire réel et évitable.",
+        "timer": null
+      },
+      {
+        "id": 2,
+        "title": "Riz vinaigré",
+        "action": "Rince le riz jusqu'à eau claire, cuis-le par absorption (1,2 volume d'eau, 12 minutes couvert + 10 minutes de repos). Dissous le sucre et une pincée de sel dans le vinaigre de riz. Verse sur le riz chaud et mélange en soulevant délicatement. Laisse tiédir.",
+        "why": "Le vinaigre sucré pénètre le riz chaud et lui donne le profil sushi : brillant, acidulé, légèrement sucré. Versé sur riz froid, il resterait en surface.",
+        "mistake": "Mélanger en écrasant → riz en bouillie. On soulève et on coupe, comme pour des blancs en neige.",
+        "timer": 25
+      },
+      {
+        "id": 3,
+        "title": "Découper et mariner le saumon",
+        "action": "Avec un couteau bien aiguisé, coupe le saumon en cubes réguliers de 2 cm, d'un geste tranchant net (pas en sciant). Mélange-le avec la sauce soja, l'huile de sésame, le gingembre râpé et la moitié des oignons nouveaux. 10 minutes au frais, pas plus.",
+        "why": "La coupe nette préserve la texture du cru ; scier écrase les fibres. La marinade courte assaisonne en surface : au-delà de 20 minutes, le sel et l'acide 'cuisent' le poisson qui blanchit et raffermit (effet ceviche, non recherché ici).",
+        "mistake": "Mariner 1 heure 'pour plus de goût' → texture cuite-cotonneuse, le cru est perdu.",
+        "timer": 10
+      },
+      {
+        "id": 4,
+        "title": "Composer le bol",
+        "action": "Riz tiède au fond, puis dispose en quartiers : saumon mariné, concombre, carotte, avocat. Parsème de sésame et du reste d'oignons nouveaux. Un trait de citron vert sur l'avocat. Sers immédiatement.",
+        "why": "L'architecture poke : une base tiède, une protéine froide, du croquant (concombre, carotte), du crémeux (avocat) et du peps (gingembre, citron). Le contraste tiède-froid est voulu.",
+        "mistake": "Préparer les bols 2 heures à l'avance → avocat noirci, concombre qui rend l'eau, saumon sur-mariné.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 9 € pour 2 : le prix d'un seul poke bowl en livraison.",
+      "Version sans cru : saumon mi-cuit au four 8 minutes, mêmes assaisonnements.",
+      "Toppings d'upgrade : edamame, mangue, algues wakame, sauce sriracha-mayo."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "poke-bowl-saumon",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Travail du cru : règles de sécurité, coupe nette au couteau et marinade chronométrée.",
+        "focus": [
+          "Appliquer la règle de congélation préalable",
+          "Couper en cubes réguliers d'un geste tranchant",
+          "Limiter la marinade à 10 minutes"
+        ],
+        "successCriteria": [
+          "Cubes nets et brillants, texture crue préservée",
+          "Bol contrasté : tiède/froid, croquant/crémeux"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gazpacho-andalou",
+    "title": "Gazpacho andalou",
+    "family": "soupe",
+    "difficulty": 1,
+    "timePrep": 20,
+    "timeCook": 0,
+    "servings": 4,
+    "skills": [
+      "comprendre-emulsion",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "comprendre-emulsion"
+    ],
+    "secondarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "objectives": [
+      "Réussir une soupe crue émulsionnée à l'huile d'olive, veloutée sans crème",
+      "Comprendre le rôle du pain comme liant et stabilisant d'émulsion",
+      "Équilibrer acidité, sel et gras sur un plat servi très froid"
+    ],
+    "ingredients": [
+      {
+        "qty": "1",
+        "unit": "kg",
+        "item": "tomates très mûres",
+        "note": "c'est 80% du résultat — pleine saison uniquement"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "concombre",
+        "note": "épluché"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poivron vert",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "gousse d'ail",
+        "note": "dégermée"
+      },
+      {
+        "qty": "50",
+        "unit": "g",
+        "item": "pain rassis",
+        "note": "sans la croûte, trempé dans l'eau"
+      },
+      {
+        "qty": "8",
+        "unit": "cl",
+        "item": "huile d'olive vierge extra",
+        "note": "de qualité"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "vinaigre de Xérès",
+        "note": "ou vinaigre de vin"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "garnitures : dés de concombre, poivron, croûtons, œuf dur",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Mixer les légumes",
+        "action": "Coupe grossièrement les tomates, le concombre, le poivron. Mixe-les longuement (2-3 minutes) avec l'ail dégermé, le pain essoré et le sel, jusqu'à une purée parfaitement lisse.",
+        "why": "Le pain trempé n'est pas un reste de radin : c'est le liant historique du gazpacho. Son amidon stabilisera l'émulsion à l'huile et donne le velouté en bouche qui distingue un gazpacho d'un jus de tomate.",
+        "mistake": "Ail non dégermé → le germe central donne une âcreté qui s'amplifie au froid et domine la soupe le lendemain.",
+        "timer": 3
+      },
+      {
+        "id": 2,
+        "title": "Émulsionner à l'huile, mixeur en marche",
+        "action": "Mixeur en marche à vitesse moyenne, verse l'huile d'olive en filet continu, comme pour une mayonnaise. La soupe s'éclaircit, passe du rouge au rose-orangé et devient veloutée et brillante.",
+        "why": "Versée en filet sous mixage, l'huile se disperse en micro-gouttelettes stabilisées par le pain et la pectine des tomates : c'est une vraie émulsion. Le changement de couleur (rouge → orangé clair) est le signe visuel qu'elle a pris.",
+        "mistake": "Verser toute l'huile avant de mixer → elle reste en flaques en surface, la texture est aqueuse et grasse à la fois.",
+        "timer": 2
+      },
+      {
+        "id": 3,
+        "title": "Vinaigre, passage au tamis et ajustement",
+        "action": "Ajoute le vinaigre, mixe, goûte. Passe au chinois ou tamis fin en pressant (peaux et pépins restent). Détends avec un peu d'eau froide si trop épais. Goûte à nouveau : sel et vinaigre francs — le froid va atténuer tous les goûts.",
+        "why": "Servi glacé, le gazpacho perd 30% de son intensité perçue : ce qui paraît bien assaisonné tiède sera fade froid. On sur-assaisonne donc légèrement, en connaissance de cause.",
+        "mistake": "Assaisonner 'juste' à température ambiante → gazpacho plat à la dégustation glacée.",
+        "timer": null
+      },
+      {
+        "id": 4,
+        "title": "Réfrigérer 3 heures et garnir",
+        "action": "Filme et place au frigo 3 heures minimum. Sers très froid dans des bols ou des verres, avec les garnitures en petits dés à parsemer : concombre, poivron, croûtons, œuf dur.",
+        "why": "Le froid prolongé homogénéise l'émulsion et marie les légumes crus entre eux. Les garnitures croquantes redonnent de la mâche à une soupe lisse.",
+        "mistake": "Servir à peine frais après 30 minutes → c'est au froid profond que le gazpacho prend tout son sens.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 5 € pour 4 en été. Hors saison de la tomate, abstiens-toi : c'est un plat de saison, pas de calendrier.",
+      "Se garde 2 jours au frigo dans une bouteille : le verre de gazpacho à toute heure, tradition andalouse.",
+      "Variante salmorejo : tomates et pain seulement, plus de pain, plus épais, garni de jambon et d'œuf dur."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "gazpacho-andalou",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Une émulsion froide à grande échelle : voir la couleur virer du rouge à l'orangé enseigne l'émulsion mieux qu'une mayonnaise.",
+        "focus": [
+          "Verser l'huile en filet sous mixage continu",
+          "Observer le changement de couleur, signe de l'émulsion",
+          "Sur-assaisonner en anticipant le service glacé"
+        ],
+        "successCriteria": [
+          "Texture veloutée et homogène, sans huile en surface",
+          "Goût encore franc servi très froid"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "boeuf-stroganoff",
+    "title": "Bœuf Stroganoff",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 20,
+    "servings": 4,
+    "skills": [
+      "saisir-colorer-maillard",
+      "deglacer-correctement",
+      "sauce-creme-nappante"
+    ],
+    "primarySkills": [
+      "saisir-colorer-maillard",
+      "sauce-creme-nappante"
+    ],
+    "secondarySkills": [
+      "deglacer-correctement"
+    ],
+    "objectives": [
+      "Saisir des lanières de bœuf tendre en fournées éclair sans les cuire à cœur",
+      "Construire une sauce champignons-crème sur les sucs de la viande",
+      "Réunir viande et sauce au dernier moment pour un bœuf rosé"
+    ],
+    "ingredients": [
+      {
+        "qty": "600",
+        "unit": "g",
+        "item": "rumsteck ou filet de bœuf",
+        "note": "en lanières de 1 cm"
+      },
+      {
+        "qty": "300",
+        "unit": "g",
+        "item": "champignons de Paris",
+        "note": "émincés"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "oignon",
+        "note": "émincé"
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "moutarde de Dijon",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tsp",
+        "item": "paprika",
+        "note": ""
+      },
+      {
+        "qty": "10",
+        "unit": "cl",
+        "item": "bouillon de bœuf",
+        "note": ""
+      },
+      {
+        "qty": "20",
+        "unit": "cl",
+        "item": "crème fraîche épaisse ou crème aigre",
+        "note": ""
+      },
+      {
+        "qty": "30",
+        "unit": "g",
+        "item": "beurre + 1 tbsp huile",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "sel, poivre, persil, riz ou tagliatelles pour servir",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Saisir le bœuf en fournées éclair",
+        "action": "Sèche et sale les lanières de bœuf. Chauffe huile et la moitié du beurre à feu très vif. Saisis le bœuf en 2-3 fournées, 1 minute à 1 minute 30 par fournée : coloré dehors, rosé dedans. Réserve dans un plat.",
+        "why": "Le Stroganoff utilise une viande tendre et chère : elle se mérite par une cuisson minute. Saisie en fournées rapides, elle reste rosée ; elle terminera à peine 1 minute dans la sauce. Toute la recette est construite pour la protéger.",
+        "mistake": "Une seule grosse fournée → température qui chute, viande bouillie et grise, le plat est raté dès la première étape.",
+        "timer": 4
+      },
+      {
+        "id": 2,
+        "title": "Champignons et oignons sur les sucs",
+        "action": "Dans la même poêle, reste du beurre. Saute les champignons à feu vif 4-5 minutes jusqu'à dorés (ils rendent leur eau puis colorent). Ajoute l'oignon, 3-4 minutes. Saupoudre le paprika, 30 secondes hors du plein feu.",
+        "why": "Les champignons doivent passer le stade de l'eau rendue pour dorer : c'est leur version de Maillard. Les sucs du bœuf au fond enrichissent leur cuisson.",
+        "mistake": "S'arrêter quand les champignons sont gris et mouillés → ils n'ont pas donné leur goût, la sauce sera aqueuse.",
+        "timer": 9
+      },
+      {
+        "id": 3,
+        "title": "Déglacer et crémer",
+        "action": "Verse le bouillon, gratte les sucs, laisse réduire 2 minutes. Baisse à feu doux, incorpore la moutarde puis la crème. Mijote 3-4 minutes : la sauce doit napper la cuillère. Goûte, sale, poivre.",
+        "why": "La moutarde apporte le piquant lacté typique du Stroganoff et aide légèrement la liaison. La crème réduite à feu doux épaissit sans trancher.",
+        "mistake": "Faire bouillir fort la crème aigre → elle graine. Frémissement doux seulement.",
+        "timer": 6
+      },
+      {
+        "id": 4,
+        "title": "Réunir une minute, pas plus",
+        "action": "Remets le bœuf et son jus dans la sauce. Réchauffe 1 minute en mélangeant, sans bouillir. Coupe le feu, parsème de persil. Sers immédiatement avec du riz ou des tagliatelles.",
+        "why": "La viande rosée réchauffe en 1 minute dans la sauce chaude. Chaque minute de plus la cuit davantage : à 5 minutes, le rumsteck devient gris et ferme et tout l'intérêt du plat disparaît.",
+        "mistake": "Laisser mijoter le bœuf dans la sauce 'pour que ça prenne le goût' → c'est l'erreur fatale du Stroganoff.",
+        "timer": 1
+      }
+    ],
+    "tips": [
+      "Environ 13 € pour 4 : un plat 'd'occasion' qui se cuisine en 35 minutes chrono.",
+      "Version économique : la bavette fonctionne bien, saisie encore plus brièvement.",
+      "La crème aigre (smetana) est l'authentique : à défaut, crème épaisse + 1 trait de jus de citron."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "boeuf-stroganoff",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice de protection d'une viande tendre : saisie éclair, sauce construite à part, réunion minute.",
+        "focus": [
+          "Saisir en fournées de 90 secondes maximum",
+          "Dorer les champignons au-delà du stade aqueux",
+          "Chronométrer la réunion finale à 1 minute"
+        ],
+        "successCriteria": [
+          "Bœuf encore rosé au centre dans l'assiette",
+          "Sauce nappante non grainée"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curry-vert-thai-poulet",
+    "title": "Curry vert thaï de poulet",
+    "family": "viande",
+    "difficulty": 2,
+    "timePrep": 15,
+    "timeCook": 25,
+    "servings": 4,
+    "skills": [
+      "equilibrer-saveurs",
+      "principe-cuisson-longue",
+      "cuire-legumes-selon-texture"
+    ],
+    "primarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "secondarySkills": [
+      "cuire-legumes-selon-texture"
+    ],
+    "objectives": [
+      "Frire la pâte de curry dans la crème de coco : la technique thaïe fondamentale",
+      "Équilibrer les quatre piliers : salé (nuoc-mâm), sucré (sucre), piquant (pâte), acide (citron vert)",
+      "Échelonner poulet et légumes pour des textures justes"
+    ],
+    "ingredients": [
+      {
+        "qty": "500",
+        "unit": "g",
+        "item": "hauts de cuisse de poulet désossés",
+        "note": "en morceaux"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "pâte de curry vert",
+        "note": "en pot, rayon asiatique"
+      },
+      {
+        "qty": "400",
+        "unit": "ml",
+        "item": "lait de coco entier",
+        "note": "NE PAS secouer la boîte"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "aubergine ou 200 g de haricots verts",
+        "note": "en morceaux"
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "poivron rouge",
+        "note": "en lanières"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "nuoc-mâm",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "sucre de palme ou roux",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "",
+        "item": "citron vert",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "basilic thaï (ou basilic + coriandre), riz jasmin",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Frire la pâte dans la crème de coco",
+        "action": "Ouvre la boîte de lait de coco non secouée : prélève la crème épaisse du dessus (3-4 cuillères). Fais-la chauffer à feu moyen-vif dans un wok jusqu'à ce qu'elle grésille et que son huile se sépare. Ajoute la pâte de curry et fris-la 2-3 minutes en remuant : elle fonce et embaume.",
+        "why": "C'est LA technique thaïe : la pâte de curry frite dans la graisse de coco libère ses arômes (galanga, citronnelle, combava) que l'eau ne sait pas extraire. Une pâte simplement diluée dans le lait donne un curry plat — la friture initiale fait 80% de la différence.",
+        "mistake": "Verser toute la boîte d'un coup et y diluer la pâte → curry fade qui sent la conserve. La séparation crème/friture n'est pas une option.",
+        "timer": 4
+      },
+      {
+        "id": 2,
+        "title": "Enrober le poulet",
+        "action": "Ajoute les morceaux de poulet dans la pâte frite. Mélange 2-3 minutes pour les enrober et les saisir légèrement dans le concentré aromatique.",
+        "why": "Le poulet enrobé de pâte frite avant le liquide s'imprègne en surface : le goût pénètre au lieu de rester dans la sauce.",
+        "mistake": "Poulet ajouté après tout le liquide → il poche dans la sauce sans jamais s'en imprégner.",
+        "timer": 3
+      },
+      {
+        "id": 3,
+        "title": "Mouiller et mijoter en échelonnant",
+        "action": "Verse le reste du lait de coco et un demi-verre d'eau. Porte à frémissement. Ajoute l'aubergine, mijote 8 minutes. Ajoute le poivron, 5 minutes de plus. Le poulet doit être cuit et les légumes fondants mais entiers.",
+        "why": "L'aubergine boit la sauce et demande du temps ; le poivron doit garder une légère mâche. L'échelonnement reste la règle, même dans un curry.",
+        "mistake": "Gros bouillons prolongés → le lait de coco peut trancher et le poulet sécher.",
+        "timer": 13
+      },
+      {
+        "id": 4,
+        "title": "Équilibrer les quatre piliers",
+        "action": "Hors du feu : nuoc-mâm, sucre, jus d'un demi-citron vert. Goûte et ajuste pilier par pilier : trop plat → nuoc-mâm ; trop salé/piquant → sucre ; trop riche → citron vert. Termine avec le basilic. Sers avec du riz jasmin.",
+        "why": "Le curry thaï s'équilibre à la fin, au goût, sur quatre axes indépendants. C'est un exercice d'assaisonnement actif : il n'y a pas de dosage fixe, la pâte de curry variant d'une marque à l'autre.",
+        "mistake": "S'arrêter au premier goûtage → l'équilibre thaï se construit en 2-3 itérations goûter-corriger.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 8 € pour 4. La pâte en pot se garde 1 mois au frigo et sert aussi pour soupes et marinades.",
+      "Version végé : tofu ferme et plus de légumes, sauce soja à la place du nuoc-mâm.",
+      "Les pâtes rouges et jaunes se travaillent exactement pareil : une technique, trois currys."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "curry-vert-thai-poulet",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "La friture de pâte dans la crème de coco et l'équilibrage final en quatre axes : deux gestes fondamentaux de la cuisine thaïe.",
+        "focus": [
+          "Séparer la crème de coco et y frire la pâte",
+          "Échelonner les légumes",
+          "Itérer l'équilibrage salé-sucré-piquant-acide"
+        ],
+        "successCriteria": [
+          "Curry parfumé en profondeur, pas une soupe de coco au poulet",
+          "Équilibre net des quatre saveurs au service"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tiramisu-classique",
+    "title": "Tiramisu classique",
+    "family": "dessert",
+    "difficulty": 2,
+    "timePrep": 30,
+    "timeCook": 0,
+    "servings": 6,
+    "skills": [
+      "meringues-cremes-fouettees",
+      "oeufs-liant-cremes-appareils"
+    ],
+    "primarySkills": [
+      "meringues-cremes-fouettees"
+    ],
+    "secondarySkills": [
+      "oeufs-liant-cremes-appareils"
+    ],
+    "objectives": [
+      "Blanchir les jaunes et monter les blancs : les deux foisonnements du tiramisu",
+      "Incorporer le mascarpone sans grumeaux ni liquéfaction",
+      "Doser le trempage des biscuits : imbibés, pas détrempés"
+    ],
+    "ingredients": [
+      {
+        "qty": "3",
+        "unit": "",
+        "item": "œufs très frais",
+        "note": "blancs et jaunes séparés"
+      },
+      {
+        "qty": "80",
+        "unit": "g",
+        "item": "sucre",
+        "note": ""
+      },
+      {
+        "qty": "250",
+        "unit": "g",
+        "item": "mascarpone",
+        "note": "à température ambiante"
+      },
+      {
+        "qty": "24",
+        "unit": "",
+        "item": "biscuits à la cuillère ou boudoirs",
+        "note": ""
+      },
+      {
+        "qty": "30",
+        "unit": "cl",
+        "item": "café fort refroidi",
+        "note": "expresso ou moka serré"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "amaretto ou marsala",
+        "note": "optionnel"
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "cacao amer en poudre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "pinch",
+        "item": "sel",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Blanchir les jaunes",
+        "action": "Fouette les jaunes avec le sucre 3-4 minutes, au batteur de préférence : le mélange doit tripler de volume, pâlir jusqu'au jaune très clair et faire le ruban.",
+        "why": "Le blanchiment dissout le sucre et incorpore l'air : c'est la première mousse du tiramisu. Un mélange juste remué donne une crème dense et sablonneuse de sucre non dissous.",
+        "mistake": "30 secondes de fouet à la main → ni volume ni ruban, la crème finale sera lourde.",
+        "timer": 4
+      },
+      {
+        "id": 2,
+        "title": "Incorporer le mascarpone",
+        "action": "Ajoute le mascarpone à température ambiante aux jaunes blanchis. Fouette brièvement, juste jusqu'à une crème lisse et homogène. Arrête dès que c'est lisse.",
+        "why": "Le mascarpone est une crème grasse fragile : trop battu, il graine puis se liquéfie (comme une crème trop fouettée qui tourne). Froid du frigo, il fait des grumeaux. Tempéré et fouetté a minima, il reste épais et soyeux.",
+        "mistake": "Continuer à battre 'pour être sûr' → le mascarpone tranche et la crème devient liquide, irrattrapable.",
+        "timer": 1
+      },
+      {
+        "id": 3,
+        "title": "Monter et incorporer les blancs",
+        "action": "Monte les blancs avec la pincée de sel jusqu'au bec d'oiseau ferme. Incorpore un tiers à la crème au mascarpone en mélangeant franchement pour détendre, puis le reste délicatement à la maryse, en soulevant de bas en haut.",
+        "why": "Les blancs sont la structure aérienne du tiramisu : c'est leur mousse qui le rend léger malgré le mascarpone. La technique détente puis incorporation douce est la même que pour la mousse au chocolat.",
+        "mistake": "Mélanger les blancs au fouet en tournant → l'air s'échappe, le tiramisu sera compact et lourd.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Tremper les biscuits : un aller-retour",
+        "action": "Mélange le café froid et l'alcool dans une assiette creuse. Trempe chaque biscuit UN aller-retour rapide (1 seconde par face) et dispose au fond du plat. Couvre de la moitié de la crème. Deuxième couche de biscuits trempés, reste de crème, lisse.",
+        "why": "Le biscuit à la cuillère est une éponge : 1 seconde suffit pour l'imbiber en surface, le cœur s'humidifiant ensuite par diffusion pendant le repos. Trempé 5 secondes, il est saturé et rend son café en flaque au fond du plat.",
+        "mistake": "Laisser tremper les biscuits 'pour qu'ils prennent bien le goût' → tiramisu qui baigne, couches effondrées.",
+        "timer": null
+      },
+      {
+        "id": 5,
+        "title": "Reposer une nuit, cacao au service",
+        "action": "Filme et réfrigère 6 heures minimum, idéalement une nuit. Saupoudre le cacao amer au tamis juste avant de servir, jamais avant.",
+        "why": "Le repos fait tout : la crème se raffermit, le café diffuse au cœur des biscuits, les couches se soudent. Le cacao saupoudré à l'avance absorbe l'humidité et devient une croûte amère détrempée.",
+        "mistake": "Servir après 2 heures → couches qui glissent et biscuits encore secs au centre. Le tiramisu de la veille est toujours le meilleur.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 6 € pour 6 personnes. Œufs crus : très frais, à consommer sous 48h, déconseillé femmes enceintes.",
+      "Le café doit être fort et froid : chaud, il dissout le biscuit instantanément.",
+      "Versions : framboises et jus de framboise à la place du café, ou spéculoos et café."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "tiramisu-classique",
+        "type": "synthesis",
+        "label": "Recette de synthèse",
+        "reason": "Deux foisonnements (jaunes blanchis, blancs montés) et une incorporation délicate dans un seul dessert : la synthèse des appareils mousseux.",
+        "focus": [
+          "Blanchir les jaunes jusqu'au ruban",
+          "Fouetter le mascarpone a minima",
+          "Tremper les biscuits une seconde, pas plus"
+        ],
+        "successCriteria": [
+          "Crème aérienne qui se tient en couches nettes",
+          "Biscuits moelleux à cœur sans flaque de café au fond"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aubergines-miso-glacees",
+    "title": "Aubergines glacées au miso (nasu dengaku)",
+    "family": "légume",
+    "difficulty": 1,
+    "timePrep": 10,
+    "timeCook": 30,
+    "servings": 2,
+    "skills": [
+      "comprendre-four",
+      "equilibrer-saveurs"
+    ],
+    "primarySkills": [
+      "comprendre-four"
+    ],
+    "secondarySkills": [
+      "equilibrer-saveurs"
+    ],
+    "objectives": [
+      "Rôtir l'aubergine jusqu'au fondant intégral avant tout glaçage",
+      "Réaliser un glaçage miso sucré-salé qui caramélise sous le gril",
+      "Découvrir l'umami végétal : un plat végétarien à la profondeur de viande"
+    ],
+    "ingredients": [
+      {
+        "qty": "2",
+        "unit": "",
+        "item": "aubergines",
+        "note": "coupées en deux dans la longueur"
+      },
+      {
+        "qty": "3",
+        "unit": "tbsp",
+        "item": "pâte miso",
+        "note": "blanche de préférence"
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "miel ou sucre",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "vinaigre de riz ou mirin",
+        "note": ""
+      },
+      {
+        "qty": "1",
+        "unit": "tbsp",
+        "item": "huile de sésame",
+        "note": ""
+      },
+      {
+        "qty": "2",
+        "unit": "tbsp",
+        "item": "huile neutre",
+        "note": ""
+      },
+      {
+        "qty": "",
+        "unit": "",
+        "item": "graines de sésame, oignon nouveau, riz pour servir",
+        "note": ""
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Quadriller et rôtir les aubergines",
+        "action": "Préchauffe le four à 200°C. Quadrille profondément la chair des demi-aubergines au couteau, sans percer la peau. Badigeonne d'huile neutre, sale légèrement. Rôtis face chair vers le haut 25 minutes : la chair doit être entièrement fondante et affaissée.",
+        "why": "Le quadrillage démultiplie la surface : l'huile et la chaleur pénètrent, et plus tard le glaçage s'infiltrera dans les croisillons. L'aubergine doit être TOTALEMENT cuite avant glaçage — le gril final ne cuit pas, il caramélise.",
+        "mistake": "Glacer une aubergine à moitié cuite → surface caramélisée sur chair spongieuse crue, le contraste raté classique.",
+        "timer": 25
+      },
+      {
+        "id": 2,
+        "title": "Préparer le glaçage miso",
+        "action": "Mélange le miso, le miel, le vinaigre de riz et l'huile de sésame dans un bol jusqu'à une pâte lisse et brillante, à peine coulante. Détends d'une cuillère d'eau si nécessaire.",
+        "why": "Le trio miso-sucre-acide est l'équilibre dengaku : l'umami fermenté du miso, la rondeur du miel, la pointe acide qui empêche l'écœurement. C'est une laque, elle doit napper sans couler.",
+        "mistake": "Glaçage trop liquide → il glisse de l'aubergine et brûle sur la plaque.",
+        "timer": null
+      },
+      {
+        "id": 3,
+        "title": "Glacer et passer sous le gril",
+        "action": "Sors les aubergines, étale le glaçage généreusement sur toute la face quadrillée. Passe sous le gril du four 3-5 minutes EN SURVEILLANT : le glaçage doit bouillonner et caraméliser par taches sombres.",
+        "why": "Le sucre et le miso caramélisent très vite sous la chaleur rayonnante du gril : c'est une affaire de secondes entre le doré profond et le brûlé amer. On ne quitte pas le four des yeux.",
+        "mistake": "Lancer le gril et partir faire autre chose → 60 secondes de trop et le miso noircit en amertume.",
+        "timer": 4
+      },
+      {
+        "id": 4,
+        "title": "Finir et servir",
+        "action": "Parsème de graines de sésame et d'oignon nouveau émincé. Sers chaud avec du riz : une demi-aubergine par personne en accompagnement, deux en plat principal.",
+        "why": "Le sésame torréfié et la fraîcheur de l'oignon nouveau contrastent avec le fondant sucré-umami : les trois textures font le plat.",
+        "mistake": "Servir tiède ou réchauffé → le glaçage fige et perd son brillant laqué.",
+        "timer": null
+      }
+    ],
+    "tips": [
+      "Environ 4 € pour 2 : le plat végétarien spectaculaire au coût dérisoire.",
+      "Le même glaçage transforme courge rôtie, chou-fleur, saumon ou tofu.",
+      "Avec le miso déjà acheté pour le ramen, tu as deux recettes du programme amorties."
+    ],
+    "practiceRecipes": [
+      {
+        "id": "aubergines-miso-glacees",
+        "type": "direct",
+        "label": "Exercice direct",
+        "reason": "Exercice four + gril en deux temps : cuire à cœur d'abord, caraméliser ensuite, et surveiller la frontière doré/brûlé.",
+        "focus": [
+          "Quadriller sans percer la peau",
+          "Vérifier le fondant intégral avant de glacer",
+          "Surveiller le gril sans interruption"
+        ],
+        "successCriteria": [
+          "Chair entièrement fondante, cuillère qui s'enfonce sans résistance",
+          "Glaçage caramélisé par taches, brillant, sans zone noircie amère"
+        ]
+      }
+    ]
   }];
 
 var REVIEW_CARDS = [
