@@ -15243,8 +15243,8 @@ var RECIPES = [
       {
         "id": 4,
         "title": "Cuire doucement",
-        "action": "Chauffer la poêle à feu moyen. Ajouter le beurre. Quand il mousse sans brunir, verser les œufs. Remuer doucement avec la spatule pendant 30 secondes.",
-        "why": "Une chaleur modérée fait coaguler les œufs sans les sécher. Le beurre mousseux indique une chaleur suffisante mais pas agressive.",
+        "action": "Chauffer la poêle à feu moyen. Ajouter le beurre. Quand il mousse sans brunir, verser les œufs. Remuer doucement avec la spatule 20 à 30 secondes, puis laisser prendre encore 20 à 30 secondes jusqu’à ce que le dessus reste légèrement baveux.",
+        "why": "Une chaleur modérée fait coaguler les œufs sans les sécher. Le minuteur d’une minute couvre le remuage puis la prise finale, pas une minute de remuage continu.",
         "mistake": "Feu trop fort → œufs secs en surface avant d’être moelleux au centre.",
         "timer": 1
       },
@@ -20824,8 +20824,8 @@ var RECIPES = [
     "title": "Pâte brisée salée de base",
     "family": "pâtes",
     "difficulty": 1,
-    "timePrep": 15,
-    "timeCook": 25,
+    "timePrep": 45,
+    "timeCook": 30,
     "servings": 1,
     "skills": [
       "pate-brisee",
@@ -20903,7 +20903,7 @@ var RECIPES = [
         "action": "Foncer le moule, piquer, refroidir 10 minutes, couvrir de papier et poids. Cuire à 180°C 15 minutes, puis 5 à 10 minutes sans poids.",
         "why": "La cuisson à blanc sèche le fond avant une garniture humide.",
         "mistake": "Garnir cru avec un appareil humide → fond détrempé.",
-        "timer": 25
+        "timer": 30
       }
     ],
     "tips": [
@@ -20920,8 +20920,8 @@ var RECIPES = [
     "title": "Pâte à pizza simple",
     "family": "pâtes",
     "difficulty": 2,
-    "timePrep": 20,
-    "timeCook": 10,
+    "timePrep": 130,
+    "timeCook": 8,
     "servings": 2,
     "skills": [
       "pate-levee",
@@ -21022,7 +21022,7 @@ var RECIPES = [
     "title": "Focaccia débutant",
     "family": "pâtes",
     "difficulty": 2,
-    "timePrep": 20,
+    "timePrep": 150,
     "timeCook": 25,
     "servings": 4,
     "skills": [
@@ -21353,7 +21353,7 @@ var RECIPES = [
     "title": "Pâte sucrée de base",
     "family": "pâtisserie",
     "difficulty": 2,
-    "timePrep": 20,
+    "timePrep": 100,
     "timeCook": 25,
     "servings": 1,
     "skills": [
@@ -22913,7 +22913,7 @@ var RECIPES = [
     "title": "Tarte flambée alsacienne",
     "family": "pâtes",
     "difficulty": 2,
-    "timePrep": 20,
+    "timePrep": 35,
     "timeCook": 12,
     "servings": 4,
     "skills": [
@@ -23633,7 +23633,7 @@ var RECIPES = [
     "title": "Tarte aux pommes normande",
     "family": "pâtisserie",
     "difficulty": 2,
-    "timePrep": 25,
+    "timePrep": 45,
     "timeCook": 40,
     "servings": 6,
     "skills": [
@@ -24235,8 +24235,8 @@ var RECIPES = [
     "title": "Tajine d'agneau, citron confit et olives",
     "family": "viande",
     "difficulty": 3,
-    "timePrep": 20,
-    "timeCook": 90,
+    "timePrep": 50,
+    "timeCook": 80,
     "servings": 4,
     "skills": [
       "principe-cuisson-longue",
@@ -24355,10 +24355,10 @@ var RECIPES = [
       {
         "id": 3,
         "title": "Assembler et cuire à l'étouffée",
-        "action": "Replace la viande sur les oignons. Ajoute l'eau ou le bouillon à mi-hauteur de la viande. Porte à ébullition, baisse au minimum, couvre hermétiquement. Cuis 70-80 minutes. Vérifie toutes les 20 minutes, ajoute un peu d'eau si nécessaire.",
+        "action": "Replace la viande sur les oignons. Ajoute l'eau ou le bouillon à mi-hauteur de la viande. Porte à ébullition, baisse au minimum, couvre hermétiquement. Cuis 50 minutes. Vérifie toutes les 20 minutes, ajoute un peu d'eau si nécessaire.",
         "why": "La cuisson à l'étouffée crée de la vapeur qui circule en circuit fermé. La viande cuit dans son propre jus condensé. C'est cette vapeur intense qui transforme le collagène de l'épaule en gélatine fondante.",
         "mistake": "Couvercle mal ajusté → vapeur qui s'échappe, viande qui attache et brûle en bas.",
-        "timer": 75
+        "timer": 50
       },
       {
         "id": 4,
@@ -27072,7 +27072,7 @@ var RECIPES = [
     "title": "Pâte à crêpes inratable",
     "family": "dessert",
     "difficulty": 1,
-    "timePrep": 10,
+    "timePrep": 40,
     "timeCook": 20,
     "servings": 4,
     "skills": [
@@ -28396,7 +28396,7 @@ var RECIPES = [
     "title": "Souvlaki de poulet, tzatziki maison",
     "family": "viande",
     "difficulty": 1,
-    "timePrep": 20,
+    "timePrep": 45,
     "timeCook": 12,
     "servings": 4,
     "skills": [
@@ -29991,8 +29991,8 @@ var RECIPES = [
       {
         "id": 1,
         "title": "La sécurité du poisson cru d'abord",
-        "action": "Achète du saumon 'qualité sashimi' ou congèle ton pavé 48h à -18°C avant utilisation (puis décongèle au frigo). Demande explicitement au poissonnier un poisson pour consommation crue.",
-        "why": "La congélation préalable tue les parasites (anisakis) : c'est une obligation réglementaire pour les restaurants servant du cru, et la même règle s'applique à la maison. Le saumon frais standard du rayon n'est pas prévu pour être mangé cru tel quel.",
+        "action": "Achète du saumon prévu pour être consommé cru, idéalement déjà surgelé par un professionnel. À défaut, utilise un congélateur domestique fiable à -18°C et congèle le pavé 7 jours, puis décongèle-le au réfrigérateur. Demande explicitement au poissonnier un poisson adapté au cru.",
+        "why": "Le saumon cru demande une gestion stricte du risque parasitaire. Le plus sûr est un poisson vendu pour consommation crue ou surgelé selon une procédure professionnelle ; un pavé frais standard du rayon n’est pas prévu pour être mangé cru tel quel.",
         "mistake": "Utiliser n'importe quel pavé frais par confiance → risque parasitaire réel et évitable.",
         "timer": null
       },

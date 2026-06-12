@@ -136,7 +136,8 @@ function allRecipeSkills(){var out=[];RECIPES.forEach(function(r){recipeAllSkill
 function normalizeText(s){s=String(s||'').toLowerCase();return s.normalize?s.normalize('NFD').replace(/[\u0300-\u036f]/g,''):s;}
 function recipeSearchBlob(r){return normalizeText([r.title,r.family,(r.isExercise?'exercice entrainement entraînement pratique':''),recipeAllSkills(r).map(skillLabel).join(' '),(r.skills||[]).join(' '),(r.objectives||[]).join(' '),(r.ingredients||[]).map(function(i){return i.item+' '+(i.note||'');}).join(' ')].join(' '));}
 function lessonToReview(){var candidate=null;LESSONS.forEach(function(l){var sc=state.getLessonScore(l.id);if(sc&&sc.pct<100&&(!candidate||sc.pct<candidate.score.pct))candidate={lesson:l,score:sc};});return candidate?candidate.lesson:null;}
-function smartRecipePick(){for(var i=0;i<RECIPES.length;i++){var r=RECIPES[i],time=(r.timePrep||0)+(r.timeCook||0);if(!state.isRecipeDone(r.id)&&r.difficulty===1&&time<=25)return r;}for(var j=0;j<RECIPES.length;j++)if(!state.isRecipeDone(RECIPES[j].id))return RECIPES[j];return RECIPES[0]||null;}
+function recipeIsAlreadyDone(recipeId){return !!(recipeId&&state.isRecipeDone&&state.isRecipeDone(recipeId));}
+function smartRecipePick(){for(var i=0;i<RECIPES.length;i++){var r=RECIPES[i],time=(r.timePrep||0)+(r.timeCook||0);if(!recipeIsAlreadyDone(r.id)&&r.difficulty===1&&time<=25)return r;}for(var j=0;j<RECIPES.length;j++)if(!recipeIsAlreadyDone(RECIPES[j].id))return RECIPES[j];return RECIPES[0]||null;}
 
 function getPracticeRecipes(lesson){
   if(!lesson)return [];
@@ -191,19 +192,33 @@ function weeklyPracticeContext(info){
   return null;
 }
 function weeklyStatusText(info){
-  if(!info||!info.recipe)return 'À choisir';
+  if(!info)return 'À choisir';
+  if(info.type==='lesson')return info.done?'Technique travaillée cette semaine':'À travailler cette semaine';
+  if(!info.recipe)return 'À choisir';
   if(info.done)return 'Terminée cette semaine';
   return 'À faire cette semaine';
 }
 function renderWeeklyMissionCard(info, plan, compact){
+  if(info&&info.type==='lesson'&&info.lesson){
+    var l=info.lesson, href=info.review?'#lesson/'+l.id+'/review':'#lesson/'+l.id;
+    var lessonStatus=weeklyStatusText(info);
+    var hLesson='<section class="weekly-mission-card'+(info.done?' done':'')+(compact?' compact':'')+'">';
+    hLesson+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">Technique de la semaine</div><div class="weekly-mission-title">'+esc(l.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(lessonStatus)+'</span></div>';
+    hLesson+='<div class="weekly-mission-meta"><span>📚 '+l.duration+' min</span><span>'+esc(info.review?'Révision':'Nouvelle technique')+'</span><span>'+esc((l.objectives&&l.objectives[0])||'Progression')+'</span></div>';
+    hLesson+='<div class="weekly-before"><div class="weekly-before-label">Pourquoi maintenant</div><span>'+esc(info.reason||'Tu as déjà cuisiné cette semaine : le meilleur pas suivant est de consolider une technique.')+'</span></div>';
+    if(l.objectives&&l.objectives.length){hLesson+='<div class="weekly-focus"><div class="weekly-focus-title">Objectifs :</div><ul>';l.objectives.slice(0,3).forEach(function(o){hLesson+='<li>'+esc(o)+'</li>';});hLesson+='</ul></div>';}
+    hLesson+='<div class="weekly-actions"><a class="btn btn-primary btn-sm" href="'+href+'">'+(info.review?'Réviser':'Lire la technique')+'</a><a class="btn btn-secondary btn-sm" href="#learn">Parcours</a><a class="btn btn-ghost btn-sm" href="#recipes">Recettes</a></div>';
+    hLesson+='</section>';
+    return hLesson;
+  }
   if(!info||!info.recipe){
-    return '<section class="weekly-mission-card empty'+(compact?' compact':'')+'"><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">Aucune recette planifiée</div><div class="weekly-mission-sub">Termine une leçon ou ajoute une pratique pour obtenir une recommandation adaptée.</div><div class="weekly-actions"><a class="btn btn-primary btn-sm" href="#learn">Continuer les leçons</a><a class="btn btn-secondary btn-sm" href="#recipes">Voir les recettes</a></div></section>';
+    return '<section class="weekly-mission-card empty'+(compact?' compact':'')+'"><div class="weekly-mission-kicker">Mission de la semaine</div><div class="weekly-mission-title">Aucune mission planifiée</div><div class="weekly-mission-sub">Termine une leçon ou ajoute une pratique pour obtenir une recommandation adaptée.</div><div class="weekly-actions"><a class="btn btn-primary btn-sm" href="#learn">Continuer les leçons</a><a class="btn btn-secondary btn-sm" href="#recipes">Voir les recettes</a></div></section>';
   }
   var r=info.recipe, lesson=info.lesson, ctx=weeklyPracticeContext(info), practice=ctx&&ctx.practice;
   var total=(r.timePrep||0)+(r.timeCook||0), href=lesson?practiceHref(r.id,lesson.id):'#recipe/'+r.id;
   var status=weeklyStatusText(info), focus=(practice&&practice.focus?practice.focus:[]).slice(0,3), success=(practice&&practice.successCriteria?practice.successCriteria:[]).slice(0,2);
   var h='<section class="weekly-mission-card'+(info.done?' done':'')+(compact?' compact':'')+'">';
-  h+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">Recette de la semaine</div><div class="weekly-mission-title">'+esc(r.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(status)+'</span></div>';
+  h+='<div class="weekly-mission-head"><div><div class="weekly-mission-kicker">'+esc(info.source==='recent-technique'?'Recette d’application':'Recette de la semaine')+'</div><div class="weekly-mission-title">'+esc(r.title)+'</div></div><span class="weekly-status '+(info.done?'done':'todo')+'">'+esc(status)+'</span></div>';
   h+='<div class="weekly-mission-meta"><span>⏱ '+total+' min</span><span>'+esc(r.difficulty===1?'Facile':r.difficulty===2?'Intermédiaire':r.difficulty===3?'Avancé':'Expert')+'</span><span>'+esc(familyLabel(r.family))+'</span></div>';
   if(lesson){
     h+='<div class="weekly-before"><div class="weekly-before-label">À faire avant si possible</div><a href="#lesson/'+lesson.id+'">'+esc(lesson.title)+' · '+lesson.duration+' min</a></div>';
@@ -250,15 +265,18 @@ function recipesDoneThisWeek(){
 function recipeDoneThisWeek(recipeId){var dates=(state.getCompletedRecipeDates?state.getCompletedRecipeDates():(state.get('completedRecipeDates')||{}));return dateInThisWeek(dates[recipeId]);}
 function chooseWeeklyRecipeCandidate(next,pending){
   pending=pending||pendingPracticeItems(6);
-  for(var i=0;i<pending.length;i++){if(pending[i].recipe&&!recipeDoneThisWeek(pending[i].recipe.id))return {recipe:pending[i].recipe,lesson:pending[i].lesson,source:'practice'};}
+  for(var i=0;i<pending.length;i++){if(pending[i].recipe&&!recipeIsAlreadyDone(pending[i].recipe.id))return {recipe:pending[i].recipe,lesson:pending[i].lesson,source:'practice'};}
   var related=relatedRecipeForLesson(next);
-  if(related&&!recipeDoneThisWeek(related.id))return {recipe:related,lesson:next||null,source:'lesson'};
+  if(related&&!recipeIsAlreadyDone(related.id))return {recipe:related,lesson:next||null,source:'lesson'};
   var fallback=smartRecipePick();
   return fallback?{recipe:fallback,lesson:null,source:'fallback'}:null;
 }
 function weeklyRecipeRecommendation(next,pending){
   var current=weekId(new Date()),plan=state.getWeeklyRecipePlan?state.getWeeklyRecipePlan():(state.get('weeklyRecipePlan')||null);
-  if(plan&&plan.weekId===current){var planned=findRecipe(plan.recipeId);if(planned)return {recipe:planned,lesson:plan.lessonId?findLesson(plan.lessonId):null,source:plan.source||'weekly',done:recipeDoneThisWeek(planned.id)};}
+  if(plan&&plan.weekId===current){
+    var planned=findRecipe(plan.recipeId);
+    if(planned&&!recipeIsAlreadyDone(planned.id))return {recipe:planned,lesson:plan.lessonId?findLesson(plan.lessonId):null,source:plan.source||'weekly',done:false};
+  }
   var pick=chooseWeeklyRecipeCandidate(next,pending);
   if(pick&&state.setWeeklyRecipePlan)state.setWeeklyRecipePlan({weekId:current,recipeId:pick.recipe.id,lessonId:pick.lesson?pick.lesson.id:null,source:pick.source,createdAt:new Date().toISOString()});
   return pick?Object.assign({done:recipeDoneThisWeek(pick.recipe.id)},pick):null;
